@@ -1,0 +1,29 @@
+#!/bin/bash
+
+set -eux
+
+source /etc/sysconfig/stackrc
+
+stack_delete_output=$(heat stack-delete overcloud) || true
+
+if [[ "$stack_delete_output" =~ "DELETE_IN_PROGRESS" ]]; then
+    # Wait for stack to delete
+    sleep 30
+fi
+
+nova keypair-delete default || true
+
+node_ids=$(nova baremetal-node-list | grep undercloud | awk -F "| " '{ print $2; }')
+
+for id in $node_ids; do
+    nova baremetal-node-delete $id
+done
+
+glance image-delete bm-deploy-kernel || true
+glance image-delete bm-deploy-ramdisk || true
+glance image-delete overcloud-compute || true
+glance image-delete overcloud-compute-initrd || true
+glance image-delete overcloud-compute-vmlinuz || true
+glance image-delete overcloud-control || true
+glance image-delete overcloud-control-initrd || true
+glance image-delete overcloud-control-vmlinuz || true

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ -d /etc/tripleo ]; then
+    TRIPLEO_ROOT=/etc/tripleo
+else
+    TRIPLEO_ROOT=/opt/stack/tripleo-incubator
+fi
+
+source /etc/sysconfig/stackrc
+export OVERCLOUD_IP=$(nova list | grep notCompute0.*ctlplane | sed  -e "s/.*=\\([0-9.]*\\).*/\1/")
+
+source tripleo-overcloud-passwords
+source $TRIPLEO_ROOT/overcloudrc
