@@ -10,3 +10,5 @@ done
 
 glance image-delete bm-deploy-kernel || true
 glance image-delete bm-deploy-ramdisk || true
+
+nova flavor-delete baremetal || true
