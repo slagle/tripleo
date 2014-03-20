@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -eux
+
+export TUSKAR_URL=http://localhost:8585/
+
+controller_role_id=$(tuskar overcloud-role-list | grep overcloud-control | cut -d '|' -f2 | tr -d ' ')
+compute_role_id=$(tuskar overcloud-role-list | grep overcloud-compute | cut -d '|' -f2 | tr -d ' ')
+blockstorage_role_id=$(tuskar overcloud-role-list | grep overcloud-cinder-volume | cut -d '|' -f2 | tr -d ' ')
+
+tuskar overcloud-delete 1 || true
+
+tuskar overcloud-role-delete $controller_role_id || true
+tuskar overcloud-role-delete $compute_role_id || true
+tuskar overcloud-role-delete $blockstorage_role_id || true
