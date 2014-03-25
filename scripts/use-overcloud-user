@@ -1,4 +1,4 @@
 #!/bin/bash
 
-source $(dirname $0)/use-overcloud
+source use-overcloud
 source $TRIPLEO_ROOT/overcloudrc-user
