@@ -2,7 +2,7 @@
 
 set -eux
 
-source /etc/sysconfig/stackrc
+source stackrc
 
 stack_delete_output=$(heat stack-delete overcloud) || true
 
