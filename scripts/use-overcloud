@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [ -d /etc/tripleo ]; then
-    TRIPLEO_ROOT=/etc/tripleo
-else
-    TRIPLEO_ROOT=/opt/stack/tripleo-incubator
-fi
-
 source stackrc
 export OVERCLOUD_IP=$(nova list | grep notCompute0.*ctlplane | sed  -e "s/.*=\\([0-9.]*\\).*/\1/")
 
 source tripleo-overcloud-passwords
-source $TRIPLEO_ROOT/overcloudrc
+export TE_DATAFILE=instack.json
+echo {} > $TE_DATAFILE
+OVERCLOUD_ENDPOINT="http://$OVERCLOUD_IP:5000/v2.0"
+NEW_JSON=$(jq '.overcloud.password="'${OVERCLOUD_ADMIN_PASSWORD}'" | .overcloud.endpoint="'${OVERCLOUD_ENDPOINT}'" | .overcloud.endpointhost="'${OVERCLOUD_IP}'"' $TE_DATAFILE)
+echo $NEW_JSON > $TE_DATAFILE
+
+source /etc/tripleo/overcloudrc
