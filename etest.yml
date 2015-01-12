@@ -18,7 +18,7 @@ hosts:
       kibana3::manage_ws: false
   openstack1:
     profile: openstack-full
-    ip: 192.0.2.3
+    ip: 192.0.2.20
     config:
       cloud::storage::rbd::osd::public_address: "%{hiera('public_netif_ip')}"
       cloud::storage::rbd::osd::cluster_address: "%{hiera('internal_netif_ip')}"
@@ -32,7 +32,7 @@ hosts:
       cloud::object::storage::swift_zone: 1
   openstack2:
     profile: openstack-full
-    ip: 192.0.2.4
+    ip: 192.0.2.21
     config:
       cloud::storage::rbd::osd::public_address: "%{hiera('public_netif_ip')}"
       cloud::storage::rbd::osd::cluster_address: "%{hiera('internal_netif_ip')}"
@@ -44,7 +44,7 @@ hosts:
       cloud::object::storage::swift_zone: 2
   openstack3:
     profile: openstack-full
-    ip: 192.0.2.5
+    ip: 192.0.2.22
     config:
       cloud::storage::rbd::osd::public_address: "%{hiera('public_netif_ip')}"
       cloud::storage::rbd::osd::cluster_address: "%{hiera('internal_netif_ip')}"
