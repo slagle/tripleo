@@ -1,0 +1,24 @@
+network_config:
+  -
+    type: ovs_bridge
+    name: br-ex
+    use_dhcp: true
+    members:
+      -
+        type: interface
+        name: eth0
+        # force the MAC address of the bridge to this interface
+        primary: true
+      -
+        type: ovs_tunnel
+        name: tun0
+        tunnel_type: gre
+        ovs_options:
+          - remote_ip=172.18.27.24
+  -
+    type: interface
+    name: br-ex:0
+    use_dhcp: false
+    addresses:
+      -
+        ip_netmask: 192.0.2.3/24
