@@ -1,0 +1,16 @@
+# export controller_hosts="ds0 ds1 ds2"
+export controller_hosts="ds0"
+# export compute_hosts="ds3"
+export compute_hosts="ds1"
+# export ControlPlaneDefaultRoute="192.168.122.130"
+# export UndercloudCIDR="192.0.2.0/24"
+
+export OVERCLOUD_DEPLOY_ARGS="\
+  --control-scale 1 \
+  --compute-scale 1 \
+  --overcloud-ssh-user root \
+  --ntp-server clock.redhat.com \
+  --templates /home/stack/deployed-server/tripleo-heat-templates \
+  -e /home/stack/deployed-server/tripleo-heat-templates/environments/puppet-pacemaker.yaml \
+  -e /home/stack/deployed-server/tripleo-heat-templates/deployed-server/deployed-server-environment.yaml \
+  -e /home/stack/deployed-server/deployed-server-hosts.yaml"
