@@ -2,15 +2,13 @@
 
 set -eux
 
-yum -y install git
+sudo yum -y install git
 
-git config --global user.name "Your Name"
-git config --global user.email you@example.com
+if [ ! -d tripleo-ci ]; then
+    git clone https://git.openstack.org/openstack-infra/tripleo-ci
+fi
 
-git clone https://git.openstack.org/openstack-infra/tripleo-ci
 tripleo-ci/scripts/tripleo.sh --repo-setup
 sudo yum -y install instack-undercloud
-cp ~/deployed-server/config.json.template /usr/share/instack-undercloud/undercloud-stack-config/config.json.template
+sudo cp ~/deployed-server/config.json.template /usr/share/instack-undercloud/undercloud-stack-config/config.json.template
 tripleo-ci/scripts/tripleo.sh --undercloud
-
-
