@@ -1,18 +1,14 @@
 resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: /home/stack/deployed-server/tripleo-heat-templates/net-config-static-bridge-with-external-dhcp.yaml
-  OS::TripleO::Compute::Net::SoftwareConfig: /home/stack/deployed-server/tripleo-heat-templates/net-config-static-bridge-with-external-dhcp.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: /home/stack/deployed-server/tripleo-heat-templates/net-config-static-bridge.yaml
+  OS::TripleO::Compute::Net::SoftwareConfig: /home/stack/deployed-server/tripleo-heat-templates/net-config-static.yaml
+  # OS::TripleO::Controller::Net::SoftwareConfig: /home/stack/deployed-server/tripleo-heat-templates/net-config-static-bridge-with-external-dhcp.yaml
+  # OS::TripleO::Compute::Net::SoftwareConfig: /home/stack/deployed-server/tripleo-heat-templates/net-config-static-bridge-with-external-dhcp.yaml
   # OS::TripleO::Compute::Net::SoftwareConfig: /home/stack/deployed-server/tripleo-heat-templates/net-config-static-management.yaml
   # OS::TripleO::Controller::Ports::ManagementPort: /home/stack/deployed-server/tripleo-heat-templates/network/ports/management_from_pool.yaml
 
 parameter_defaults:
-  NeutronPublicInterface: nic1
-  HypervisorNeutronPublicInterface: nic1
-  ControlPlaneDefaultRoute: 192.168.122.130
+  NeutronPublicInterface: nic3
+  HypervisorNeutronPublicInterface: nic3
+  ControlPlaneDefaultRoute: "192.0.2.1"
   ControlPlaneSubnetCidr: "24"
   EC2MetadataIp: "192.0.2.1"
-  ControllerIPs:
-    # Each controller will get an IP from the lists below, first controller, first IP
-    management:
-    - "192.168.122.181"
-    - "192.168.122.147"
-  ManagementNetCidr: "192.168.122.0/24"
