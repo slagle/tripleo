@@ -15,7 +15,7 @@ export ELEMENTS_PATH="/usr/share/diskimage-builder/elements:/usr/share/instack-u
 
 export DIB_INSTALL_TYPE_puppet_modules=source
 # This is needed b/c apparently instack does not source from environment.d
-source /usr/share/tripleo-puppet-elements/puppet-modules/environment.d/01-puppet-modules-install-types.sh
+source /usr/share/tripleo-puppet-elements/puppet-modules/environment.d/02-puppet-modules-install-types.sh
 
 sudo -E instack \
   -e centos7 \
@@ -52,6 +52,10 @@ sudo -E instack \
 
 # Needed for some reason, install types are getting set right
 /usr/share/tripleo-puppet-elements/puppet-modules/install.d/puppet-modules-source-install/75-puppet-modules-source
+
+# See https://bugs.launchpad.net/tripleo/+bug/1539797
+cd /opt/stack/puppet-modules/concat
+git checkout f3de395019928ceaca479a830a9fa63909941736
 
 # Install additional packages expected by the image
 sudo yum -y install \
