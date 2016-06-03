@@ -39,7 +39,7 @@ sudo -E instack \
      element-manifest \
      network-gateway \
      epel \
-     undercloud-package-install \
+     enable-packages-install \
      pip-and-virtualenv-override \
   -k extra-data \
      pre-install \
@@ -51,11 +51,11 @@ sudo -E instack \
   -d
 
 # Needed for some reason, install types are getting set right
-/usr/share/tripleo-puppet-elements/puppet-modules/install.d/puppet-modules-source-install/75-puppet-modules-source
+sudo /usr/share/tripleo-puppet-elements/puppet-modules/install.d/puppet-modules-source-install/75-puppet-modules-source
 
 # See https://bugs.launchpad.net/tripleo/+bug/1539797
 cd /opt/stack/puppet-modules/concat
-git checkout f3de395019928ceaca479a830a9fa63909941736
+sudo git checkout f3de395019928ceaca479a830a9fa63909941736
 
 # Install additional packages expected by the image
 sudo yum -y install \
