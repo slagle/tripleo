@@ -13,9 +13,7 @@ sudo yum -y install instack-undercloud
 
 export ELEMENTS_PATH="/usr/share/diskimage-builder/elements:/usr/share/instack-undercloud:/usr/share/tripleo-image-elements:/usr/share/tripleo-puppet-elements:/usr/share/openstack-heat-templates/software-config/elements"
 
-export DIB_INSTALL_TYPE_puppet_modules=source
-# This is needed b/c apparently instack does not source from environment.d
-source /usr/share/tripleo-puppet-elements/puppet-modules/environment.d/02-puppet-modules-install-types.sh
+export DIB_INSTALLTYPE_puppet_modules=source
 
 sudo -E instack \
   -e centos7 \
@@ -41,6 +39,7 @@ sudo -E instack \
      epel \
      enable-packages-install \
      pip-and-virtualenv-override \
+     install-types \
   -k extra-data \
      pre-install \
      install \
@@ -49,13 +48,6 @@ sudo -E instack \
      00-fix-requiretty \
      90-rebuild-ramdisk \
   -d
-
-# Needed for some reason, install types are getting set right
-sudo /usr/share/tripleo-puppet-elements/puppet-modules/install.d/puppet-modules-source-install/75-puppet-modules-source
-
-# See https://bugs.launchpad.net/tripleo/+bug/1539797
-cd /opt/stack/puppet-modules/concat
-sudo git checkout f3de395019928ceaca479a830a9fa63909941736
 
 # Install additional packages expected by the image
 sudo yum -y install \
