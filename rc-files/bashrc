@@ -1,0 +1,100 @@
+alias hrl='openstack stack resource list'
+alias hrs='openstack stack resource show'
+alias hsd='openstack stack delete -y'
+alias hsdo='openstack stack delete -y overcloud'
+alias hsl='openstack stack list'
+alias hss='openstack stack show'
+alias hslw='watch openstack stack list'
+alias hds='openstack software deployment show'
+alias hcs='openstack software config show'
+alias inl='ironic node-list'
+alias ins='ironic node-show'
+alias ind='ironic node-delete'
+alias nl='nova list'
+alias nstopha='nova stop overcloud-controller-0 overcloud-controller-1 overcloud-controller-2 overcloud-novacompute-0'
+alias nstartha='nova start overcloud-controller-0 overcloud-controller-1 overcloud-controller-2 overcloud-novacompute-0'
+
+function indall {
+    for n in $(ironic node-list | tail -n +4 | head -n -1 | awk '{print $2}'); do ironic node-delete $n; done
+}
+function ipoffall {
+    for n in $(ironic node-list | grep power | awk '{print $2}'); do ironic node-set-power-state $n off; done
+}
+function insall {
+    for n in $(ironic node-list | grep power | awk '{print $2}'); do ironic node-show  $n; done
+}
+function insps-provide {
+    for n in $(ironic node-list | grep power | awk '{print $2}'); do ironic node-set-provision-state $n provide; done
+}
+function hrl-controllerpost {
+    stack=$(hrl overcloud | grep " ControllerNodesPostDeployment " | awk '{print $4}')
+    echo hrl $stack
+    hrl $stack
+}
+function hrl-controller {
+    stack=$(hrl overcloud | grep " Controller " | awk '{print $4}')
+    echo hrl $stack
+    hrl $stack
+}
+function hrl-compute {
+    stack=$(hrl overcloud | grep " Compute " | awk '{print $4}')
+    echo hrl $stack
+    hrl $stack
+}
+function hrl-ceph {
+    stack=$(hrl overcloud | grep " CephStorage " | awk '{print $4}')
+    echo hrl $stack
+    hrl $stack
+}
+function gid {
+    glance image-delete \
+        bm-deploy-kernel \
+        bm-deploy-ramdisk \
+        overcloud-full \
+        overcloud-full-initrd \
+        overcloud-full-vmlinuz
+}
+function hfd {
+    for failed_deployment in $(openstack stack resource list --nested-depth 5 overcloud | grep FAILED | grep -E 'OS::Heat::SoftwareDeployment |OS::Heat::StructuredDeployment ' | cut -d '|' -f 3); do
+        echo $failed_deployment;
+        openstack software deployment show $failed_deployment;
+    done
+}
+function stack-delete {
+    sudo mysql nova -e "\
+        delete from instance_system_metadata;
+        delete from instance_info_caches;
+        delete from instance_faults;
+        delete from instance_actions_events;
+        delete from instance_actions;
+        delete from block_device_mapping;
+        delete from instance_extra;
+        delete from instances;
+        update quota_usages set in_use=0;"
+
+    sudo mysql heat -e "\
+        delete from event;
+        delete from resource_data;
+        delete from resource;
+        delete from stack_lock;
+        delete from stack;"
+
+    sudo mysql ironic -e "update nodes set instance_uuid=NULL;"
+    sudo mysql ironic -e "update nodes set provision_state=NULL;"
+    sudo mysql ironic -e "update nodes set target_provision_state=NULL;"
+    sudo mysql ironic -e "update nodes set power_state='power off';"
+    sudo mysql ironic -e "update nodes set target_power_state=NULL";
+    sudo mysql ironic -e "update nodes set reservation=NULL";
+
+    sudo mysql ironic -e "update nodes set provision_state='available';"
+
+    neutron port-list -c id -c fixed_ips -f value | grep -v 192.0.2.5 | awk '{print $1}' | xargs -t -n 1 neutron port-delete
+    neutron net-list -f value -c id -c name | grep -v ctlplane | awk '{print $1}' | xargs -t -n 1 neutron net-delete
+}
+alias cont0="ssh heat-admin@\$(nova list | grep controller-0 | awk '{print \$12}' | cut -d'=' -f2) -t 'sudo -i'"
+alias cont1="ssh heat-admin@\$(nova list | grep controller-1 | awk '{print \$12}' | cut -d'=' -f2) -t 'sudo -i'"
+alias cont2="ssh heat-admin@\$(nova list | grep controller-2 | awk '{print \$12}' | cut -d'=' -f2) -t 'sudo -i'"
+alias comp0="ssh heat-admin@\$(nova list | grep compute-0 | awk '{print \$12}' | cut -d'=' -f2) -t 'sudo -i'"
+alias comp1="ssh heat-admin@\$(nova list | grep compute-1 | awk '{print \$12}' | cut -d'=' -f2) -t 'sudo -i'"
+
+source stackrc
