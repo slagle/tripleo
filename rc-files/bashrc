@@ -97,4 +97,6 @@ alias cont2="ssh heat-admin@\$(nova list | grep controller-2 | awk '{print \$12}
 alias comp0="ssh heat-admin@\$(nova list | grep compute-0 | awk '{print \$12}' | cut -d'=' -f2) -t 'sudo -i'"
 alias comp1="ssh heat-admin@\$(nova list | grep compute-1 | awk '{print \$12}' | cut -d'=' -f2) -t 'sudo -i'"
 
+alias jocc="sudo journalctl -u os-collect-config --full"
+
 source stackrc
