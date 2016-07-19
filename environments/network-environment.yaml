@@ -7,4 +7,4 @@ parameter_defaults:
   ExternalAllocationPools: [{'start': '192.0.3.30', 'end': '192.0.3.100'}]
   NeutronExternalNetworkBridge: "''"
   NovaComputeLibvirtType: "qemu"
-  DnsServers: ["8.8.8.8"]
+  DnsServers: ["192.168.122.1"]
