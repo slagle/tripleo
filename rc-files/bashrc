@@ -1,7 +1,7 @@
 alias hrl='openstack stack resource list'
 alias hrs='openstack stack resource show'
-alias hsd='openstack stack delete --yes'
-alias hsdo='openstack stack delete --yes overcloud'
+alias hsd='openstack stack delete --wait --yes'
+alias hsdo='openstack stack delete --wait --yes overcloud'
 alias hsl='openstack stack list'
 alias hss='openstack stack show'
 alias hslw='watch openstack stack list'
@@ -98,5 +98,16 @@ alias comp0="ssh heat-admin@\$(nova list | grep compute-0 | awk '{print \$12}' |
 alias comp1="ssh heat-admin@\$(nova list | grep compute-1 | awk '{print \$12}' | cut -d'=' -f2) -t 'sudo -i'"
 
 alias jocc="sudo journalctl -u os-collect-config --full"
+
+function uninstall-undercloud {
+    items="openstack instack tripleo httpd mysql rabbitmq nova ironic rabbitmq mongo mongodb nova ironic heat keystone neutron swift mistral ironic glance cinder zaqar my.cnf my.cnf.d"
+    sudo systemctl stop openstack* neutron* httpd mariadb mongod
+    rpm -qa | grep -E "openstack|instack|httpd|mariadb|rabbitmq|mongo|tripleo" | xargs sudo yum erase -y
+    sudo rm -rf /etc/httpd /var/lib/mysql /var/lib/rabbitmq /var/lib/nova \
+                /var/lib/ironic /etc/rabbitmq /var/lib/mongodb /etc/nova \
+                /etc/heat /etc/keystone /etc/neutron /etc/swift /etc/mistral \
+                /etc/ironic /etc/glance /etc/my.cnf.d /etc/my.cnf
+}
+
 
 source stackrc
