@@ -69,6 +69,7 @@ function stack-delete {
         delete from instance_actions;
         delete from block_device_mapping;
         delete from instance_extra;
+        delete from virtual_interfaces;
         delete from instances;
         update quota_usages set in_use=0;"
 
