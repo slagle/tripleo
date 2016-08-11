@@ -102,14 +102,14 @@ alias jocc="sudo journalctl -u os-collect-config --full"
 
 function uninstall-undercloud {
     set -x
-    items="openvswitch puppet openstack instack tripleo httpd mysql rabbitmq nova ironic rabbitmq mongo mongodb nova ironic heat keystone neutron swift mistral ironic glance cinder zaqar my.cnf my.cnf.d"
-    sudo systemctl stop openstack* neutron* httpd mariadb mongod openvswitch*
-    rpm -qa | grep -E "openvswitch|puppet|openstack|instack|httpd|mariadb|rabbitmq|mongo|tripleo" | xargs sudo yum erase -y
+    items="openvswitch puppet openstack instack tripleo httpd mysql rabbitmq nova ironic rabbitmq mongo mongodb nova ironic heat keystone neutron swift mistral ironic glance cinder zaqar my.cnf my.cnf.d haproxy"
+    sudo systemctl stop openstack* neutron* httpd mariadb mongod openvswitch* haproxy
+    rpm -qa | grep -E "openvswitch|puppet|openstack|instack|httpd|mariadb|rabbitmq|mongo|tripleo|haproxy" | xargs sudo yum erase -y
     sudo rm -rf /etc/httpd /var/lib/mysql /var/lib/rabbitmq /var/lib/nova \
                 /var/lib/ironic /etc/rabbitmq /var/lib/mongodb /etc/nova \
                 /etc/heat /etc/keystone /etc/neutron /etc/swift /etc/mistral \
                 /etc/ironic /etc/glance /etc/my.cnf.d /etc/my.cnf \
-                /etc/openvswitch /var/lib/openvswitch
+                /etc/openvswitch /var/lib/openvswitch /etc/haproxy /var/log/haproxy
     set +x
 }
 

@@ -1,0 +1,10 @@
+parameter_defaults:
+  ControlPlaneSubnetCidr: "24"
+  ControlPlaneDefaultRoute: "192.0.2.1"
+  EC2MetadataIp: "192.0.2.1"
+  ExternalInterfaceDefaultRoute: "192.0.3.251"
+  ExternalNetCidr: "192.0.3.1/24"
+  ExternalAllocationPools: [{'start': '192.0.3.30', 'end': '192.0.3.100'}]
+  NeutronExternalNetworkBridge: "''"
+  NovaComputeLibvirtType: "qemu"
+  DnsServers: ["192.168.122.1"]
