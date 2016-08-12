@@ -63,6 +63,7 @@ function hfd {
 function stack-delete {
     sudo mysql nova -e "\
         delete from instance_system_metadata;
+        delete from instance_metadata;
         delete from instance_info_caches;
         delete from instance_faults;
         delete from instance_actions_events;
