@@ -1,0 +1,4 @@
+export OVERCLOUD_DEPLOY_ARGS="\
+    --control-scale 1 \
+    --compute-scale 1 \
+    --ntp-server 0.centos.pool.ntp.org"
