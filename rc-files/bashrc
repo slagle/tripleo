@@ -123,11 +123,13 @@ function uninstall-undercloud {
 }
 
 function overcloud-reset {
+    set -x
     stack-stop-all
     stack-rm-all
     pcs cluster stop --force && pcs cluster destroy && rm -rf /var/lib/mysql/* /root/.my.cnf
     stack-stop-all
     stack-rm-all
+    set +x
 }
 
 source stackrc
