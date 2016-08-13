@@ -132,4 +132,9 @@ function overcloud-reset {
     set +x
 }
 
+function consistent {
+    export DELOREAN_REPO_URL="https://trunk.rdoproject.org/centos7/consistent/"
+}
+
+
 source stackrc
