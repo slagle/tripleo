@@ -102,7 +102,7 @@ alias comp1="ssh heat-admin@\$(nova list | grep compute-1 | awk '{print \$12}' |
 alias jocc="sudo journalctl -u os-collect-config --full"
 
 function stack-stop-all {
-    sudo systemctl stop openstack* neutron* httpd mariadb mongod openvswitch* haproxy
+    sudo systemctl stop openstack* neutron* httpd mariadb mongod openvswitch* haproxy certmonger
 }
 
 function stack-rm-all {
@@ -110,14 +110,15 @@ function stack-rm-all {
                 /var/lib/ironic /etc/rabbitmq /var/lib/mongodb /etc/nova \
                 /etc/heat /etc/keystone /etc/neutron /etc/swift /etc/mistral \
                 /etc/ironic /etc/glance /etc/my.cnf.d /etc/my.cnf \
-                /etc/openvswitch /var/lib/openvswitch /etc/haproxy /var/log/haproxy
+                /etc/openvswitch /var/lib/openvswitch /etc/haproxy /var/log/haproxy \
+                /var/lib/certmonger /etc/certmonger
 }
 
 function uninstall-undercloud {
     set -x
     items="openvswitch puppet openstack instack tripleo httpd mysql rabbitmq nova ironic rabbitmq mongo mongodb nova ironic heat keystone neutron swift mistral ironic glance cinder zaqar my.cnf my.cnf.d haproxy"
     stack-stop-all
-    rpm -qa | grep -E "openvswitch|puppet|openstack|instack|httpd|mariadb|rabbitmq|mongo|tripleo|haproxy" | xargs sudo yum erase -y
+    rpm -qa | grep -E "openvswitch|puppet|openstack|instack|httpd|mariadb|rabbitmq|mongo|tripleo|haproxy|certmonger" | xargs sudo yum erase -y
     stack-rm-all
     set +x
 }
