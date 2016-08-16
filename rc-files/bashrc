@@ -145,6 +145,7 @@ function mistral-reset {
     done
 
     sudo systemctl restart openstack-mistral-*
+    sudo mistral-db-sync --config-file /etc/mistral/mistral.conf
 }
 
 function consistent {
