@@ -137,5 +137,6 @@ function consistent {
     export DELOREAN_REPO_URL="https://trunk.rdoproject.org/centos7/consistent/"
 }
 
+export TRIPLEO_ROOT=$HOME/tripleo-root
 
 source stackrc
