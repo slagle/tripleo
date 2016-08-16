@@ -143,6 +143,8 @@ function mistral-reset {
     for workbook in $(ls /usr/share/openstack-tripleo-common/workbooks/*); do
         mistral workbook-create $workbook
     done
+
+    sudo systemctl restart openstack-mistral-*
 }
 
 function consistent {
