@@ -92,6 +92,9 @@ function stack-delete {
 
     neutron port-list -c id -c fixed_ips -f value | grep -v 192.0.2.5 | awk '{print $1}' | xargs -t -n 1 neutron port-delete
     neutron net-list -f value -c id -c name | grep -v ctlplane | awk '{print $1}' | xargs -t -n 1 neutron net-delete
+
+    swift delete overcloud
+    mistral environment-delete overcloud
 }
 alias cont0="ssh heat-admin@\$(nova list | grep controller-0 | awk '{print \$12}' | cut -d'=' -f2) -t 'sudo -i'"
 alias cont1="ssh heat-admin@\$(nova list | grep controller-1 | awk '{print \$12}' | cut -d'=' -f2) -t 'sudo -i'"
