@@ -9,6 +9,7 @@ export DO_MULTINODE_SETUP=${DO_MULTINODE_SETUP:-0}
 export DO_BOOTSTRAP=${DO_BOOTSTRAP:-0}
 
 export TRIPLEO_ROOT=${TRIPLEO_ROOT:-/opt/stack/new}
+export BASE=${BASE:-$TRIPLEO_ROOT}
 export PRIMARY_NODE_IP=${PRIMARY_NODE_IP:-""}
 export SUB_NODE_IPS=${SUB_NODE_IPS:-""}
 export CLONE_REPOS=${CLONE_REPOS:-"0"}
@@ -81,6 +82,10 @@ fi
 
 if [ ! -f $TRIPLEO_ROOT/new ]; then
     sudo ln -s -f $TRIPLEO_ROOT $TRIPLEO_ROOT/new
+fi
+
+if [ ! -f $TRIPLEO_ROOT/tripleo-ci ]; then
+    git clone https://git.openstack.org/openstack-infra/tripleo-ci
 fi
 
 $TRIPLEO_ROOT/tripleo-ci/scripts/tripleo.sh --repo-setup

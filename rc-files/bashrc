@@ -134,6 +134,7 @@ function overcloud-reset {
 }
 
 function mistral-reset {
+    set -ex
     for workbook in $(mistral workbook-list | grep tripleo | cut -f 2 -d ' '); do
         mistral workbook-delete $workbook
     done
@@ -146,6 +147,7 @@ function mistral-reset {
 
     sudo systemctl restart openstack-mistral-*
     sudo mistral-db-sync --config-file /etc/mistral/mistral.conf
+    set +ex
 }
 
 function consistent {
