@@ -150,6 +150,12 @@ function mistral-reset {
     set +ex
 }
 
+function swift-delete-all {
+    set -x
+    swift list | xargs -n 1 -t swift delete
+    set +x
+}
+
 function consistent {
     export DELOREAN_REPO_URL="https://trunk.rdoproject.org/centos7/consistent/"
 }
