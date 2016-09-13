@@ -1,7 +1,7 @@
 alias hrl='openstack stack resource list'
 alias hrs='openstack stack resource show'
 alias hsd='openstack stack delete --wait --yes'
-alias hsdo='openstack stack delete --wait --yes overcloud && swift-delete-all && mistral environment-delete overcloud'
+alias hsdo='openstack stack delete --wait --yes overcloud && plan-delete-all'
 alias hsl='openstack stack list'
 alias hss='openstack stack show'
 alias hslw='watch openstack stack list'
@@ -156,6 +156,13 @@ function mistral-reset {
 function swift-delete-all {
     set -x
     swift list | xargs -n 1 -t swift delete
+    set +x
+}
+
+function plan-delete-all {
+    set -x
+    swift-delete-all
+    mistral environment-delete overcloud
     set +x
 }
 
