@@ -1,0 +1,8 @@
+#!/bin/bash
+
+set -eux
+
+cat >>.bashrc<<EOF
+
+source tripleo/rc-files/bashrc
+EOF
