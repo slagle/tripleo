@@ -11,8 +11,8 @@ alias inl='ironic node-list'
 alias ins='ironic node-show'
 alias ind='ironic node-delete'
 alias nl='nova list'
-alias nstopha='nova stop overcloud-controller-0 overcloud-controller-1 overcloud-controller-2 overcloud-novacompute-0'
-alias nstartha='nova start overcloud-controller-0 overcloud-controller-1 overcloud-controller-2 overcloud-novacompute-0'
+alias nstopha='nova stop overcloud-controller-0 overcloud-controller-1 overcloud-controller-2 overcloud-compute-0'
+alias nstartha='nova start overcloud-controller-0 overcloud-controller-1 overcloud-controller-2 overcloud-compute-0'
 
 function indall {
     for n in $(ironic node-list | tail -n +4 | head -n -1 | awk '{print $2}'); do ironic node-delete $n; done
