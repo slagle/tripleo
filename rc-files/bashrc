@@ -105,7 +105,9 @@ alias comp1="ssh heat-admin@\$(nova list | grep compute-1 | awk '{print \$12}' |
 alias jocc="sudo journalctl -u os-collect-config --full"
 
 function stack-stop-all {
+    set -x
     sudo systemctl stop openstack* neutron* httpd mariadb mongod openvswitch* haproxy certmonger keepalived
+    set +x
 }
 
 function stack-rm-all {
@@ -126,12 +128,17 @@ function uninstall-undercloud {
     set +x
 }
 
-function overcloud-reset {
+function pcs-reset {
     set -x
-    stack-stop-all
-    pcs cluster stop --force && pcs cluster destroy && rm -rf /var/lib/mysql/* /root/.my.cnf
-    stack-stop-all
+    pcs cluster stop --force
+    pcs cluster destroy
     set +x
+}
+
+function overcloud-reset {
+    pcs-reset
+    stack-stop-all
+    rm -rf /var/lib/mysql/* /root/.my.cnf
 }
 
 function reset-hosts {
