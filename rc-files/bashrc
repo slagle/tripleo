@@ -134,6 +134,13 @@ function overcloud-reset {
     set +x
 }
 
+function reset-hosts {
+    cat >/etc/hosts<<EOF
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+EOF
+}
+
 function mistral-reset {
     set -ex
     for workbook in $(mistral workbook-list | grep tripleo | cut -f 2 -d ' '); do
