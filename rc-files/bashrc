@@ -132,12 +132,15 @@ function pcs-reset {
     set -x
     pcs cluster stop --force
     pcs cluster destroy
+    sudo killall -9 mysqld
+    sudo killall -9 epmd rabbitmq-server beam.smp
     set +x
 }
 
 function overcloud-reset {
     pcs-reset
     stack-stop-all
+    sudo rm -f /etc/sysconfig/clustercheck
     rm -rf /var/lib/mysql/* /root/.my.cnf
 }
 
