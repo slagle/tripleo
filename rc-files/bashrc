@@ -182,6 +182,13 @@ function plan-delete-all {
     set +x
 }
 
+function undercloud-upgrade {
+    sudo systemctl stop openstack-*
+    sudo systemctl stop neutron-*
+    sudo yum -y update python-tripleoclient
+    openstack undercloud upgrade
+}
+
 function consistent {
     export DELOREAN_REPO_URL="https://trunk.rdoproject.org/centos7/consistent/"
 }
