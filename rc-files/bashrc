@@ -183,10 +183,12 @@ function plan-delete-all {
 }
 
 function undercloud-upgrade {
+    set -x
     sudo systemctl stop openstack-*
     sudo systemctl stop neutron-*
     sudo yum -y update python-tripleoclient
     openstack undercloud upgrade
+    set +x
 }
 
 function consistent {
