@@ -182,6 +182,17 @@ function plan-delete-all {
     set +x
 }
 
+function plan-download {
+    set -x
+    rm -rf overcloud
+    mkdir overcloud
+    cd overcloud
+    swift download overcloud
+    cd ..
+    set +x
+}
+
+
 function undercloud-upgrade {
     set -x
     sudo systemctl stop openstack-*
