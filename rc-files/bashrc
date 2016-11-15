@@ -145,6 +145,7 @@ function overcloud-reset {
     rm -rf /var/lib/mysql/* /root/.my.cnf
     reset-hosts
     reset-ips
+    reset-openvswitch
 }
 
 function reset-ips {
@@ -152,6 +153,13 @@ function reset-ips {
         sudo ip a del 192.0.2.$i/24 dev br-ex
         sudo ip a del 192.0.2.$i/32 dev br-ex
     done
+}
+
+function reset-openvswitch {
+    sudo systemctl stop openvswitch
+    sudo rm -f /etc/openvswitch/conf.db
+    sudo systemctl restart openvswitch
+    sudo ovs-vsctl show
 }
 
 function reset-hosts {
