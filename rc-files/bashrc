@@ -90,8 +90,8 @@ function stack-delete {
 
     sudo mysql ironic -e "update nodes set provision_state='available';"
 
-    neutron port-list -c id -c fixed_ips -f value | grep -v 192.0.2.5 | awk '{print $1}' | xargs -t -n 1 neutron port-delete
-    neutron net-list -f value -c id -c name | grep -v ctlplane | awk '{print $1}' | xargs -t -n 1 neutron net-delete
+    neutron port-list -c id -c fixed_ips -f value | grep -v 192.0.2.5 | awk '{print $1}' | xargs -r -t -n 1 neutron port-delete
+    neutron net-list -f value -c id -c name | grep -v ctlplane | awk '{print $1}' | xargs -r -t -n 1 neutron net-delete
 
     swift delete overcloud
     mistral environment-delete overcloud
