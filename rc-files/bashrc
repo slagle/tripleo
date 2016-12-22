@@ -139,6 +139,12 @@ function pcs-reset {
     set +x
 }
 
+function reset-config {
+    rm -f /etc/keepalived/keepalived.conf
+    rm -f /etc/haproxy/haproxy.cfg
+    rm -f /etc/my.cnf.d/galera.cnf
+}
+
 function overcloud-reset {
     pcs-reset
     stack-stop-all
@@ -147,6 +153,7 @@ function overcloud-reset {
     reset-hosts
     reset-ips
     reset-openvswitch
+    reset-config
 }
 
 function reset-ips {
