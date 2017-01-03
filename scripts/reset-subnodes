@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -eux
+
+export SUB_NODE_IPS=${SUBNODE_IPS:-""}
+
+for ip in $SUB_NODE_IPS; do
+	ssh-keygen -R $ip
+
+	ssh-keyscan $ip >> ~/.ssh/known_hosts
+
+	ssh root@$ip useradd -G sudo centos
+	ssh root@$ip cp -r .ssh /home/centos/
+	ssh root@$ip chown -R centos: /home/centos
+	ssh root@$ip iptables -D INPUT 1
+	ssh root@$ip git clone https://git.openstack.org/openstack-infra/tripleo-ci
+	ssh root@$ip git clone https://github.com/slagle/tripleo
+	ssh root@$ip tripleo-ci/scripts/tripleo.sh --repo-setup
+	ssh root@$ip rm -rf /usr/lib/python2.7/site-packages/requests
+	ssh root@$ip yum -y install python-requests
+	ssh root@$ip sudo rm -rf /etc/puppet/modules/*
+	ssh root@$ip sudo yum -y remove puppet facter hiera
+	ssh root@$ip sudo yum -y install python-heat-agent*
+done
+
