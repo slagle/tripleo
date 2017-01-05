@@ -160,6 +160,8 @@ function reset-ips {
     for i in $(seq 4 24); do
         sudo ip a del 192.0.2.$i/24 dev br-ex
         sudo ip a del 192.0.2.$i/32 dev br-ex
+        sudo ip a del 192.168.24.$i/24 dev br-ex
+        sudo ip a del 192.168.24.$i/32 dev br-ex
     done
 }
 
