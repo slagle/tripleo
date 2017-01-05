@@ -2,7 +2,7 @@
 
 set -eux
 
-export SUB_NODE_IPS=${SUBNODE_IPS:-""}
+export SUB_NODE_IPS=${SUB_NODE_IPS:-""}
 
 for ip in $SUB_NODE_IPS; do
 	ssh-keygen -R $ip
