@@ -3,15 +3,16 @@
 set -eux
 
 export SUB_NODE_IPS=${SUB_NODE_IPS:-""}
+export USER=${USER:-"centos"}
 
 for ip in $SUB_NODE_IPS; do
 	ssh-keygen -R $ip
 
 	ssh-keyscan $ip >> ~/.ssh/known_hosts
 
-	ssh root@$ip useradd -G sudo centos
-	ssh root@$ip cp -r .ssh /home/centos/
-	ssh root@$ip chown -R centos: /home/centos
+	ssh root@$ip useradd -G sudo $USER
+	ssh root@$ip cp -r .ssh /home/$USER/
+	ssh root@$ip chown -R $USER: /home/$USER
 	ssh root@$ip iptables -D INPUT 1
 	ssh root@$ip git clone https://git.openstack.org/openstack-infra/tripleo-ci
 	ssh root@$ip git clone https://github.com/slagle/tripleo
