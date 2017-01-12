@@ -157,12 +157,7 @@ function overcloud-reset {
 }
 
 function reset-ips {
-    for i in $(seq 5 24); do
-        sudo ip a del 192.0.2.$i/24 dev br-ex 2>&1 1>/dev/null || true
-        sudo ip a del 192.0.2.$i/32 dev br-ex 2>&1 1>/dev/null || true
-        sudo ip a del 192.168.24.$i/24 dev br-ex 2>&1 1>/dev/null || true
-        sudo ip a del 192.168.24.$i/32 dev br-ex 2>&1 1>/dev/null || true
-    done
+    ip addr show dev br-ex | grep "inet " | awk '{print $2;}' | xargs -t -n 1 ip addr del dev br-ex
 }
 
 function reset-openvswitch {
