@@ -12,6 +12,7 @@ for ip in $SUB_NODE_IPS; do
 	ssh-keyscan $ip >> ~/.ssh/known_hosts
 
 	ssh -t root@$ip id $USER \|\| useradd -G $SUDO_GROUP $USER
+	ssh -t root@$ip sed -i 's/# %wheel/%wheel/' /etc/sudoers
 	ssh -t root@$ip cp -r .ssh /home/$USER/
 	ssh -t root@$ip chown -R $USER: /home/$USER
 	ssh -t root@$ip iptables -D INPUT 1 || :
