@@ -21,6 +21,7 @@ for ip in $SUB_NODE_IPS; do
 	ssh -t root@$ip ls tripleo \|\| git clone https://github.com/slagle/tripleo
 	ssh -t root@$ip tripleo-ci/scripts/tripleo.sh --repo-setup
 	ssh -t root@$ip rm -rf /usr/lib/python2.7/site-packages/requests
+	ssh -t root@$ip rpm -q python-requests \&\& yum -y reinstall python-requests
 	ssh -t root@$ip yum -y install python-requests
 	ssh -t root@$ip rm -rf /etc/puppet/modules/*
 	ssh -t root@$ip yum -y remove puppet facter hiera
