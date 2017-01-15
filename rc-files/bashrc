@@ -148,6 +148,7 @@ function reset-config {
 function reset-occ {
     rm -f /var/lib/os-collect-config/*
     rm -f /var/run/os-collect-config/*
+    rm -f /var/lib/mongodb/*
     find /var/lib/heat-config -type f | xargs rm -f
 }
 
