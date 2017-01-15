@@ -143,12 +143,12 @@ function reset-config {
     rm -f /etc/keepalived/keepalived.conf
     rm -f /etc/haproxy/haproxy.cfg
     rm -f /etc/my.cnf.d/galera.cnf
+    rm -rf /var/lib/mongodb/*
 }
 
 function reset-occ {
     rm -f /var/lib/os-collect-config/*
     rm -f /var/run/os-collect-config/*
-    rm -f /var/lib/mongodb/*
     find /var/lib/heat-config -type f | xargs rm -f
 }
 
