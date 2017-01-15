@@ -145,6 +145,12 @@ function reset-config {
     rm -f /etc/my.cnf.d/galera.cnf
 }
 
+function reset-occ {
+    rm -f /var/lib/os-collect-config/*
+    rm -f /var/run/os-collect-config/*
+    find /var/lib/heat-config -type f | xargs rm -f
+}
+
 function overcloud-reset {
     pcs-reset
     stack-stop-all
@@ -154,6 +160,7 @@ function overcloud-reset {
     reset-ips
     reset-openvswitch
     reset-config
+    reset-occ
 }
 
 function reset-ips {
