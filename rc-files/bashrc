@@ -158,24 +158,45 @@ function overcloud-reset {
     sudo rm -f /etc/sysconfig/clustercheck
     rm -rf /var/lib/mysql/* /root/.my.cnf
     reset-hosts
-    reset-ips
     reset-openvswitch
     reset-config
     reset-occ
 }
 
 function reset-ips {
-    ip addr show dev br-ex | grep "inet " | awk '{print $2;}' | xargs -t -n 1 ip addr del dev br-ex
+    interface=$1
+    ip addr show dev $interface | grep "inet " | awk '{print $2;}' | xargs -t -n 1 ip addr del dev $interface
+}
+
+function del-br {
+    bridge=$1
+    if ip l | grep $bridge; then
+        sudo ovs-vsctl --may-exist add-br $bridge
+        sudo ovs-vsctl --if-exists del-br $bridge
+    fi
+    sudo rm -f /etc/sysconfig/network-scrips/ifcfg-${bridge}
+}
+
+function clean-interface {
+    interface=$1
+    reset-ips $interface
+    rm -f /etc/sysconfig/network-scripts/ifcfg-${interface}
 }
 
 function reset-openvswitch {
-    sudo ovs-vsctl --if-exists del-br br-ex
-    sudo ovs-vsctl --if-exists del-br br-int
-    sudo ovs-vsctl --if-exists del-br br-tun
+    reset-ips br-ex
+    del-br br-ex
+    del-br tun
+    del-br int
     sudo systemctl stop openvswitch
     sudo rm -f /etc/openvswitch/conf.db
     sudo systemctl restart openvswitch
     sudo ovs-vsctl show
+    if [ -n "$interfaces" ]; then
+        for interface in $interfaces; do
+            clean-interface $interface
+        done
+    fi
 }
 
 function reset-hosts {
