@@ -165,7 +165,7 @@ function overcloud-reset {
 
 function reset-ips {
     interface=$1
-    ip addr show dev $interface | grep "inet " | awk '{print $2;}' | xargs -t -n 1 ip addr del dev $interface
+    ip addr show dev $interface | grep "inet " | awk '{print $2;}' | xargs -t -n 1 -r ip addr del dev $interface
 }
 
 function del-br {
