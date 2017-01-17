@@ -184,6 +184,7 @@ function clean-interface {
 }
 
 function reset-openvswitch {
+    sudo systemctl start openvswitch
     reset-ips br-ex
     del-br br-ex
     del-br tun
