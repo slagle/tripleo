@@ -169,6 +169,9 @@ function reset-ips {
 }
 
 function reset-openvswitch {
+    sudo ovs-vsctl --if-exists del-br br-ex
+    sudo ovs-vsctl --if-exists del-br br-int
+    sudo ovs-vsctl --if-exists del-br br-tun
     sudo systemctl stop openvswitch
     sudo rm -f /etc/openvswitch/conf.db
     sudo systemctl restart openvswitch
