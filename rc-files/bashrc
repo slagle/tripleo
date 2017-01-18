@@ -200,8 +200,8 @@ function reset-openvswitch {
     sudo systemctl start openvswitch
     reset-ips br-ex
     del-br br-ex
-    del-br tun
-    del-br int
+    del-br br-tun
+    del-br br-int
     sudo systemctl stop openvswitch
     sudo rm -f /etc/openvswitch/conf.db
     sudo systemctl restart openvswitch
