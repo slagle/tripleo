@@ -143,6 +143,8 @@ function reset-config {
     rm -f /etc/keepalived/keepalived.conf
     rm -f /etc/haproxy/haproxy.cfg
     rm -f /etc/my.cnf.d/galera.cnf
+    rm -f /etc/swift/*.builder
+    rm -f /etc/swift/*.gz
     rm -rf /var/lib/mongodb/*
 }
 
