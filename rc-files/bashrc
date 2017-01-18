@@ -179,10 +179,10 @@ function reset-ips {
 
 function del-br {
     set -x
-    bridge=$1
-    if ip l | grep $bridge; then
-        sudo ovs-vsctl --may-exist add-br $bridge
-        sudo ovs-vsctl --if-exists del-br $bridge
+    bridge="$1"
+    if ip l | grep "$bridge"; then
+        sudo ovs-vsctl --may-exist add-br "$bridge"
+        sudo ovs-vsctl --if-exists del-br "$bridge"
     fi
     sudo rm -f /etc/sysconfig/network-scrips/ifcfg-${bridge}
     set +x
@@ -190,7 +190,7 @@ function del-br {
 
 function clean-interface {
     set -x
-    interface=$1
+    interface="$1"
     reset-ips $interface
     rm -f /etc/sysconfig/network-scripts/ifcfg-${interface}
     set +x
