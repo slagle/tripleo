@@ -164,6 +164,7 @@ function overcloud-reset {
     stack-stop-all
     sudo rm -f /etc/sysconfig/clustercheck
     rm -rf /var/lib/mysql/* /root/.my.cnf
+    rm -rf /etc/rabbitmq/enabled_plugins /etc/rabbitmq/rabbitmqadmin.conf /etc/rabbitmq/rabbitmq-env.conf /etc/rabbitmq/ssl
     reset-hosts
     reset-openvswitch
     reset-config
