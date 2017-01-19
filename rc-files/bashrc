@@ -108,7 +108,7 @@ alias occtree="sudo pstree -a $(pidof -x os-collect-config)"
 
 function stack-stop-all {
     set -x
-    sudo systemctl stop openstack* neutron* httpd mariadb mongod openvswitch* haproxy certmonger keepalived os-collect-config
+    sudo systemctl stop openstack* neutron* httpd mariadb mongod haproxy certmonger keepalived os-collect-config
     set +x
 }
 
