@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -ux
+
+neutron router-gateway-clear default-router
+neutron router-port-list default-router
+neutron router-interface-delete default-router private-subnet
+neutron router-delete default-router
+neutron net-delete public
+neutron net-delete private

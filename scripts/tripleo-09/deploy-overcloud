@@ -1,0 +1,15 @@
+#!/bin/bash
+
+set -eux
+
+openstack overcloud deploy \
+  --disable-validations \
+  --control-scale 3 \
+  --compute-scale 1 \
+  --templates tripleo-heat-templates \
+  -e tripleo-heat-templates/environments/deployed-server-environment.yaml \
+  -e tripleo-heat-templates/environments/deployed-server-bootstrap-environment-centos.yaml \
+  -r tripleo-heat-templates/deployed-server/deployed-server-roles-data.yaml \
+  -e tripleo-heat-templates/environments/puppet-pacemaker.yaml \
+  --ntp-server clock.redhat.com \
+  -e tripleo-heat-templates/net-iso/network-environment.yaml

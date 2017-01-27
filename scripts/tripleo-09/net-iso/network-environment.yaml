@@ -1,0 +1,87 @@
+#This file is an example of an environment file for defining the isolated
+#networks and related parameters.
+resource_registry:
+  # Network Interface templates to use (these files must exist)
+  # OS::TripleO::ControllerDeployedServer::Net::SoftwareConfig: ../net-config-static-bridge.yaml
+  # OS::TripleO::ComputeDeployedServer::Net::SoftwareConfig: ../net-config-static.yaml
+  OS::TripleO::ComputeDeployedServer::Net::SoftwareConfig: nic-config-compute.yaml
+  OS::TripleO::ControllerDeployedServer::Net::SoftwareConfig: nic-config-controller.yaml
+  # OS::TripleO::Network::InternalApi: ../network/internal_api.yaml
+  # Port assignments for the VIPs
+  # OS::TripleO::Network::Ports::InternalApiVipPort: ../network/ports/internal_api.yaml
+  # Port assignments for the controller role
+  # OS::TripleO::ControllerDeployedServer::Ports::InternalApiPort: ../network/ports/internal_api.yaml
+  # OS::TripleO::ControllerDeployedServer::Ports::InternalApiPort: ../network/ports/internal_api_from_pool.yaml
+  # Port assignments for the compute role
+  # OS::TripleO::ComputeDeployedServer::Ports::InternalApiPort: ../network/ports/internal_api.yaml
+  # OS::TripleO::ComputeDeployedServer::Ports::InternalApiPort: ../network/ports/internal_api_from_pool.yaml
+  OS::TripleO::DeployedServer::ControlPlanePort: ../deployed-server/deployed-neutron-port.yaml
+
+parameter_defaults:
+  # This section is where deployment-specific configuration is done
+  # CIDR subnet mask length for provisioning network
+  ControlPlaneSubnetCidr: '24'
+  # Gateway router for the provisioning network (or Undercloud IP)
+  ControlPlaneDefaultRoute: 10.12.53.41
+  EC2MetadataIp: 10.12.53.41 # Generally the IP of the Undercloud
+  # Customize the IP subnets to match the local environment
+  InternalApiNetCidr: 172.17.0.0/24
+  # Customize the IP ranges on each network to use for static IPs and VIPs
+  InternalApiAllocationPools: [{'start': '172.17.0.10', 'end': '172.17.0.200'}]
+  # Define the DNS servers (maximum 2) for the overcloud nodes
+  # DnsServers: ["8.8.8.8","8.8.4.4"]
+  DnsServers: ["10.5.30.160"]
+  # Set to empty string to enable multiple external networks or VLANs
+  NeutronExternalNetworkBridge: "''"
+  # List of Neutron network types for tenant networks (will be used in order)
+  NeutronNetworkType: 'vxlan,vlan'
+  # The tunnel type for the tenant network (vxlan or gre). Set to '' to disable tunneling.
+  NeutronTunnelTypes: 'vxlan'
+  # Neutron VLAN ranges per network, for example 'datacentre:1:499,tenant:500:1000':
+  NeutronNetworkVLANRanges: 'datacentre:1:1000'
+
+  NeutronPublicInterface: eno3
+
+  ControllerDeployedServerCount: 1
+  ComputeDeployedServerCount: 3
+
+  ControlFixedIPs:
+    -
+      ip_address: 192.168.25.10
+  RedisVirtualFixedIPs:
+    -
+      ip_address: 192.168.25.11
+  InternalApiVirtualFixedIPs:
+    -
+      ip_address: 172.17.0.50
+  ControllerDeployedServerIPs:
+    internal_api:
+    - 172.17.0.9
+  ComputeDeployedServerIPs:
+    internal_api:
+    - 172.17.0.8
+    - 172.17.0.3
+    - 172.17.0.5
+  DeployedServerPortMap:
+    tripleo-09-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.25.9
+      subnets:
+        - cidr: 24
+    tripleo-08-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.25.8
+      subnets:
+        - cidr: 24
+    tripleo-05-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.25.5
+      subnets:
+        - cidr: 24
+    tripleo-03-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.25.3
+      subnets:
+        - cidr: 24
+
+  # NetworkDeploymentActions: []
