@@ -197,6 +197,13 @@ function clean-interface {
     set +x
 }
 
+function clean-mysql {
+    mysqld_safe --user=mysql --datadir=/var/lib/mysql --tc-heuristic-recover commit --wsrep-recover
+    # or:
+    # mysqld_safe --user=mysql --datadir=/var/lib/mysql --wsrep-recover --tc-heuristic-recover rollback
+    pcs resource cleanup galera
+}
+
 function reset-openvswitch {
     sudo systemctl start openvswitch
     reset-ips br-ex
