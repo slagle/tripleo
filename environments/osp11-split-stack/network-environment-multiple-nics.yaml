@@ -1,0 +1,13 @@
+resource_registry:
+  OS::TripleO::ControllerDeployedServer::Net::SoftwareConfig: nic-configs/controller.yaml
+  OS::TripleO::ComputeDeployedServer::Net::SoftwareConfig: nic-configs/compute.yaml
+  OS::TripleO::Tasks::ControllerDeployedServerPrePuppet: /usr/share/openstack-tripleo-heat-templates/extraconfig/tasks/pre_puppet_pacemaker.yaml
+  OS::TripleO::Tasks::ControllerDeployedServerPostPuppet: /usr/share/openstack-tripleo-heat-templates/extraconfig/tasks/post_puppet_pacemaker.yaml
+  OS::TripleO::Tasks::ControllerDeployedServerPostPuppetRestart: /usr/share/openstack-tripleo-heat-templates/extraconfig/tasks/post_puppet_pacemaker_restart.yaml
+
+parameter_defaults:
+  NeutronPublicInterface: eth1
+  EC2MetadataIp: 192.0.2.1
+  ControlPlaneDefaultRoute: 192.0.2.1
+  DnsServers:
+    - 10.5.30.160
