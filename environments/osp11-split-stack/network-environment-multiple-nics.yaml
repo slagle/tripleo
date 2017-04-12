@@ -4,6 +4,8 @@ resource_registry:
   OS::TripleO::Tasks::ControllerDeployedServerPrePuppet: /usr/share/openstack-tripleo-heat-templates/extraconfig/tasks/pre_puppet_pacemaker.yaml
   OS::TripleO::Tasks::ControllerDeployedServerPostPuppet: /usr/share/openstack-tripleo-heat-templates/extraconfig/tasks/post_puppet_pacemaker.yaml
   OS::TripleO::Tasks::ControllerDeployedServerPostPuppetRestart: /usr/share/openstack-tripleo-heat-templates/extraconfig/tasks/post_puppet_pacemaker_restart.yaml
+  OS::TripleO::DeployedServer::ControlPlanePort: /usr/share/openstack-tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+  OS::TripleO::Network::Ports::ControlPlaneVipPort: /usr/share/openstack-tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
 
 parameter_defaults:
   NeutronPublicInterface: eth1
@@ -11,3 +13,20 @@ parameter_defaults:
   ControlPlaneDefaultRoute: 192.0.2.1
   DnsServers:
     - 10.5.30.160
+  ExternalInterfaceDefaultRoute: 192.0.2.1
+  DeployedServerPortMap:
+    osp11-controller-0-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.30.2
+    osp11-controller-1-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.30.3
+    osp11-controller-2-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.30.4
+    osp11-compute-0-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.30.5
+    control_virtual_ip:
+      fixed_ips:
+        - ip_address: 192.168.30.10
