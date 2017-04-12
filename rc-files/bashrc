@@ -106,6 +106,7 @@ alias comp1="ssh heat-admin@\$(nova list | grep compute-1 | awk '{print \$12}' |
 alias jocc="sudo journalctl -u os-collect-config --full"
 alias occtree="sudo pstree -a \$(pidof -x os-collect-config)"
 alias puppettree="sudo ps axjf | grep -A5 puppet"
+alias pulltripleo="pushd ~/tripleo && git pull && source ~/.bashrc && popd"
 
 function stack-stop-all {
     set -x
