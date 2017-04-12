@@ -110,7 +110,7 @@ alias pulltripleo="pushd ~/tripleo && git pull && source ~/.bashrc && popd"
 
 function stack-stop-all {
     set -x
-    sudo systemctl stop openstack* neutron* httpd mariadb mongod haproxy certmonger keepalived os-collect-config pacemaker corosync pcsd
+    sudo systemctl stop openstack* neutron* httpd mariadb mongod haproxy certmonger keepalived os-collect-config pacemaker corosync pcsd memcached
     set +x
 }
 
