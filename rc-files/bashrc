@@ -286,6 +286,6 @@ function consistent {
 
 export TRIPLEO_ROOT=$HOME/tripleo-root
 
-source stackrc
+[ -e stackrc ] && source stackrc
 export PYTHONWARNINGS="ignore:Certificate has no, ignore:A true SSLContext object is not available, ignore:SubjectAltNameWarning, ignore:Certificate for"
 
