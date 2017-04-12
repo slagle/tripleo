@@ -4,11 +4,11 @@ set -eux
 
 cat >>~/.bashrc<<EOF
 
-source tripleo/rc-files/bashrc
+source ~/tripleo/rc-files/bashrc
 EOF
 
 
 cat >>~/.profile<<EOF
 
-source tripleo/rc-files/bashrc
+source ~/tripleo/rc-files/bashrc
 EOF
