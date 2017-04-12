@@ -210,6 +210,7 @@ function reset-openvswitch {
     del-br br-ex
     del-br br-tun
     del-br br-int
+    del-br br-tenant
     sudo systemctl stop openvswitch
     sudo rm -f /etc/openvswitch/conf.db
     sudo systemctl restart openvswitch
