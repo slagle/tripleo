@@ -18,8 +18,6 @@ foreach = (project:openstack/tripleo-incubator OR
     project:openstack/instack OR
     project:openstack/instack-undercloud OR
     project:openstack/python-tripleoclient OR
-    project:openstack/tripleo-quickstart OR
-    project:openstack/tripleo-quickstart-extras OR
     project:openstack/puppet-tripleo OR
     project:openstack/tripleo-docs) status:open NOT label:Workflow<=-1 NOT label:Code-Review<=-2
 
