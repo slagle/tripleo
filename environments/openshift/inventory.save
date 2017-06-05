@@ -1,0 +1,52 @@
+# Create an OSEv3 group that contains the masters and nodes groups
+[OSEv3:children]
+masters
+nodes
+
+# Set variables common for all OSEv3 hosts
+[OSEv3:vars]
+# SSH user, this user should allow ssh based auth without requiring a password
+ansible_ssh_user=heat-admin
+
+# If ansible_ssh_user is not root, ansible_become must be set to true
+#ansible_become=true
+ansible_become=true
+
+deployment_type=origin
+
+# uncomment the following to enable htpasswd authentication; defaults to DenyAllPasswordIdentityProvider
+#openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider', 'filename': '/etc/origin/master/htpasswd'}]
+
+containerized=true
+
+openshift_release=v1.5
+openshift_image_tag=v1.5.0
+enable_excluders=False
+openshift_deployment_type=origin
+openshift_use_dnsmasq=False
+openshift_clock_enabled=true
+
+# Openstack
+# openshift_cloudprovider_kind=openstack
+# openshift_cloudprovider_openstack_auth_url=http://10.0.0.9:5000/v3
+# openshift_cloudprovider_openstack_username=admin
+# openshift_cloudprovider_openstack_password=4jBw4pmKMTEuzAFsgCtWuNa3D
+# openshift_cloudprovider_openstack_domain_id=default
+# openshift_cloudprovider_openstack_domain_name=Default
+# openshift_cloudprovider_openstack_tenant_id=2055896722144811b820b661a79f7e50
+# openshift_cloudprovider_openstack_tenant_name=admin
+# openshift_cloudprovider_openstack_region=regionOne
+# openshift_cloudprovider_openstack_lb_subnet_id=subnet_id
+
+
+# host group for masters
+[masters]
+overcloud-openshift-0 containerized=true
+
+# host group for nodes, includes region info
+[nodes]
+overcloud-openshift-0 openshift_node_labels="{'region': 'infra', 'zone': 'default'}" containerized=true
+overcloud-openshift-1 openshift_node_labels="{'region': 'primary', 'zone': 'east'}" containerized=true
+overcloud-openshift-2 openshift_node_labels="{'region': 'primary', 'zone': 'west'}" containerized=true
+
+

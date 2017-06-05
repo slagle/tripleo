@@ -1,0 +1,120 @@
+{
+  "parameter_defaults": {
+    "CephStorageDeployedServerCount": 1, 
+    "EC2MetadataIp": "192.168.24.1", 
+    "OpenShiftDeployedServerCount": 3, 
+    "DeployedServerPortMap": {
+      "overcloud-openshift-1-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.24.21"
+          }
+        ]
+      }, 
+      "overcloud-controller-1-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.24.13"
+          }
+        ]
+      }, 
+      "overcloud-controller-0-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.24.10"
+          }
+        ]
+      }, 
+      "overcloud-openshift-0-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.24.11"
+          }
+        ]
+      }, 
+      "overcloud-cephstorage-0-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.24.14"
+          }
+        ]
+      }, 
+      "redis_virtual_ip": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.24.12"
+          }
+        ]
+      }, 
+      "control_virtual_ip": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.24.7"
+          }
+        ]
+      }, 
+      "overcloud-controller-2-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.24.24"
+          }
+        ]
+      }, 
+      "overcloud-openshift-2-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.24.19"
+          }
+        ]
+      }, 
+      "overcloud-compute-0-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.24.17"
+          }
+        ]
+      }
+    }, 
+    "ControlPlaneDefaultRoute": "192.168.24.1", 
+    "ControllerDeployedServerCount": 3, 
+    "DeploymentSwiftDataMap": {
+      "overcloud-compute-0": {
+        "object": "d2fe2622-2874-4273-9c97-8ebef5dad1ea", 
+        "container": "ov-a2y5tn5i6c-0-uyi4tjvf2b23-NovaCompute-ll6kckpn73ub"
+      }, 
+      "overcloud-controller-1": {
+        "object": "3e529d99-5fae-4e34-b0f3-bfc03f2fb2f0", 
+        "container": "ov-glvsal73czf-1-oeekihdjdlvf-Controller-jezzk7x5pxdx"
+      }, 
+      "overcloud-openshift-0": {
+        "object": "b7b1f928-e6c4-4aa8-9586-83742cd30f38", 
+        "container": "ov-lca6drtbti5y-0-sihh2hf3cqym-OpenShift-evlv5hfqlf5y"
+      }, 
+      "overcloud-controller-2": {
+        "object": "bce29aea-66b0-4ee1-8f91-105ed33f33c9", 
+        "container": "ov-glvsal73czf-2-2yrzfxt3o2uw-Controller-ijaru2fdhdbv"
+      }, 
+      "overcloud-openshift-2": {
+        "object": "e8b63b2a-7f4f-43fd-8b69-919387f220ea", 
+        "container": "ov-lca6drtbti5y-2-dwngpgevtttw-OpenShift-pph7h7xtw7nx"
+      }, 
+      "overcloud-controller-0": {
+        "object": "414de4d5-2014-46b4-b9f6-32d268ab532b", 
+        "container": "ov-glvsal73czf-0-nbxzkead3sok-Controller-oj2pg7sprbui"
+      }, 
+      "overcloud-cephstorage-0": {
+        "object": "9f735b10-a45d-4909-b8ea-f288e46d1bd0", 
+        "container": "ov-2ejvdrglwh-0-6okyxely2ksi-CephStorage-anlvw6kgygm3"
+      }, 
+      "overcloud-openshift-1": {
+        "object": "635da50a-fa29-4c3c-b248-8f0d78c6cc91", 
+        "container": "ov-lca6drtbti5y-1-hfsrxnoqaqxh-OpenShift-jvg6ofxz5hdc"
+      }
+    }, 
+    "ComputeDeployedServerCount": 1
+  }, 
+  "resource_registry": {
+    "OS::TripleO::Network::Ports::ControlPlaneVipPort": "tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml", 
+    "OS::TripleO::DeployedServer::ControlPlanePort": "tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml"
+  }
+}

@@ -1,0 +1,6 @@
+parameter_defaults:
+  # Consistent Hostname format
+  ControllerDeployedServerHostnameFormat: overcloud-controller-%index%
+  ComputeDeployedServerHostnameFormat: overcloud-compute-%index%
+  CephStorageDeployedServerHostnameFormat: overcloud-cephstorage-%index%
+  OpenShiftDeployedServerHostnameFormat: overcloud-openshift-%index%

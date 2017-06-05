@@ -1,0 +1,14 @@
+- create custom flavors for openshift master and nodes
+- create and ues custom image for openshift roles
+- add openshift roles for master and nodes
+- enable selinux on openshift nodes
+- Used  {{ broken_object | to_json | from_json | to_nice_yaml }} to workaround
+  https://github.com/openshift/openshift-ansible/issues/3978
+- tripleo-ansible-inventory to use a jinja template to generate an inventory file for openshift
+- Enable origin repo
+  sudo yum install centos-release-openshift-origin
+  sudo yum update ansible
+- setup local dsnmasq for dns and add overcloud hosts as new entries and/or hosts file
+- install and enable NetworkManager on openshift nodes
+  set dns=none in /etc/NetworkManager/NetworkManager.conf
+- install origin-clients on undercloud

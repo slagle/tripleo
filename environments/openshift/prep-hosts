@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -x
+
+HOSTS="overcloud-openshift-0 overcloud-openshift-1 overcloud-openshift-2"
+
+for host in $HOSTS; do
+  ssh heat-admin@$host sudo /bin/bash -c "echo 'nameserver 192.168.122.1' > /etc/resolv.conf"
+  ssh heat-admin@$host sudo yum -y install NetworkManager
+  ssh heat-admin@$host sudo sed -i "s/[main]/[main]\ndns=none\n/" /etc/NewtorkManager/NetworkManager.conf
+  ssh heat-admin@$host sudo systemctl enable NetworkManager
+  ssh heat-admin@$host sudo systemctl start NetworkManager
+done

@@ -1,0 +1,4 @@
+#!/bin/bash
+set -eux
+ansible overcloud -i inventory-overcloud -m service -a "name=os-collect-config state=restarted"
+

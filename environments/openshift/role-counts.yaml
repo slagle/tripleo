@@ -1,0 +1,5 @@
+parameter_defaults:
+  ControllerCount: 3
+  ComputeCount: 1
+  OpenShiftCount: 3
+  CephStorageCount: 1

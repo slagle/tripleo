@@ -1,0 +1,18 @@
+---
+- hosts: openshift
+
+  tasks:
+  - name: Install NetworkManager
+    yum:
+      name: NetworkManager
+      state: latest
+  - name: Set dns=none in /etc/NetworkManager/NetworkManager.conf
+    ini_file:
+      dest: /etc/NetworkManager/NetworkManager.conf
+      section: main
+      option: dns
+      value: none
+  - name: Start NetworkManager
+    service:
+      name: NetworkManager
+      state: restarted

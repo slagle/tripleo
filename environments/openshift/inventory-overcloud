@@ -1,0 +1,17 @@
+[overcloud]
+overcloud-controller-0
+overcloud-controller-1
+overcloud-controller-2
+overcloud-openshift-0
+overcloud-openshift-1
+overcloud-openshift-2
+overcloud-blockstorage-0
+
+[overcloud:vars]
+ansible_user=heat-admin
+ansible_become=true
+
+[openshift]
+overcloud-openshift-0
+overcloud-openshift-1
+overcloud-openshift-2

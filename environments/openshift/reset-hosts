@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -x
+
+HOSTS="\
+	overcloud-controller-0 \
+	overcloud-controller-1 \
+	overcloud-controller-2 \
+	overcloud-compute-0 \
+	overcloud-blockstorage-0 \
+	overcloud-openshift-0  \
+	overcloud-openshift-1 \
+	overcloud-openshift-2  \
+"
+IPS=$(getent hosts $HOSTS | awk '{print $1}')
+
+for ip in $IPS; do
+	ssh-keygen -R $ip
+	ssh-keyscan -t rsa $ip >> ~/.ssh/known_hosts
+done
+
+for host in $HOSTS; do
+	ssh-keygen -R $host
+	ssh-keyscan -t rsa $host >> ~/.ssh/known_hosts
+done

@@ -1,0 +1,8 @@
+---
+- hosts: openshift
+
+  tasks:
+  - name: SELinux enforcing and targeted
+    selinux:
+      state: enforcing
+      policy: targeted

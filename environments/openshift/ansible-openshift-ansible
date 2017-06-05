@@ -1,0 +1,4 @@
+#!/bin/bash
+
+set -eux
+unbuffer ansible-playbook -i inventory openshift-ansible/playbooks/byo/config.yml 2>&1 | tee ansible.out

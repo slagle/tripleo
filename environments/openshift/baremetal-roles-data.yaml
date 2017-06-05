@@ -1,0 +1,58 @@
+# Specifies which roles (groups of nodes) will be deployed
+# Note this is used as an input to the various *.j2.yaml
+# jinja2 templates, so that they are converted into *.yaml
+# during the plan creation (via a mistral action/workflow).
+#
+# The format is a list, with the following format:
+#
+# * name: (string) mandatory, name of the role, must be unique
+# * name_mapping: (string) optional. A name mapping for the role. Can be used to
+#     produce mappings that correspond to other existing roles during
+#     the jinja2 templating process. Defaults to name if not specified.
+#
+# CountDefault: (number) optional, default number of nodes, defaults to 0
+# sets the default for the {{role.name}}Count parameter in overcloud.yaml
+#
+# HostnameFormatDefault: (string) optional default format string for hostname
+# defaults to '%stackname%-{{role.name.lower()}}-%index%'
+# sets the default for {{role.name}}HostnameFormat parameter in overcloud.yaml
+#
+# disable_constraints: (boolean) optional, whether to disable Nova and Glance
+# constraints for each role specified in the templates.
+#
+# disable_upgrade_deployment: (boolean) optional, whether to run the
+# ansible upgrade steps for all services that are deployed on the role. If set
+# to True, the operator will drive the upgrade for this role's nodes.
+#
+# upgrade_batch_size: (number): batch size for upgrades where tasks are
+# specified by services to run in batches vs all nodes at once.
+# This defaults to 1, but larger batches may be specified here.
+#
+# ServicesDefault: (list) optional default list of services to be deployed
+# on the role, defaults to an empty list. Sets the default for the
+# {{role.name}}Services parameter in overcloud.yaml
+#
+# tags: (list) list of tags used by other parts of the deployment process to
+# find the role for a specific type of functionality. Currently a role
+# with both 'primary' and 'controller' is used as the primary role for the
+# deployment process. If no roles have have 'primary' and 'controller', the
+# first role in this file is used as the primary role.
+#
+- name: Controller
+  CountDefault: 1
+  tags:
+    - primary
+    - controller
+  ServicesDefault: []
+
+- name: Compute
+  CountDefault: 1
+  HostnameFormatDefault: '%stackname%-novacompute-%index%'
+  disable_upgrade_deployment: True
+  ServicesDefault: []
+
+- name: CephStorage
+  ServicesDefault: []
+
+- name: OpenShift
+  ServicesDefault: []

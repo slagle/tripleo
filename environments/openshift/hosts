@@ -1,0 +1,78 @@
+192.168.24.13  overcloud.localdomain
+192.168.24.13  overcloud.ctlplane.localdomain
+192.168.24.13  overcloud.internalapi.localdomain
+192.168.24.13  overcloud.storage.localdomain
+192.168.24.13  overcloud.storagemgmt.localdomain
+192.168.24.17 overcloud-controller-0.localdomain overcloud-controller-0
+192.168.24.17 overcloud-controller-0.external.localdomain overcloud-controller-0.external
+192.168.24.17 overcloud-controller-0.internalapi.localdomain overcloud-controller-0.internalapi
+192.168.24.17 overcloud-controller-0.storage.localdomain overcloud-controller-0.storage
+192.168.24.17 overcloud-controller-0.storagemgmt.localdomain overcloud-controller-0.storagemgmt
+192.168.24.17 overcloud-controller-0.tenant.localdomain overcloud-controller-0.tenant
+192.168.24.17 overcloud-controller-0.management.localdomain overcloud-controller-0.management
+192.168.24.17 overcloud-controller-0.ctlplane.localdomain overcloud-controller-0.ctlplane
+192.168.24.9 overcloud-controller-1.localdomain overcloud-controller-1
+192.168.24.9 overcloud-controller-1.external.localdomain overcloud-controller-1.external
+192.168.24.9 overcloud-controller-1.internalapi.localdomain overcloud-controller-1.internalapi
+192.168.24.9 overcloud-controller-1.storage.localdomain overcloud-controller-1.storage
+192.168.24.9 overcloud-controller-1.storagemgmt.localdomain overcloud-controller-1.storagemgmt
+192.168.24.9 overcloud-controller-1.tenant.localdomain overcloud-controller-1.tenant
+192.168.24.9 overcloud-controller-1.management.localdomain overcloud-controller-1.management
+192.168.24.9 overcloud-controller-1.ctlplane.localdomain overcloud-controller-1.ctlplane
+192.168.24.6 overcloud-controller-2.localdomain overcloud-controller-2
+192.168.24.6 overcloud-controller-2.external.localdomain overcloud-controller-2.external
+192.168.24.6 overcloud-controller-2.internalapi.localdomain overcloud-controller-2.internalapi
+192.168.24.6 overcloud-controller-2.storage.localdomain overcloud-controller-2.storage
+192.168.24.6 overcloud-controller-2.storagemgmt.localdomain overcloud-controller-2.storagemgmt
+192.168.24.6 overcloud-controller-2.tenant.localdomain overcloud-controller-2.tenant
+192.168.24.6 overcloud-controller-2.management.localdomain overcloud-controller-2.management
+192.168.24.6 overcloud-controller-2.ctlplane.localdomain overcloud-controller-2.ctlplane
+
+192.168.24.11 overcloud-compute-0.localdomain overcloud-compute-0
+192.168.24.11 overcloud-compute-0.external.localdomain overcloud-compute-0.external
+192.168.24.11 overcloud-compute-0.internalapi.localdomain overcloud-compute-0.internalapi
+192.168.24.11 overcloud-compute-0.storage.localdomain overcloud-compute-0.storage
+192.168.24.11 overcloud-compute-0.storagemgmt.localdomain overcloud-compute-0.storagemgmt
+192.168.24.11 overcloud-compute-0.tenant.localdomain overcloud-compute-0.tenant
+192.168.24.11 overcloud-compute-0.management.localdomain overcloud-compute-0.management
+192.168.24.11 overcloud-compute-0.ctlplane.localdomain overcloud-compute-0.ctlplane
+
+192.168.24.12 overcloud-blockstorage-0.localdomain overcloud-blockstorage-0
+192.168.24.12 overcloud-blockstorage-0.external.localdomain overcloud-blockstorage-0.external
+192.168.24.12 overcloud-blockstorage-0.internalapi.localdomain overcloud-blockstorage-0.internalapi
+192.168.24.12 overcloud-blockstorage-0.storage.localdomain overcloud-blockstorage-0.storage
+192.168.24.12 overcloud-blockstorage-0.storagemgmt.localdomain overcloud-blockstorage-0.storagemgmt
+192.168.24.12 overcloud-blockstorage-0.tenant.localdomain overcloud-blockstorage-0.tenant
+192.168.24.12 overcloud-blockstorage-0.management.localdomain overcloud-blockstorage-0.management
+192.168.24.12 overcloud-blockstorage-0.ctlplane.localdomain overcloud-blockstorage-0.ctlplane
+
+192.168.24.19 overcloud-openshift-0.localdomain overcloud-openshift-0
+192.168.24.19 overcloud-openshift-0.external.localdomain overcloud-openshift-0.external
+192.168.24.19 overcloud-openshift-0.internalapi.localdomain overcloud-openshift-0.internalapi
+192.168.24.19 overcloud-openshift-0.storage.localdomain overcloud-openshift-0.storage
+192.168.24.19 overcloud-openshift-0.storagemgmt.localdomain overcloud-openshift-0.storagemgmt
+192.168.24.19 overcloud-openshift-0.tenant.localdomain overcloud-openshift-0.tenant
+192.168.24.19 overcloud-openshift-0.management.localdomain overcloud-openshift-0.management
+192.168.24.19 overcloud-openshift-0.ctlplane.localdomain overcloud-openshift-0.ctlplane
+192.168.24.10 overcloud-openshift-1.localdomain overcloud-openshift-1
+192.168.24.10 overcloud-openshift-1.external.localdomain overcloud-openshift-1.external
+192.168.24.10 overcloud-openshift-1.internalapi.localdomain overcloud-openshift-1.internalapi
+192.168.24.10 overcloud-openshift-1.storage.localdomain overcloud-openshift-1.storage
+192.168.24.10 overcloud-openshift-1.storagemgmt.localdomain overcloud-openshift-1.storagemgmt
+192.168.24.10 overcloud-openshift-1.tenant.localdomain overcloud-openshift-1.tenant
+192.168.24.10 overcloud-openshift-1.management.localdomain overcloud-openshift-1.management
+192.168.24.10 overcloud-openshift-1.ctlplane.localdomain overcloud-openshift-1.ctlplane
+192.168.24.14 overcloud-openshift-2.localdomain overcloud-openshift-2
+192.168.24.14 overcloud-openshift-2.external.localdomain overcloud-openshift-2.external
+192.168.24.14 overcloud-openshift-2.internalapi.localdomain overcloud-openshift-2.internalapi
+192.168.24.14 overcloud-openshift-2.storage.localdomain overcloud-openshift-2.storage
+192.168.24.14 overcloud-openshift-2.storagemgmt.localdomain overcloud-openshift-2.storagemgmt
+192.168.24.14 overcloud-openshift-2.tenant.localdomain overcloud-openshift-2.tenant
+192.168.24.14 overcloud-openshift-2.management.localdomain overcloud-openshift-2.management
+192.168.24.14 overcloud-openshift-2.ctlplane.localdomain overcloud-openshift-2.ctlplane
+
+192.168.24.13  overcloud.localdomain
+192.168.24.13  overcloud.ctlplane.localdomain
+192.168.24.13  overcloud.internalapi.localdomain
+192.168.24.13  overcloud.storage.localdomain
+192.168.24.13  overcloud.storagemgmt.localdomain

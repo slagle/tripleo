@@ -1,0 +1,71 @@
+#!/bin/bash
+
+set -eux
+
+STACK_NAME=${STACK_NAME:-"overcloud-services"}
+UPDATE=${UPDATE:-"0"}
+DO_NETWORK=${DO_NETWORK:-"1"}
+HEATCLIENT=${HEATCLIENT:-"0"}
+STACK_OP=${STACK_OP:-"create"}
+TEMPLATES=${TEMPLATES:-"tripleo-heat-templates"}
+ROLES_DATA=${ROLES_DATA:-"$(realpath services-roles-data.yaml)"}
+
+ENVIRONMENTS=${ENVIRONMENTS:-""}
+ENVIRONMENTS="$ENVIRONMENTS -e $TEMPLATES/overcloud-resource-registry-puppet.yaml"
+ENVIRONMENTS="$ENVIRONMENTS -e $TEMPLATES/environments/puppet-pacemaker.yaml"
+ENVIRONMENTS="$ENVIRONMENTS -e $TEMPLATES/environments/puppet-ceph.yaml"
+ENVIRONMENTS="$ENVIRONMENTS -e $TEMPLATES/environments/enable-swap.yaml"
+ENVIRONMENTS="$ENVIRONMENTS -e $TEMPLATES/environments/deployed-server-environment.yaml"
+ENVIRONMENTS="$ENVIRONMENTS -e $TEMPLATES/environments/deployed-server-pacemaker-environment.yaml"
+ENVIRONMENTS="$ENVIRONMENTS -e overcloud-services.yaml"
+ENVIRONMENTS="$ENVIRONMENTS -e deployed-server-environment-output.json"
+ENVIRONMENTS="$ENVIRONMENTS -e network-isolation.yaml"
+ENVIRONMENTS="$ENVIRONMENTS -e role-counts.yaml"
+ENVIRONMENTS="$ENVIRONMENTS -e network-environment.yaml"
+ENVIRONMENTS="$ENVIRONMENTS -e ntp-environment.yaml"
+
+if [ "$UPDATE" = "1" ]; then
+	STACK_OP="update"
+fi
+
+# sudo systemctl restart openstack-zaqar@1 openstack-mistral-*
+
+find tripleo-heat-templates | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
+
+if [ "$DO_NETWORK" = "1" ]; then
+        openstack stack output show overcloud-baremetal DeployedServerEnvironment -f value -c output_value > deployed-server-environment-output.json
+fi
+
+if [ "$HEATCLIENT" = "0" ]; then
+
+        if [ "$UPDATE" = "0" ]; then
+                if mistral environment-get $STACK_NAME; then
+                    mistral environment-delete $STACK_NAME
+                fi
+
+                if swift stat $STACK_NAME; then
+                    swift delete $STACK_NAME
+                fi
+
+                if swift stat ${STACK_NAME}-swift-rings; then
+                    swift delete ${STACK_NAME}-swift-rings
+                fi
+        fi
+
+	time openstack overcloud deploy \
+		--stack $STACK_NAME \
+		--disable-validations \
+		--templates $TEMPLATES \
+		-r $ROLES_DATA \
+		$ENVIRONMENTS
+else
+	pushd $TEMPLATES
+	tools/process-templates.py -r $ROLES_DATA
+	popd
+
+	openstack stack $STACK_OP \
+		$STACK_NAME \
+		--wait \
+		--template $TEMPLATES/overcloud.yaml \
+		$ENVIRONMENTS
+fi
