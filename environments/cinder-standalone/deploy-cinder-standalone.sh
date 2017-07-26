@@ -13,6 +13,7 @@ export ENVIRONMENTS="\
     -e $TEMPLATES/environments/undercloud.yaml \
     -e $TEMPLATES/environments/docker-centos-tripleoupstream.yaml \
     -e $TEMPLATES/environments/docker.yaml \
+    -e ../passwords.yaml \
     -e $dir/cinder-standalone.yaml"
 
 deploy.sh
