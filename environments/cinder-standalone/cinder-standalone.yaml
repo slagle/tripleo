@@ -1,0 +1,11 @@
+parameter_defaults:
+  UndercloudServices:
+    - OS::TripleO::Services::MySQL
+    - OS::TripleO::Services::Apache
+    - OS::TripleO::Services::RabbitMQ
+    - OS::TripleO::Services::CinderApi
+    - OS::TripleO::Services::CinderScheduler
+    - OS::TripleO::Services::CinderVolume
+
+  UndercloudExtraConfig:
+    cinder::api::auth_strategy: noauth
