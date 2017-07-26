@@ -1,8 +1,8 @@
 resource_registry:
-  OS::TripleO::Services::CinderApi: ../docker/services/cinder-api.yaml
-  OS::TripleO::Services::CinderScheduler: ../docker/services/cinder-scheduler.yaml
-  OS::TripleO::Services::CinderBackup: ../docker/services/cinder-backup.yaml
-  OS::TripleO::Services::CinderVolume: ../docker/services/cinder-volume.yaml
+  OS::TripleO::Services::CinderApi: tripleo-heat-templates/docker/services/cinder-api.yaml
+  OS::TripleO::Services::CinderScheduler: tripleo-heat-templates/docker/services/cinder-scheduler.yaml
+  OS::TripleO::Services::CinderBackup: tripleo-heat-templates/docker/services/cinder-backup.yaml
+  OS::TripleO::Services::CinderVolume: tripleo-heat-templates/docker/services/cinder-volume.yaml
 
 parameter_defaults:
   UndercloudServices:
