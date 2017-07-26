@@ -1,0 +1,10 @@
+parameter_defaults:
+  HostnameMap:
+    cinder-standalone-undercloud-0: cinder-standalone-pump
+  DeployedServerPortMap:
+    cinder-standalone-pump-ctlplane:
+      fixed_ips: 192.168.0.14
+      subnets: 192.168.0.0/24
+    control_virtual_ip:
+      fixed_ips: 192.168.0.14
+      subnets: 192.168.0.0/24
