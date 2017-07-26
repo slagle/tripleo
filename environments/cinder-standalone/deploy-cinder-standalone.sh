@@ -14,6 +14,7 @@ export ENVIRONMENTS="\
     -e $TEMPLATES/environments/docker-centos-tripleoupstream.yaml \
     -e $TEMPLATES/environments/docker.yaml \
     -e $dir/../passwords.yaml \
+    -e $TEMPLATES/environments/deployed-server-noop-ctlplane.yaml \
     -e $dir/cinder-standalone.yaml"
 
 deploy.sh
