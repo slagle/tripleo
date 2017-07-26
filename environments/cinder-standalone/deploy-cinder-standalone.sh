@@ -9,6 +9,7 @@ export COMMON_ENVIRONMENTS=0
 dir=$(dirname $0)
 
 export ENVIRONMENTS="\
+    -e $TEMPLATES/overcloud-resource-registry-puppet.yaml \
     -e $TEMPLATES/environments/docker.yaml \
     -e $dir/cinder-standalone.yaml"
 
