@@ -4,6 +4,7 @@ set -eux
 
 STACK_NAME=${STACK_NAME:-"overcloud"}
 UPDATE=${UPDATE:-"0"}
+CLEANUP=${CLEANUP:-"0"}
 HEATCLIENT=${HEATCLIENT:-"0"}
 STACK_OP=${STACK_OP:-"create"}
 EXISTING=${EXISTING:-""}
@@ -28,7 +29,7 @@ find tripleo-heat-templates | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
 
 if [ "$HEATCLIENT" = "0" ]; then
 
-        if [ "$UPDATE" = "0" ]; then
+        if [ "$CLEANUP" = "1" -a "$UPDATE" = "0" ]; then
                 if mistral environment-get $STACK_NAME; then
                     mistral environment-delete $STACK_NAME
                 fi
@@ -44,8 +45,6 @@ if [ "$HEATCLIENT" = "0" ]; then
 
 	time openstack overcloud deploy \
 		--stack $STACK_NAME \
-		--skip-deploy-identifier \
-		--disable-validations \
 		--templates $TEMPLATES \
 		-r $ROLES_DATA \
 		$ENVIRONMENTS \
