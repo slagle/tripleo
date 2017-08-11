@@ -7,7 +7,7 @@ UPDATE=${UPDATE:-"0"}
 CLEANUP=${CLEANUP:-"0"}
 HEATCLIENT=${HEATCLIENT:-"0"}
 STACK_OP=${STACK_OP:-"create"}
-EXISTING=${EXISTING:-""}
+EXISTING=${EXISTING:-"--existing"}
 TEMPLATES=${TEMPLATES:-"tripleo-heat-templates"}
 ROLES_DATA=${ROLES_DATA:-"$(realpath roles_data.yaml)"}
 COMMON_ENVIRONMENTS=${COMMON_ENVIRONMENTS:-"1"}
@@ -20,8 +20,8 @@ fi
 
 if [ "$UPDATE" = "1" ]; then
 	STACK_OP="update"
-    if [ ! "$EXISTING" = "0" ]; then
-        EXISTING="--existing"
+    if [ "$EXISTING" = "0" ]; then
+        EXISTING=""
     fi
 fi
 
