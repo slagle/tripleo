@@ -1,0 +1,4 @@
+parameter_defaults:
+  DnsServers:
+    - 192.168.122.1
+  NtpServer: clock.redhat.com
