@@ -2,18 +2,18 @@
 
 set -eux
 
-export TEMPLATES="/home/centos/tripleo-heat-templates"
+export TEMPLATES="$HOME/tripleo-heat-templates"
 export ENVIRONMENTS="\
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
-  -e /home/centos/containers/role-counts.yaml \
-  -e /home/centos/containers/network-environment.yaml \
   -e $TEMPLATES/environments/docker.yaml \
   -e $TEMPLATES/environments/docker-ha.yaml \
-  -e /home/centos/containers/container-env-images.yaml \
-  -e /home/centos/containers/containers-environment.yaml \
-  -e /home/centos/deployment-swift-data-map.yaml \
+  -e $HOME/tripleo/environments/containers-split-stack/role-counts.yaml \
+  -e $HOME/tripleo/environments/containers-split-stack/network-environment.yaml \
+  -e $HOME/tripleo/environments/containers-split-stack/container-env-images.yaml \
+  -e $HOME/tripleo/environments/containers-split-stack/containers-environment.yaml \
+  -e $HOME/tripleo/environments/containers-split-stack/deployment-swift-data-map.yaml \
 "
-export ROLES_DATA="/home/centos/containers/roles_data.yaml"
+export ROLES_DATA="$HOME/tripleo/environments/containers-split-stack/roles_data.yaml"
 
-/home/centos/tripleo/scripts/deploy.sh $@
+$HOME/tripleo/scripts/deploy.sh $@

@@ -19,7 +19,7 @@ if [ "$COMMON_ENVIRONMENTS" = "1" ]; then
 fi
 
 if [ "$UPDATE" = "1" ]; then
-	STACK_OP="update"
+        STACK_OP="update"
     if [ "$EXISTING" = "0" ]; then
         EXISTING=""
     fi
@@ -43,22 +43,24 @@ if [ "$HEATCLIENT" = "0" ]; then
                 fi
         fi
 
-	time openstack overcloud deploy \
-		--stack $STACK_NAME \
-		--templates $TEMPLATES \
-		-r $ROLES_DATA \
-		$ENVIRONMENTS \
+        time openstack overcloud deploy \
+                --stack $STACK_NAME \
+                --templates $TEMPLATES \
+                -r $ROLES_DATA \
+                $ENVIRONMENTS \
         $@
 else
-	pushd $TEMPLATES
-	tools/process-templates.py -r $ROLES_DATA
-	popd
+        pushd $TEMPLATES
+        tools/process-templates.py -r $ROLES_DATA
+        popd
 
-	time openstack stack $STACK_OP \
-		$STACK_NAME \
-        $EXISTING \
-		--wait \
-		--template $TEMPLATES/overcloud.yaml \
-		$ENVIRONMENTS \
-        $@
+        time openstack stack $STACK_OP \
+            $STACK_NAME \
+            $EXISTING \
+            --wait \
+            --template $TEMPLATES/overcloud.yaml \
+            $ENVIRONMENTS \
+            $@
+
 fi
+
