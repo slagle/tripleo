@@ -9,7 +9,7 @@ HEATCLIENT=${HEATCLIENT:-"0"}
 STACK_OP=${STACK_OP:-"create"}
 EXISTING=${EXISTING:-"--existing"}
 TEMPLATES=${TEMPLATES:-"tripleo-heat-templates"}
-ROLES_DATA=${ROLES_DATA:-"$(realpath roles_data.yaml)"}
+ROLES_DATA=${ROLES_DATA:-"$(realpath $TEMPLATES/roles_data.yaml)"}
 COMMON_ENVIRONMENTS=${COMMON_ENVIRONMENTS:-"1"}
 ENVIRONMENTS=${ENVIRONMENTS:-""}
 
