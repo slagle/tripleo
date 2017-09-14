@@ -14,8 +14,8 @@ COMMON_ENVIRONMENTS=${COMMON_ENVIRONMENTS:-"1"}
 ENVIRONMENTS=${ENVIRONMENTS:-""}
 
 if [ "$COMMON_ENVIRONMENTS" = "1" ]; then
-    ENVIRONMENTS="-e $TEMPLATES/overcloud-resource-registry-puppet.yaml $ENVIRONMENTS"
     ENVIRONMENTS="-e $TEMPLATES/environments/puppet-pacemaker.yaml $ENVIRONMENTS"
+    ENVIRONMENTS="-e $TEMPLATES/overcloud-resource-registry-puppet.yaml $ENVIRONMENTS"
 fi
 
 if [ "$UPDATE" = "1" ]; then
