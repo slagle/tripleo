@@ -25,7 +25,7 @@ if [ "$UPDATE" = "1" ]; then
     fi
 fi
 
-find tripleo-heat-templates | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
+find $TEMPLATES | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
 
 if [ "$HEATCLIENT" = "0" ]; then
 
