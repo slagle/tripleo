@@ -133,6 +133,13 @@ function uninstall-undercloud {
     set +x
 }
 
+function pcs-boostrap {
+    sudo systemctl stop pcsd pacemaker corosync
+    sudo rm -rf /var/lib/pcsd/*
+    pcs cluster auth $(hostname-s) -u hacluster -p hiera -c /etc/puppet/hiera.yaml hacluster_pwd --force --debug
+    sudo pcs cluster setup --wait --name tripleo_cluster $(hostname-s) --token 10000 --encryption 1 --force
+}
+
 function pcs-reset {
     set -x
     sudo pcs cluster stop --force
@@ -235,7 +242,7 @@ EOF
 }
 
 function mistral-reset {
-    set -ex
+    set -x
     for workbook in $(mistral workbook-list | grep tripleo | cut -f 2 -d ' '); do
         mistral workbook-delete $workbook
     done
@@ -248,7 +255,7 @@ function mistral-reset {
 
     sudo systemctl restart openstack-mistral-*
     sudo mistral-db-sync --config-file /etc/mistral/mistral.conf
-    set +ex
+    set +x
 }
 
 function swift-delete-all {
