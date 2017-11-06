@@ -295,6 +295,12 @@ function consistent {
     export DELOREAN_REPO_URL="https://trunk.rdoproject.org/centos7/consistent/"
 }
 
+function deployed-server-metadata-url {
+	for s in $(openstack stack resource list -n 4 --filter name=deployed-server overcloud -c stack_name -f value | sort); do
+		echo $s; openstack stack resource metadata $s deployed-server | jq '.["os-collect-config"].request.metadata_url';
+	done
+}
+
 export TRIPLEO_ROOT=$HOME/tripleo-root
 
 [ -e stackrc ] && source stackrc
