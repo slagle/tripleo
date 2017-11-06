@@ -12,5 +12,5 @@ fi
 execution_id=$(ls -tr /var/lib/mistral | head -n 1)
 
 pushd /var/lib/mistral/$execution_id
-sudo ansible-playbook --inventory tripleo-ansible-inventory --private-key $SSH_KEY --user tripleo-admin deploy_steps_playbook.yaml
+sudo ansible-playbook --inventory tripleo-ansible-inventory --private-key $SSH_KEY --user tripleo-admin --become -v deploy_steps_playbook.yaml &@
 popd
