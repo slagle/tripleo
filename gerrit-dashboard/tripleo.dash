@@ -7,6 +7,11 @@ foreach = (project:openstack/tripleo-incubator OR
     project:openstack/tripleo-puppet-elements OR
     project:openstack/tripleo-specs OR
     project:openstack/tripleo-common OR
+    project:openstack/tripleo-repos OR
+    project:openstack/tripleo-quickstart OR
+    project:openstack/tripleo-quickstart-extras OR
+    project:openstack/tripleo-common-tempest-plugin OR
+    project:openstack/tripleo-validations OR
     project:openstack/os-apply-config OR
     project:openstack/os-collect-config OR
     project:openstack/os-refresh-config OR
@@ -27,16 +32,16 @@ query = owner:self (label:Verified-1,jenkins OR label:Code-Review-1)
 query = reviewer:self NOT owner:self NOT (label:Code-Review+2,self OR label:Code-Review+1,self OR label:Code-Review-1,self OR label:Code-Review-2,self)
 
 [section "Never reviewed patches with no negative feedback"]
-query = NOT reviewer:self NOT label:Code-Review-1 limit:25 NOT owner:self NOT label:Workflow+1 NOT label:Workflow-1
+query = NOT reviewer:self NOT label:Code-Review-2 NOT label:Code-Review-1 NOT owner:self NOT label:Workflow+1 NOT label:Workflow-1 limit:25
 
 [section "Needs Approval"]
-query = label:Verified>=1,jenkins NOT owner:self label:Code-Review>=2 NOT label:Code-Review-1 NOT label:Code-Review>=1,self
+query = label:Verified>=1,jenkins NOT owner:self label:Code-Review>=2 NOT label:Code-Review-1 NOT label:Code-Review>=1,self limit:25
 
 # [section "5 Days Without Feedback"]
 # query = label:Verified>=1,jenkins NOT owner:self NOT project:openstack/tripleo-specs NOT label:Code-Review<=2 age:5d
 
 # [section "No Negative Feedback"]
-# query = label:Verified>=1,jenkins NOT owner:self NOT project:openstack/tripleo-specs NOT label:Code-Review<=-1 NOT label:Code-Review>=2 limit:25
+# query = label:Verified>=1,jenkins NOT owner:self NOT project:openstack/tripleo-specs NOT label:Code-Review<=-1 NOT label:Code-Review>=2 
 
 [section "instack/instack-undercloud"]
 query = NOT owner:self (project:openstack/instack-undercloud OR project:openstack/instack)
