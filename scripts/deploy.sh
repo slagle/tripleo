@@ -36,11 +36,11 @@ if [ "$HEATCLIENT" = "0" ]; then
                 fi
 
                 if swift stat $STACK_NAME; then
-                    swift delete $STACK_NAME
+                    openstack container delete -r $STACK_NAME
                 fi
 
                 if swift stat ${STACK_NAME}-swift-rings; then
-                    swift delete ${STACK_NAME}-swift-rings
+                    openstack container delete -r ${STACK_NAME}-swift-rings
                 fi
         fi
 
