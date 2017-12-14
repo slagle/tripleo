@@ -35,11 +35,11 @@ if [ "$HEATCLIENT" = "0" ]; then
                     mistral environment-delete $STACK_NAME
                 fi
 
-                if swift stat $STACK_NAME; then
+                if openstack container show $STACK_NAME; then
                     openstack container delete -r $STACK_NAME
                 fi
 
-                if swift stat ${STACK_NAME}-swift-rings; then
+                if openstack container show ${STACK_NAME}-swift-rings; then
                     openstack container delete -r ${STACK_NAME}-swift-rings
                 fi
         fi
