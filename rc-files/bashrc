@@ -133,7 +133,7 @@ function uninstall-undercloud {
     set +x
 }
 
-function pcs-boostrap {
+function pcs-bootstrap {
     sudo systemctl stop pcsd pacemaker corosync
     sudo rm -rf /var/lib/pcsd/*
     sudo systemctl start pcsd
