@@ -1,0 +1,48 @@
+#!/bin/bash
+
+set -eux
+
+export USER=${USER:-$(whoami)}
+export REMOTE_USER=${1:-$(whoami)}
+export HOST=${2:-$(hostname)}
+
+pushd $HOME
+
+function ssh_error {
+    echo "ssh as root failed. Make sure you can ssh as root to $HOST without being prompted for a password"
+    exit 1
+}
+
+ssh \
+    -o StrictHostKeyChecking=no \
+    -o PasswordAuthentication=no \
+    root@$HOST /bin/echo "ssh as root successful" \
+    || ssh_error
+
+rpm -q git || sudo yum -y install git
+
+[ -d tripleo-quickstart ] || \
+    git clone https://git.openstack.org/openstack/tripleo-quickstart
+
+rm -rf .quickstart/ansible_facts_cache
+
+tripleo-quickstart/quickstart.sh \
+    --install-deps
+
+tripleo-quickstart/quickstart.sh \
+    -R master \
+    --no-clone \
+    --tags all \
+    --skip-tags teardown-provision,teardown-all \
+    --nodes tripleo-quickstart/config/nodes/3ctlr_3comp.yml \
+    -p quickstart.yml \
+    --bootstrap \
+    -e non_root_user=$REMOTE_USER \
+    -e ssh_user=$USER \
+    -e working_dir=/home/$REMOTE_USER \
+    -e local_working_dir=$HOME/.quickstart \
+    $HOST
+
+popd
+
+
