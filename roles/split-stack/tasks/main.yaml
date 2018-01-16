@@ -12,6 +12,13 @@
     openstack object store account show -f value -c properties | cut -d= -f2
   register: swift_tempurl_key
 
+- name: Get Swift endpoint
+  delegate_to: localhost
+  shell: |
+    source ~/stackrc
+    openstack endpoint list --service swift --interface public -f value -c URL | awk -F'v1' '{print $1}'
+  register: swift_endpoint
+
 - name: Generate Swift temporary metadata url
   delegate_to: localhost
   shell: |
@@ -19,12 +26,9 @@
     OS_AUTH_URL=${OS_AUTH_URL}/v3 swift tempurl GET {{ swift_tempurl_ttl }} /v1/{{ swift_account_auth.stdout }}/{{ swift_container_name }}/{{ inventory_hostname }} {{ swift_tempurl_key.stdout }}
   register: swift_metadata_url
 
-- name: Get Swift endpoint
-  delegate_to: localhost
-  shell: |
-    source ~/stackrc
-    openstack endpoint list --service swift --interface public -f value -c URL | awk -F'v1' '{print $1}'
-  register: swift_endpoint
+- name: Set temporary metadata url fact
+  set_fact:
+    temporary_metadata_url: "{{ swift_endpoint.stdout + swift_metadata_url.stdout }}"
 
 - name: Install openstack-heat-agents
   become: true

@@ -1,3 +1,9 @@
 - hosts: all
   roles:
     - split-stack
+  tasks:
+    - name: Generate deployment-swift-data-map.yaml environment
+      delegate_to: localhost
+      template:
+        src: ../roles/split-stack/templates/deployment-swift-data-map.yaml.j2
+        dest: ~/deployment-swift-data-map.yaml

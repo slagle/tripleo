@@ -1,0 +1,7 @@
+parameter_defaults:
+  DeploymentSwiftDataMap:
+{% for host in groups['all'] %}
+    {{ host }}:
+      conatiner: {{ swift_container_name }}
+      object: {{ host }}
+{% endfor %}
