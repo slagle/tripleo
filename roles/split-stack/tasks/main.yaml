@@ -1,37 +1,51 @@
 - name: Get Swift Account AUTH
-  delegate_to: local
-  command: |
-    source ~/stackrc && openstack object store account show -f value -c Account
+  delegate_to: localhost
+  shell: |
+    source ~/stackrc
+    openstack object store account show -f value -c Account
   register: swift_account_auth
 
 - name: Get Swift Temp URL Key
-  delegate_to: local
-  command: |
-    source ~/stackrc && openstack object store account show -f value -c properties | cut -d= -f2
+  delegate_to: localhost
+  shell: |
+    source ~/stackrc
+    openstack object store account show -f value -c properties | cut -d= -f2
   register: swift_tempurl_key
 
 - name: Generate Swift temporary metadata url
-  delegate_to: local
-  command: |
-    source ~/stackrc && OS_AUTH_URL=${OS_AUTH_URL}/v3 swift tempurl GET {{ swift_tempurl_ttl }} /v1/{{ swift_account_auth.stdout }}/{{ swift_container_name }}/{{ inventory_hostname }} {{ swift_tempurl_key.stdout }}
+  delegate_to: localhost
+  shell: |
+    source ~/stackrc
+    OS_AUTH_URL=${OS_AUTH_URL}/v3 swift tempurl GET {{ swift_tempurl_ttl }} /v1/{{ swift_account_auth.stdout }}/{{ swift_container_name }}/{{ inventory_hostname }} {{ swift_tempurl_key.stdout }}
   register: swift_metadata_url
 
+- name: Get Swift endpoint
+  delegate_to: localhost
+  shell: |
+    source ~/stackrc
+    openstack endpoint list --service swift --interface public -f value -c URL | awk -F'v1' '{print $1}'
+  register: swift_endpoint
+
 - name: Install openstack-heat-agents
+  become: true
   package:
     name: openstack-heat-agents
     state: latest
 
 - name: Create /var/lib/os-collect-config/local-data directory
+  become: true
   file:
     path: /var/lib/os-collect-config/local-data
     state: directory
 
 - name: Configure os-collect-config
+  become: true
   template:
-    src: deployed-server.json.j2
+    src: templates/deployed-server.json.j2
     dest: /var/lib/os-collect-config/local-data/deployed-server.json
 
 - name: Restart os-collect-config
+  become: true
   service:
     name: os-collect-config
     enabled: yes
