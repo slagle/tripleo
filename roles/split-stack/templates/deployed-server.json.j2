@@ -2,7 +2,7 @@
   "os-collect-config": {
     "collectors": ["request", "local"],
     "request": {
-      "metadata_url": "{{ swift_metadata_url.stdout }}"
+      "metadata_url": "{{ swift_endpoint + swift_metadata_url.stdout }}"
     }
   }
 }
