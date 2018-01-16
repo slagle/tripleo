@@ -1,0 +1,2 @@
+swift_tempurl_ttl: 600000000
+swift_container_name: overcloud-deployment-metadata

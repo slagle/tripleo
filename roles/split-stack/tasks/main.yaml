@@ -1,0 +1,38 @@
+- name: Get Swift Account AUTH
+  delegate_to: local
+  command: |
+    source ~/stackrc && openstack object store account show -f value -c Account
+  register: swift_account_auth
+
+- name: Get Swift Temp URL Key
+  delegate_to: local
+  command: |
+    source ~/stackrc && openstack object store account show -f value -c properties | cut -d= -f2
+  register: swift_tempurl_key
+
+- name: Generate Swift temporary metadata url
+  delegate_to: local
+  command: |
+    source ~/stackrc && OS_AUTH_URL=${OS_AUTH_URL}/v3 swift tempurl GET {{ swift_tempurl_ttl }} /v1/{{ swift_account_auth.stdout }}/{{ swift_container_name }}/{{ inventory_hostname }} {{ swift_tempurl_key.stdout }}
+  register: swift_metadata_url
+
+- name: Install openstack-heat-agents
+  package:
+    name: openstack-heat-agents
+    state: latest
+
+- name: Create /var/lib/os-collect-config/local-data directory
+  file:
+    path: /var/lib/os-collect-config/local-data
+    state: directory
+
+- name: Configure os-collect-config
+  template:
+    src: deployed-server.json.j2
+    dest: /var/lib/os-collect-config/local-data/deployed-server.json
+
+- name: Restart os-collect-config
+  service:
+    name: os-collect-config
+    enabled: yes
+    state: restarted
