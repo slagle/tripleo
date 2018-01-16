@@ -34,5 +34,16 @@ for image in $NEW_IMAGES; do
     # --run-command "/root/tripleo/scripts/add-to-bashrc" \
     # --run-command "rhos-release 12 -p 2017-10-30.1" \
     # --run-command "yum -y install git python-heat-agent*" \
+
+    virt-install \
+        --name $image \
+        --memory 8192 \
+        --vcpus 1 \
+        --import --disk ceph1.qcow2,bus=virtio,cache=unsafe \
+        --network bridge=brext,model=virtio \
+        --network bridge=brovc,model=virtio \
+        --os-variant rhel7 \
+        --wait 0
+
 done
 

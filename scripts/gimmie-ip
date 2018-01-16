@@ -1,0 +1,29 @@
+#!/bin/bash
+
+function gimmieip {
+    domain=$1
+    macaddr=$(virsh domiflist $domain | grep default | awk '{print $5}')
+
+    if [ -n "$macaddr" ]; then
+        echo "MAC address $macaddr detected for $domain"
+    else
+        echo "No MAC address detected for $domain"
+        return
+    fi
+
+    ipaddr=$(ip n | grep $macaddr | awk '{print $1}' | tail -n 1)
+
+    if [ -n "$ipaddr" ]; then
+        echo "IP address $ipaddr detected for $domain"
+    else
+        echo "No IP address detected for $domain"
+        return
+    fi
+
+    sudo sed -i "/\s$domain$/d" /etc/hosts 2>&1 > /dev/null
+    echo -n "Writing $ipaddr for $domain to /etc/hosts..."
+    sudo /bin/bash -c "echo $ipaddr $domain >> /etc/hosts"
+    echo "Done."
+}
+
+gimmieip $1
