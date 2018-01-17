@@ -39,7 +39,7 @@ for image in $NEW_IMAGES; do
         --name $image \
         --memory 8192 \
         --vcpus 1 \
-        --import --disk ceph1.qcow2,bus=virtio,cache=unsafe \
+        --import --disk ${image}.qcow2,bus=virtio,cache=unsafe \
         --network bridge=brext,model=virtio \
         --network bridge=brovc,model=virtio \
         --os-variant rhel7 \
