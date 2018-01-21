@@ -139,6 +139,8 @@ function pcs-bootstrap {
     sudo systemctl start pcsd
     sudo pcs cluster auth $(hiera -c /etc/puppet/hiera.yaml pacemaker_short_node_names | jq -r .[]) -u hacluster -p $(hiera -c /etc/puppet/hiera.yaml hacluster_pwd) --force --debug
     sudo pcs cluster setup --wait --name tripleo_cluster $(hiera -c /etc/puppet/hiera.yaml pacemaker_short_node_names | jq -r .[]) --token 10000 --encryption 1 --force
+    # needed?
+    # sudo systemctl start pcsd pacemaker corosync
 }
 
 function pcs-reset {

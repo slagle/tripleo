@@ -16,7 +16,7 @@
   delegate_to: localhost
   shell: |
     source ~/stackrc
-    openstack endpoint list --service swift --interface public -f value -c URL | awk -F'v1' '{print $1}'
+    openstack endpoint list --service swift --interface public -f value -c URL | awk -F'/v1' '{print $1}'
   register: swift_endpoint
 
 - name: Generate Swift temporary metadata url
@@ -35,6 +35,23 @@
   package:
     name: openstack-heat-agents
     state: latest
+
+- name: Copy Undercloud CA
+  become: true
+  copy:
+    src: /etc/pki/ca-trust/source/anchors/cm-local-ca.pem
+    dest: /etc/pki/ca-trust/source/anchors/cm-local-ca.pem
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - undercloud-ca
+
+- name: Trust Undercloud CA
+  become: true
+  command: update-ca-trust extract
+  tags:
+    - undercloud-ca
 
 - name: Create /var/lib/os-collect-config/local-data directory
   become: true

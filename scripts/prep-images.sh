@@ -5,6 +5,9 @@ set -eux
 BASE_IMAGE=${BASE_IMAGE:-"rhel-guest-image-7.4-191.x86_64.qcow2"}
 NEW_IMAGES=${NEW_IMAGES:-"controller-0 compute-0"}
 KEY=${KEY:-"/home/stack/.ssh/id_rsa.pub"}
+MEMORY=${MEMORY:-"8192"}
+CPUS=${CPUS:-"1"}
+OS=${OS:-"rhel7"}
 
 for image in $NEW_IMAGES; do
   file=${image}.qcow2
@@ -37,12 +40,12 @@ for image in $NEW_IMAGES; do
 
     virt-install \
         --name $image \
-        --memory 8192 \
-        --vcpus 1 \
+        --memory $MEMORY \
+        --vcpus 1 $CPUS \
         --import --disk ${image}.qcow2,bus=virtio,cache=unsafe \
         --network bridge=brext,model=virtio \
         --network bridge=brovc,model=virtio \
-        --os-variant rhel7 \
+        --os-variant $OS \
         --wait 0
 
 done
