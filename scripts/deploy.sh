@@ -13,9 +13,10 @@ ROLES_DATA=${ROLES_DATA:-"$TEMPLATES/roles_data.yaml"}
 ROLES_DATA=$(realpath $ROLES_DATA)
 COMMON_ENVIRONMENTS=${COMMON_ENVIRONMENTS:-"1"}
 ENVIRONMENTS=${ENVIRONMENTS:-""}
+ARGS=${ARGS:-""}
 
 if [ "$COMMON_ENVIRONMENTS" = "1" ]; then
-    ENVIRONMENTS="-e $TEMPLATES/environments/puppet-pacemaker.yaml $ENVIRONMENTS"
+    # ENVIRONMENTS="-e $TEMPLATES/environments/puppet-pacemaker.yaml $ENVIRONMENTS"
     ENVIRONMENTS="-e $TEMPLATES/overcloud-resource-registry-puppet.yaml $ENVIRONMENTS"
     ENVIRONMENTS="-e $TEMPLATES/environments/docker-ha.yaml $ENVIRONMENTS"
 fi
@@ -46,9 +47,11 @@ if [ "$HEATCLIENT" = "0" ]; then
         fi
 
         time openstack overcloud deploy \
+                --verbose \
                 --stack $STACK_NAME \
                 --templates $TEMPLATES \
                 -r $ROLES_DATA \
+                $ARGS \
                 $ENVIRONMENTS \
         $@
 else
