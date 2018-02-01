@@ -1,0 +1,19 @@
+On deployed-server hosts:
+
+need to copy ssh key
+need to hostnamectl set-hostname new hostname
+need to fix /etc/hosts with new IP from ctlplane
+need to remove all entries from /etc/hosts
+need to comment out ipv6 address from /etc/hosts or else corosync fails to
+start: corosync: totemsrp.c:4723: main_iface_change_fn: corosync:
+totemsrp.c:4723: main_iface_change_fn: Assertion
+`instance->my_id.addr[iface_no].nodeid' failed.
+
+# See https://bugs.launchpad.net/tripleo/+bug/1539797
+cd /opt/stack/puppet-modules/concat
+git checkout f3de395019928ceaca479a830a9fa63909941736
+
+iptables -I INPUT 2 -p tcp --dport 5672 -j ACCEPT
+iptables -I INPUT 2 -p tcp  -j ACCEPT
+iptables -I INPUT 2 -p udp  -j ACCEPT
+
