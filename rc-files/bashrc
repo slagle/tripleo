@@ -304,6 +304,9 @@ function deployed-server-metadata-url {
 	done
 }
 
+# Use to fix "Message: Host 'undercloud' is not mapped to any cell, Code: 400"
+alias nova-discover-hosts="su nova -s /bin/bash -c '/usr/bin/nova-manage cell_v2 discover_hosts --verbose'"
+
 export TRIPLEO_ROOT=$HOME/tripleo-root
 
 [ -e stackrc ] && source stackrc
