@@ -17,9 +17,9 @@ ARGS=${ARGS:-""}
 
 if [ "$COMMON_ENVIRONMENTS" = "1" ]; then
     # ENVIRONMENTS="-e $TEMPLATES/environments/puppet-pacemaker.yaml $ENVIRONMENTS"
-    ENVIRONMENTS="-e $TEMPLATES/overcloud-resource-registry-puppet.yaml $ENVIRONMENTS"
-    ENVIRONMENTS="-e $TEMPLATES/environments/docker.yaml $ENVIRONMENTS"
-    ENVIRONMENTS="-e $TEMPLATES/environments/docker-ha.yaml $ENVIRONMENTS"
+    ENVIRONMENTS="$ENVIRONMENTS -e $TEMPLATES/overcloud-resource-registry-puppet.yaml"
+    ENVIRONMENTS="$ENVIRONMENTS -e $TEMPLATES/environments/docker.yaml"
+    ENVIRONMENTS="$ENVIRONMENTS -e $TEMPLATES/environments/docker-ha.yaml"
 fi
 
 if [ "$UPDATE" = "1" ]; then
