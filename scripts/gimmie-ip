@@ -1,8 +1,10 @@
 #!/bin/bash
 
+NETWORK=${1:-"default"}
+
 function gimmieip {
     domain=$1
-    macaddr=$(virsh domiflist $domain | grep default | awk '{print $5}')
+    macaddr=$(virsh domiflist $domain | grep ${NETWORK} | awk '{print $5}')
 
     if [ -n "$macaddr" ]; then
         echo "MAC address $macaddr detected for $domain"
