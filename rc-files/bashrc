@@ -135,12 +135,14 @@ function uninstall-undercloud {
 
 function pcs-bootstrap {
     sudo systemctl stop pcsd pacemaker corosync
-    sudo rm -rf /var/lib/pcsd/*
+    sudo rm -rf /var/lib/pcsd/* /etc/corosync/corosync.conf /etc/pacemaker/authkey
+    sudo hiera -c /etc/puppet/hiera.yaml tripleo::profile::base::pacemaker::remote_authkey > /etc/pacemaker/authkey
     sudo systemctl start pcsd
     sudo pcs cluster auth $(hiera -c /etc/puppet/hiera.yaml pacemaker_short_node_names | jq -r .[]) -u hacluster -p $(hiera -c /etc/puppet/hiera.yaml hacluster_pwd) --force --debug
     sudo pcs cluster setup --wait --name tripleo_cluster $(hiera -c /etc/puppet/hiera.yaml pacemaker_short_node_names | jq -r .[]) --token 10000 --encryption 1 --force
-    # needed?
-    # sudo systemctl start pcsd pacemaker corosync
+    sudo pcs cluster start --all
+    sudo pcs property set stonith-enabled=false
+    sudo pcs status
 }
 
 function pcs-reset {
@@ -149,6 +151,8 @@ function pcs-reset {
     sudo pcs cluster destroy
     sudo killall -9 mysqld
     sudo killall -9 epmd rabbitmq-server beam.smp
+    sudo systemctl stop pcsd pacemaker corosync
+    sudo rm -rf /var/lib/pcsd/* /etc/corosync/corosync.conf /etc/pacemaker/authkey
     set +x
 }
 
