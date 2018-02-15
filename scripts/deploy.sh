@@ -31,6 +31,10 @@ if [ "$UPDATE" = "1" ]; then
     fi
 fi
 
+if [ "$STACK_OP" = "create" ]; then
+    EXISTING=""
+fi
+
 find $TEMPLATES | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
 
 if [ "$HEATCLIENT" = "0" ]; then
