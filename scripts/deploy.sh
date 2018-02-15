@@ -33,6 +33,13 @@ fi
 
 if [ "$STACK_OP" = "create" ]; then
     EXISTING=""
+    ENVIRONMENTS="\
+        -e ~/tripleo/environments/stack-action-create.yaml \
+        $ENVIRONMENTS"
+else
+    ENVIRONMENTS="\
+        -e ~/tripleo/environments/stack-action-update.yaml \
+        $ENVIRONMENTS"
 fi
 
 find $TEMPLATES | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
