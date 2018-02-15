@@ -71,6 +71,7 @@ else
             $EXISTING \
             --wait \
             --template $TEMPLATES/overcloud.yaml \
+            --parameter StackAction=${STACK_OP^^}
             $ENVIRONMENTS \
             $@
 
