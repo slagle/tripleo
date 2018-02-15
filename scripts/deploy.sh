@@ -25,10 +25,8 @@ if [ "$COMMON_ENVIRONMENTS" = "1" ]; then
 fi
 
 if [ "$UPDATE" = "1" ]; then
-        STACK_OP="update"
-    if [ "$EXISTING" = "0" ]; then
-        EXISTING=""
-    fi
+    STACK_OP="update"
+    EXISTING="--existing"
 fi
 
 if [ "$STACK_OP" = "create" ]; then
