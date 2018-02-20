@@ -41,7 +41,7 @@ for image in $NEW_IMAGES; do
     virt-install \
         --name $image \
         --memory $MEMORY \
-        --vcpus 1 $CPUS \
+        --vcpus $CPUS \
         --import --disk ${image}.qcow2,bus=virtio,cache=unsafe \
         --network bridge=brext,model=virtio \
         --network bridge=brovc,model=virtio \
