@@ -1,0 +1,58 @@
+{
+  "parameter_defaults": {
+    "ControlPlaneDefaultRoute": "192.168.24.1",
+    "NeutronPublicInterface": "nic2",
+    "HostnameMap": {
+      "deep-dive-controller-0": "controller-0",
+      "deep-dive-controller-1": "controller-1",
+      "deep-dive-controller-2": "controller-2",
+      "deep-dive-compute-0": "compute-0"
+    },
+    "DeployedServerPortMap": {
+      "controller-0-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.30.10"
+          }
+        ]
+      },
+      "controller-1-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.30.11"
+          }
+        ]
+      },
+      "controller-2-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.30.12"
+          }
+        ]
+      },
+      "compute-0-ctlplane": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.30.13"
+          }
+        ]
+      },
+      "redis_virtual_ip": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.30.9"
+          }
+        ]
+      },
+      "control_virtual_ip": {
+        "fixed_ips": [
+          {
+            "ip_address": "192.168.30.8"
+          }
+        ]
+      }
+    },
+    "EC2MetadataIp": "192.168.24.1"
+  }
+}
+

@@ -1,0 +1,15 @@
+export ROLES_DATA=deep-dive-roles_data.yaml
+export ENVIRONMENTS="\
+  -e tripleo-heat-templates/environments/config-download-environment.yaml \
+  -e tripleo-heat-templates/environments/deployed-server-environment.yaml \
+  -e tripleo-heat-templates/environments/deployed-server-noop-ctlplane.yaml \
+  -e tripleo-heat-templates/environments/deployed-server-deployed-neutron-ports.yaml \
+  -e tripleo-heat-templates/environments/deployed-server-bootstrap-environment-centos.yaml \
+  -e deep-dive-environment.yaml \
+  -e containers.yaml \
+"
+
+export STACK_NAME="deep-dive"
+export ARGS="\
+  --disable-validations \
+
