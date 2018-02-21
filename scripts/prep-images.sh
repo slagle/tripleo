@@ -27,6 +27,7 @@ for image in $NEW_IMAGES; do
     --run-command "useradd -G wheel stack" \
     --run-command "sed -i 's/# %wheel/%wheel/g' /etc/sudoers" \
     --run-command "systemctl disable cloud-init cloud-config cloud-final cloud-init-local" \
+    --run-command "xfs_growfs /" \
     --ssh-inject root:string:"$(cat $KEY)" \
     --ssh-inject stack:string:"$(cat $KEY)" \
     --password stack:password:stack \
