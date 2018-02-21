@@ -12,4 +12,4 @@ export ENVIRONMENTS="\
 export STACK_NAME="deep-dive"
 export ARGS="\
   --disable-validations \
-
+"
