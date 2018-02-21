@@ -32,11 +32,11 @@ fi
 if [ "$STACK_OP" = "create" ]; then
     EXISTING=""
     ENVIRONMENTS="\
-        -e tripleo/environments/stack-action-create.yaml \
+        -e $HOME/tripleo/environments/stack-action-create.yaml \
         $ENVIRONMENTS"
 else
     ENVIRONMENTS="\
-        -e tripleo/environments/stack-action-update.yaml \
+        -e $HOME/tripleo/environments/stack-action-update.yaml \
         $ENVIRONMENTS"
 fi
 
