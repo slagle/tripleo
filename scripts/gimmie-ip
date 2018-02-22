@@ -12,7 +12,7 @@ function gimmieip {
         echo "No MAC address detected for $DOMAIN on $NETWORK"
         echo "Trying network brext..."
         macaddr=$(virsh domiflist $DOMAIN | grep brext | awk '{print $5}')
-        if [ -n "$macaddr" ]; then
+        if [ -z "$macaddr" ]; then
             echo "MAC address still not found."
             return
         fi
