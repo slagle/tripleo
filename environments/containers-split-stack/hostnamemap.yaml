@@ -1,0 +1,4 @@
+parameter_defaults:
+  HostnameMap:
+    overcloud-controller0: cont-0
+    overcloud-novacompute-0: comp-0
