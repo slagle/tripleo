@@ -1,3 +1,4 @@
 parameter_defaults:
   NeutronPublicInterface: nic2
   EC2MetadataIp: 192.168.24.1
+  ControlPlaneDefaultRoute: 192.168.24.1
