@@ -3,5 +3,7 @@
 set -eux
 
 cd $HOME/tripleo
-git pull --rebase --autostash
+git stash save
+git pull --rebase
+git stash pop
 cd -
