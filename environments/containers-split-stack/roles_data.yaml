@@ -28,7 +28,6 @@
     - OS::TripleO::Services::CinderVolume
     - OS::TripleO::Services::Clustercheck
     - OS::TripleO::Services::Docker
-    - OS::TripleO::Services::ExternalSwiftProxy
     - OS::TripleO::Services::GlanceApi
     - OS::TripleO::Services::HAproxy
     - OS::TripleO::Services::HeatApi
@@ -67,8 +66,6 @@
     - OS::TripleO::Services::Securetty
     - OS::TripleO::Services::Snmp
     - OS::TripleO::Services::Sshd
-    - OS::TripleO::Services::SwiftProxy
-    - OS::TripleO::Services::SwiftStorage
     - OS::TripleO::Services::Timezone
     - OS::TripleO::Services::TripleoFirewall
     - OS::TripleO::Services::TripleoPackages

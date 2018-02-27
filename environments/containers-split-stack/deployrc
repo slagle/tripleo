@@ -8,6 +8,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/containers-tripleomaster-current-tripleo.yaml \
   -e $HOME/tripleo/environments/containers-split-stack/containers-environment.yaml \
   -e $HOME/tripleo/environments/containers-split-stack/hostnamemap.yaml \
+  -e $HOME/tripleo/environments/glance-backend-file.yaml \
 "
 export ROLES_DATA="$HOME/tripleo/environments/containers-split-stack/roles_data.yaml"
 export ARGS="\
