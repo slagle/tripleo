@@ -1,3 +1,5 @@
+# vim: set nonu:
+
 alias hrl='openstack stack resource list'
 alias hrlip='openstack stack resource list -n 5 --filter status=IN_PROGRESS -c resource_name -c updated_time overcloud'
 alias hrs='openstack stack resource show'
