@@ -1,5 +1,5 @@
 resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: /home/stack/tripleo-heat-templates/net-config-static-bridge.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: ../../../home/stack/tripleo-heat-templates/net-config-static-bridge.yaml
 parameter_defaults:
   NeutronPublicInterface: nic2
   EC2MetadataIp: 192.168.24.1
