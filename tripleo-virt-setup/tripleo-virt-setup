@@ -36,7 +36,7 @@ tripleo-quickstart/quickstart.sh \
     --skip-tags teardown-provision,teardown-all \
     --nodes tripleo-quickstart/config/nodes/3ctlr_3comp.yml \
     -p quickstart.yml \
-    -E config/environments/dev_privileged_libvirt.yml \
+    -E tripleo-quickstart/config/environments/dev_privileged_libvirt.yml \
     --bootstrap \
     -e non_root_user=$REMOTE_USER \
     -e ssh_user=$USER \
