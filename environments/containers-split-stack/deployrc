@@ -13,5 +13,4 @@ export ENVIRONMENTS="\
 export ROLES_DATA="$HOME/tripleo/environments/containers-split-stack/roles_data.yaml"
 export ARGS="\
   --disable-validations \
-  --config-download
 "
