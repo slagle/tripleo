@@ -8,5 +8,5 @@ jq '.["nodes"][] | "sudo vbmc add --username " + ."pm_user" + " --password " + .
 
 set +x
 for node in $(sudo vbmc list | grep down | awk '{print $2}'); do
-  echo vbmc start $node
+  echo sudo vbmc start $node
 done
