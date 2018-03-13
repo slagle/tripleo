@@ -9,6 +9,10 @@ MEMORY=${MEMORY:-"8192"}
 CPUS=${CPUS:-"1"}
 OS=${OS:-"rhel7"}
 
+if [[ "$BASE_IMAGE" =~ "Centos" ]]; then
+    OS="centos7.0"
+fi
+
 for image in $NEW_IMAGES; do
   file=${image}.qcow2
   if [ -f $file ]; then
