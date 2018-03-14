@@ -8,7 +8,7 @@ jq '.["nodes"][] | "sudo vbmc add --username " + ."pm_user" + " --password " + .
 
 echo
 
-jq '.["nodes"][] | "sudo vbmc add --username " + ."pm_user" + " --password " + ."pm_password" + " --port " + ."pm_port" + " --address " + ."pm_addr" + " --libvirt-uri \"qemu:///session\" " + (."name"|sub("-";"_"))' $file -r
+jq '.["nodes"][] | "vbmc add --username " + ."pm_user" + " --password " + ."pm_password" + " --port " + ."pm_port" + " --address " + ."pm_addr" + " --libvirt-uri \"qemu:///session\" " + (."name"|sub("-";"_"))' $file -r
 
 set +x
 for node in $(sudo vbmc list | grep down | awk '{print $2}'); do
