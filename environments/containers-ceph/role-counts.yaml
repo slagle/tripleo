@@ -1,0 +1,4 @@
+parameter_defaults:
+  ControllerCount: 1
+  ComputeCount: 1
+  CephAllCount: 1

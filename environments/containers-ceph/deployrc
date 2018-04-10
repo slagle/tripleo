@@ -1,0 +1,13 @@
+source $HOME/tripleo/environments/conatiners/deployrc
+
+export ENVIRONMENTS="\
+  $ENVIRONMENTS \
+  -e $TEMPLATES/environments/ceph-ansible/ceph-ansible.yaml \
+  -e $HOME/tripleo/environments/containers/ceph.yaml \"
+"
+
+export ROLES_DATA="$HOME/tripleo/environments/containers-ceph/roles_data.yaml"
+export ARGS="\
+  --disable-validations \
+  --config-download
+"
