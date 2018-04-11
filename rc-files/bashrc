@@ -83,6 +83,7 @@ function stack-delete {
         delete from resource_data;
         delete from resource;
         delete from stack_lock;
+        delete from sync_point;
         delete from stack;"
 
     sudo mysql ironic -e "update nodes set instance_uuid=NULL;"
