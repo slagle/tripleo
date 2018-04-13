@@ -124,7 +124,8 @@ function stack-rm-all {
                 /etc/heat /etc/keystone /etc/neutron /etc/swift /etc/mistral \
                 /etc/ironic /etc/glance /etc/my.cnf.d /etc/my.cnf \
                 /etc/openvswitch /var/lib/openvswitch /etc/haproxy /var/log/haproxy \
-                /var/lib/certmonger /etc/certmonger /etc/keepalived
+                /var/lib/certmonger /etc/certmonger /etc/keepalived \
+                /root/.my.cnf
 }
 
 function uninstall-undercloud {
