@@ -131,6 +131,8 @@ function stack-rm-all {
 function uninstall-undercloud {
     set -x
     items="openvswitch puppet openstack instack tripleo httpd mysql rabbitmq nova ironic rabbitmq mongo mongodb nova ironic heat keystone neutron swift mistral ironic glance cinder zaqar my.cnf my.cnf.d haproxy"
+    ifdown br-ctlplane
+    rm -f /etc/sysconfig/network-scripts/ifcfg-br-ctlplane
     stack-stop-all
     rpm -qa | grep -E "openvswitch|puppet|openstack|instack|httpd|mariadb|rabbitmq|mongo|tripleo|haproxy|certmonger|keepalived" | xargs sudo yum erase -y
     stack-rm-all
