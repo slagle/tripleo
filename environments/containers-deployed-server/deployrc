@@ -4,6 +4,6 @@ export ENVIRONMENTS="\
   $ENVIRONMENTS \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
-  -e $HOME/tripleo/environments/containers-split-stack/hostnamemap.yaml \
+  -e $HOME/tripleo/environments/containers-deployed-server/hostnamemap.yaml \
 "
 export ROLES_DATA="$HOME/tripleo/environments/containers-split-stack/roles_data.yaml"
