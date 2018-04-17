@@ -202,7 +202,7 @@
 - name: Compute
   description: |
     Basic Compute Node role
-  CountDefault: 1
+  CountDefault: 2
   networks:
     - InternalApi
     - Tenant
