@@ -1,0 +1,17 @@
+---
+
+- name: tripleo-repos
+  hosts: all
+  tasks:
+    - name: Run tripleo-repos
+      shell: |
+        rpm -q git || sudo yum -y install git
+        if [ ! -d tripleo-repos ]; then
+          git clone https://git.openstack.org/openstack/tripleo-repos
+        fi
+        if ! which tripleo-repos; then
+            pushd tripleo-repos
+            sudo python setup.py install
+            popd
+        fi
+        sudo tripleo-repos current-tripleo-dev
