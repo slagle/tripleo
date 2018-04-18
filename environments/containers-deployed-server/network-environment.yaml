@@ -1,6 +1,9 @@
 resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: ../../../home/stack/tripleo-heat-templates/net-config-static-bridge.yaml
+  OS::TripleO::ControllerOpenStack::Net::SoftwareConfig: ../../../tripleo-heat-templates/net-config-static-bridge.yaml
+  OS::TripleO::ControllerPacemaker::Net::SoftwareConfig: ../../../tripleo-heat-templates/net-config-static-bridge.yaml
+  OS::TripleO::Compute::Net::SoftwareConfig: ../../../tripleo-heat-templates/net-config-static.yaml
+
 parameter_defaults:
-  NeutronPublicInterface: nic2
-  EC2MetadataIp: 192.168.24.1
-  ControlPlaneDefaultRoute: 192.168.24.1
+  NeutronPublicInterface: eth0
+  EC2MetadataIp: 192.168.0.1
+  ControlPlaneDefaultRoute: 192.168.0.1

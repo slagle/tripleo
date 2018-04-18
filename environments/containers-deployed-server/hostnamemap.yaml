@@ -1,4 +1,10 @@
 parameter_defaults:
   HostnameMap:
-    overcloud-controller-0: cont-0
-    overcloud-novacompute-0: comp-0
+    overcloud-openstack-0: openstack-0
+    overcloud-openstack-1: openstack-1
+    overcloud-openstack-2: openstack-2
+    overcloud-pacemaker-0: pacemaker-0
+    overcloud-pacemaker-1: pacemaker-1
+    overcloud-pacemaker-2: pacemaker-2
+    overcloud-compute-0: compute-0
+    overcloud-compute-1: compute-1

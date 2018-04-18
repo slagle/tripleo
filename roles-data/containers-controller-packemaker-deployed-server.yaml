@@ -18,7 +18,7 @@
     - StorageMgmt
     - Tenant
   default_route_networks: ['External']
-  HostnameFormatDefault: '%stackname%-controller-%index%'
+  HostnameFormatDefault: '%stackname%-openstack-%index%'
   ServicesDefault:
     - OS::TripleO::Services::Aide
     - OS::TripleO::Services::AodhApi
@@ -156,7 +156,7 @@
     Database, Messaging, and Networker role
   networks:
     - InternalApi
-  HostnameFormatDefault: '%stackname%-database-%index%'
+  HostnameFormatDefault: '%stackname%-pacemaker-%index%'
   ServicesDefault:
     - OS::TripleO::Services::Aide
     - OS::TripleO::Services::AuditD
@@ -200,6 +200,7 @@
 # Role: Compute                                                               #
 ###############################################################################
 - name: Compute
+  disable_constraints: true
   description: |
     Basic Compute Node role
   CountDefault: 2
@@ -207,17 +208,9 @@
     - InternalApi
     - Tenant
     - Storage
-  HostnameFormatDefault: '%stackname%-novacompute-%index%'
+  HostnameFormatDefault: '%stackname%-compute-%index%'
   # Deprecated & backward-compatible values (FIXME: Make parameters consistent)
   # Set uses_deprecated_params to True if any deprecated params are used.
-  uses_deprecated_params: True
-  deprecated_param_image: 'NovaImage'
-  deprecated_param_extraconfig: 'NovaComputeExtraConfig'
-  deprecated_param_metadata: 'NovaComputeServerMetadata'
-  deprecated_param_scheduler_hints: 'NovaComputeSchedulerHints'
-  deprecated_param_ips: 'NovaComputeIPs'
-  deprecated_server_resource_name: 'NovaCompute'
-  deprecated_nic_config_name: 'compute.yaml'
   ServicesDefault:
     - OS::TripleO::Services::Aide
     - OS::TripleO::Services::AuditD
