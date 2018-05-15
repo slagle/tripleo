@@ -29,7 +29,7 @@ if [ "$UPDATE" = "1" ]; then
     EXISTING="--existing"
 fi
 
-if [ "$STACK_OP" = "create" ]; then
+if [ "$STACK_OP" = "create" -a "$HEATCLIENT" = "1" ]; then
     EXISTING=""
     ENVIRONMENTS="\
         -e $HOME/tripleo/environments/stack-action-create.yaml \
