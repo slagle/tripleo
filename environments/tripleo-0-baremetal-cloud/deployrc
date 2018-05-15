@@ -9,7 +9,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/tripleo-0-baremetal-cloud/deployed-server-port-map.yaml \
 "
 
-export ROLES_DATA="$HOME/tripleo/environments/tripleo-0-baremetal-cloud/roles_data.yaml
+export ROLES_DATA="$HOME/tripleo/environments/tripleo-0-baremetal-cloud/roles_data.yaml"
 
 export ARGS="\
   --stack-name tripleo-0 \
