@@ -1,0 +1,5 @@
+parameter_defaults:
+  HostnameMap:
+    overcloud-controller-0: tripleo-08
+    overcloud-compute-1: tripleo-03
+    overcloud-compute-2: tripleo-05

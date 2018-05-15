@@ -1,0 +1,10 @@
+resource_registry:
+  OS::TripleO::Controller::Net::SoftwareConfig: ../../../tripleo-heat-templates/net-config-static-bridge.yaml
+  OS::TripleO::Compute::Net::SoftwareConfig: ../../../tripleo-heat-templates/net-config-static.yaml
+
+parameter_defaults:
+  NeutronPublicInterface: eno3
+  EC2MetadataIp: 192.168.0.1
+  ControlPlaneDefaultRoute: 10.19.59.254
+  DnsServers: []
+  NtpServer: 0.centos.pool.ntp.org
