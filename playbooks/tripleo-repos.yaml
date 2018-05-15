@@ -7,6 +7,7 @@
       shell: |
         rpm -q git || sudo yum -y install git python2-setuptools
         rpm -q python2-setuptools || sudo yum -y install python2-setuptools
+        rpm -q python2-requests || sudo yum -y install python2-requests
         if [ ! -d tripleo-repos ]; then
           git clone https://git.openstack.org/openstack/tripleo-repos
         fi
