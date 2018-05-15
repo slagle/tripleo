@@ -13,6 +13,7 @@ export ROLES_DATA="$HOME/tripleo/environments/tripleo-0-baremetal-cloud/roles_da
 export STACK_NAME="tripleo-0"
 
 export ARGS="\
+  --verbose \
   --disable-validations \
   --overcloud-ssh-user root \
   --overcloud-ssh-key tripleo-0_rsa \
