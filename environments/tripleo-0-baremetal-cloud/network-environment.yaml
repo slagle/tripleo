@@ -8,3 +8,4 @@ parameter_defaults:
   ControlPlaneDefaultRoute: 10.19.59.254
   DnsServers: []
   NtpServer: 0.centos.pool.ntp.org
+  CloudName: tripleo-0.localdomain
