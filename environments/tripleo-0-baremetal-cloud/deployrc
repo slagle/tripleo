@@ -10,9 +10,9 @@ export ENVIRONMENTS="\
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/tripleo-0-baremetal-cloud/roles_data.yaml"
+export STACK_NAME="tripleo-0"
 
 export ARGS="\
-  --stack-name tripleo-0 \
   --disable-validations \
   --overcloud-ssh-user root \
   --overcloud-ssh-key tripleo-0_rsa \
