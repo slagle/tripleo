@@ -95,7 +95,7 @@ function stack-delete {
 
     sudo mysql ironic -e "update nodes set provision_state='available';"
 
-    neutron port-list -c id -c fixed_ips -f value | grep -v 192.0.2.5 | awk '{print $1}' | xargs -r -t -n 1 neutron port-delete
+    openstack port list -f value -c ID | xargs -r -t openstack port delete
     neutron net-list -f value -c id -c name | grep -v ctlplane | awk '{print $1}' | xargs -r -t -n 1 neutron net-delete
 
     plan-delete-all
@@ -269,7 +269,7 @@ function mistral-reset {
 
 function swift-delete-all {
     set -x
-    openstack container list -f value -c Name | xargs -t openstack container delete -r
+    openstack container list -f value -c Name | xargs -r -t openstack container delete -r
     set +x
 }
 
