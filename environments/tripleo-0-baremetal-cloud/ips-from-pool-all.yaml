@@ -5,9 +5,9 @@ resource_registry:
 
 parameter_defaults:
   ControllerIPs:
-    #management:
+    management:
     - 10.19.56.19
   ComputeIPs:
-    #management:
+    management:
     - 10.19.56.9
     - 10.19.56.13
