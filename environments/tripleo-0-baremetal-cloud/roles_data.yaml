@@ -14,11 +14,7 @@
     - primary
     - controller
   networks:
-    - External
-    - InternalApi
-    - Storage
-    - StorageMgmt
-    - Tenant
+    - Management
   # For systems with both IPv4 and IPv6, you may specify a gateway network for
   # each, such as ['ControlPlane', 'External']
   default_route_networks: ['External']
@@ -169,9 +165,7 @@
     Basic Compute Node role
   CountDefault: 1
   networks:
-    - InternalApi
-    - Tenant
-    - Storage
+    - Management
   HostnameFormatDefault: '%stackname%-compute-%index%'
   # Deprecated & backward-compatible values (FIXME: Make parameters consistent)
   # Set uses_deprecated_params to True if any deprecated params are used.
