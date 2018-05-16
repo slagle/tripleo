@@ -269,7 +269,7 @@ function mistral-reset {
 
 function swift-delete-all {
     set -x
-    swift list | xargs -n 1 -t swift delete
+    openstack container list | xargs -t openstack container delete -r
     set +x
 }
 
