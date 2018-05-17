@@ -63,7 +63,7 @@ function hfd {
         openstack software deployment show $failed_deployment;
     done
 }
-function stack-delete {
+function stack-delete-only {
     set -x
     sudo mysql nova -e "\
         delete from instance_system_metadata;
@@ -97,7 +97,12 @@ function stack-delete {
 
     openstack port list -f value -c ID | xargs -r -t openstack port delete
     neutron net-list -f value -c id -c name | grep -v ctlplane | awk '{print $1}' | xargs -r -t -n 1 neutron net-delete
+    set +x
+}
 
+function stack-delete {
+    set -x
+    stack-delete-only
     plan-delete-all
     set +x
 }
