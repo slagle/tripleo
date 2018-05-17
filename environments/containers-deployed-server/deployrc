@@ -1,5 +1,7 @@
 source $HOME/tripleo/environments/containers/deployrc
 
+export STACK_NAME=overcloud
+
 export ENVIRONMENTS="\
   $ENVIRONMENTS \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
