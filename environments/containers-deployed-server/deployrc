@@ -10,3 +10,7 @@ export ENVIRONMENTS="\
 "
 
 export ROLES_DATA="$HOME/tripleo/roles-data/containers-controller-packemaker-deployed-server.yaml"
+
+export ARGS="\
+  --overcloud-ssh-user centos \
+"
