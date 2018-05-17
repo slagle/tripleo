@@ -9,7 +9,7 @@
       lineinfile:
         state: present
         path: /etc/ssh/sshd_config
-        line: UseDNS=no
+        line: UseDNS no
     - name: Restart sshd
       service:
        name: sshd
