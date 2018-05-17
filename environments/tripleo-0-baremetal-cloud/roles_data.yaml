@@ -130,6 +130,8 @@
     - OS::TripleO::Services::OctaviaHealthManager
     - OS::TripleO::Services::OctaviaHousekeeping
     - OS::TripleO::Services::OctaviaWorker
+    - OS::TripleO::Services::OsloMessagingNotify
+    - OS::TripleO::Services::OsloMessagingRpc
     - OS::TripleO::Services::OpenDaylightApi
     - OS::TripleO::Services::OpenDaylightOvs
     - OS::TripleO::Services::OVNDBs
@@ -199,6 +201,8 @@
     - OS::TripleO::Services::Ntp
     - OS::TripleO::Services::ContainersLogrotateCrond
     - OS::TripleO::Services::OpenDaylightOvs
+    - OS::TripleO::Services::OsloMessagingNotify
+    - OS::TripleO::Services::OsloMessagingRpc
     - OS::TripleO::Services::Rhsm
     - OS::TripleO::Services::RsyslogSidecar
     - OS::TripleO::Services::Securetty
