@@ -2,6 +2,7 @@
 
 - name: ssh-use-dns-no
   hosts: all
+  gather_facts: no
   tasks:
     - name: Set UseDNS=no
       lineinfile:
