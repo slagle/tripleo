@@ -8,7 +8,7 @@
         state: present
         path: /etc/ssh/sshd_config
         line: UseDNS=no
-   - name: Restart sshd
-     service:
+    - name: Restart sshd
+      service:
        name: sshd
        state: restarted
