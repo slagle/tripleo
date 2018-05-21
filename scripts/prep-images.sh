@@ -9,7 +9,7 @@ MEMORY=${MEMORY:-"8192"}
 CPUS=${CPUS:-"1"}
 OS=${OS:-"rhel7"}
 UPDATE=${UPDATE:-""}
-BRIDGE="brovc brext"
+BRIDGE=${BRIDGE:-"brovc brext"}
 
 if [[ "$BASE_IMAGE" =~ "CentOS" ]]; then
     OS="centos7.0"
