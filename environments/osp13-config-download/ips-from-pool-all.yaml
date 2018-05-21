@@ -1,0 +1,13 @@
+# Environment file demonstrating how to pre-assign IPs to all node types
+resource_registry:
+  OS::TripleO::Controller::Ports::ManagementPort: ../../../tripleo-heat-templates/network/ports/management_from_pool.yaml
+  OS::TripleO::Compute::Ports::ManagementPort: ../../../tripleo-heat-templates/network/ports/management_from_pool.yaml
+
+parameter_defaults:
+  ControllerIPs:
+    management:
+    - 10.19.56.19
+  ComputeIPs:
+    management:
+    - 10.19.56.9
+    - 10.19.56.13

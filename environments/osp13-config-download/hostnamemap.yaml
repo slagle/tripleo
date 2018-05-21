@@ -1,0 +1,6 @@
+parameter_defaults:
+  HostnameMap:
+    osp13-controller-0: osp13-controller-0
+    osp13-compute-0: osp13-compute-0
+    osp13-compute-1: osp13-compute-1
+    osp13-compute-2: osp13-compute-2
