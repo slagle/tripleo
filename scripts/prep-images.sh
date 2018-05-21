@@ -47,7 +47,7 @@ for image in $NEW_IMAGES; do
 
     BRIDGE_ARGS=""
     for bridge in "$BRIDGE"; do
-        BRIDGE_ARGS+="--network bridge=${bridge},model=virtio \"
+        BRIDGE_ARGS+="--network bridge=${bridge},model=virtio \ "
     done
 
     virt-install \
