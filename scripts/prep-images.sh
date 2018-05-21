@@ -8,6 +8,7 @@ KEY=${KEY:-"/home/stack/.ssh/id_rsa.pub"}
 MEMORY=${MEMORY:-"8192"}
 CPUS=${CPUS:-"1"}
 OS=${OS:-"rhel7"}
+UPDATE=${UPDATE:-""}
 
 if [[ "$BASE_IMAGE" =~ "CentOS" ]]; then
     OS="centos7.0"
@@ -15,23 +16,24 @@ fi
 
 for image in $NEW_IMAGES; do
   file=${image}.qcow2
-  if [ -f $file ]; then
+  if [ -f $file -a -z "$UPDATE" ]; then
     echo "Won't overwrite existing image!"
     exit 1
   fi
 
-  qemu-img create -f qcow2 $file 80G
-
-  virt-resize --expand /dev/sda1 $BASE_IMAGE $file
+  if [ -z "$UPDATE" ]; then
+      qemu-img create -f qcow2 $file 80G
+      virt-resize --expand /dev/sda1 $BASE_IMAGE $file
+  fi
 
   virt-customize -a $file \
     --root-password password:root \
     --hostname $image.redhat.local \
     --run-command "yum localinstall -y http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/rhos-release/rhos-release-latest.noarch.rpm" \
-    --run-command "useradd -G wheel stack" \
+    --run-command "useradd -G wheel stack || true" \
     --run-command "sed -i 's/# %wheel/%wheel/g' /etc/sudoers" \
     --run-command "systemctl disable cloud-init cloud-config cloud-final cloud-init-local" \
-    --run-command "xfs_growfs /" \
+    --run-command "xfs_growfs / || true" \
     --ssh-inject root:string:"$(cat $KEY)" \
     --ssh-inject stack:string:"$(cat $KEY)" \
     --password stack:password:stack \
@@ -43,13 +45,17 @@ for image in $NEW_IMAGES; do
     # --run-command "rhos-release 12 -p 2017-10-30.1" \
     # --run-command "yum -y install git python-heat-agent*" \
 
+    BRIDGE_ARGS=""
+    for bridge in "$BRIDGE"; do
+        BRIDGE_ARGS+="--network bridge=${bridge},model=virtio \"
+    done
+
     virt-install \
         --name $image \
         --memory $MEMORY \
         --vcpus $CPUS \
         --import --disk ${image}.qcow2,bus=virtio,cache=unsafe \
-        --network bridge=brext,model=virtio \
-        --network bridge=brovc,model=virtio \
+        $BRIDGE_ARGS \
         --os-variant $OS \
         --wait 0
 
