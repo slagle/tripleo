@@ -3,15 +3,15 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
   -e $TEMPLATES/environments/config-download-environment.yaml \
-  -e $HOME/tripleo/environments/osp13/hostnamemap.yaml \
-  -e $HOME/tripleo/environments/osp13/network-environment.yaml \
-  -e $HOME/tripleo/environments/osp13/deployed-server-port-map.yaml \
-  -e $HOME/tripleo/environments/osp13/role-counts.yaml \
+  -e $HOME/tripleo/environments/osp13-config-download/hostnamemap.yaml \
+  -e $HOME/tripleo/environments/osp13-config-download/network-environment.yaml \
+  -e $HOME/tripleo/environments/osp13-config-download/deployed-server-port-map.yaml \
+  -e $HOME/tripleo/environments/osp13-config-download/role-counts.yaml \
   -e $HOME/tripleo/environments/glance-backend-file.yaml \
   -e $HOME/docker-images.yaml \
 "
 
-export ROLES_DATA="$HOME/tripleo/environments/osp13/roles_data.yaml"
+export ROLES_DATA="$HOME/tripleo/environments/osp13-config-download/roles_data.yaml"
 export STACK_NAME="osp13"
 
 export ARGS="\
