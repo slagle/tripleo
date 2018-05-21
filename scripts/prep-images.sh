@@ -47,7 +47,7 @@ for image in $NEW_IMAGES; do
     # --run-command "yum -y install git python-heat-agent*" \
 
     BRIDGE_ARGS=""
-    for bridge in "$BRIDGE"; do
+    for bridge in $BRIDGE; do
         BRIDGE_ARGS+="--network bridge=${bridge},model=virtio \ "
     done
 
