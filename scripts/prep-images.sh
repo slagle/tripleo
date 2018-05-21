@@ -48,7 +48,7 @@ for image in $NEW_IMAGES; do
 
     BRIDGE_ARGS=""
     for bridge in $BRIDGE; do
-        BRIDGE_ARGS+="--network bridge=${bridge},model=virtio \ "
+        BRIDGE_ARGS+="--network bridge=${bridge},model=virtio \\ "
     done
 
     virt-install \
@@ -56,7 +56,7 @@ for image in $NEW_IMAGES; do
         --memory $MEMORY \
         --vcpus $CPUS \
         --import --disk ${image}.qcow2,bus=virtio,cache=unsafe \
-        $BRIDGE_ARGS \
+        $BRIDGE_ARGS
         --os-variant $OS \
         --wait 0
 
