@@ -10,6 +10,7 @@ CPUS=${CPUS:-"1"}
 OS=${OS:-"rhel7"}
 UPDATE=${UPDATE:-""}
 BRIDGE=${BRIDGE:-"brovc brext"}
+NO_CUSTOMIZE=${NO_CUSTOMIZE:-""}
 
 if [[ "$BASE_IMAGE" =~ "CentOS" ]]; then
     OS="centos7.0"
@@ -27,18 +28,20 @@ for image in $NEW_IMAGES; do
       virt-resize --expand /dev/sda1 $BASE_IMAGE $file
   fi
 
-  virt-customize -a $file \
-    --root-password password:root \
-    --hostname $image.redhat.local \
-    --run-command "yum localinstall -y http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/rhos-release/rhos-release-latest.noarch.rpm" \
-    --run-command "useradd -G wheel stack || true" \
-    --run-command "sed -i 's/# %wheel/%wheel/g' /etc/sudoers" \
-    --run-command "systemctl disable cloud-init cloud-config cloud-final cloud-init-local" \
-    --run-command "xfs_growfs / || true" \
-    --ssh-inject root:string:"$(cat $KEY)" \
-    --ssh-inject stack:string:"$(cat $KEY)" \
-    --password stack:password:stack \
-    --selinux-relabel
+  if [ -z "$NO_CUSTOMIZE" ]; then
+      virt-customize -a $file \
+        --root-password password:root \
+        --hostname $image.redhat.local \
+        --run-command "yum localinstall -y http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/rhos-release/rhos-release-latest.noarch.rpm" \
+        --run-command "useradd -G wheel stack || true" \
+        --run-command "sed -i 's/# %wheel/%wheel/g' /etc/sudoers" \
+        --run-command "systemctl disable cloud-init cloud-config cloud-final cloud-init-local" \
+        --run-command "xfs_growfs / || true" \
+        --ssh-inject root:string:"$(cat $KEY)" \
+        --ssh-inject stack:string:"$(cat $KEY)" \
+        --password stack:password:stack \
+        --selinux-relabel
+    fi
 
     # --run-command "yum -y install git" \
     # --run-command "git clone https://github.com/slagle/tripleo /root/tripleo" \
