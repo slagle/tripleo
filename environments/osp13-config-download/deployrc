@@ -1,5 +1,3 @@
-source $HOME/tripleo/environments/containers/deployrc
-
 export ENVIRONMENTS="\
   $ENVIRONMENTS \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
@@ -9,6 +7,8 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/osp13/network-environment.yaml \
   -e $HOME/tripleo/environments/osp13/deployed-server-port-map.yaml \
   -e $HOME/tripleo/environments/osp13/role-counts.yaml \
+  -e $HOME/tripleo/environments/glance-backend-file.yaml \
+  -e $HOME/docker-images.yaml \
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/osp13/roles_data.yaml"
