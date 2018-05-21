@@ -1,7 +1,6 @@
 export TEMPLATES="$HOME/tripleo-heat-templates"
 
 export ENVIRONMENTS="\
-  $ENVIRONMENTS \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
   -e $TEMPLATES/environments/config-download-environment.yaml \
