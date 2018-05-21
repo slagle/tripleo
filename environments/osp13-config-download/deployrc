@@ -1,3 +1,5 @@
+export TEMPLATES="$HOME/tripleo-heat-templates"
+
 export ENVIRONMENTS="\
   $ENVIRONMENTS \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
