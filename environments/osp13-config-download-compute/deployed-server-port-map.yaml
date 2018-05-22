@@ -1,0 +1,18 @@
+resource_registry:
+  OS::TripleO::DeployedServer::ControlPlanePort: ../../../tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+  OS::TripleO::Network::Ports::ControlPlaneVipPort: ../../../tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+  OS::TripleO::Network::Ports::RedisVipPort: ../../../tripleo-heat-templates/network/ports/noop.yaml
+
+parameter_defaults:
+
+  DeployedServerPortMap:
+    control_virtual_ip:
+      fixed_ips:
+        - ip_address: 192.168.122.100
+      subnets:
+        - cidr: 24
+    osp13-compute-2-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.122.187
+      subnets:
+        - cidr: 24

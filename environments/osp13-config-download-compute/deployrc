@@ -1,0 +1,19 @@
+source $HOME/tripleo/environments/osp13-config-download/deployrc
+
+export TEMPLATES="$HOME/tripleo-heat-templates"
+
+export ENVIRONMENTS="\
+  $ENVIRONMENTS \
+  -e $HOME/tripleo/environments/osp13-config-download-compute/hostnamemap.yaml \
+  -e $HOME/tripleo/environments/osp13-config-download-compute/deployed-server-port-map.yaml \
+  -e $HOME/tripleo/environments/osp13-config-download-compute/role-counts.yaml \
+"
+
+export ROLES_DATA="$HOME/tripleo/environments/osp13-config-download-compute/roles_data.yaml"
+export STACK_NAME="osp13-compute"
+
+export ARGS="\
+  --disable-validations \
+  --overcloud-ssh-user stack \
+  --overcloud-ssh-key osp13_rsa \
+"
