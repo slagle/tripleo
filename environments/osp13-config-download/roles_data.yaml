@@ -5,7 +5,6 @@
 # Role: Controller                                                            #
 ###############################################################################
 - name: Controller
-  disable_constraints: True
   description: |
     Controller role that has all the controler services loaded and handles
     Database, Messaging and Network functions.
@@ -14,11 +13,17 @@
     - primary
     - controller
   networks:
-    - Management
+    - External
+    - InternalApi
+    - Storage
+    - StorageMgmt
+    - Tenant
   # For systems with both IPv4 and IPv6, you may specify a gateway network for
   # each, such as ['ControlPlane', 'External']
   default_route_networks: ['External']
   HostnameFormatDefault: '%stackname%-controller-%index%'
+  # Deprecated & backward-compatible values (FIXME: Make parameters consistent)
+  # Set uses_deprecated_params to True if any deprecated params are used.
   ServicesDefault:
     - OS::TripleO::Services::Aide
     - OS::TripleO::Services::AodhApi
@@ -50,6 +55,7 @@
     - OS::TripleO::Services::CinderBackendDellEMCUnity
     - OS::TripleO::Services::CinderBackendDellEMCVMAXISCSI
     - OS::TripleO::Services::CinderBackendDellEMCVNX
+    - OS::TripleO::Services::CinderBackendDellEMCXTREMIOISCSI
     - OS::TripleO::Services::CinderBackendNetApp
     - OS::TripleO::Services::CinderBackendScaleIO
     - OS::TripleO::Services::CinderBackendVRTSHyperScale
@@ -72,6 +78,7 @@
     - OS::TripleO::Services::GnocchiStatsd
     - OS::TripleO::Services::HAproxy
     - OS::TripleO::Services::HeatApi
+    - OS::TripleO::Services::HeatApiCloudwatch
     - OS::TripleO::Services::HeatApiCfn
     - OS::TripleO::Services::HeatEngine
     - OS::TripleO::Services::Horizon
@@ -110,6 +117,7 @@
     - OS::TripleO::Services::NeutronL2gwApi
     - OS::TripleO::Services::NeutronL3Agent
     - OS::TripleO::Services::NeutronLbaasv2Agent
+    - OS::TripleO::Services::NeutronLbaasv2Api
     - OS::TripleO::Services::NeutronLinuxbridgeAgent
     - OS::TripleO::Services::NeutronMetadataAgent
     - OS::TripleO::Services::NeutronML2FujitsuCfab
@@ -131,14 +139,13 @@
     - OS::TripleO::Services::OctaviaHealthManager
     - OS::TripleO::Services::OctaviaHousekeeping
     - OS::TripleO::Services::OctaviaWorker
-    - OS::TripleO::Services::OsloMessagingNotify
-    - OS::TripleO::Services::OsloMessagingRpc
     - OS::TripleO::Services::OpenDaylightApi
     - OS::TripleO::Services::OpenDaylightOvs
     - OS::TripleO::Services::OVNDBs
     - OS::TripleO::Services::OVNController
     - OS::TripleO::Services::Pacemaker
     - OS::TripleO::Services::PankoApi
+    - OS::TripleO::Services::RabbitMQ
     - OS::TripleO::Services::Redis
     - OS::TripleO::Services::Rhsm
     - OS::TripleO::Services::RsyslogSidecar
@@ -150,6 +157,10 @@
     - OS::TripleO::Services::SkydiveAnalyzer
     - OS::TripleO::Services::Snmp
     - OS::TripleO::Services::Sshd
+    - OS::TripleO::Services::SwiftProxy
+    - OS::TripleO::Services::SwiftDispersion
+    - OS::TripleO::Services::SwiftRingBuilder
+    - OS::TripleO::Services::SwiftStorage
     - OS::TripleO::Services::Tacker
     - OS::TripleO::Services::Timezone
     - OS::TripleO::Services::TripleoFirewall
@@ -162,15 +173,14 @@
 # Role: Compute                                                               #
 ###############################################################################
 - name: Compute
-  disable_constraints: True
   description: |
     Basic Compute Node role
   CountDefault: 1
   networks:
-    - Management
+    - InternalApi
+    - Tenant
+    - Storage
   HostnameFormatDefault: '%stackname%-compute-%index%'
-  # Deprecated & backward-compatible values (FIXME: Make parameters consistent)
-  # Set uses_deprecated_params to True if any deprecated params are used.
   disable_upgrade_deployment: True
   ServicesDefault:
     - OS::TripleO::Services::Aide
