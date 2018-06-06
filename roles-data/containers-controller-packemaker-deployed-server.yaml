@@ -32,10 +32,6 @@
     - OS::TripleO::Services::BarbicanBackendKmip
     - OS::TripleO::Services::BarbicanBackendPkcs11Crypto
     - OS::TripleO::Services::CACerts
-    - OS::TripleO::Services::CeilometerApi
-    - OS::TripleO::Services::CeilometerExpirer
-    - OS::TripleO::Services::CeilometerAgentCentral
-    - OS::TripleO::Services::CeilometerAgentNotification
     - OS::TripleO::Services::CephExternal
     - OS::TripleO::Services::CephMds
     - OS::TripleO::Services::CephMgr
@@ -214,7 +210,6 @@
     - OS::TripleO::Services::CephExternal
     - OS::TripleO::Services::CertmongerUser
     - OS::TripleO::Services::Collectd
-    - OS::TripleO::Services::ComputeCeilometerAgent
     - OS::TripleO::Services::ComputeNeutronCorePlugin
     - OS::TripleO::Services::ComputeNeutronL3Agent
     - OS::TripleO::Services::ComputeNeutronMetadataAgent
