@@ -8,8 +8,6 @@ foreach = (project:openstack/tripleo-incubator OR
     project:openstack/tripleo-specs OR
     project:openstack/tripleo-common OR
     project:openstack/tripleo-repos OR
-    project:openstack/tripleo-quickstart OR
-    project:openstack/tripleo-quickstart-extras OR
     project:openstack/tripleo-common-tempest-plugin OR
     project:openstack/tripleo-validations OR
     project:openstack/os-apply-config OR
@@ -23,7 +21,7 @@ foreach = (project:openstack/tripleo-incubator OR
     project:openstack/python-tripleoclient OR
     project:openstack/puppet-tripleo OR
     project:openstack/paunch OR
-    project:openstack/tripleo-docs) status:open
+    project:openstack/ansible-role-container-registry) status:open
 
 [section "My Patches Requiring Attention"]
 query = owner:self (label:Verified-1,jenkins OR label:Code-Review-1)
@@ -38,13 +36,19 @@ query = NOT reviewer:self NOT label:Code-Review-2 NOT label:Code-Review-1 NOT ow
 query = label:Verified>=1,zuul NOT owner:self label:Code-Review>=2 NOT label:Code-Review-1 NOT label:Code-Review>=1,self NOT label:Workflow<=-1 NOT label:Code-Review<=-2 limit:25
 
 # [section "5 Days Without Feedback"]
-# query = label:Verified>=1,jenkins NOT owner:self NOT project:openstack/tripleo-specs NOT label:Code-Review<=2 age:5d
+# query = label:Verified>=1,jenkins NOT owner:self NOT label:Code-Review<=2 age:5d
 
 [section "No Negative Feedback"]
-query = label:Verified>=1,jenkins NOT owner:self NOT project:openstack/tripleo-specs NOT label:Code-Review<=-1 NOT label:Code-Review>=2 NOT label:Workflow<=-1 NOT label:Code-Review<=-2
+query = label:Verified>=1,jenkins NOT owner:self NOT label:Code-Review<=-1 NOT label:Code-Review>=2 NOT label:Workflow<=-1 NOT label:Code-Review<=-2
+
+[section "tripleo-specs"]
+query = NOT owner:self project:openstack/tripleo-specs
+
+[section "tripleo-docs"]
+query = NOT owner:self project:openstack/tripleo-docs
 
 [section "instack/instack-undercloud"]
 query = NOT owner:self (project:openstack/instack-undercloud OR project:openstack/instack)
 
-[section "TripleO Specs"]
-query = NOT owner:self project:openstack/tripleo-specs
+# [section "tripleo-quickstart/tripleo-quickstart-extras"]
+# query = NOT owner:self (project:openstack/tripleo-quickstart OR project:openstack/tripleo-quickstart-extras
