@@ -19,7 +19,7 @@ fi
 
 for image in $NEW_IMAGES; do
   file=${image}.qcow2
-  if [ -f $file ]; then
+  if [ -f $file -a -z "$NO_IMAGE" ]; then
     echo "Won't overwrite existing image!"
     exit 1
   fi
