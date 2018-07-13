@@ -67,7 +67,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 -r $ROLES_DATA \
                 $ARGS \
                 $ENVIRONMENTS \
-        $@
+                $@ | awk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a deploy.log
 else
         pushd $TEMPLATES
         tools/process-templates.py -r $ROLES_DATA
@@ -79,7 +79,7 @@ else
             --wait \
             --template $TEMPLATES/overcloud.yaml \
             $ENVIRONMENTS \
-            $@
+            $@ | awk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | tee -a deploy.log
 
 fi
 
