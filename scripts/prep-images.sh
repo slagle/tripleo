@@ -8,9 +8,10 @@ KEY=${KEY:-"/home/stack/.ssh/id_rsa.pub"}
 MEMORY=${MEMORY:-"8192"}
 CPUS=${CPUS:-"1"}
 OS=${OS:-"rhel7"}
-UPDATE=${UPDATE:-""}
 BRIDGE=${BRIDGE:-"brovc brext"}
 NO_CUSTOMIZE=${NO_CUSTOMIZE:-""}
+NO_IMAGE=${NO_IMAGE:-""}
+NO_INSTALL=${NO_INSTALL:-""}
 
 if [[ "$BASE_IMAGE" =~ "CentOS" ]]; then
     OS="centos7.0"
@@ -23,7 +24,7 @@ for image in $NEW_IMAGES; do
     exit 1
   fi
 
-  if [ -z "$UPDATE" ]; then
+  if [ -z "$NO_IMAGE" ]; then
       qemu-img create -f qcow2 $file 80G
       virt-resize --expand /dev/sda1 $BASE_IMAGE $file
   fi
@@ -54,14 +55,16 @@ for image in $NEW_IMAGES; do
         BRIDGE_ARGS+="--network bridge=${bridge},model=virtio "
     done
 
-    virt-install \
-        --name $image \
-        --memory $MEMORY \
-        --vcpus $CPUS \
-        --import --disk ${image}.qcow2,bus=virtio,cache=unsafe \
-        $BRIDGE_ARGS \
-        --os-variant $OS \
-        --wait 0
+    if [ -z "$NO_INSTALL" ]; then
+        virt-install \
+            --name $image \
+            --memory $MEMORY \
+            --vcpus $CPUS \
+            --import --disk ${image}.qcow2,bus=virtio,cache=unsafe \
+            $BRIDGE_ARGS \
+            --os-variant $OS \
+            --wait 0
+    fi
 
 done
 
