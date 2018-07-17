@@ -60,7 +60,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 fi
         fi
 
-        time openstack overcloud deploy \
+        unbuffer time openstack overcloud deploy \
                 --verbose \
                 --stack $STACK_NAME \
                 --templates $TEMPLATES \
