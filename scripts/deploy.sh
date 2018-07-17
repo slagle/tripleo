@@ -60,7 +60,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 fi
         fi
 
-        time openstack overcloud deploy \
+        unbuffer time openstack overcloud deploy \
                 --verbose \
                 --stack $STACK_NAME \
                 --templates $TEMPLATES \
@@ -73,7 +73,7 @@ else
         tools/process-templates.py -r $ROLES_DATA
         popd
 
-        time openstack stack $STACK_OP \
+        unbuffer time openstack stack $STACK_OP \
             $STACK_NAME \
             $EXISTING \
             --wait \
