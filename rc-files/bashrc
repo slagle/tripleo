@@ -100,7 +100,7 @@ function tripleo-sql-ironic-delete {
     sudo mysql ironic -e "update nodes set provision_state='available';"
 }
 
-function tripleo-sql-neutron-delete {
+function tripleo-neutron-delete {
     openstack port list -f value -c ID | xargs -r -t openstack port delete
     neutron net-list -f value -c id -c name | grep -v ctlplane | awk '{print $1}' | xargs -r -t -n 1 neutron net-delete
 }
@@ -109,12 +109,12 @@ function tripleo-sql-overcloud-delete {
     tripleo-sql-heat-delete
     tripleo-sql-nova-delete
     tripleo-sql-ironic-delete
-    tripleo-sql-neutron-delete
 }
 
 function stack-delete-only {
     set -x
     tripleo-sql-overcloud-delete
+    tripleo-neutron-delete
     set +x
 }
 
