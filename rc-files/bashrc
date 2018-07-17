@@ -64,8 +64,18 @@ function hfd {
         openstack software deployment show $failed_deployment;
     done
 }
-function stack-delete-only {
-    set -x
+
+function tripleo-sql-heat-delete {
+    sudo mysql heat -e "\
+        delete from event;
+        delete from resource_data;
+        delete from resource;
+        delete from stack_lock;
+        delete from sync_point;
+        delete from stack;"
+}
+
+function tripleo-sql-nova-delete {
     sudo mysql nova -e "\
         delete from instance_system_metadata;
         delete from instance_metadata;
@@ -78,26 +88,33 @@ function stack-delete-only {
         delete from virtual_interfaces;
         delete from instances;
         update quota_usages set in_use=0;"
+}
 
-    sudo mysql heat -e "\
-        delete from event;
-        delete from resource_data;
-        delete from resource;
-        delete from stack_lock;
-        delete from sync_point;
-        delete from stack;"
-
+function tripleo-sql-ironic-delete {
     sudo mysql ironic -e "update nodes set instance_uuid=NULL;"
     sudo mysql ironic -e "update nodes set provision_state=NULL;"
     sudo mysql ironic -e "update nodes set target_provision_state=NULL;"
     sudo mysql ironic -e "update nodes set power_state='power off';"
     sudo mysql ironic -e "update nodes set target_power_state=NULL";
     sudo mysql ironic -e "update nodes set reservation=NULL";
-
     sudo mysql ironic -e "update nodes set provision_state='available';"
+}
 
+function tripleo-sql-neutron-delete {
     openstack port list -f value -c ID | xargs -r -t openstack port delete
     neutron net-list -f value -c id -c name | grep -v ctlplane | awk '{print $1}' | xargs -r -t -n 1 neutron net-delete
+}
+
+function tripleo-sql-overcloud-delete {
+    tripleo-sql-heat-delete
+    tripleo-sql-nova-delete
+    tripleo-sql-ironic-delete
+    tripleo-sql-neutron-delete
+}
+
+function stack-delete-only {
+    set -x
+    tripleo-sql-overcloud-delete
     set +x
 }
 
