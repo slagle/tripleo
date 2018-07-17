@@ -67,7 +67,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 -r $ROLES_DATA \
                 $ARGS \
                 $ENVIRONMENTS \
-                $@ 2>&1 | awk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | unbuffer -p tee -a deploy.log
+                $@ 2>&1 | unbuffer -p awk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0 }' | unbuffer -p tee -a deploy.log
 else
         pushd $TEMPLATES
         tools/process-templates.py -r $ROLES_DATA
