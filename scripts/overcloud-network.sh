@@ -10,9 +10,9 @@ public
 neutron subnet-create \
 --name public-subnet \
 --disable-dhcp \
---allocation-pool start=192.168.0.50,end=192.168.0.70 \
---gateway 192.168.0.1 \
-public 192.168.25.0/24
+--allocation-pool start=192.168.122.50,end=192.168.122.70 \
+--gateway 192.168.122.1 \
+public 192.168.122.0/24
 
 ##
 # Also required:
