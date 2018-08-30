@@ -60,27 +60,26 @@ if [ "$HEATCLIENT" = "0" ]; then
                 fi
         fi
 
-        time openstack overcloud deploy \
+        script -a -q -c "time openstack overcloud deploy \
                 --verbose \
                 --stack $STACK_NAME \
                 --templates $TEMPLATES \
                 -r $ROLES_DATA \
                 $ARGS \
                 $ENVIRONMENTS \
-                $@ 2>&1
-                # $@ 2>&1 | awk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0; fflush(stdout); fflush(stderr); }' | unbuffer -p tee -a deploy.log
+                $@" deploy.log
 else
         pushd $TEMPLATES
         tools/process-templates.py -r $ROLES_DATA
         popd
 
-        time openstack stack $STACK_OP \
+        script -a -q -c "time openstack stack $STACK_OP \
             $STACK_NAME \
             $EXISTING \
             --wait \
             --template $TEMPLATES/overcloud.yaml \
             $ENVIRONMENTS \
-            $@ 2>&1
+            $@" deploy.log
             # $@ 2>&1 | awk '{ print strftime("[%Y-%m-%d %H:%M:%S]"), $0; fflush(stdout); fflush(stderr); }' | unbuffer -p tee -a deploy.log
 
 fi
