@@ -65,6 +65,10 @@ function hfd {
     done
 }
 
+function tripleo-sql-heat-status-complete {
+    sudo mysql heat -e "update resource set status='COMPLETE';"
+}
+
 function tripleo-sql-heat-delete {
     sudo mysql heat -e "\
         delete from event;
