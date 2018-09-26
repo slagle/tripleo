@@ -71,8 +71,10 @@ function tripleo-sql-heat-status-complete {
 }
 
 function tripleo-sql-heat-status-failed {
+    sudo docker stop heat_engine
     sudo docker exec -it -u root mysql mysql heat -e "update resource set status='FAILED' where status='IN_PROGRESS';"
     sudo docker exec -it -u root mysql mysql heat -e "update stack set status='FAILED' where status='IN_PROGRESS';"
+    sudo docker start heat_engine
 }
 
 function tripleo-sql-heat-delete {
