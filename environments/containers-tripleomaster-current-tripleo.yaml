@@ -100,6 +100,7 @@ parameter_defaults:
   DockerNovaConsoleauthImage: docker.io/tripleomaster/centos-binary-nova-consoleauth:current-tripleo
   DockerNovaLibvirtConfigImage: docker.io/tripleomaster/centos-binary-nova-compute:current-tripleo
   DockerNovaLibvirtImage: docker.io/tripleomaster/centos-binary-nova-libvirt:current-tripleo
+  DockerNovaMetadataConfigImage: docker.io/tripleomaster/centos-binary-nova-api:current-tripleo
   DockerNovaMetadataImage: docker.io/tripleomaster/centos-binary-nova-api:current-tripleo
   DockerNovaPlacementConfigImage: docker.io/tripleomaster/centos-binary-nova-placement-api:current-tripleo
   DockerNovaPlacementImage: docker.io/tripleomaster/centos-binary-nova-placement-api:current-tripleo
