@@ -1,3 +1,4 @@
 parameter_defaults:
-  ControllerCount: 3
+  ControllerOpenstackCount: 3
+  ControllerPacemakerCount: 3
   ComputeCount: 1
