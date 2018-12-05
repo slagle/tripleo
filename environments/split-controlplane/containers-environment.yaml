@@ -1,0 +1,4 @@
+parameter_defaults:
+  DnsServers:
+    - 8.8.8.8
+  NtpServer: clock.redhat.com

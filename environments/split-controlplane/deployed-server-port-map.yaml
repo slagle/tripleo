@@ -1,0 +1,21 @@
+resource_registry:
+  OS::TripleO::DeployedServer::ControlPlanePort: ../../../tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+  OS::TripleO::Network::Ports::ControlPlaneVipPort: ../../../tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+  OS::TripleO::Network::Ports::RedisVipPort: ../../../tripleo-heat-templates/network/ports/noop.yaml
+
+parameter_defaults:
+  NeutronPublicInterface: eth0
+  EC2MetadataIp: 192.168.0.1
+  ControlPlaneDefaultRoute: 192.168.0.1
+
+  DeployedServerPortMap:
+    control_virtual_ip:
+      fixed_ips:
+        - ip_address: 192.168.24.10
+      subnets:
+        - cidr: 192.168.0.0/24
+    tripleo-05-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.0.10
+      subnets:
+        - cidr: 192.168.0.0/24

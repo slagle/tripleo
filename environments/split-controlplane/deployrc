@@ -1,0 +1,18 @@
+export STACK_NAME=controlplane
+
+export ENVIRONMENTS="\
+  $ENVIRONMENTS \
+  -e $TEMPLATES/environments/deployed-server-environment.yaml \
+  -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
+  -e $HOME/tripleo/environments/containers-deployed-server/role-counts.yaml \
+  -e $HOME/tripleo/environments/containers-deployed-server/hostnamemap.yaml \
+  -e $HOME/tripleo/environments/containers-deployed-server/network-environment.yaml \
+  -e $HOME/tripleo/environments/containers-deployed-server/deployed-server-port-map.yaml \
+"
+
+export ROLES_DATA="$HOME/tripleo/roles-data/containers-controller-packemaker-deployed-server.yaml"
+
+export ARGS="\
+  --disable-validations \
+  --overcloud-ssh-user centos \
+"
