@@ -1,3 +1,4 @@
+export TEMPLATES="$HOME/tripleo-heat-templates"
 export STACK_NAME=controlplane
 
 export ENVIRONMENTS="\
