@@ -2,6 +2,7 @@ export STACK_NAME=controlplane
 
 export ENVIRONMENTS="\
   $ENVIRONMENTS \
+  -e $HOME/tripleo/environments/containers-tripleomaster-current-tripleo.yaml \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
   -e $HOME/tripleo/environments/containers-deployed-server/role-counts.yaml \
