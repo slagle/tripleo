@@ -12,7 +12,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/split-controlplane/deployed-server-port-map.yaml \
 "
 
-export ROLES_DATA="$HOME/tripleo/environments/split-controlplane/roles-data.yaml
+export ROLES_DATA="$HOME/tripleo/environments/split-controlplane/roles-data.yaml"
 
 export ARGS="\
   --disable-validations \
