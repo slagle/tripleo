@@ -1,5 +1,5 @@
 resource_registry:
-  OS::TripleO::Compute::Net::SoftwareConfig: ../../../tripleo-heat-templates/net-config-bridge.yaml
+  OS::TripleO::Compute::Net::SoftwareConfig: ../../../../tripleo-heat-templates/net-config-bridge.yaml
 
 parameter_defaults:
   NeutronPublicInterface: eno3
