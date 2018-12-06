@@ -2,8 +2,7 @@
 
 set -eux
 
-export OS_AUTH_TYPE=none
-export OS_ENDPOINT=http://127.0.0.1:8006/v1/admin
+export OS_CLOUD=undercloud
 export DIR=export-control-plane
 export STACK=${STACK:-"controlplane"}
 
