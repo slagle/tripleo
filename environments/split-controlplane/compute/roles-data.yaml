@@ -2,6 +2,7 @@
   description: |
     Basic Compute Node role
   CountDefault: 1
+  disable_constraints: True
   networks:
     - InternalApi
     - Tenant
