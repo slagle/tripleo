@@ -1,0 +1,8 @@
+parameter_defaults:
+  HostnameMap:
+{% for i in range(3) %}
+    overcloud-controller-{{i}}: controller-{{i}}
+{% endfor %}
+{% for i in range(compute_count) %}
+    overcloud-novacompute-{{i}}: compute-{{i}}
+{% endfor %}
