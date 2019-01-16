@@ -22,7 +22,7 @@ parameter_defaults:
         - cidr: 192.168.0.0/24
 {% endfor %}
 
-{% for i in range(3) %}
+{% for i in range(compute_count) %}
     compute-{{i}}-ctlplane:
       fixed_ips:
         - ip_address: 192.168.0.{{10 + i}}
