@@ -79,7 +79,7 @@ else
             --wait \
             --template $TEMPLATES/overcloud.yaml \
             $ENVIRONMENTS \
-            $@ 2>&1 | unbuffer -p awk '{ printf strftime("[%Y-%m-%d %H:%M:%S]"), $0; }' | unbuffer -p tee -a deploy.log
+            $@ 2>&1 | unbuffer -p awk '{ printf strftime("[%Y-%m-%d %H:%M:%S]"); printf " " $0; }' | unbuffer -p tee -a deploy.log
 
 fi
 
