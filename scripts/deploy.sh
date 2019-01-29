@@ -73,6 +73,7 @@ else
         tools/process-templates.py -r $ROLES_DATA
         popd
 
+        set +x
         time unbuffer openstack stack $STACK_OP \
             $STACK_NAME \
             $EXISTING \
