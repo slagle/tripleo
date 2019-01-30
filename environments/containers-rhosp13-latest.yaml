@@ -1,0 +1,80 @@
+# Generated with the following on 2019-01-30T12:02:52.537494
+#
+#   openstack overcloud container image prepare --namespace docker-registry.engineering.redhat.com/rhosp13 --prefix openstack --tag latest --output-env-file containers-rhosp13-latest.yaml
+#
+
+parameter_defaults:
+  DockerAodhApiImage: docker-registry.engineering.redhat.com/rhosp13/openstack-aodh-api:latest
+  DockerAodhConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-aodh-api:latest
+  DockerAodhEvaluatorImage: docker-registry.engineering.redhat.com/rhosp13/openstack-aodh-evaluator:latest
+  DockerAodhListenerImage: docker-registry.engineering.redhat.com/rhosp13/openstack-aodh-listener:latest
+  DockerAodhNotifierImage: docker-registry.engineering.redhat.com/rhosp13/openstack-aodh-notifier:latest
+  DockerCeilometerCentralImage: docker-registry.engineering.redhat.com/rhosp13/openstack-ceilometer-central:latest
+  DockerCeilometerComputeImage: docker-registry.engineering.redhat.com/rhosp13/openstack-ceilometer-compute:latest
+  DockerCeilometerConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-ceilometer-central:latest
+  DockerCeilometerNotificationImage: docker-registry.engineering.redhat.com/rhosp13/openstack-ceilometer-notification:latest
+  DockerCinderApiImage: docker-registry.engineering.redhat.com/rhosp13/openstack-cinder-api:latest
+  DockerCinderConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-cinder-api:latest
+  DockerCinderSchedulerImage: docker-registry.engineering.redhat.com/rhosp13/openstack-cinder-scheduler:latest
+  DockerCinderVolumeImage: docker-registry.engineering.redhat.com/rhosp13/openstack-cinder-volume:latest
+  DockerClustercheckConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-mariadb:latest
+  DockerClustercheckImage: docker-registry.engineering.redhat.com/rhosp13/openstack-mariadb:latest
+  DockerCrondConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-cron:latest
+  DockerCrondImage: docker-registry.engineering.redhat.com/rhosp13/openstack-cron:latest
+  DockerGlanceApiConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-glance-api:latest
+  DockerGlanceApiImage: docker-registry.engineering.redhat.com/rhosp13/openstack-glance-api:latest
+  DockerGnocchiApiImage: docker-registry.engineering.redhat.com/rhosp13/openstack-gnocchi-api:latest
+  DockerGnocchiConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-gnocchi-api:latest
+  DockerGnocchiMetricdImage: docker-registry.engineering.redhat.com/rhosp13/openstack-gnocchi-metricd:latest
+  DockerGnocchiStatsdImage: docker-registry.engineering.redhat.com/rhosp13/openstack-gnocchi-statsd:latest
+  DockerHAProxyConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-haproxy:latest
+  DockerHAProxyImage: docker-registry.engineering.redhat.com/rhosp13/openstack-haproxy:latest
+  DockerHeatApiCfnConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-heat-api-cfn:latest
+  DockerHeatApiCfnImage: docker-registry.engineering.redhat.com/rhosp13/openstack-heat-api-cfn:latest
+  DockerHeatApiConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-heat-api:latest
+  DockerHeatApiImage: docker-registry.engineering.redhat.com/rhosp13/openstack-heat-api:latest
+  DockerHeatConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-heat-api:latest
+  DockerHeatEngineImage: docker-registry.engineering.redhat.com/rhosp13/openstack-heat-engine:latest
+  DockerHorizonConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-horizon:latest
+  DockerHorizonImage: docker-registry.engineering.redhat.com/rhosp13/openstack-horizon:latest
+  DockerInsecureRegistryAddress:
+  - docker-registry.engineering.redhat.com
+  DockerIscsidConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-iscsid:latest
+  DockerIscsidImage: docker-registry.engineering.redhat.com/rhosp13/openstack-iscsid:latest
+  DockerKeystoneConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-keystone:latest
+  DockerKeystoneImage: docker-registry.engineering.redhat.com/rhosp13/openstack-keystone:latest
+  DockerMemcachedConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-memcached:latest
+  DockerMemcachedImage: docker-registry.engineering.redhat.com/rhosp13/openstack-memcached:latest
+  DockerMysqlClientConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-mariadb:latest
+  DockerMysqlConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-mariadb:latest
+  DockerMysqlImage: docker-registry.engineering.redhat.com/rhosp13/openstack-mariadb:latest
+  DockerNeutronApiImage: docker-registry.engineering.redhat.com/rhosp13/openstack-neutron-server:latest
+  DockerNeutronConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-neutron-server:latest
+  DockerNeutronDHCPImage: docker-registry.engineering.redhat.com/rhosp13/openstack-neutron-dhcp-agent:latest
+  DockerNeutronL3AgentImage: docker-registry.engineering.redhat.com/rhosp13/openstack-neutron-l3-agent:latest
+  DockerNeutronMetadataImage: docker-registry.engineering.redhat.com/rhosp13/openstack-neutron-metadata-agent:latest
+  DockerNovaApiImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-api:latest
+  DockerNovaComputeImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-compute:latest
+  DockerNovaConductorImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-conductor:latest
+  DockerNovaConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-api:latest
+  DockerNovaConsoleauthImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-consoleauth:latest
+  DockerNovaLibvirtConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-compute:latest
+  DockerNovaLibvirtImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-libvirt:latest
+  DockerNovaMetadataImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-api:latest
+  DockerNovaPlacementConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-placement-api:latest
+  DockerNovaPlacementImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-placement-api:latest
+  DockerNovaSchedulerImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-scheduler:latest
+  DockerNovaVncProxyImage: docker-registry.engineering.redhat.com/rhosp13/openstack-nova-novncproxy:latest
+  DockerOpenvswitchImage: docker-registry.engineering.redhat.com/rhosp13/openstack-neutron-openvswitch-agent:latest
+  DockerPankoApiImage: docker-registry.engineering.redhat.com/rhosp13/openstack-panko-api:latest
+  DockerPankoConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-panko-api:latest
+  DockerRabbitmqConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-rabbitmq:latest
+  DockerRabbitmqImage: docker-registry.engineering.redhat.com/rhosp13/openstack-rabbitmq:latest
+  DockerRedisConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-redis:latest
+  DockerRedisImage: docker-registry.engineering.redhat.com/rhosp13/openstack-redis:latest
+  DockerSwiftAccountImage: docker-registry.engineering.redhat.com/rhosp13/openstack-swift-account:latest
+  DockerSwiftConfigImage: docker-registry.engineering.redhat.com/rhosp13/openstack-swift-proxy-server:latest
+  DockerSwiftContainerImage: docker-registry.engineering.redhat.com/rhosp13/openstack-swift-container:latest
+  DockerSwiftObjectImage: docker-registry.engineering.redhat.com/rhosp13/openstack-swift-object:latest
+  DockerSwiftProxyImage: docker-registry.engineering.redhat.com/rhosp13/openstack-swift-proxy-server:latest
+
