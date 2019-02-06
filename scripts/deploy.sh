@@ -60,6 +60,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 fi
         fi
 
+        set +x
         time unbuffer openstack overcloud deploy \
                 --verbose \
                 --stack $STACK_NAME \
