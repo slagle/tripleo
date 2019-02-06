@@ -1,0 +1,6 @@
+parameter_defaults:
+  NeutronPublicInterface: eth0
+  EC2MetadataIp: 192.168.0.1
+  ControlPlaneDefaultRoute: 192.168.0.1
+  DnsServers: ['192.168.0.3', '192.168.0.4']
+  NtpServer: 0.centos.pool.ntp.org
