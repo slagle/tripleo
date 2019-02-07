@@ -68,7 +68,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 -r $ROLES_DATA \
                 $ARGS \
                 $ENVIRONMENTS \
-                $@ 2>&1 | while read line; do date | tr "\n" " "; echo $line; done | unbuffer -p tee -a deploy.log
+                $@ 2>&1 | unbuffer -p tee -a deploy.log
 else
         pushd $TEMPLATES
         tools/process-templates.py -r $ROLES_DATA
