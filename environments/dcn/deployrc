@@ -8,10 +8,10 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
   -e $TEMPLATES/environments/network-isolation.yaml \
   -e $TEMPLATES/environments/net-single-nic-with-vlans.yaml \
-  -e $HOME/tripleo/environments/split-controlplane/role-counts.yaml \
-  -e $HOME/tripleo/environments/split-controlplane/hostnamemap.yaml \
-  -e $HOME/tripleo/environments/split-controlplane/network-environment.yaml \
-  -e $HOME/tripleo/environments/split-controlplane/deployed-server-port-map.yaml \
+  -e $HOME/tripleo/environments/dcn/role-counts.yaml \
+  -e $HOME/tripleo/environments/dcn/hostnamemap.yaml \
+  -e $HOME/tripleo/environments/dcn/network-environment.yaml \
+  -e $HOME/tripleo/environments/dcn/deployed-server-port-map.yaml \
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/dcn/roles-data.yaml"
