@@ -14,10 +14,8 @@ parameter_defaults:
         - ip_address: 192.168.0.100
       subnets:
         - cidr: 192.168.0.0/24
-          host_routes: []
     openstack-0-ctlplane:
       fixed_ips:
         - ip_address: 192.168.0.10
       subnets:
         - cidr: 192.168.0.0/24
-          host_routes: []
