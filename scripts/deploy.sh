@@ -61,6 +61,7 @@ if [ "$HEATCLIENT" = "0" ]; then
         fi
 
         set +x
+        date | unbuffer -p tee -a deploy.log
         time unbuffer openstack overcloud deploy \
                 --verbose \
                 --stack $STACK_NAME \
@@ -68,7 +69,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 -r $ROLES_DATA \
                 $ARGS \
                 $ENVIRONMENTS \
-                $@ 2>&1 | xargs -n1 -d "\n" echo $(date) | unbuffer -p tee -a deploy.log
+                $@ 2>&1 | unbuffer -p tee -a deploy.log
 else
         pushd $TEMPLATES
         tools/process-templates.py -r $ROLES_DATA
