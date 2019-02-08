@@ -2,7 +2,6 @@ export TEMPLATES="$HOME/tripleo-heat-templates"
 export STACK_NAME=compute0
 
 export ENVIRONMENTS="\
-  $ENVIRONMENTS \
   -e $HOME/tripleo/environments/containers-prepare-parameter.yaml \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
