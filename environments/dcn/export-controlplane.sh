@@ -18,7 +18,7 @@ openstack stack output show $STACK AllNodesConfig --format json \
 
 openstack stack output show $STACK GlobalConfig --format json \
   | jq '{"parameter_defaults": {"GlobalConfigExtraMapData": .output_value}}' \
-  > $DIR/all-nodes-extra-map-data.json
+  > $DIR/global-config-extra-map-data.json
 
 openstack stack output show $STACK HostsEntry -f json \
   | jq -r '{"parameter_defaults":{"ExtraHostFileEntries": .output_value}}' \
