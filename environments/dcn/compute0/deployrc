@@ -15,6 +15,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/dcn/compute0/deployed-server-port-map.yaml \
   -e $HOME/controlplane-export/endpoint-map.json \
   -e $HOME/controlplane-export/all-nodes-extra-map-data.json \
+  -e $HOME/controlplane-export/global-config-extra-map-data.json \
   -e $HOME/controlplane-export/extra-host-file-entries.json \
   -e $HOME/controlplane-export/oslo.yaml \
   -e $HOME/controlplane-export/passwords.yaml \
