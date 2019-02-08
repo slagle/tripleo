@@ -9,13 +9,8 @@ parameter_defaults:
   ControlPlaneDefaultRoute: 192.168.0.1
 
   DeployedServerPortMap:
-    control_virtual_ip:
+    compute-0-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.10
-      subnets:
-        - cidr: 192.168.0.0/24
-    tripleo-03-ctlplane:
-      fixed_ips:
-        - ip_address: 192.168.0.10
+        - ip_address: 192.168.0.6
       subnets:
         - cidr: 192.168.0.0/24

@@ -3,8 +3,8 @@
 set -eux
 
 export OS_CLOUD=undercloud
-export DIR=export-control-plane
 export STACK=${STACK:-"controlplane"}
+export DIR=${STACK}-export
 
 mkdir -p $DIR
 
@@ -27,10 +27,6 @@ parameter_defaults:
     oslo_messaging_rpc_use_ssl: false
 EOF
 
-sudo egrep "oslo.*password" /etc/puppet/hieradata/service_configs.json \
-  | sed -e s/\"//g -e s/,//g >> $DIR/oslo.yaml
-
-cp $HOME/tripleo-undercloud-passwords.yaml $DIR/passwords.yaml
-
-
+openstack object save $STACK plan-environment.yaml
+python -c "import yaml; data=yaml.safe_load(open('plan-environment.yaml').read()); print yaml.dump(dict(parameter_defaults=data['passwords']))" > $DIR/passwords.yaml
 

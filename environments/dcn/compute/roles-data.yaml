@@ -1,15 +1,18 @@
-- name: Compute
+###############################################################################
+# Role: DistributedComputeHCI                                                 #
+###############################################################################
+- name: DistributedComputeHCI
   description: |
-    Basic Compute Node role
-  CountDefault: 1
-  disable_constraints: True
+    Distributed Compute Node role hosting Ceph OSD and Cinder volume.
   networks:
-    - InternalApi
-    - Tenant
-    - Storage
-  HostnameFormatDefault: '%stackname%-compute-%index%'
+    InternalApi:
+      subnet: internal_api_subnet
+    Tenant:
+      subnet: tenant_subnet
+    Storage:
+      subnet: storage_subnet
   RoleParametersDefault:
-    TunedProfileName: "virtual-host"
+    TunedProfileName: "throughput-performance"
   ServicesDefault:
     - OS::TripleO::Services::Aide
     - OS::TripleO::Services::AuditD
@@ -17,7 +20,14 @@
     - OS::TripleO::Services::CACerts
     - OS::TripleO::Services::CephClient
     - OS::TripleO::Services::CephExternal
+    - OS::TripleO::Services::CephMds
+    - OS::TripleO::Services::CephMgr
+    - OS::TripleO::Services::CephMon
+    - OS::TripleO::Services::CephRbdMirror
+    - OS::TripleO::Services::CephRgw
+    - OS::TripleO::Services::CephOSD
     - OS::TripleO::Services::CertmongerUser
+    - OS::TripleO::Services::BlockStorageCinderVolume
     - OS::TripleO::Services::Collectd
     - OS::TripleO::Services::ComputeCeilometerAgent
     - OS::TripleO::Services::ComputeNeutronCorePlugin

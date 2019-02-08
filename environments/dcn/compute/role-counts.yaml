@@ -1,2 +1,2 @@
 parameter_defaults:
-  ComputeCount: 1
+  DistributedComputeHCICount: 1
