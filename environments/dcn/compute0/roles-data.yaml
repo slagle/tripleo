@@ -4,6 +4,7 @@
 - name: DistributedComputeHCI
   description: |
     Distributed Compute Node role hosting Ceph OSD and Cinder volume.
+  disable_constraints: true
   networks:
     InternalApi:
       subnet: internal_api_subnet
