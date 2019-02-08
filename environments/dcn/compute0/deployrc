@@ -9,6 +9,7 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/environments/network-isolation.yaml \
   -e $TEMPLATES/environments/net-single-nic-with-vlans.yaml \
   -e $TEMPLATES/environments/ceph-ansible/ceph-ansible.yaml
+  -e $TEMPLATES/environments/networks-disable.yaml \
   -e $HOME/tripleo/environments/dcn/compute0/role-counts.yaml \
   -e $HOME/tripleo/environments/dcn/compute0/hostnamemap.yaml \
   -e $HOME/tripleo/environments/dcn/network-environment.yaml \
