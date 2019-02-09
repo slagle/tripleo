@@ -1,0 +1,7 @@
+parameter_defaults:
+  CephPoolDefaultSize: 1
+  CephAnsibleDisksConfig:
+    devices:
+      - /dev/loop0
+    journal_size: 512
+    osd_scenario: collocated
