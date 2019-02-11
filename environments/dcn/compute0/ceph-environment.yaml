@@ -1,6 +1,6 @@
 parameter_defaults:
   CephPoolDefaultSize: 1
-  CephPoolDefaultPgNum: 64
+  CephPoolDefaultPgNum: 32
   CephAnsibleDisksConfig:
     devices:
       - /dev/loop0

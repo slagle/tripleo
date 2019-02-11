@@ -2,12 +2,11 @@ export TEMPLATES="$HOME/tripleo-heat-templates"
 export STACK_NAME=controlplane
 
 export ENVIRONMENTS="\
-  $ENVIRONMENTS \
   -e $HOME/tripleo/environments/containers-prepare-parameter.yaml \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
   -e $TEMPLATES/environments/network-isolation.yaml \
-  -e $TEMPLATES/environments/net-single-nic-with-vlans.yaml \
+  -e $TEMPLATES/environments/net-multiple-nics.yaml \
   -e $HOME/tripleo/environments/dcn/role-counts.yaml \
   -e $HOME/tripleo/environments/dcn/hostnamemap.yaml \
   -e $HOME/tripleo/environments/dcn/network-environment.yaml \
@@ -15,6 +14,7 @@ export ENVIRONMENTS="\
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/dcn/roles-data.yaml"
+export NETWORK_DATA="$HOME/tripleo/environments/dcn/network-data.yaml"
 
 export ARGS="\
   --disable-validations \
