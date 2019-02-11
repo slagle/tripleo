@@ -67,12 +67,13 @@ if [ "$HEATCLIENT" = "0" ]; then
                 --stack $STACK_NAME \
                 --templates $TEMPLATES \
                 -r $ROLES_DATA \
+                -n $NETWORK_DATA \
                 $ARGS \
                 $ENVIRONMENTS \
                 $@ 2>&1 | unbuffer -p tee -a deploy.log
 else
         pushd $TEMPLATES
-        tools/process-templates.py -r $ROLES_DATA
+        tools/process-templates.py -r $ROLES_DATA -n $NETWORK_DATA
         popd
 
         set +x
