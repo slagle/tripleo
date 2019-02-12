@@ -8,6 +8,7 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/environments/network-isolation.yaml \
   -e $TEMPLATES/environments/net-multiple-nics.yaml \
   -e $TEMPLATES/environments/ceph-ansible/ceph-ansible.yaml \
+  -e $TEMPLATES/environments/low-memory-usage.yaml \
   -e $HOME/tripleo/environments/dcn/compute1/role-counts.yaml \
   -e $HOME/tripleo/environments/dcn/compute1/hostnamemap.yaml \
   -e $HOME/tripleo/environments/dcn/network-environment.yaml \
