@@ -11,6 +11,6 @@ parameter_defaults:
   DeployedServerPortMap:
     compute-1-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.0.19
+        - ip_address: 192.168.0.28
       subnets:
         - cidr: 192.168.0.0/24
