@@ -69,7 +69,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 -r $ROLES_DATA \
                 -n $NETWORK_DATA \
                 $ARGS \
-                $ENVIRONMENTS \
+                "$ENVIRONMENTS" \
                 $@ 2>&1 | unbuffer -p tee -a deploy.log
 else
         pushd $TEMPLATES
