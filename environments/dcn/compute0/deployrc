@@ -1,7 +1,7 @@
 export TEMPLATES="$HOME/tripleo-heat-templates"
 export STACK_NAME=compute0
 
-export ENVIRONMENTS="
+export ENVIRONMENTS='
   -e $HOME/tripleo/environments/containers-prepare-parameter.yaml
   -e $TEMPLATES/environments/deployed-server-environment.yaml
   -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml
@@ -20,7 +20,7 @@ export ENVIRONMENTS="
   -e $HOME/controlplane-export/extra-host-file-entries.json
   -e $HOME/controlplane-export/oslo.yaml
   -e $HOME/controlplane-export/passwords.yaml
-"
+'
 
 export ROLES_DATA="$HOME/tripleo/environments/dcn/compute0/roles-data.yaml"
 export NETWORK_DATA="$HOME/tripleo/environments/dcn/network_data.yaml"
