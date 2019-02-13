@@ -15,7 +15,6 @@ export ENVIRONMENTS="\
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/dcn/roles-data.yaml"
-export NETWORK_DATA="$HOME/tripleo/environments/dcn/network_data.yaml"
 
 export ARGS="\
   --disable-validations \
