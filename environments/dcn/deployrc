@@ -1,5 +1,6 @@
 export TEMPLATES="$HOME/tripleo-heat-templates"
 export STACK_NAME=controlplane
+export NETWORK_DATA=""
 
 export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/containers-prepare-parameter.yaml \
