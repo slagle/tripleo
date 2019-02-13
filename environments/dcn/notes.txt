@@ -1,0 +1,3 @@
+- Had to set mtu to 1400 on eth3 (internal_api) compute-1 to get discover_hosts to pass
+- make sure to ip link set dev up on all interfaces on the nodes, otherwise
+  nics are not detected as "active" by os-net-config
