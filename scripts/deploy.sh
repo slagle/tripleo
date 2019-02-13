@@ -77,13 +77,15 @@ else
         popd
 
         set +x
+        date | unbuffer -p tee -a deploy.log
         time unbuffer openstack stack $STACK_OP \
             $STACK_NAME \
             $EXISTING \
             --wait \
             --template $TEMPLATES/overcloud.yaml \
             $ENVIRONMENTS \
-            $@ 2>&1 | while read line; do date | tr "\n" " "; echo $line; done | unbuffer -p tee -a deploy.log
+            $@ 2>&1 | unbuffer -p tee -a deploy.log
+            # $@ 2>&1 | while read line; do date | tr "\n" " "; echo $line; done | unbuffer -p tee -a deploy.log
 
 fi
 
