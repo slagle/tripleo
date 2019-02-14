@@ -9,10 +9,6 @@
 #             to original default (optional).  This field is only necessary when
 #             changing the default network names, not when adding a new custom network.
 # enabled: Is the network enabled (optional, defaults to true)
-# create: Optional (defaults to true). If false, the network/subnets/segments
-#         won't actually be created. Input parameters will still be rendered in the
-#         templates for the networks though, so that services and configuration can use
-#         the networks.
 # NOTE: False will use noop.yaml for unused legacy networks to support upgrades.
 # vlan: vlan for the network (optional)
 # vip: Enable creation of a virtual IP on this network
@@ -77,6 +73,7 @@
 # NIC2, Control Plane is always NIC1.
 
 - name: Storage
+  create: false
   vip: true
   name_lower: storage
   ip_subnet: '172.16.1.0/24'
@@ -85,6 +82,7 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:3000::10', 'end': 'fd00:fd00:fd00:3000:ffff:ffff:ffff:fffe'}]
   mtu: 1500
 - name: StorageMgmt
+  create: false
   name_lower: storage_mgmt
   vip: true
   ip_subnet: '172.16.3.0/24'
@@ -93,6 +91,7 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:4000::10', 'end': 'fd00:fd00:fd00:4000:ffff:ffff:ffff:fffe'}]
   mtu: 1500
 - name: InternalApi
+  create: false
   name_lower: internal_api
   vip: true
   ip_subnet: '172.16.2.0/24'
@@ -101,6 +100,7 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:2000::10', 'end': 'fd00:fd00:fd00:2000:ffff:ffff:ffff:fffe'}]
   mtu: 1400
 - name: Tenant
+  create: false
   vip: false  # Tenant network does not use VIPs
   name_lower: tenant
   ip_subnet: '172.16.0.0/24'
@@ -109,6 +109,7 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:5000::10', 'end': 'fd00:fd00:fd00:5000:ffff:ffff:ffff:fffe'}]
   mtu: 1500
 - name: External
+  create: false
   vip: true
   name_lower: external
   ip_subnet: '10.0.0.0/24'
@@ -119,6 +120,7 @@
   gateway_ipv6: '2001:db8:fd00:1000::1'
   mtu: 1500
 - name: Management
+  create: false
   # Management network is enabled by default for backwards-compatibility, but
   # is not included in any roles by default. Add to role definitions to use.
   enabled: true

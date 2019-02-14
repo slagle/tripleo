@@ -23,7 +23,7 @@ export ENVIRONMENTS="\
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/dcn/compute1/roles-data.yaml"
-export NETWORK_DATA="$HOME/tripleo/environments/dcn/network_data.yaml"
+export NETWORK_DATA="$HOME/tripleo/environments/dcn/network_data_compute.yaml"
 
 export ARGS="\
   --disable-validations \

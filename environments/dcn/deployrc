@@ -1,6 +1,5 @@
 export TEMPLATES="$HOME/tripleo-heat-templates"
 export STACK_NAME=controlplane
-export NETWORK_DATA=""
 
 export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/containers-prepare-parameter.yaml \
@@ -15,6 +14,7 @@ export ENVIRONMENTS="\
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/dcn/roles-data.yaml"
+export NETWORK_DATA="$HOME/tripleo/environments/dcn/network_data.yaml
 
 export ARGS="\
   --disable-validations \
