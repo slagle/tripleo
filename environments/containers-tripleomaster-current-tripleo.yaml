@@ -20,7 +20,7 @@ parameter_defaults:
   DockerCeilometerConfigImage: docker.io/tripleomaster/centos-binary-ceilometer-central:current-tripleo
   DockerCeilometerIpmiImage: docker.io/tripleomaster/centos-binary-ceilometer-ipmi:current-tripleo
   DockerCeilometerNotificationImage: docker.io/tripleomaster/centos-binary-ceilometer-notification:current-tripleo
-  DockerCephDaemonImage: docker.io/ceph/daemon:tag-stable-3.0-luminous-centos-7
+  DockerCephDaemonImage: docker.io/ceph/daemon:v3.2.0-stable-3.2-luminous-centos-7-x86_64
   DockerCinderApiImage: docker.io/tripleomaster/centos-binary-cinder-api:current-tripleo
   DockerCinderBackupImage: docker.io/tripleomaster/centos-binary-cinder-backup:current-tripleo
   DockerCinderConfigImage: docker.io/tripleomaster/centos-binary-cinder-api:current-tripleo
