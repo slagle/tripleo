@@ -73,8 +73,9 @@
 # NIC2, Control Plane is always NIC1.
 
 - name: Storage
-  external_id: 2b92bdc4-a69a-4423-bcc5-2b5a35c399bd
-  external_subnet_id: bd820e75-81fd-4132-9add-41709d7f4099
+  external_resource_id: 2b92bdc4-a69a-4423-bcc5-2b5a35c399bd
+  external_resource_subnet_id: bd820e75-81fd-4132-9add-41709d7f4099
+  external_resource_vip_id: 5779464b-4cf3-4703-8e77-8d93f0b02032
   vip: true
   name_lower: storage
   ip_subnet: '172.16.1.0/24'
@@ -83,8 +84,9 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:3000::10', 'end': 'fd00:fd00:fd00:3000:ffff:ffff:ffff:fffe'}]
   mtu: 1500
 - name: StorageMgmt
-  external_id: 200485f5-348a-47e6-bcf4-fbc9d02d4efb
-  external_subnet_id: 6ec2078d-c8c7-4a54-8124-790a3bfec18d
+  external_resource_id: 200485f5-348a-47e6-bcf4-fbc9d02d4efb
+  external_resource_subnet_id: 6ec2078d-c8c7-4a54-8124-790a3bfec18d
+  external_resource_vip_id: fa0718d3-9261-405d-8886-6928e8ec20e5
   name_lower: storage_mgmt
   vip: true
   ip_subnet: '172.16.3.0/24'
@@ -93,8 +95,9 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:4000::10', 'end': 'fd00:fd00:fd00:4000:ffff:ffff:ffff:fffe'}]
   mtu: 1500
 - name: InternalApi
-  external_id: 93861871-7814-4dbc-9e6c-7f51496b43af
-  external_subnet_id: c85c8670-51c1-4b17-a580-1cfb4344de27
+  external_resource_id: 93861871-7814-4dbc-9e6c-7f51496b43af
+  external_resource_subnet_id: c85c8670-51c1-4b17-a580-1cfb4344de27
+  external_resource_vip_id: 8bb9d96f-72bf-4964-a05c-5d3fed203eb7
   name_lower: internal_api
   vip: true
   ip_subnet: '172.16.2.0/24'
@@ -103,8 +106,8 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:2000::10', 'end': 'fd00:fd00:fd00:2000:ffff:ffff:ffff:fffe'}]
   mtu: 1400
 - name: Tenant
-  external_id: 8ea6d41a-0d65-4c07-bb33-b13d5def30f6
-  external_subnet_id: 19f68bcc-0a2c-43bc-a8a7-e52ab7c1e3fc
+  external_resource_id: 8ea6d41a-0d65-4c07-bb33-b13d5def30f6
+  external_resource_subnet_id: 19f68bcc-0a2c-43bc-a8a7-e52ab7c1e3fc
   vip: false  # Tenant network does not use VIPs
   name_lower: tenant
   ip_subnet: '172.16.0.0/24'
@@ -113,8 +116,9 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:5000::10', 'end': 'fd00:fd00:fd00:5000:ffff:ffff:ffff:fffe'}]
   mtu: 1500
 - name: External
-  external_id: 07a75e98-ca66-4790-8336-41d79f8ca9d3
-  external_subnet_id: 70ec5bd3-d8d6-458a-ba75-b19a26545b32
+  external_resource_id: 07a75e98-ca66-4790-8336-41d79f8ca9d3
+  external_resource_subnet_id: 70ec5bd3-d8d6-458a-ba75-b19a26545b32
+  external_resource_vip_id: 9a088da5-7ad4-4f3a-9eb0-7168473a7d47
   vip: true
   name_lower: external
   ip_subnet: '10.0.0.0/24'
