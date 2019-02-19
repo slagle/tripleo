@@ -1,0 +1,141 @@
+# List of networks, used for j2 templating of enabled networks
+#
+# Supported values:
+#
+# name: Name of the network (mandatory)
+# name_lower: lowercase version of name used for filenames
+#             (optional, defaults to name.lower())
+# service_net_map_replace: if name_lower is set to a custom name this should be set
+#             to original default (optional).  This field is only necessary when
+#             changing the default network names, not when adding a new custom network.
+# enabled: Is the network enabled (optional, defaults to true)
+# NOTE: False will use noop.yaml for unused legacy networks to support upgrades.
+# vlan: vlan for the network (optional)
+# vip: Enable creation of a virtual IP on this network
+# ip_subnet: IP/CIDR, e.g. '192.168.24.0/24' or '2001:db8:fd00:1000::/64'
+#            (optional, may use parameter defaults instead)
+# allocation_pools: IP range list e.g. [{'start':'10.0.0.4', 'end':'10.0.0.250'}]
+# gateway_ip: gateway for the network (optional, may use parameter defaults)
+# routes: Optional, list of networks that should be routed via network gateway.
+#         Example: [{'destination':'10.0.0.0/16', 'nexthop':'10.0.0.1'}]
+#         A single /16 supernet route could be used for 255 smaller /24 subnets.
+# ipv6_subnet: Optional, sets default IPv6 subnet if IPv4 is already defined.
+# ipv6_allocation_pools: Set default IPv6 allocation pools if IPv4 allocation pools
+#                        are already defined.
+# gateway_ipv6: Set an IPv6 gateway if IPv4 gateway already defined.
+# routes_ipv6: Optional, list of networks that should be routed via network gateway.
+#              Example: [{'destination':'fd00:fd00:fd00:3004::/64',
+#                         'nexthop':'fd00:fd00:fd00:3000::1'}]
+# ipv6: If ip_subnet not defined, this specifies that the network is IPv6-only.
+# NOTE: IP-related values set parameter defaults in templates, may be overridden,
+# either by operators, or e.g in environments/network-isolation-v6.yaml where we
+# set some default IPv6 addresses.
+# compat_name: for existing stack you may need to override the default
+#              transformation for the resource's name.
+# mtu: Set the maximum transmission unit (MTU) that is guaranteed to pass
+#      through the data path of the segments in the network.
+#      (optional, defaults to 1500)
+# subnets: A map of additional subnets for the network (optional). The map
+#          takes the following format:
+#              {'<subnet name>': {'enabled': '<true|false>',
+#                                 'vlan': '<vlan-id>',
+#                                 'ip_subnet': '<IP/CIDR>',
+#                                 'allocation_pools': '<IP range list>',
+#                                 'gateway_ip': '<gateway IP>',
+#                                 'routes': '<Routes list>',
+#                                 'ipv6_subnet': '<IPv6/CIDR>',
+#                                 'ipv6_allocation_pools': '<IPv6 range list>',
+#                                 'gateway_ipv6': '<IPv6 gateway>',
+#                                 'routes_ipv6': '<Routes list>'}}
+#
+# Example:
+# - name Example
+#   vip: false
+#   ip_subnet: '10.0.2.0/24'
+#   allocation_pools: [{'start': '10.0.2.4', 'end': '10.0.2.250'}]
+#   gateway_ip: '10.0.2.254'
+#
+# To support backward compatibility, two versions of the network definitions
+# will be created, network/<network>.yaml and network/<network>_v6.yaml. Only
+# one of these files may be used in the deployment at a time, since the
+# parameters used for configuration are the same in both files. In the
+# future, this behavior may be changed to create only one file for custom
+# networks. You may specify IPv6 addresses for ip_subnet, allocation_pools,
+# and gateway_ip if no IPv4 addresses are used for a custom network, or set
+# ipv6: true, and the network/<network>.yaml file will be configured as IPv6.
+#
+# For configuring both IPv4 and IPv6 on the same interface, use two separate
+# networks, and then assign both IPs to the same interface in a custom NIC
+# configuration templates.
+#
+# The ordering of the networks below will determine the order in which NICs
+# are assigned in the network/config/multiple-nics templates, beginning with
+# NIC2, Control Plane is always NIC1.
+
+- name: Storage
+  external_id: 2b92bdc4-a69a-4423-bcc5-2b5a35c399bd
+  external_subnet_id: bd820e75-81fd-4132-9add-41709d7f4099
+  vip: true
+  name_lower: storage
+  ip_subnet: '172.16.1.0/24'
+  allocation_pools: [{'start': '172.16.1.4', 'end': '172.16.1.250'}]
+  ipv6_subnet: 'fd00:fd00:fd00:3000::/64'
+  ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:3000::10', 'end': 'fd00:fd00:fd00:3000:ffff:ffff:ffff:fffe'}]
+  mtu: 1500
+- name: StorageMgmt
+  external_id: 200485f5-348a-47e6-bcf4-fbc9d02d4efb
+  external_subnet_id: 6ec2078d-c8c7-4a54-8124-790a3bfec18d
+  name_lower: storage_mgmt
+  vip: true
+  ip_subnet: '172.16.3.0/24'
+  allocation_pools: [{'start': '172.16.3.4', 'end': '172.16.3.250'}]
+  ipv6_subnet: 'fd00:fd00:fd00:4000::/64'
+  ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:4000::10', 'end': 'fd00:fd00:fd00:4000:ffff:ffff:ffff:fffe'}]
+  mtu: 1500
+- name: InternalApi
+  external_id: 93861871-7814-4dbc-9e6c-7f51496b43af
+  external_subnet_id: c85c8670-51c1-4b17-a580-1cfb4344de27
+  name_lower: internal_api
+  vip: true
+  ip_subnet: '172.16.2.0/24'
+  allocation_pools: [{'start': '172.16.2.4', 'end': '172.16.2.250'}]
+  ipv6_subnet: 'fd00:fd00:fd00:2000::/64'
+  ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:2000::10', 'end': 'fd00:fd00:fd00:2000:ffff:ffff:ffff:fffe'}]
+  mtu: 1400
+- name: Tenant
+  external_id: 8ea6d41a-0d65-4c07-bb33-b13d5def30f6
+  external_subnet_id: 19f68bcc-0a2c-43bc-a8a7-e52ab7c1e3fc
+  vip: false  # Tenant network does not use VIPs
+  name_lower: tenant
+  ip_subnet: '172.16.0.0/24'
+  allocation_pools: [{'start': '172.16.0.4', 'end': '172.16.0.250'}]
+  ipv6_subnet: 'fd00:fd00:fd00:5000::/64'
+  ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:5000::10', 'end': 'fd00:fd00:fd00:5000:ffff:ffff:ffff:fffe'}]
+  mtu: 1500
+- name: External
+  external_id: 07a75e98-ca66-4790-8336-41d79f8ca9d3
+  external_subnet_id: 70ec5bd3-d8d6-458a-ba75-b19a26545b32
+  vip: true
+  name_lower: external
+  ip_subnet: '10.0.0.0/24'
+  allocation_pools: [{'start': '10.0.0.4', 'end': '10.0.0.250'}]
+  gateway_ip: '10.0.0.1'
+  ipv6_subnet: '2001:db8:fd00:1000::/64'
+  ipv6_allocation_pools: [{'start': '2001:db8:fd00:1000::10', 'end': '2001:db8:fd00:1000:ffff:ffff:ffff:fffe'}]
+  gateway_ipv6: '2001:db8:fd00:1000::1'
+  mtu: 1500
+- name: Management
+  external_id: a393e698-c641-420b-a3fa-f95aa8b9b026
+  external_subnet_id: 0d4766a4-f8a1-49d2-a02c-b0b69fe121c7
+  # Management network is enabled by default for backwards-compatibility, but
+  # is not included in any roles by default. Add to role definitions to use.
+  enabled: true
+  vip: false  # Management network does not use VIPs
+  name_lower: management
+  ip_subnet: '10.0.1.0/24'
+  allocation_pools: [{'start': '10.0.1.4', 'end': '10.0.1.250'}]
+  gateway_ip: '10.0.1.1'
+  gateway_ipv6: 'fd00:fd00:fd00:6000::1'
+  ipv6_subnet: 'fd00:fd00:fd00:6000::/64'
+  ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:6000::10', 'end': 'fd00:fd00:fd00:6000:ffff:ffff:ffff:fffe'}]
+  mtu: 1500
