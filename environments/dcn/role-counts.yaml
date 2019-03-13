@@ -1,3 +1,2 @@
 parameter_defaults:
   ControllerCount: 1
-  ComputeCount: 0
