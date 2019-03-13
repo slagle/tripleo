@@ -2,3 +2,6 @@
 - make sure to ip link set dev up on all interfaces on the nodes, otherwise
   nics are not detected as "active" by os-net-config
 - create disk.img and /dev/loop0 on compute nodes
+  on reboot: partx -av disk.img
+   (can't use kpartx)
+   https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=704160

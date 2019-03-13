@@ -3,7 +3,7 @@
 set -eux
 
 export OS_CLOUD=undercloud
-export STACK=${STACK:-"controlplane"}
+export STACK=${STACK:-"control-plane"}
 export DIR=${STACK}-export
 
 mkdir -p $DIR

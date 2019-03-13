@@ -1,5 +1,5 @@
 export TEMPLATES="$HOME/tripleo-heat-templates"
-export STACK_NAME=compute2
+export STACK_NAME=edge-1
 
 export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/containers-prepare-parameter.yaml \
