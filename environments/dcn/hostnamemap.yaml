@@ -1,3 +1,3 @@
 parameter_defaults:
   HostnameMap:
-    controlplane-controller-0: openstack-0
+    control-plane-controller-0: openstack-0
