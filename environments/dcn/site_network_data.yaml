@@ -133,6 +133,8 @@
   gateway_ipv6: '2001:db8:fd00:1000::1'
   mtu: 1500
 - name: Management
+  external_resource_network_id: 40ed54c0-1c85-4bcb-b244-0764f83d2ca8
+  external_resource_subnet_id: 9ca595f9-aa92-415a-9e13-0ed8b9f78e68
   # Management network is enabled by default for backwards-compatibility, but
   # is not included in any roles by default. Add to role definitions to use.
   enabled: true
