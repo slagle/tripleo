@@ -15,12 +15,12 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/dcn/central/deployed-server-port-map.yaml \
   -e $HOME/tripleo/environments/dcn/central/ceph-environment.yaml \
   -e $HOME/tripleo/environments/dcn/az.yaml \
-  -e $HOME/controlplane-export/endpoint-map.json \
-  -e $HOME/controlplane-export/all-nodes-extra-map-data.json \
-  -e $HOME/controlplane-export/global-config-extra-map-data.json \
-  -e $HOME/controlplane-export/extra-host-file-entries.json \
-  -e $HOME/controlplane-export/oslo.yaml \
-  -e $HOME/controlplane-export/passwords.yaml \
+  -e $HOME/control-plane-export/endpoint-map.json \
+  -e $HOME/control-plane-export/all-nodes-extra-map-data.json \
+  -e $HOME/control-plane-export/global-config-extra-map-data.json \
+  -e $HOME/control-plane-export/extra-host-file-entries.json \
+  -e $HOME/control-plane-export/oslo.yaml \
+  -e $HOME/control-plane-export/passwords.yaml \
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/dcn/central/roles-data.yaml"
