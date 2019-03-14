@@ -1,12 +1,9 @@
 parameter_defaults:
   ExtraConfig:
-     nova::config::nova_config:
-        DEFAULT/default_schedule_zone:
-           value: 'central'
-        DEFAULT/default_availability_zone:
-           value: 'central'
-        DEFAULT/internal_service_availability_zone:
-           value: 'central'
-        DEFAULT/cross_az_attach:
-           value: 'false'
+    nova::availability_zone::default_schedule_zone: 'central'
+    nova::availability_zone::default_availability_zone: 'central'
+    nova::availability_zone::internal_service_availability_zone: 'central'
+    nova::config::nova_config:
+      DEFAULT/cross_az_attach:
+        value: 'false'
   CinderStorageAvailabilityZone: 'central'
