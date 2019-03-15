@@ -119,7 +119,7 @@ resources:
       config:
         str_replace:
           template:
-            get_file: ../../scripts/run-os-net-config.sh
+            get_file: /home/centos/tripleo-heat-templates/network/scripts/run-os-net-config.sh
           params:
             $network_config:
               network_config:
