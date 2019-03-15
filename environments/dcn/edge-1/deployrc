@@ -29,6 +29,6 @@ export NETWORK_DATA="$HOME/tripleo/environments/dcn/site_network_data.yaml"
 
 export ARGS="\
   --disable-validations \
-  --overcloud-ssh-key /home/centos/.ssh/cloud-key \
+  --overcloud-ssh-key /home/centos/.ssh/jslagle-rdo-cloud \
   --overcloud-ssh-user centos \
 "
