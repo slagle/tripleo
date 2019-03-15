@@ -1,0 +1,2 @@
+resource_registry:
+  OS::TripleO::DistributedComputeHCI::Net::SoftwareConfig: /home/centos/tripleo-heat-templates/network/config/multiple-nics/compute-dvr.yaml
