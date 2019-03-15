@@ -187,7 +187,7 @@ resources:
                     get_param: TenantMtu
                   use_dhcp: false
                   primary: true
-							# External bridge for DVR (no IP address required)
+              # External bridge for DVR (no IP address required)
               - type: ovs_bridge
                 name: bridge_name
                 mtu:
