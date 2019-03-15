@@ -1,0 +1,2 @@
+resource_registry:
+  OS::TripleO::DistributedComputeHCI::Net::SoftwareConfig: distributedcomputehci.yaml
