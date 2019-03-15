@@ -9,11 +9,13 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/environments/net-multiple-nics.yaml \
   -e $TEMPLATES/environments/ceph-ansible/ceph-ansible.yaml \
   -e $TEMPLATES/environments/low-memory-usage.yaml \
+  -e $HOME/tripleo/environments/dcn/nic-config-distributedcomputehci.yaml \
   -e $HOME/tripleo/environments/dcn/edge-1/role-counts.yaml \
   -e $HOME/tripleo/environments/dcn/edge-1/hostnamemap.yaml \
   -e $HOME/tripleo/environments/dcn/network-environment.yaml \
   -e $HOME/tripleo/environments/dcn/edge-1/deployed-server-port-map.yaml \
   -e $HOME/tripleo/environments/dcn/edge-1/ceph-environment.yaml \
+  -e $HOME/tripleo/environments/dcn/edge-1/az.yaml \
   -e $HOME/control-plane-export/endpoint-map.json \
   -e $HOME/control-plane-export/all-nodes-extra-map-data.json \
   -e $HOME/control-plane-export/global-config-extra-map-data.json \
