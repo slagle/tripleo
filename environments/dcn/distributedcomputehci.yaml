@@ -117,6 +117,13 @@ parameters:
     description: The IP address of the EC2 metadata server. (The parameter
       is automatically resolved from the ctlplane subnet's host_routes attribute.)
     type: string
+	ExternalMtu:
+    default: 1500
+    description: The maximum transmission unit (MTU) size(in bytes) that is
+      guaranteed to pass through the data path of the segments in the 
+      External network.
+    type: number
+
 resources:
   OsNetConfigImpl:
     type: OS::Heat::SoftwareConfig
