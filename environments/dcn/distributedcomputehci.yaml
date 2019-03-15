@@ -37,10 +37,6 @@ parameters:
     default: ''
     description: IP address/subnet on the storage network
     type: string
-  StorageNetworkVlanID:
-    default: 
-    description: Vlan ID for the storage network traffic.
-    type: number
   StorageMtu:
     default: 1500
     description: The maximum transmission unit (MTU) size(in bytes) that is
@@ -55,14 +51,28 @@ parameters:
       Unless the default is changed, the parameter is automatically resolved
       from the subnet host_routes attribute.
     type: json
+  StorageMgmtIpSubnet:
+    default: ''
+    description: IP address/subnet on the storage_mgmt network
+    type: string
+  StorageMgmtMtu:
+    default: 1500
+    description: The maximum transmission unit (MTU) size(in bytes) that is
+      guaranteed to pass through the data path of the segments in the
+      StorageMgmt network.
+    type: number
+  StorageMgmtInterfaceRoutes:
+    default: []
+    description: >
+      Routes for the storage_mgmt network traffic.
+      JSON route e.g. [{'destination':'10.0.0.0/16', 'nexthop':'10.0.0.1'}]
+      Unless the default is changed, the parameter is automatically resolved
+      from the subnet host_routes attribute.
+    type: json
   InternalApiIpSubnet:
     default: ''
     description: IP address/subnet on the internal_api network
     type: string
-  InternalApiNetworkVlanID:
-    default: 
-    description: Vlan ID for the internal_api network traffic.
-    type: number
   InternalApiMtu:
     default: 1400
     description: The maximum transmission unit (MTU) size(in bytes) that is
@@ -81,10 +91,6 @@ parameters:
     default: ''
     description: IP address/subnet on the tenant network
     type: string
-  TenantNetworkVlanID:
-    default: 
-    description: Vlan ID for the tenant network traffic.
-    type: number
   TenantMtu:
     default: 1500
     description: The maximum transmission unit (MTU) size(in bytes) that is
@@ -156,6 +162,17 @@ resources:
                 routes:
                   list_concat_unique:
                     - get_param: StorageInterfaceRoutes
+              - type: interface
+                name: nic3
+                mtu:
+                  get_param: StorageMgmtMtu
+                use_dhcp: false
+                addresses:
+                - ip_netmask:
+                    get_param: StorageMgmtIpSubnet
+                routes:
+                  list_concat_unique:
+                    - get_param: StorageMgmtInterfaceRoutes
               - type: interface
                 name: nic4
                 mtu:
