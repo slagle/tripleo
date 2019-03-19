@@ -356,7 +356,7 @@ export TRIPLEO_ROOT=$HOME/tripleo-root
 [ -e stackrc ] && source stackrc
 export PYTHONWARNINGS="ignore:Certificate has no, ignore:A true SSLContext object is not available, ignore:SubjectAltNameWarning, ignore:Certificate for"
 
-alias tripleo-mistral-get-private-ssh-key="openstack workflow env show ssh_keys -f json -c Variables | jq .Variables -r | jq .public_key -r"
+alias tripleo-mistral-get-private-ssh-key="openstack workflow env show ssh_keys -f json -c Variables | jq .Variables -r | jq .private_key -r"
 
 function tripleo-generate-overclourc {
 	STACK_NAME=${STACK_NAME:-"overcloud"}
