@@ -7,3 +7,4 @@ parameter_defaults:
       DEFAULT/cross_az_attach:
         value: 'false'
   CinderStorageAvailabilityZone: 'edge-1'
+  NovaDefaultScheduleZone: 'central'
