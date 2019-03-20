@@ -27,7 +27,7 @@ parameters:
       from the subnet host_routes attribute.
     type: json
   ControlPlaneMtu:
-    default: 1500
+    default: 1400
     description: The maximum transmission unit (MTU) size(in bytes) that is
       guaranteed to pass through the data path of the segments in the network.
       (The parameter is automatically resolved from the ctlplane network's mtu attribute.)
@@ -38,7 +38,7 @@ parameters:
     description: IP address/subnet on the storage network
     type: string
   StorageMtu:
-    default: 1500
+    default: 1400
     description: The maximum transmission unit (MTU) size(in bytes) that is
       guaranteed to pass through the data path of the segments in the
       Storage network.
@@ -56,7 +56,7 @@ parameters:
     description: IP address/subnet on the storage_mgmt network
     type: string
   StorageMgmtMtu:
-    default: 1500
+    default: 1400
     description: The maximum transmission unit (MTU) size(in bytes) that is
       guaranteed to pass through the data path of the segments in the
       StorageMgmt network.
@@ -92,7 +92,7 @@ parameters:
     description: IP address/subnet on the tenant network
     type: string
   TenantMtu:
-    default: 1500
+    default: 1400
     description: The maximum transmission unit (MTU) size(in bytes) that is
       guaranteed to pass through the data path of the segments in the
       Tenant network.
@@ -118,7 +118,7 @@ parameters:
       is automatically resolved from the ctlplane subnet's host_routes attribute.)
     type: string
   ExternalMtu:
-    default: 1500
+    default: 1400
     description: The maximum transmission unit (MTU) size(in bytes) that is
       guaranteed to pass through the data path of the segments in the 
       External network.
