@@ -1,0 +1,35 @@
+export TEMPLATES="$HOME/tripleo-heat-templates"
+export STACK_NAME=edge-ha
+
+export ENVIRONMENTS="\
+  -e $HOME/tripleo/environments/containers-prepare-parameter.yaml \
+  -e $TEMPLATES/environments/deployed-server-environment.yaml \
+  -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
+  -e $TEMPLATES/environments/network-isolation.yaml \
+  -e $TEMPLATES/environments/net-multiple-nics.yaml \
+  -e $TEMPLATES/environments/ceph-ansible/ceph-ansible.yaml \
+  -e $TEMPLATES/environments/low-memory-usage.yaml \
+  -e $TEMPLATES/environments/nova-az-config.yaml \
+  -e $HOME/tripleo/environments/dcn/nic-config-distributedcomputehci.yaml \
+  -e $HOME/tripleo/environments/dcn/edge-ha/role-counts.yaml \
+  -e $HOME/tripleo/environments/dcn/edge-ha/hostnamemap.yaml \
+  -e $HOME/tripleo/environments/dcn/network-environment.yaml \
+  -e $HOME/tripleo/environments/dcn/edge-ha/deployed-server-port-map.yaml \
+  -e $HOME/tripleo/environments/dcn/edge-ha/ceph-environment.yaml \
+  -e $HOME/tripleo/environments/dcn/edge-ha/az.yaml \
+  -e $HOME/control-plane-export/endpoint-map.json \
+  -e $HOME/control-plane-export/all-nodes-extra-map-data.json \
+  -e $HOME/control-plane-export/global-config-extra-map-data.json \
+  -e $HOME/control-plane-export/extra-host-file-entries.json \
+  -e $HOME/control-plane-export/oslo.yaml \
+  -e $HOME/control-plane-export/passwords.yaml \
+"
+
+export ROLES_DATA="$HOME/tripleo/environments/dcn/edge-ha/roles-data.yaml"
+export NETWORK_DATA="$HOME/tripleo/environments/dcn/site_network_data.yaml"
+
+export ARGS="\
+  --disable-validations \
+  --overcloud-ssh-key /home/centos/.ssh/jslagle-rdo-cloud \
+  --overcloud-ssh-user centos \
+"

@@ -1,0 +1,5 @@
+parameter_defaults:
+  HostnameMap:
+    edge-ha-distributedcomputehci-0: compute-1
+    edge-ha-distributedcomputehci-1: compute-2
+    edge-ha-distributedcomputehci-2: compute-3
