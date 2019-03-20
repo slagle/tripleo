@@ -86,7 +86,7 @@
   allocation_pools: [{'start': '172.16.1.4', 'end': '172.16.1.250'}]
   ipv6_subnet: 'fd00:fd00:fd00:3000::/64'
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:3000::10', 'end': 'fd00:fd00:fd00:3000:ffff:ffff:ffff:fffe'}]
-  mtu: 1500
+  mtu: 1400
 - name: StorageMgmt
   external_resource_network_id: 47a73786-4066-49ac-9e6a-49fb5d1f964a
   external_resource_subnet_id: eb78ae43-c575-4fdd-8c3f-405f4bdd0ca5
@@ -97,7 +97,7 @@
   allocation_pools: [{'start': '172.16.3.4', 'end': '172.16.3.250'}]
   ipv6_subnet: 'fd00:fd00:fd00:4000::/64'
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:4000::10', 'end': 'fd00:fd00:fd00:4000:ffff:ffff:ffff:fffe'}]
-  mtu: 1500
+  mtu: 1400
 - name: InternalApi
   external_resource_network_id: 447fd403-e977-436d-ba21-7d1ac258dd81
   external_resource_subnet_id: 3449c5f3-ebb0-4e77-b671-eb6ea209a10e
@@ -118,7 +118,7 @@
   allocation_pools: [{'start': '172.16.0.4', 'end': '172.16.0.250'}]
   ipv6_subnet: 'fd00:fd00:fd00:5000::/64'
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:5000::10', 'end': 'fd00:fd00:fd00:5000:ffff:ffff:ffff:fffe'}]
-  mtu: 1500
+  mtu: 1400
 - name: External
   external_resource_network_id: cf19bf6e-1ed5-428b-9aab-727d43e88f3a
   external_resource_subnet_id: 6fc8578c-8028-450a-b83e-bf92cfda61bc
@@ -131,7 +131,7 @@
   ipv6_subnet: '2001:db8:fd00:1000::/64'
   ipv6_allocation_pools: [{'start': '2001:db8:fd00:1000::10', 'end': '2001:db8:fd00:1000:ffff:ffff:ffff:fffe'}]
   gateway_ipv6: '2001:db8:fd00:1000::1'
-  mtu: 1500
+  mtu: 1400
 - name: Management
   external_resource_network_id: 40ed54c0-1c85-4bcb-b244-0764f83d2ca8
   external_resource_subnet_id: 9ca595f9-aa92-415a-9e13-0ed8b9f78e68
@@ -146,4 +146,4 @@
   gateway_ipv6: 'fd00:fd00:fd00:6000::1'
   ipv6_subnet: 'fd00:fd00:fd00:6000::/64'
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:6000::10', 'end': 'fd00:fd00:fd00:6000:ffff:ffff:ffff:fffe'}]
-  mtu: 1500
+  mtu: 1400
