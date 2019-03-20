@@ -1,9 +1,11 @@
 parameter_defaults:
+  # Can be removed once https://review.openstack.org/#/c/644602/ is available
   ExtraConfig:
-    nova::availability_zone::default_schedule_zone: 'central'
-    nova::availability_zone::default_availability_zone: 'central'
-    nova::availability_zone::internal_service_availability_zone: 'internal'
     nova::config::nova_config:
-      DEFAULT/cross_az_attach:
+      cinder/cross_az_attach:
         value: 'false'
+  NovaInternalServiceAvailabilityZone: 'internal'
+  NovaDefaultScheduleZone: 'central'
   CinderStorageAvailabilityZone: 'central'
+  NovaDefaultAvailabilityZone: 'central'
+  NovaAZAttach: false
