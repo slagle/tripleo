@@ -19,7 +19,6 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/dcn/edge-ha/ceph-environment.yaml \
   -e $HOME/tripleo/environments/dcn/edge-ha/az.yaml \
   -e $HOME/tripleo/environments/dcn/edge-ha/cinder-volume-cluster.yaml \
-  -e $HOME/tripleo/environments/dcn/edge-ha/keepalived.yaml \
   -e $HOME/control-plane-export/endpoint-map.json \
   -e $HOME/control-plane-export/all-nodes-extra-map-data.json \
   -e $HOME/control-plane-export/global-config-extra-map-data.json \
