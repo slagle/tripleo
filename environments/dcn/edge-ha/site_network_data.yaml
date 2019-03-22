@@ -101,7 +101,7 @@
 - name: InternalApi
   external_resource_network_id: 447fd403-e977-436d-ba21-7d1ac258dd81
   external_resource_subnet_id: 3449c5f3-ebb0-4e77-b671-eb6ea209a10e
-  # external_resource_vip_id: b9299348-d761-410a-b81d-4d78b2d985a9
+  external_resource_vip_id: b9299348-d761-410a-b81d-4d78b2d985a9
   name_lower: internal_api
   vip: true
   ip_subnet: '172.16.2.0/24'

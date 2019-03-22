@@ -9,11 +9,6 @@ parameter_defaults:
   ControlPlaneDefaultRoute: 192.168.0.1
 
   DeployedServerPortMap:
-    control_virtual_ip:
-      fixed_ips:
-        - ip_address: 192.168.0.100
-      subnets:
-        - cidr: 192.168.0.0/24
     compute-1-ctlplane:
       fixed_ips:
         - ip_address: 192.168.0.28
