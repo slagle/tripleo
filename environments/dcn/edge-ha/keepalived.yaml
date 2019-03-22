@@ -1,0 +1,2 @@
+resource_registry:
+  OS::TripleO::Services::Keepalived: /home/centos/tripleo-heat-templates/deployment/keepalived/keepalived-container-puppet.yaml
