@@ -71,3 +71,4 @@
     - OS::TripleO::Services::OVNController
     - OS::TripleO::Services::OVNMetadataAgent
     - OS::TripleO::Services::NovaAZConfig
+    - OS::TripleO::Services::Etcd
