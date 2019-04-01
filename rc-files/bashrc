@@ -161,7 +161,7 @@ function stack-rm-all {
                 /etc/openvswitch /var/lib/openvswitch /etc/haproxy /var/log/haproxy \
                 /var/lib/certmonger /etc/certmonger /etc/keepalived \
                 /root/.my.cnf /var/lib/config-data /var/lib/tripleo-config \
-                /var/lib/tripleo*
+                /var/lib/tripleo* /var/lib/heat-config
 }
 
 function uninstall-undercloud {

@@ -7,12 +7,15 @@ if [ ! -f cirros-0.3.4-x86_64-disk.img ]; then
 fi
 
 if [ ! -f overcloud-key.rsa ]; then
+    ssh-keygen -f overcloud-key.rsa
+    chmod 0600 overcloud-key.rsa
+fi
+
+if [ ! -f openstack keypair show overcloud-key ]; then
     openstack keypair create \
         --private-key overcloud-key.rsa \
         overcloud-key
 fi
-
-chmod 0600 overcloud-key.rsa
 
 if ! openstack flavor show tiny; then
     openstack flavor create \
@@ -40,6 +43,6 @@ openstack server create \
     --image cirros \
     --flavor tiny \
     --key-name overcloud-key \
-    --network public \
+    --network private \
     --wait \
     user
