@@ -77,9 +77,9 @@
 # NIC2, Control Plane is always NIC1.
 
 - name: Storage
-  external_resource_network_id: ef89c994-5b8d-4a5d-aa53-ef02452665d0
-  external_resource_subnet_id: d6c975db-8943-4261-abf1-f7d2b482d88c
-  external_resource_vip_id: 824081da-9205-4ed9-9a94-047dccceb8ff
+  external_resource_network_id: 7dbcb1a7-35c7-4ee0-9d13-f9e81b9d2372
+  external_resource_subnet_id: 3b39c096-2531-4775-9647-eb0db70f845e
+  external_resource_vip_id: 4efc1179-3d96-4ffc-afbb-3a275dd449f7
   vip: true
   name_lower: storage
   ip_subnet: '172.16.1.0/24'
@@ -88,9 +88,9 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:3000::10', 'end': 'fd00:fd00:fd00:3000:ffff:ffff:ffff:fffe'}]
   mtu: 1400
 - name: StorageMgmt
-  external_resource_network_id: 47a73786-4066-49ac-9e6a-49fb5d1f964a
-  external_resource_subnet_id: eb78ae43-c575-4fdd-8c3f-405f4bdd0ca5
-  external_resource_vip_id: 824081da-9205-4ed9-9a94-047dccceb8ff
+  external_resource_network_id: 0366a1c9-8e38-439b-96f2-590aacfe42cc
+  external_resource_subnet_id: 9ff69971-5f2c-4d2f-8d55-212a9bb0109b
+  external_resource_vip_id: 81c4c457-6752-4917-a135-2071a24bd19f
   name_lower: storage_mgmt
   vip: true
   ip_subnet: '172.16.3.0/24'
@@ -99,9 +99,9 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:4000::10', 'end': 'fd00:fd00:fd00:4000:ffff:ffff:ffff:fffe'}]
   mtu: 1400
 - name: InternalApi
-  external_resource_network_id: 447fd403-e977-436d-ba21-7d1ac258dd81
-  external_resource_subnet_id: 3449c5f3-ebb0-4e77-b671-eb6ea209a10e
-  external_resource_vip_id: b9299348-d761-410a-b81d-4d78b2d985a9
+  external_resource_network_id: 1dc4b75b-86f2-4d7f-a718-8913b94d685e
+  external_resource_subnet_id: 322fed7b-3b62-4285-a95b-8455d844a986
+  external_resource_vip_id: c1ffb570-7f65-4929-9074-44b673551f76
   name_lower: internal_api
   vip: true
   ip_subnet: '172.16.2.0/24'
@@ -110,8 +110,8 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:2000::10', 'end': 'fd00:fd00:fd00:2000:ffff:ffff:ffff:fffe'}]
   mtu: 1400
 - name: Tenant
-  external_resource_network_id: 0fcb505b-81c8-483e-93f6-0da574e4acd5
-  external_resource_subnet_id: e6544a7f-ec00-4b33-b7b0-a02e1c0f503a
+  external_resource_network_id: 9e4ebfc1-7d10-43e9-84ef-ca394487a3f8
+  external_resource_subnet_id: 258bc9ca-fafc-4ebd-a9e0-4e9f68f0e164
   vip: false  # Tenant network does not use VIPs
   name_lower: tenant
   ip_subnet: '172.16.0.0/24'
@@ -120,9 +120,9 @@
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:5000::10', 'end': 'fd00:fd00:fd00:5000:ffff:ffff:ffff:fffe'}]
   mtu: 1400
 - name: External
-  external_resource_network_id: cf19bf6e-1ed5-428b-9aab-727d43e88f3a
-  external_resource_subnet_id: 6fc8578c-8028-450a-b83e-bf92cfda61bc
-  external_resource_vip_id: 894b834f-b911-42eb-a4b8-08e3b0084825
+  external_resource_network_id: ba9bfb9e-a5bd-4f4d-acc6-0b6e6eccf76d
+  external_resource_subnet_id: 0c8ddcdb-ba4a-49de-9cae-b237ce1b54a4
+  external_resource_vip_id: 3ac9d0cb-b1f8-4cee-894e-cf03780e23d9
   vip: true
   name_lower: external
   ip_subnet: '10.0.0.0/24'
@@ -133,8 +133,8 @@
   gateway_ipv6: '2001:db8:fd00:1000::1'
   mtu: 1400
 - name: Management
-  external_resource_network_id: 40ed54c0-1c85-4bcb-b244-0764f83d2ca8
-  external_resource_subnet_id: 9ca595f9-aa92-415a-9e13-0ed8b9f78e68
+  external_resource_network_id: 772a7e8e-d5e1-4649-b5c9-21806531b4ef
+  external_resource_subnet_id: 75353887-eaa2-44e3-8a02-b49008d1039d
   # Management network is enabled by default for backwards-compatibility, but
   # is not included in any roles by default. Add to role definitions to use.
   enabled: true
