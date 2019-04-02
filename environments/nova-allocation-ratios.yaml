@@ -1,9 +1,5 @@
 parameter_defaults:
   ExtraConfig:
-    nova::config::nova_config:
-      DEFAULT/ram_allocation_ratio:
-         value: 10
-      DEFAULT/cpu_allocation_ratio:
-         value: 10
-      DEFAULT/disk_allocation_ratio:
-         value: 10
+    nova::cpu_allocation_ratio: 10
+    nova::ram_allocation_ratio: 10
+    nova::disk_allocation_ratio: 10
