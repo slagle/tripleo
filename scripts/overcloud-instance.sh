@@ -33,11 +33,12 @@ if ! openstack image show cirros; then
         cirros
 fi
 
+sec_group_id=$(openstack security group list --project admin -c ID -f value)
 
-openstack security group rule create --ingress --protocol icmp default || :
-openstack security group rule create --egress --protocol icmp default || :
-openstack security group rule create --ingress --protocol tcp --dst-port 1:1024 default || :
-openstack security group rule create --egress --protocol tcp --dst-port 1:1024 default || :
+openstack security group rule create --ingress --protocol icmp $sec_group_id || :
+openstack security group rule create --egress --protocol icmp $sec_group_id || :
+openstack security group rule create --ingress --protocol tcp --dst-port 1:1024 $sec_group_id || :
+openstack security group rule create --egress --protocol tcp --dst-port 1:1024 $sec_group_id || :
 
 openstack server create \
     --image cirros \
