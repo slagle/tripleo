@@ -7,6 +7,7 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/environments/deployed-server-bootstrap-environment-centos.yaml \
   -e $TEMPLATES/environments/network-isolation.yaml \
   -e $TEMPLATES/environments/net-multiple-nics.yaml \
+  -e $HOME/tripleo/environments/nova-allocation-ratios.yaml \
   -e $HOME/tripleo/environments/dcn/cloud-domain.yaml \
   -e $HOME/tripleo/environments/dcn/role-counts.yaml \
   -e $HOME/tripleo/environments/dcn/hostnamemap.yaml \
