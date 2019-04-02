@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eux
+set -ux
 
 openstack router remove subnet default-router private-subnet
 openstack router delete default-router
