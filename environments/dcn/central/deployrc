@@ -10,6 +10,7 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/environments/ceph-ansible/ceph-ansible.yaml \
   -e $TEMPLATES/environments/low-memory-usage.yaml \
   -e $TEMPLATES/environments/nova-az-config.yaml \
+  -e $HOME/tripleo/environments/dcn/cloud-domain.yaml \
   -e $HOME/tripleo/environments/dcn/nic-config-distributedcomputehci.yaml \
   -e $HOME/tripleo/environments/dcn/central/role-counts.yaml \
   -e $HOME/tripleo/environments/dcn/central/hostnamemap.yaml \

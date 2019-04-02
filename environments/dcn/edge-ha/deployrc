@@ -11,6 +11,7 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/environments/low-memory-usage.yaml \
   -e $TEMPLATES/environments/nova-az-config.yaml \
   -e $TEMPLATES/environments/services/etcd.yaml \
+  -e $HOME/tripleo/environments/dcn/cloud-domain.yaml \
   -e $HOME/tripleo/environments/dcn/nic-config-distributedcomputehci.yaml \
   -e $HOME/tripleo/environments/dcn/edge-ha/role-counts.yaml \
   -e $HOME/tripleo/environments/dcn/edge-ha/hostnamemap.yaml \

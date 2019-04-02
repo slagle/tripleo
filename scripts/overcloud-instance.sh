@@ -46,4 +46,4 @@ openstack server create \
     --key-name overcloud-key \
     --network private \
     --wait \
-    user
+    user-$(date +%s)
