@@ -11,7 +11,7 @@ if [ ! -f overcloud-key.rsa ]; then
     chmod 0600 overcloud-key.rsa
 fi
 
-if [ ! -f openstack keypair show overcloud-key ]; then
+if ! openstack keypair show overcloud-key; then
     openstack keypair create \
         --private-key overcloud-key.rsa \
         overcloud-key
