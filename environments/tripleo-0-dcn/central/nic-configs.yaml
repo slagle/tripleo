@@ -1,0 +1,2 @@
+resource_registry:
+  OS::TripleO::Controller::Net::SoftwareConfig: ../nic-configs/compute.yaml
