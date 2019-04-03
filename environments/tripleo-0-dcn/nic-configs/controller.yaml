@@ -237,34 +237,34 @@ parameters:
   ControlPlaneMtu:
     type: number
     default: 1500
-  Tenant1Mtu:
+  TenantMtu:
     type: number
     default: 1500
   ExternalMtu:
     type: number
     default: 1500
-  Storage1Mtu:
+  StorageMtu:
     type: number
     default: 1500
-  StorageMgmt1Mtu:
+  StorageMgmtMtu:
     type: number
     default: 1500
   InternalApi1Mtu:
     type: number
     default: 1500
-  Storage1InterfaceRoutes:
+  StorageInterfaceRoutes:
     type: comma_delimited_list
     default: []
-  StorageMgmt1InterfaceRoutes:
+  StorageMgmtInterfaceRoutes:
     type: comma_delimited_list
     default: []
-  InternalApi1InterfaceRoutes:
+  InternalApiInterfaceRoutes:
     type: comma_delimited_list
     default: []
   ExternalInterfaceRoutes:
     type: comma_delimited_list
     default: []
-  Tenant1InterfaceRoutes:
+  TenantInterfaceRoutes:
     type: comma_delimited_list
     default: []
 
