@@ -1,7 +1,3 @@
-resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: nic-configs/controller.yaml
-  OS::TripleO::Compute::Net::SoftwareConfig: nic-configs/compute1.yaml
-
 parameter_defaults:
   NtpServer: clock.redhat.com
   DnsServers:
