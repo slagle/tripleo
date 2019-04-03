@@ -117,6 +117,8 @@ parameter_defaults:
   DockerOpenvswitchImage: docker.io/tripleomaster/centos-binary-neutron-openvswitch-agent:current-tripleo
   DockerOvnControllerImage: docker.io/tripleomaster/centos-binary-ovn-controller:current-tripleo
   DockerOvnDbsImage: docker.io/tripleomaster/centos-binary-ovn-northd:current-tripleo
+  DockerOvnDbsConfigImage: docker.io/tripleomaster/centos-binary-ovn-northd:current-tripleo
+  DockerOvnNorthdImage: docker.io/tripleomaster/centos-binary-ovn-northd:current-tripleo
   DockerOvnControllerConfigImage: docker.io/tripleomaster/centos-binary-ovn-controller-config:current-tripleo
   DockerOvnMetadataImage: docker.io/tripleomaster/centos-binary-ovn-metadata:current-tripleo
   DockerPankoApiImage: docker.io/tripleomaster/centos-binary-panko-api:current-tripleo
