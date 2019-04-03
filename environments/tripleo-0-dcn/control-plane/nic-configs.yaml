@@ -1,2 +1,2 @@
 resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: nic-configs/controller.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: ../nic-configs/controller.yaml
