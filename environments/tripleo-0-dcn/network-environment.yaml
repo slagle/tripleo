@@ -53,7 +53,7 @@ parameter_defaults:
   Tenant2NetCidr: '172.19.3.0/24'
   Tenant3NetCidr: '172.19.4.0/24'
 
-  ExternalNetCidr: '10.0.221.1/24'
+  ExternalNetCidr: '10.0.220.1/24'
 
   # Customize the VLAN IDs to match the local environment
   StorageNetworkVlanID: 1183
@@ -98,7 +98,7 @@ parameter_defaults:
   Tenant3AllocationPools: [{'start': '172.19.4.10', 'end': '172.19.4.250'}]
 
   # Leave room if the external network is also used for floating IPs
-  ExternalAllocationPools: [{'start': '10.0.221.100', 'end': '10.0.221.119'}]
+  ExternalAllocationPools: [{'start': '10.0.220.100', 'end': '10.0.220.119'}]
 
   # Gateway routers for routable networks
   StorageInterfaceDefaultRoute: '172.23.1.254'
@@ -121,5 +121,5 @@ parameter_defaults:
   Tenant2InterfaceDefaultRoute: '172.19.3.254'
   Tenant3InterfaceDefaultRoute: '172.19.4.254'
 
-  ExternalInterfaceDefaultRoute: '10.0.221.1'
+  ExternalInterfaceDefaultRoute: '10.0.220.1'
 
