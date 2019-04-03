@@ -3,6 +3,7 @@ export STACK_NAME=control-plane
 
 export ENVIRONMENTS="\
   -e $TEMPLATES/environments/network-isolation.yaml \
+  -e $TEMPLATES/environments/nova-az-config.yaml \
   -e $HOME/tripleo/environments/containers-prepare-parameter.yaml \
   -e $HOME/tripleo/environments/enable-package-install.yaml \
   -e $HOME/tripleo/environments/tripleo-0-dcn/network-environment.yaml \
