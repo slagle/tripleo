@@ -2,5 +2,7 @@
 
 set -eux
 
+MSG=${1:-"updates"}
+
 git add -A .
-git commit . -m "updates"; git push
+git commit . -m "$MSG"; git push

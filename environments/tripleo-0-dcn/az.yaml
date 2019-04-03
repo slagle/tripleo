@@ -1,0 +1,6 @@
+parameter_defaults:
+  NovaInternalServiceAvailabilityZone: 'internal'
+  NovaDefaultScheduleZone: 'central'
+  CinderStorageAvailabilityZone: 'central'
+  NovaDefaultAvailabilityZone: 'central'
+  NovaAZAttach: false
