@@ -249,7 +249,7 @@ parameters:
   StorageMgmtMtu:
     type: number
     default: 1500
-  InternalApi1Mtu:
+  InternalApiMtu:
     type: number
     default: 1500
   StorageInterfaceRoutes:
