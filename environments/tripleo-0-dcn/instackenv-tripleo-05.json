@@ -1,5 +1,5 @@
 {
-    [
+    "nodes": [
         {
             "name": "core-compute-0",
             "capabilities": "node:central-compute-0,boot_option:local",
@@ -57,8 +57,8 @@
             "pm_port": "626"
         },
         {
-            "name": "core-controller-2",
-            "capabilities": "node:control-plane-controller-2,boot_option:local",
+            "name": "core-controller-1",
+            "capabilities": "node:control-plane-controller-1,boot_option:local",
             "mac": ["52:54:00:d7:7e:80"],
             "cpu": "4",
             "memory": "6144",
@@ -83,5 +83,6 @@
             "pm_user": "admin",
             "pm_password": "password",
             "pm_port": "628"
-        },
-
+        }
+    ]
+}
