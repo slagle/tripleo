@@ -301,7 +301,7 @@ resources:
                     get_param: Leaf1EC2MetadataIp
                 - ip_netmask: 0.0.0.0/0
                   next_hop:
-                    get_param: ControlPlane1DefaultRoute
+                    get_param: ControlPlane2DefaultRoute
               - type: ovs_bridge
                 name: br-isolated
                 use_dhcp: false
