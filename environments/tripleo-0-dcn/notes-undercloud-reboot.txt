@@ -1,0 +1,7 @@
+i have the iscsid service started on my uc after a reboot                             
+that's not right is it?                                                               
+only tripleo_iscsid should be started                                                 
+which, coincidentally fails with iscsid: Can not bind IPC socket                      
+i had to systemctl stop                                                               
+iscsid.socket and iscsiuio.socket                                                     
+

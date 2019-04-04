@@ -1,0 +1,4 @@
+need to set DockerNeutronConfigImage to
+docker.io/tripleomaster/centos-binary-neutron-server-ovn:current-tripleo
+
+when using HEATCLIENT=1

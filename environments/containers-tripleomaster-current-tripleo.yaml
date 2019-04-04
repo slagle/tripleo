@@ -119,7 +119,7 @@ parameter_defaults:
   DockerOvnDbsImage: docker.io/tripleomaster/centos-binary-ovn-northd:current-tripleo
   DockerOvnDbsConfigImage: docker.io/tripleomaster/centos-binary-ovn-northd:current-tripleo
   DockerOvnNorthdImage: docker.io/tripleomaster/centos-binary-ovn-northd:current-tripleo
-  DockerOvnControllerConfigImage: docker.io/tripleomaster/centos-binary-ovn-controller-config:current-tripleo
+  DockerOvnControllerConfigImage: docker.io/tripleomaster/centos-binary-ovn-controller:current-tripleo
   DockerOvnMetadataImage: docker.io/tripleomaster/centos-binary-ovn-metadata:current-tripleo
   DockerPankoApiImage: docker.io/tripleomaster/centos-binary-panko-api:current-tripleo
   DockerPankoConfigImage: docker.io/tripleomaster/centos-binary-panko-api:current-tripleo
