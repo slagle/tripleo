@@ -1,2 +1,2 @@
 resource_registry:
-  OS::TripleO::DistributedComputeHCI::Net::SoftwareConfig: ../nic-configs/compute.yaml
+  OS::TripleO::DistributedComputeHCIDCN1::Net::SoftwareConfig: ../nic-configs/compute1.yaml
