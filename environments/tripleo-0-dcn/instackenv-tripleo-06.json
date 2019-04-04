@@ -1,0 +1,55 @@
+{
+    "nodes": [
+    {
+      "name": "dcn2-compute-0",
+      "capabilities": "node:dcn2-compute-0,boot_option:local",
+      "root_device": {
+          "name": "/dev/vda"
+        },
+      "mac": ["52:54:00:0d:3c:11"],
+      "cpu": "4",
+      "memory": "6144",
+      "disk": "50",
+            "arch": "x86_64",
+              "pm_addr": "172.16.222.1",
+        "pm_type": "ipmi",
+        "pm_user": "admin",
+        "pm_password": "password",
+        "pm_port": "623"
+    },
+    {
+      "name": "dcn2-compute-1",
+      "capabilities": "node:dcn2-compute-1,boot_option:local",
+      "root_device": {
+          "name": "/dev/vda"
+        },
+      "mac": ["52:54:00:eb:81:a3"],
+      "cpu": "4",
+      "memory": "6144",
+      "disk": "50",
+            "arch": "x86_64",
+              "pm_addr": "172.16.222.1",
+        "pm_type": "ipmi",
+        "pm_user": "admin",
+        "pm_password": "password",
+        "pm_port": "624"
+    },
+    {
+      "name": "dcn2-compute-2",
+      "capabilities": "node:dcn2-compute-2,boot_option:local",
+      "root_device": {
+          "name": "/dev/vda"
+        },
+      "mac": ["52:54:00:f9:68:d1"],
+      "cpu": "4",
+      "memory": "6144",
+      "disk": "50",
+            "arch": "x86_64",
+              "pm_addr": "172.16.222.1",
+        "pm_type": "ipmi",
+        "pm_user": "admin",
+        "pm_password": "password",
+        "pm_port": "625"
+    }
+]
+}
