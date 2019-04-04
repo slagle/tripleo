@@ -10,7 +10,7 @@ parameter_defaults:
   # Compute2ControlPlaneSubnet: leaf2
   # Compute3ControlPlaneSubnet: leaf3
 
-  ControlPlaneDefaultRoute: 192.168.220.1
+  ControlPlaneDefaultRoute: 192.168.220.254
   ControlPlaneSubnetCidr: '24'
   ControlPlane1DefaultRoute: 192.168.221.254
   ControlPlane1SubnetCidr: '24'
