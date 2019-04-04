@@ -40,7 +40,7 @@ parameters:
   StorageDCN1InterfaceDefaultRoute:
     type: string
     default: ''
-  Storage2InterfaceDefaultRoute:
+  StorageDCN2InterfaceDefaultRoute:
     type: string
     default: ''
   Storage3InterfaceDefaultRoute:
@@ -52,7 +52,7 @@ parameters:
   StorageMgmtDCN1InterfaceDefaultRoute:
     type: string
     default: ''
-  StorageMgmt2InterfaceDefaultRoute:
+  StorageMgmtDCN2InterfaceDefaultRoute:
     type: string
     default: ''
   StorageMgmt3InterfaceDefaultRoute:
@@ -64,7 +64,7 @@ parameters:
   InternalApiDCN1InterfaceDefaultRoute:
     type: string
     default: ''
-  InternalApi2InterfaceDefaultRoute:
+  InternalApiDCN2InterfaceDefaultRoute:
     type: string
     default: ''
   InternalApi3InterfaceDefaultRoute:
@@ -76,13 +76,13 @@ parameters:
   TenantDCN1InterfaceDefaultRoute:
     type: string
     default: ''
-  Tenant2InterfaceDefaultRoute:
+  TenantDCN2InterfaceDefaultRoute:
     type: string
     default: ''
   Tenant3InterfaceDefaultRoute:
     type: string
     default: ''
-  ExternalDCN1InterfaceDefaultRoute:
+  ExternalDCN2InterfaceDefaultRoute:
     type: string
     default: ''
 
@@ -93,7 +93,7 @@ parameters:
   StorageDCN1IpSubnet:
     type: string
     default: ''
-  Storage2IpSubnet:
+  StorageDCN2IpSubnet:
     type: string
     default: ''
   Storage3IpSubnet:
@@ -105,7 +105,7 @@ parameters:
   StorageMgmtDCN1IpSubnet:
     type: string
     default: ''
-  StorageMgmt2IpSubnet:
+  StorageMgmtDCN2IpSubnet:
     type: string
     default: ''
   StorageMgmt3IpSubnet:
@@ -117,7 +117,7 @@ parameters:
   InternalApiDCN1IpSubnet:
     type: string
     default: ''
-  InternalApi2IpSubnet:
+  InternalApiDCN2IpSubnet:
     type: string
     default: ''
   InternalApi3IpSubnet:
@@ -129,13 +129,13 @@ parameters:
   TenantDCN1IpSubnet:
     type: string
     default: ''
-  Tenant2IpSubnet:
+  TenantDCN2IpSubnet:
     type: string
     default: ''
   Tenant3IpSubnet:
     type: string
     default: ''
-  ExternalDCN1IpSubnet:
+  ExternalDCN2IpSubnet:
     type: string
     default: ''
   ManagementIpSubnet:
@@ -149,7 +149,7 @@ parameters:
   StorageDCN1NetworkVlanID:
     default: 31
     type: number
-  Storage2NetworkVlanID:
+  StorageDCN2NetworkVlanID:
     default: 32
     type: number
   Storage3NetworkVlanID:
@@ -161,7 +161,7 @@ parameters:
   StorageMgmtDCN1NetworkVlanID:
     default: 41
     type: number
-  StorageMgmt2NetworkVlanID:
+  StorageMgmtDCN2NetworkVlanID:
     default: 42
     type: number
   StorageMgmt3NetworkVlanID:
@@ -173,7 +173,7 @@ parameters:
   InternalApiDCN1NetworkVlanID:
     default: 21
     type: number
-  InternalApi2NetworkVlanID:
+  InternalApiDCN2NetworkVlanID:
     default: 22
     type: number
   InternalApi3NetworkVlanID:
@@ -185,13 +185,13 @@ parameters:
   TenantDCN1NetworkVlanID:
     default: 51
     type: number
-  Tenant2NetworkVlanID:
+  TenantDCN2NetworkVlanID:
     default: 52
     type: number
   Tenant3NetworkVlanID:
     default: 53
     type: number
-  ExternalDCN1NetworkVlanID:
+  ExternalDCN2NetworkVlanID:
     default: 10
     type: number
   ManagementNetworkVlanID:
@@ -237,34 +237,34 @@ parameters:
   ControlPlaneMtu:
     type: number
     default: 1500
-  TenantDCN1Mtu:
+  TenantDCN2Mtu:
     type: number
     default: 1500
-  ExternalDCN1Mtu:
+  ExternalDCN2Mtu:
     type: number
     default: 1500
-  StorageDCN1Mtu:
+  StorageDCN2Mtu:
     type: number
     default: 1500
-  StorageMgmtDCN1Mtu:
+  StorageMgmtDCN2Mtu:
     type: number
     default: 1500
-  InternalApiDCN1Mtu:
+  InternalApiDCN2Mtu:
     type: number
     default: 1500
-  StorageDCN1InterfaceRoutes:
+  StorageDCN2InterfaceRoutes:
     type: comma_delimited_list
     default: []
-  StorageMgmtDCN1InterfaceRoutes:
+  StorageMgmtDCN2InterfaceRoutes:
     type: comma_delimited_list
     default: []
-  InternalApiDCN1InterfaceRoutes:
+  InternalApiDCN2InterfaceRoutes:
     type: comma_delimited_list
     default: []
-  ExternalDCN1InterfaceRoutes:
+  ExternalDCN2InterfaceRoutes:
     type: comma_delimited_list
     default: []
-  TenantDCN1InterfaceRoutes:
+  TenantDCN2InterfaceRoutes:
     type: comma_delimited_list
     default: []
 
@@ -311,48 +311,48 @@ resources:
                   primary: true
                 - type: vlan
                   vlan_id:
-                    get_param: StorageDCN1NetworkVlanID
+                    get_param: StorageDCN2NetworkVlanID
                   addresses:
                   - ip_netmask:
-                      get_param: StorageDCN1IpSubnet
+                      get_param: StorageDCN2IpSubnet
                   routes:
                   - ip_netmask:
                       get_param: StorageSupernet
                     next_hop:
-                      get_param: StorageDCN1InterfaceDefaultRoute
+                      get_param: StorageDCN2InterfaceDefaultRoute
                 - type: vlan
                   vlan_id:
-                    get_param: StorageMgmtDCN1NetworkVlanID
+                    get_param: StorageMgmtDCN2NetworkVlanID
                   addresses:
                   - ip_netmask:
-                      get_param: StorageMgmtDCN1IpSubnet
+                      get_param: StorageMgmtDCN2IpSubnet
                   routes:
                   - ip_netmask:
                       get_param: StorageMgmtSupernet
                     next_hop:
-                      get_param: StorageMgmtDCN1InterfaceDefaultRoute
+                      get_param: StorageMgmtDCN2InterfaceDefaultRoute
                 - type: vlan
                   vlan_id:
-                    get_param: InternalApiDCN1NetworkVlanID
+                    get_param: InternalApiDCN2NetworkVlanID
                   addresses:
                   - ip_netmask:
-                      get_param: InternalApiDCN1IpSubnet
+                      get_param: InternalApiDCN2IpSubnet
                   routes:
                   - ip_netmask:
                       get_param: InternalApiSupernet
                     next_hop:
-                      get_param: InternalApiDCN1InterfaceDefaultRoute
+                      get_param: InternalApiDCN2InterfaceDefaultRoute
                 - type: vlan
                   vlan_id:
-                    get_param: TenantDCN1NetworkVlanID
+                    get_param: TenantDCN2NetworkVlanID
                   addresses:
                   - ip_netmask:
-                      get_param: TenantDCN1IpSubnet
+                      get_param: TenantDCN2IpSubnet
                   routes:
                   - ip_netmask:
                       get_param: TenantSupernet
                     next_hop:
-                      get_param: TenantDCN1InterfaceDefaultRoute
+                      get_param: TenantDCN2InterfaceDefaultRoute
               - type: ovs_bridge
                 # This will default to br-ex, anything else requires specific
                 # brige mapping entries for it to be used.
@@ -361,7 +361,7 @@ resources:
                 routes:
                   -
                     ip_netmask: 0.0.0.0/0
-                    next_hop: {get_param: ExternalDCN1InterfaceDefaultRoute}
+                    next_hop: {get_param: ExternalDCN2InterfaceDefaultRoute}
                 members:
                   -
                     type: interface

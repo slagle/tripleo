@@ -6,6 +6,7 @@ parameter_defaults:
   ControllerControlPlaneSubnet: ctlplane-subnet
   DistributedComputeHCIControlPlaneSubnet: ctlplane-subnet
   DistributedComputeHCIDCN1ControlPlaneSubnet: leaf1
+  DistributedComputeHCIDCN2ControlPlaneSubnet: leaf2
   # Compute1ControlPlaneSubnet: leaf1
   # Compute2ControlPlaneSubnet: leaf2
   # Compute3ControlPlaneSubnet: leaf3
@@ -37,94 +38,98 @@ parameter_defaults:
   # Customize the IP subnets to match the local environment
   StorageNetCidr: '172.23.1.0/24'
   StorageDCN1NetCidr: '172.23.2.0/24'
-  Storage2NetCidr: '172.23.3.0/24'
+  StorageDCN2NetCidr: '172.23.3.0/24'
   Storage3NetCidr: '172.23.4.0/24'
 
   StorageMgmtNetCidr: '172.18.1.0/24'
   StorageMgmtDCN1NetCidr: '172.18.2.0/24'
-  StorageMgmt2NetCidr: '172.18.3.0/24'
+  StorageMgmtDCN2NetCidr: '172.18.3.0/24'
   StorageMgmt3NetCidr: '172.18.4.0/24'
 
   InternalApiNetCidr: '172.25.1.0/24'
   InternalApiDCN1NetCidr: '172.25.2.0/24'
-  InternalApi2NetCidr: '172.25.3.0/24'
+  InternalApiDCN2NetCidr: '172.25.3.0/24'
   InternalApi3NetCidr: '172.25.4.0/24'
 
   TenantNetCidr: '172.19.1.0/24'
   TenantDCN1NetCidr: '172.19.2.0/24'
-  Tenant2NetCidr: '172.19.3.0/24'
+  TenantDCN2NetCidr: '172.19.3.0/24'
   Tenant3NetCidr: '172.19.4.0/24'
 
   ExternalNetCidr: '10.0.220.1/24'
   ExternalDCN1NetCidr: '10.0.221.1/24'
+  ExternalDCN2NetCidr: '10.0.222.1/24'
 
   # Customize the VLAN IDs to match the local environment
   StorageNetworkVlanID: 1183
   StorageDCN1NetworkVlanID: 1173
-  Storage2NetworkVlanID: 1163
+  StorageDCN2NetworkVlanID: 1163
   Storage3NetworkVlanID: 1153
 
   StorageMgmtNetworkVlanID: 1188
   StorageMgmtDCN1NetworkVlanID: 1178
-  StorageMgmt2NetworkVlanID: 1168
+  StorageMgmtDCN2NetworkVlanID: 1168
   StorageMgmt3NetworkVlanID: 1158
 
   InternalApiNetworkVlanID: 1185
   InternalApiDCN1NetworkVlanID: 1175
-  InternalApi2NetworkVlanID: 1165
+  InternalApiDCN2NetworkVlanID: 1165
   InternalApi3NetworkVlanID: 1155
 
   TenantNetworkVlanID: 1189
   TenantDCN1NetworkVlanID: 1179
-  Tenant2NetworkVlanID: 1169
+  TenantDCN2NetworkVlanID: 1169
   Tenant3NetworkVlanID: 1159
   ExternalNetworkVlanID: 10
   ExternalDCN1NetworkVlanID: 20
+  ExternalDCN2NetworkVlanID: 30
 
   StorageAllocationPools: [{'start': '172.23.1.10', 'end': '172.23.1.250'}]
   StorageDCN1AllocationPools: [{'start': '172.23.2.10', 'end': '172.23.2.250'}]
-  Storage2AllocationPools: [{'start': '172.23.3.10', 'end': '172.23.3.250'}]
+  StorageDCN2AllocationPools: [{'start': '172.23.3.10', 'end': '172.23.3.250'}]
   Storage3AllocationPools: [{'start': '172.23.4.10', 'end': '172.23.4.250'}]
 
   StorageMgmtAllocationPools: [{'start': '172.18.1.10', 'end': '172.18.1.250'}]
   StorageMgmtDCN1AllocationPools: [{'start': '172.18.2.10', 'end': '172.18.2.250'}]
-  StorageMgmt2AllocationPools: [{'start': '172.18.3.10', 'end': '172.18.3.250'}]
+  StorageMgmtDCN2AllocationPools: [{'start': '172.18.3.10', 'end': '172.18.3.250'}]
   StorageMgmt3AllocationPools: [{'start': '172.18.4.10', 'end': '172.18.4.250'}]
 
   InternalApiAllocationPools: [{'start': '172.25.1.10', 'end': '172.25.1.250'}]
   InternalApiDCN1AllocationPools: [{'start': '172.25.2.10', 'end': '172.25.2.250'}]
-  InternalApi2AllocationPools: [{'start': '172.25.3.10', 'end': '172.25.3.250'}]
+  InternalApiDCN2AllocationPools: [{'start': '172.25.3.10', 'end': '172.25.3.250'}]
   InternalApi3AllocationPools: [{'start': '172.25.4.10', 'end': '172.25.4.250'}]
 
   TenantAllocationPools: [{'start': '172.19.1.10', 'end': '172.19.1.250'}]
   TenantDCN1AllocationPools: [{'start': '172.19.2.10', 'end': '172.19.2.250'}]
-  Tenant2AllocationPools: [{'start': '172.19.3.10', 'end': '172.19.3.250'}]
+  TenantDCN2AllocationPools: [{'start': '172.19.3.10', 'end': '172.19.3.250'}]
   Tenant3AllocationPools: [{'start': '172.19.4.10', 'end': '172.19.4.250'}]
 
   # Leave room if the external network is also used for floating IPs
   ExternalAllocationPools: [{'start': '10.0.220.100', 'end': '10.0.220.119'}]
   ExternalDCN1AllocationPools: [{'start': '10.0.221.100', 'end': '10.0.221.119'}]
+  ExternalDCN2AllocationPools: [{'start': '10.0.222.100', 'end': '10.0.222.119'}]
 
   # Gateway routers for routable networks
   StorageInterfaceDefaultRoute: '172.23.1.254'
   StorageDCN1InterfaceDefaultRoute: '172.23.2.254'
-  Storage2InterfaceDefaultRoute: '172.23.3.254'
+  StorageDCN2InterfaceDefaultRoute: '172.23.3.254'
   Storage3InterfaceDefaultRoute: '172.23.4.254'
 
   StorageMgmtInterfaceDefaultRoute: '172.18.1.254'
   StorageMgmtDCN1InterfaceDefaultRoute: '172.18.2.254'
-  StorageMgmt2InterfaceDefaultRoute: '172.18.3.254'
+  StorageMgmtDCN2InterfaceDefaultRoute: '172.18.3.254'
   StorageMgmt3InterfaceDefaultRoute: '172.18.4.254'
 
   InternalApiInterfaceDefaultRoute: '172.25.1.254'
   InternalApiDCN1InterfaceDefaultRoute: '172.25.2.254'
-  InternalApi2InterfaceDefaultRoute: '172.25.3.254'
+  InternalApiDCN2InterfaceDefaultRoute: '172.25.3.254'
   InternalApi3InterfaceDefaultRoute: '172.25.4.254'
 
   TenantInterfaceDefaultRoute: '172.19.1.254'
   TenantDCN1InterfaceDefaultRoute: '172.19.2.254'
-  Tenant2InterfaceDefaultRoute: '172.19.3.254'
+  TenantDCN2InterfaceDefaultRoute: '172.19.3.254'
   Tenant3InterfaceDefaultRoute: '172.19.4.254'
 
   ExternalInterfaceDefaultRoute: '10.0.220.1'
   ExternalDCN1InterfaceDefaultRoute: '10.0.221.1'
+  ExternalDCN2InterfaceDefaultRoute: '10.0.222.1'

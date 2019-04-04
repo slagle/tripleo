@@ -1,0 +1,31 @@
+export TEMPLATES="$HOME/tripleo-heat-templates"
+export STACK_NAME=dcn1
+
+export ENVIRONMENTS="\
+  -e $TEMPLATES/environments/network-isolation.yaml \
+  -e $TEMPLATES/environments/services/etcd.yaml \
+  -e $TEMPLATES/environments/ceph-ansible/ceph-ansible.yaml \
+  -e $TEMPLATES/environments/nova-az-config.yaml \
+  -e $HOME/tripleo/environments/containers-prepare-parameter.yaml \
+  -e $HOME/tripleo/environments/enable-package-install.yaml \
+  -e $HOME/tripleo/environments/tripleo-0-dcn/network-environment.yaml \
+  -e $HOME/tripleo/environments/tripleo-0-dcn/az.yaml \
+  -e $HOME/tripleo/environments/tripleo-0-dcn/ceph-environment.yaml \
+  -e $HOME/tripleo/environments/tripleo-0-dcn/dcn1/nic-configs.yaml \
+  -e $HOME/tripleo/environments/tripleo-0-dcn/dcn1/role-counts.yaml \
+  -e $HOME/tripleo/environments/tripleo-0-dcn/dcn1/scheduler-hints.yaml \
+  -e $HOME/tripleo/environments/tripleo-0-dcn/dcn1/cinder-volume-cluster.yaml \
+  -e $HOME/control-plane-export/endpoint-map.json \
+  -e $HOME/control-plane-export/all-nodes-extra-map-data.json \
+  -e $HOME/control-plane-export/global-config-extra-map-data.json \
+  -e $HOME/control-plane-export/extra-host-file-entries.json \
+  -e $HOME/control-plane-export/oslo.yaml \
+  -e $HOME/control-plane-export/passwords.yaml \
+"
+
+export ROLES_DATA="$HOME/tripleo/environments/tripleo-0-dcn/dcn1/roles-data.yaml"
+export NETWORK_DATA="$HOME/tripleo/environments/tripleo-0-dcn/dcn1/network-data.yaml"
+
+export ARGS="\
+  --disable-validations \
+"
