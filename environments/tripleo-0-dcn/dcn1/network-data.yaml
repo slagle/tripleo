@@ -2,7 +2,7 @@
 - name: StorageDCN1
   name_lower: storage_dcn1
   service_net_map_replace: storage
-  vip: true
+  vip: false
   vlan: 1173
   ip_subnet: '172.23.2.0/24'
   gateway_ip: '172.23.2.254'
@@ -21,7 +21,7 @@
 # Internal API
 - name: InternalApiDCN1
   name_lower: internal_api_dcn1
-  vip: true
+  vip: false
   service_net_map_replace: internal_api
   vlan: 1175
   ip_subnet: '172.25.2.0/24'
@@ -40,7 +40,7 @@
 
 - name: ExternalDCN1
   name_lower: external_dcn1
-  vip: true
+  vip: false
   vlan: 10
   ip_subnet: '10.0.221.1/24'
   allocation_pools: [{'start': '10.0.221.100', 'end': '10.0.221.119'}]
