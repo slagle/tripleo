@@ -13,6 +13,8 @@
       subnet: storage_dcn1_subnet
     StorageMgmtDCN1:
       subnet: storage_mgmt_dcn1_subnet
+    ExternalDCN1:
+      subnet: external_dcn1_subnet
   RoleParametersDefault:
     TunedProfileName: "throughput-performance"
   ServicesDefault:
