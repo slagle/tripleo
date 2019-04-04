@@ -322,6 +322,17 @@ resources:
                       get_param: StorageInterfaceDefaultRoute
                 - type: vlan
                   vlan_id:
+                    get_param: StorageMgmtNetworkVlanID
+                  addresses:
+                  - ip_netmask:
+                      get_param: StorageMgmtIpSubnet
+                  routes:
+                  - ip_netmask:
+                      get_param: StorageMgmtSupernet
+                    next_hop:
+                      get_param: StorageMgmtInterfaceDefaultRoute
+                - type: vlan
+                  vlan_id:
                     get_param: InternalApiNetworkVlanID
                   addresses:
                   - ip_netmask:
