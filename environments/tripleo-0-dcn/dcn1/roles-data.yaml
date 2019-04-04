@@ -5,14 +5,14 @@
   description: |
     Distributed Compute Node role hosting Ceph OSD and Cinder volume.
   networks:
-    InternalApi:
-      subnet: internal_api_subnet
-    Tenant:
-      subnet: tenant_subnet
-    Storage:
-      subnet: storage_subnet
-    StorageMgmt:
-      subnet: storage_mgmt_subnet
+    InternalApiDCN1:
+      subnet: internal_api_dcn1_subnet
+    TenantDCN1:
+      subnet: tenant_dcn1_subnet
+    StorageDCN1:
+      subnet: storage_dcn1_subnet
+    StorageMgmtDCN1:
+      subnet: storage_mgmt_dcn1_subnet
   RoleParametersDefault:
     TunedProfileName: "throughput-performance"
   ServicesDefault:

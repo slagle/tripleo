@@ -1,2 +1,2 @@
 parameter_defaults:
-  DistributedComputeHCICount: 3
+  DistributedComputeHCIDCN1Count: 3

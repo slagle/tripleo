@@ -3,6 +3,9 @@
     {
       "name": "dcn1-compute-0",
       "capabilities": "node:dcn1-compute-0,boot_option:local",
+      "root_device": {
+          "name": "/dev/vda"
+        },
       "mac": ["52:54:00:21:87:9b"],
       "cpu": "4",
       "memory": "6144",
@@ -17,6 +20,9 @@
     {
       "name": "dcn1-compute-1",
       "capabilities": "node:dcn1-compute-1,boot_option:local",
+      "root_device": {
+          "name": "/dev/vda"
+        },
       "mac": ["52:54:00:43:5d:2d"],
       "cpu": "4",
       "memory": "6144",
@@ -31,6 +37,9 @@
     {
       "name": "dcn1-compute-2",
       "capabilities": "node:dcn1-compute-2,boot_option:local",
+      "root_device": {
+          "name": "/dev/vda"
+        },
       "mac": ["52:54:00:23:90:cb"],
       "cpu": "4",
       "memory": "6144",
