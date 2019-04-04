@@ -1,0 +1,6 @@
+parameter_defaults:
+  NovaInternalServiceAvailabilityZone: 'internal'
+  NovaDefaultScheduleZone: 'dcn1'
+  CinderStorageAvailabilityZone: 'dcn1'
+  NovaDefaultAvailabilityZone: 'dcn1'
+  NovaAZAttach: false

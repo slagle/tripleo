@@ -1,0 +1,365 @@
+heat_template_version: queens
+
+parameters:
+  # Supernets
+  StorageSupernet:
+    type: string
+    default: ''
+  StorageMgmtSupernet:
+    type: string
+    default: ''
+  InternalApiSupernet:
+    type: string
+    default: ''
+  TenantSupernet:
+    type: string
+    default: ''
+  TenantIpSubnet:
+    type: string
+    default: ''
+  ExternalSupernet:
+    type: string
+    default: ''
+
+  # Default Routes
+  ControlPlaneDefaultRoute:
+    type: string
+    default: ''
+  ControlPlane1DefaultRoute:
+    type: string
+    default: ''
+  ControlPlane2DefaultRoute:
+    type: string
+    default: ''
+  ControlPlane3DefaultRoute:
+    type: string
+    default: ''
+  StorageInterfaceDefaultRoute:
+    type: string
+    default: ''
+  StorageDCN1InterfaceDefaultRoute:
+    type: string
+    default: ''
+  Storage2InterfaceDefaultRoute:
+    type: string
+    default: ''
+  Storage3InterfaceDefaultRoute:
+    type: string
+    default: ''
+  StorageMgmtInterfaceDefaultRoute:
+    type: string
+    default: ''
+  StorageMgmtDCN1InterfaceDefaultRoute:
+    type: string
+    default: ''
+  StorageMgmt2InterfaceDefaultRoute:
+    type: string
+    default: ''
+  StorageMgmt3InterfaceDefaultRoute:
+    type: string
+    default: ''
+  InternalApiInterfaceDefaultRoute:
+    type: string
+    default: ''
+  InternalApiDCN1InterfaceDefaultRoute:
+    type: string
+    default: ''
+  InternalApi2InterfaceDefaultRoute:
+    type: string
+    default: ''
+  InternalApi3InterfaceDefaultRoute:
+    type: string
+    default: ''
+  TenantInterfaceDefaultRoute:
+    type: string
+    default: ''
+  TenantDCN1InterfaceDefaultRoute:
+    type: string
+    default: ''
+  Tenant2InterfaceDefaultRoute:
+    type: string
+    default: ''
+  Tenant3InterfaceDefaultRoute:
+    type: string
+    default: ''
+  ExternalInterfaceDefaultRoute:
+    type: string
+    default: ''
+
+  # IP subnets
+  StorageIpSubnet:
+    type: string
+    default: ''
+  StorageDCN1IpSubnet:
+    type: string
+    default: ''
+  Storage2IpSubnet:
+    type: string
+    default: ''
+  Storage3IpSubnet:
+    type: string
+    default: ''
+  StorageMgmtIpSubnet:
+    type: string
+    default: ''
+  StorageMgmtDCN1IpSubnet:
+    type: string
+    default: ''
+  StorageMgmt2IpSubnet:
+    type: string
+    default: ''
+  StorageMgmt3IpSubnet:
+    type: string
+    default: ''
+  InternalApiIpSubnet:
+    type: string
+    default: ''
+  InternalApiDCN1IpSubnet:
+    type: string
+    default: ''
+  InternalApi2IpSubnet:
+    type: string
+    default: ''
+  InternalApi3IpSubnet:
+    type: string
+    default: ''
+  TenantIpSubnet:
+    type: string
+    default: ''
+  TenantDCN1IpSubnet:
+    type: string
+    default: ''
+  Tenant2IpSubnet:
+    type: string
+    default: ''
+  Tenant3IpSubnet:
+    type: string
+    default: ''
+  ExternalIpSubnet:
+    type: string
+    default: ''
+  ManagementIpSubnet:
+    type: string
+    default: ''
+
+  # VLAN IDs
+  StorageNetworkVlanID:
+    default: 30
+    type: number
+  StorageDCN1NetworkVlanID:
+    default: 31
+    type: number
+  Storage2NetworkVlanID:
+    default: 32
+    type: number
+  Storage3NetworkVlanID:
+    default: 33
+    type: number
+  StorageMgmtNetworkVlanID:
+    default: 40
+    type: number
+  StorageMgmtDCN1NetworkVlanID:
+    default: 41
+    type: number
+  StorageMgmt2NetworkVlanID:
+    default: 42
+    type: number
+  StorageMgmt3NetworkVlanID:
+    default: 43
+    type: number
+  InternalApiNetworkVlanID:
+    default: 20
+    type: number
+  InternalApiDCN1NetworkVlanID:
+    default: 21
+    type: number
+  InternalApi2NetworkVlanID:
+    default: 22
+    type: number
+  InternalApi3NetworkVlanID:
+    default: 23
+    type: number
+  TenantNetworkVlanID:
+    default: 50
+    type: number
+  TenantDCN1NetworkVlanID:
+    default: 51
+    type: number
+  Tenant2NetworkVlanID:
+    default: 52
+    type: number
+  Tenant3NetworkVlanID:
+    default: 53
+    type: number
+  ExternalNetworkVlanID:
+    default: 10
+    type: number
+  ManagementNetworkVlanID:
+    default: 60
+    type: number
+
+  # Subnet CIDR
+  ControlPlaneSubnetCidr:
+    default: '24'
+    type: string
+  ControlPlane1SubnetCidr:
+    default: '24'
+    type: string
+  ControlPlane2SubnetCidr:
+    default: '24'
+    type: string
+  ControlPlane3SubnetCidr:
+    default: '24'
+    type: string
+
+  ControlPlaneIp:
+    type: string
+  DnsServers:
+    type: comma_delimited_list
+
+  # EC2 metadata server IPs
+  Leaf0EC2MetadataIp:
+    type: string
+    default: ''
+  Leaf1EC2MetadataIp:
+    type: string
+    default: ''
+  Leaf2EC2MetadataIp:
+    type: string
+    default: ''
+  Leaf3EC2MetadataIp:
+    type: string
+    default: ''
+
+  EC2MetadataIp:
+    type: string
+    default: ''
+  ControlPlaneMtu:
+    type: number
+    default: 1500
+  TenantDCN1Mtu:
+    type: number
+    default: 1500
+  ExternalMtu:
+    type: number
+    default: 1500
+  StorageDCN1Mtu:
+    type: number
+    default: 1500
+  StorageMgmtDCN1Mtu:
+    type: number
+    default: 1500
+  InternalApiDCN1Mtu:
+    type: number
+    default: 1500
+  StorageDCN1InterfaceRoutes:
+    type: comma_delimited_list
+    default: []
+  StorageMgmtDCN1InterfaceRoutes:
+    type: comma_delimited_list
+    default: []
+  InternalApiDCN1InterfaceRoutes:
+    type: comma_delimited_list
+    default: []
+  ExternalInterfaceRoutes:
+    type: comma_delimited_list
+    default: []
+  TenantDCN1InterfaceRoutes:
+    type: comma_delimited_list
+    default: []
+
+  ControlPlaneStaticRoutes:
+    type: comma_delimited_list
+    default: []
+
+resources:
+  OsNetConfigImpl:
+    type: OS::Heat::SoftwareConfig
+    properties:
+      group: script
+      config:
+        str_replace:
+          template:
+            get_file: /usr/share/openstack-tripleo-heat-templates/network/scripts/run-os-net-config.sh
+          params:
+            $network_config:
+              network_config:
+              - type: interface
+                name: nic1
+                use_dhcp: false
+                dns_servers:
+                  get_param: DnsServers
+                addresses:
+                - ip_netmask:
+                    list_join:
+                    - /
+                    - - get_param: ControlPlaneIp
+                      - get_param: ControlPlane1SubnetCidr
+                routes:
+                - ip_netmask: 169.254.169.254/32
+                  next_hop:
+                    get_param: Leaf1EC2MetadataIp
+                - ip_netmask: 0.0.0.0/0
+                  next_hop:
+                    get_param: ControlPlane1DefaultRoute
+              - type: ovs_bridge
+                name: br-isolated
+                use_dhcp: false
+                members:
+                - type: interface
+                  name: nic2
+                  primary: true
+                - type: vlan
+                  vlan_id:
+                    get_param: StorageDCN1NetworkVlanID
+                  addresses:
+                  - ip_netmask:
+                      get_param: StorageDCN1IpSubnet
+                  routes:
+                  - ip_netmask:
+                      get_param: StorageSupernet
+                    next_hop:
+                      get_param: StorageDCN1InterfaceDefaultRoute
+                - type: vlan
+                  vlan_id:
+                    get_param: InternalApiDCN1NetworkVlanID
+                  addresses:
+                  - ip_netmask:
+                      get_param: InternalApiDCN1IpSubnet
+                  routes:
+                  - ip_netmask:
+                      get_param: InternalApiSupernet
+                    next_hop:
+                      get_param: InternalApiDCN1InterfaceDefaultRoute
+                - type: vlan
+                  vlan_id:
+                    get_param: TenantDCN1NetworkVlanID
+                  addresses:
+                  - ip_netmask:
+                      get_param: TenantDCN1IpSubnet
+                  routes:
+                  - ip_netmask:
+                      get_param: TenantSupernet
+                    next_hop:
+                      get_param: TenantDCN1InterfaceDefaultRoute
+              - type: ovs_bridge
+                # This will default to br-ex, anything else requires specific
+                # brige mapping entries for it to be used.
+                name: br-ex
+                use_dhcp: false
+                routes:
+                  -
+                    ip_netmask: 0.0.0.0/0
+                    next_hop: {get_param: ExternalInterfaceDefaultRoute}
+                members:
+                  -
+                    type: interface
+                    name: nic3
+                    # force the MAC address of the bridge to this interface
+                    primary: true
+
+outputs:
+  OS::stack_id:
+    description: The OsNetConfigImpl resource.
+    value:
+      get_resource: OsNetConfigImpl
