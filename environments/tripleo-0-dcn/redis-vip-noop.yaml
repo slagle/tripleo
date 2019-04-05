@@ -1,0 +1,2 @@
+resource_registry:
+  OS::TripleO::Network::Ports::RedisVipPort: /home/stack/tripleo-heat-templates/network/ports/noop.yaml
