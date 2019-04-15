@@ -17,6 +17,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/tripleo-0-dcn/dcn1-ovs/role-counts.yaml \
   -e $HOME/tripleo/environments/tripleo-0-dcn/dcn1-ovs/scheduler-hints.yaml \
   -e $HOME/tripleo/environments/tripleo-0-dcn/dcn1-ovs/cinder-volume-cluster.yaml \
+  -e $HOME/tripleo/environments/tripleo-0-dcn/dcn1-ovs/compute-subnet.yaml \
   -e $HOME/control-plane-export/endpoint-map.json \
   -e $HOME/control-plane-export/all-nodes-extra-map-data.json \
   -e $HOME/control-plane-export/global-config-extra-map-data.json \
