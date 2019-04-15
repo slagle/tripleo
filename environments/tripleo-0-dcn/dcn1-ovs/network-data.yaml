@@ -1,0 +1,47 @@
+# Storage
+- name: StorageDCN1
+  name_lower: storage_dcn1
+  service_net_map_replace: storage
+  vip: false
+  vlan: 1173
+  ip_subnet: '172.23.2.0/24'
+  gateway_ip: '172.23.2.254'
+  allocation_pools: [{'start': '172.23.2.4', 'end': '172.23.2.250'}]
+
+# StorageMgmt
+- name: StorageMgmtDCN1
+  name_lower: storage_mgmt_dcn1
+  service_net_map_replace: storage_mgmt
+  vip: false
+  vlan: 1178
+  ip_subnet: '172.18.2.0/24'
+  gateway_ip: '172.18.2.254'
+  allocation_pools: [{'start': '172.18.2.4', 'end': '172.18.2.250'}]
+
+# Internal API
+- name: InternalApiDCN1
+  name_lower: internal_api_dcn1
+  vip: false
+  service_net_map_replace: internal_api
+  vlan: 1175
+  ip_subnet: '172.25.2.0/24'
+  gateway_ip: '172.25.2.254'
+  allocation_pools: [{'start': '172.25.2.4', 'end': '172.25.2.250'}]
+
+# Tenant
+- name: TenantDCN1
+  name_lower: tenant_dcn1
+  service_net_map_replace: tenant
+  vip: false  # Tenant network does not use VIPs
+  vlan: 1179
+  ip_subnet: '172.19.2.0/24'
+  gateway_ip: '172.19.2.254'
+  allocation_pools: [{'start': '172.19.2.4', 'end': '172.19.2.250'}]
+
+- name: ExternalDCN1
+  name_lower: external_dcn1
+  vip: false
+  vlan: 10
+  ip_subnet: '10.0.221.1/24'
+  allocation_pools: [{'start': '10.0.221.100', 'end': '10.0.221.119'}]
+  gateway_ip: '10.0.221.1'

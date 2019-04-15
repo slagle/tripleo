@@ -1,0 +1,45 @@
+parameter_defaults:
+  NtpServer: clock.redhat.com
+  DnsServers:
+  - 10.11.5.19
+  ControlPlaneSubnet: ctlplane-subnet
+  DistributedComputeHCIDCN1ControlPlaneSubnet: leaf1
+
+  ControlPlane1DefaultRoute: 192.168.221.254
+  ControlPlane1SubnetCidr: '24'
+
+  Leaf1EC2MetadataIp: 192.168.221.254
+
+  ExternalSupernet: 10.0.0.0/16
+  InternalApiSupernet: 172.25.0.0/16
+  StorageSupernet: 172.23.0.0/16
+  StorageMgmtSupernet: 172.18.0.0/16
+  TenantSupernet: 172.19.0.0/16
+
+  # Customize the IP subnets to match the local environment
+  StorageDCN1NetCidr: '172.23.2.0/24'
+  StorageMgmtDCN1NetCidr: '172.18.2.0/24'
+  InternalApiDCN1NetCidr: '172.25.2.0/24'
+  TenantDCN1NetCidr: '172.19.2.0/24'
+  ExternalDCN1NetCidr: '10.0.221.1/24'
+
+  # Customize the VLAN IDs to match the local environment
+  StorageDCN1NetworkVlanID: 1173
+  StorageMgmtDCN1NetworkVlanID: 1178
+  InternalApiDCN1NetworkVlanID: 1175
+  TenantDCN1NetworkVlanID: 1179
+  ExternalDCN1NetworkVlanID: 20
+
+  StorageDCN1AllocationPools: [{'start': '172.23.2.10', 'end': '172.23.2.250'}]
+  StorageMgmtDCN1AllocationPools: [{'start': '172.18.2.10', 'end': '172.18.2.250'}]
+  InternalApiDCN1AllocationPools: [{'start': '172.25.2.10', 'end': '172.25.2.250'}]
+  TenantDCN1AllocationPools: [{'start': '172.19.2.10', 'end': '172.19.2.250'}]
+  # Leave room if the external network is also used for floating IPs
+  ExternalDCN1AllocationPools: [{'start': '10.0.221.100', 'end': '10.0.221.119'}]
+
+  # Gateway routers for routable networks
+  StorageDCN1InterfaceDefaultRoute: '172.23.2.254'
+  StorageMgmtDCN1InterfaceDefaultRoute: '172.18.2.254'
+  InternalApiDCN1InterfaceDefaultRoute: '172.25.2.254'
+  TenantDCN1InterfaceDefaultRoute: '172.19.2.254'
+  ExternalDCN1InterfaceDefaultRoute: '10.0.221.1'

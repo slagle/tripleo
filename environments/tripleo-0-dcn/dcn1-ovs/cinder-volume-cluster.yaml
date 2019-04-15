@@ -1,0 +1,3 @@
+parameter_defaults:
+  CinderVolumeCluster: dcn1
+  CinderEtcdLocalConnect: true
