@@ -6,12 +6,12 @@
     Basic Compute Node role
   CountDefault: 1
   networks:
-    InternalApi:
-      subnet: internal_api_subnet
-    Tenant:
-      subnet: tenant_subnet
-    Storage:
-      subnet: storage_subnet
+    InternalApiDCN1:
+      subnet: internal_api_dcn1_subnet
+    TenantDCN1:
+      subnet: tenant_dcn1_subnet
+    StorageDCN1:
+      subnet: storage_dcn1_subnet
   HostnameFormatDefault: '%stackname%-novacompute-%index%'
   RoleParametersDefault:
     TunedProfileName: "virtual-host"
