@@ -367,7 +367,7 @@ function tripleo-generate-overclourc {
         tripleo.deployment.overcloudrc \
         "{\"container\":\"$STACK_NAME\"}" \
         | jq -r '.["result"]["overcloudrc"]' \
-        > ${STACK_NAME}.v3
+        > ${STACK_NAME}rc
 }
 
 alias tripleo-logroate="sudo podman exec -it -u root logrotate_crond logrotate -f /etc/logrotate-crond.conf"
