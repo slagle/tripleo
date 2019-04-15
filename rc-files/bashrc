@@ -366,7 +366,7 @@ function tripleo-generate-overclourc {
         --run-sync \
         tripleo.deployment.overcloudrc \
         "{\"container\":\"$STACK_NAME\"}" \
-        | jq -r $STACK_NAME '.["result"]["overcloudrc"]' \
+        | jq -r '.["result"]["overcloudrc"]' \
         > ${STACK_NAME}.v3
 }
 
