@@ -1,0 +1,124 @@
+Edge deployment
+demo different features brought together to form edge deployment solution
+Those features include:
+
+  - Multi-stack DCN deployment
+    deploy multiple Heat stacks from the undercloud
+    differs from multiple overclouds feature, as each stack in this case is
+    part of the same overcloud
+
+  - Spine/leaf
+    on virt hosts
+
+  - AZ configuration
+    for Nova/Cinder
+
+  - Multiple ceph cluster deployment with 1 director
+    enabled by using the multi-stack approach
+
+  - Etcd managed A/A cinder-volume
+    since we don't want pacemaker at the edge dcn site, etcd is used as a lock
+    manager for cinder-volume A/A
+
+- Multi-stack DCN deployment
+source stackrc
+openstack stack list
+openstack stack list -c ID -c "Stack Name" -c "Stack Status"
+
+- Explain the stacks
+  - control-plane: 3 controllers
+  - central: 3 HCI computes+ceph
+  - dcn1/dcn2: each 3 HCI computes+ceph
+
+- Show virt-manager
+  - Explain the virt host setup and which virt host for which stacks
+
+openstack baremetal node list
+openstack baremetal node list -c UUID -c Name -c "Instance UUID" -c "Provisioning State"
+
+openstack server list
+openstack server list -c ID -c Name -c Status -c Networks
+  - can talk through roles based on server names
+  - different servers deployed on different ctlplane subnets
+
+- Explain spine/leaf
+openstack network list
+openstack network list -c Name -c Subnets
+
+  - used different networks per stack (other than ctlplane), instead of just
+    different subnets
+
+source control-planerc
+- Explain AZ configuration
+openstack compute service list
+openstack compute service list -c Binary -c Host -c Zone -c Status -c State
+
+  - all one overcloud, agents from each site registered with control-plane
+nova availability-zone-list
+
+  - default zone is central
+  - nodes added to an unconfigured zone by default (if not set)
+
+- Explain cinder a/a
+openstack volume service list
+openstack volume service list -c Binary -c Host -c Zone -c Status -c State
+
+- Explain unique ceph cluster
+ssh heat-admin@192.168.221.67
+ceph -s
+
+- Check etcd
+docker exec -it etcd bash
+etcdctl --endpoints http://172.25.2.231:2379 cluster-health
+
+nova show user-1554774679
+nova show user-1554813839
+
+
+
+
+# Demo of a TripleO edge deployment using Spine Leaf networking for baremetal provisioning.
+# Distributed compute nodes are deployed at remote sites with Ceph for persistent storage
+# We'll start by sourcing the rc file for the Undercloud
+source stackrc
+# The deployment is done with multiple stacks for isolation of management operations
+# There are 4 stacks:
+# control-plane: 3 HA OpenStack controllers
+# central: 3 co-located HCI Compute nodes with Ceph for persistent storage
+# dcn1: 3 HCI nodes of the same type used in the central stack, but deployed at a remote site
+# dcn2: Same as dcn1, but deployed at an additional remote site
+openstack stack list -c ID -c "Stack Name" -c "Stack Status"
+# Although the 4 stacks are deployed and managed separately, together they make up the deployed overcloud
+# Altogether, we've deployed to 12 baremetal nodes
+openstack baremetal node list -c UUID -c Name -c "Instance UUID" -c "Provisioning State"
+# Let's take a look at one of the ports from node dcn1-compute-0
+openstack baremetal port list --node dcn1-compute-0
+openstack baremetal port show 7c8ddd96-a651-42b4-981f-f3ef75192fd5 -c address -c physical_network
+# We can see that the port is assigned to the leaf1 subnet for baremetal provisioning
+# Let's show all the networks and subnets used in the deployment
+openstack network list -c Name
+openstack subnet list
+# The instances deployed to the baremetal nodes show the different "ctlplane" provisioning subnets for spine/leaf
+openstack server list -c ID -c Name -c Status -c Networks
+
+# Now we'll source the rc file for the deployed Overlcoud
+source control-planerc
+# We can list all of the Nova compute services in the whole cloud
+openstack compute service list -c Binary -c Host -c Zone -c Status -c State
+# The services are grouped by aggregate and availability zone per distinct site
+nova aggregate-list
+nova availability-zone-list
+# Cinder services are configured with the same set of availability zones
+cinder availability-zone-list
+openstack volume service list -c Binary -c Host -c Zone -c Status -c State
+
+
+# We'll ssh to one of the compute nodes and check the Ceph cluster there
+ssh heat-admin@192.168.221.67
+ceph -s
+# As we can see in the above output, only the nodes at this site (dcn1) are members of this ceph cluster
+# An Etcd cluster is also deployed at the site to manage the A/A configuration of cinder-volume
+docker exec -it etcd etcdctl --endpoints http://172.25.2.231:2379 cluster-health
+# The Etcd cluster also only contains nodes from this site
+
+
