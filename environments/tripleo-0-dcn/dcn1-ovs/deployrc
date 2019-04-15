@@ -6,6 +6,7 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/environments/services/etcd.yaml \
   -e $TEMPLATES/environments/ceph-ansible/ceph-ansible.yaml \
   -e $TEMPLATES/environments/nova-az-config.yaml \
+  -e $TEMPLATES/environments/services/neutron-ovs.yaml \
   -e $HOME/tripleo/environments/containers-prepare-parameter.yaml \
   -e $HOME/tripleo/environments/enable-package-install.yaml \
   -e $HOME/tripleo/environments/tripleo-0-dcn/network-environment.yaml \
