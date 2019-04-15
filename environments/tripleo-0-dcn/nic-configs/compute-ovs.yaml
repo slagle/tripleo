@@ -322,17 +322,6 @@ resources:
                       get_param: StorageDCN1InterfaceDefaultRoute
                 - type: vlan
                   vlan_id:
-                    get_param: StorageMgmtDCN1NetworkVlanID
-                  addresses:
-                  - ip_netmask:
-                      get_param: StorageMgmtDCN1IpSubnet
-                  routes:
-                  - ip_netmask:
-                      get_param: StorageMgmtSupernet
-                    next_hop:
-                      get_param: StorageMgmtDCN1InterfaceDefaultRoute
-                - type: vlan
-                  vlan_id:
                     get_param: InternalApiDCN1NetworkVlanID
                   addresses:
                   - ip_netmask:
