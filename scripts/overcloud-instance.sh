@@ -13,7 +13,7 @@ fi
 
 if ! openstack keypair show overcloud-key; then
     openstack keypair create \
-        --private-key overcloud-key.rsa \
+        --public-key overcloud-key.rsa.pub \
         overcloud-key
 fi
 
