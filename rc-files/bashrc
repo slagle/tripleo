@@ -272,6 +272,7 @@ function reset-openvswitch {
     del-br br-tun
     del-br br-int
     del-br br-tenant
+    del-br br-ctlplane
     sudo systemctl stop openvswitch
     sudo rm -f /etc/openvswitch/conf.db
     sudo systemctl restart openvswitch
@@ -371,3 +372,14 @@ function tripleo-generate-overclourc {
 }
 
 alias tripleo-logroate="sudo podman exec -it -u root logrotate_crond logrotate -f /etc/logrotate-crond.conf"
+
+function tripleo-uninstall {
+    podman ps -aq | xargs -t podman rm -f
+    rm -rf \
+        /var/lib/tripleo-config \
+        /var/lib/config-data /var/lib/container-config-scripts \
+        /var/lib/container-puppet \
+        /var/lib/heat-config \
+        /var/lib/mysql/*
+    interfaces="eno2 eno3 eno4 eth1 eth2 eth3 eth4 eth5" reset-openvswitch
+}
