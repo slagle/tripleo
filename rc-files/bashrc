@@ -374,8 +374,8 @@ function tripleo-generate-overclourc {
 alias tripleo-logroate="sudo podman exec -it -u root logrotate_crond logrotate -f /etc/logrotate-crond.conf"
 
 function tripleo-uninstall {
-    podman ps -aq | xargs -t podman rm -f
-    rm -rf \
+    sudo podman ps -aq | xargs -t sudo podman rm -f
+    sudo rm -rf \
         /var/lib/tripleo-config \
         /var/lib/config-data /var/lib/container-config-scripts \
         /var/lib/container-puppet \
