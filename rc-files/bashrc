@@ -246,7 +246,7 @@ function del-br {
         sudo ovs-vsctl --may-exist add-br "$bridge"
         sudo ovs-vsctl --if-exists del-br "$bridge"
     fi
-    sudo rm -f /etc/sysconfig/network-scrips/ifcfg-${bridge}
+    sudo rm -f /etc/sysconfig/network-scripts/ifcfg-${bridge}
     set +x
 }
 
