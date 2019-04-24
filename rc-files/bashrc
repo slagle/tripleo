@@ -381,5 +381,7 @@ function tripleo-uninstall {
         /var/lib/container-puppet \
         /var/lib/heat-config \
         /var/lib/mysql/*
+    sudo /etc/systemd/system/tripleo*
+    sudo systemctl daemon-reload
     interfaces="eno2 eno3 eno4 eth1 eth2 eth3 eth4 eth5" reset-openvswitch
 }
