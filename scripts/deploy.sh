@@ -60,6 +60,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 fi
         fi
 
+        echo "Starting deploy"
         date | unbuffer -p tee -a deploy.log
         time unbuffer openstack overcloud deploy \
                 --verbose \
@@ -70,11 +71,14 @@ if [ "$HEATCLIENT" = "0" ]; then
                 $ARGS \
                 $ENVIRONMENTS \
                 $@ 2>&1 | unbuffer -p tee -a deploy.log
+        date | unbuffer -p tee -a deploy.log
+        echo "Ending deploy"
 else
         pushd $TEMPLATES
         tools/process-templates.py -r $ROLES_DATA -n $NETWORK_DATA
         popd
 
+        echo "Starting deploy"
         date | unbuffer -p tee -a deploy.log
         time unbuffer openstack stack $STACK_OP \
             $STACK_NAME \
@@ -83,6 +87,8 @@ else
             --template $TEMPLATES/overcloud.yaml \
             $ENVIRONMENTS \
             $@ 2>&1 | unbuffer -p tee -a deploy.log
+        date | unbuffer -p tee -a deploy.log
+        echo "Ending deploy"
             # $@ 2>&1 | while read line; do date | tr "\n" " "; echo $line; done | unbuffer -p tee -a deploy.log
 
 fi
