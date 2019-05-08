@@ -44,7 +44,6 @@
     - OS::TripleO::Services::CinderHPELeftHandISCSI
     - OS::TripleO::Services::CinderScheduler
     - OS::TripleO::Services::Collectd
-    - OS::TripleO::Services::Congress
     - OS::TripleO::Services::DesignateApi
     - OS::TripleO::Services::DesignateCentral
     - OS::TripleO::Services::DesignateProducer
