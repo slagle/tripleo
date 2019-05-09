@@ -28,7 +28,6 @@
   uses_deprecated_params: False
   ServicesDefault:
     - OS::TripleO::Services::BootParams
-    - OS::TripleO::Services::CACerts
     - OS::TripleO::Services::CinderApi
     - OS::TripleO::Services::CinderBackup
     - OS::TripleO::Services::CinderScheduler
@@ -36,10 +35,8 @@
     - OS::TripleO::Services::Clustercheck
     - OS::TripleO::Services::ContainerImagePrepare
     - OS::TripleO::Services::Docker
-    - OS::TripleO::Services::ExternalSwiftProxy
     - OS::TripleO::Services::GlanceApi
     - OS::TripleO::Services::HAproxy
-    - OS::TripleO::Services::Horizon
     - OS::TripleO::Services::Ipsec
     - OS::TripleO::Services::Iscsid
     - OS::TripleO::Services::Keepalived
@@ -50,14 +47,6 @@
     - OS::TripleO::Services::MySQLClient
     - OS::TripleO::Services::NeutronApi
     - OS::TripleO::Services::NeutronCorePlugin
-    - OS::TripleO::Services::NeutronDhcpAgent
-    - OS::TripleO::Services::NeutronL2gwAgent
-    - OS::TripleO::Services::NeutronL2gwApi
-    - OS::TripleO::Services::NeutronL3Agent
-    - OS::TripleO::Services::NeutronLinuxbridgeAgent
-    - OS::TripleO::Services::NeutronMetadataAgent
-    - OS::TripleO::Services::NeutronOvsAgent
-    - OS::TripleO::Services::NeutronVppAgent
     - OS::TripleO::Services::NovaApi
     - OS::TripleO::Services::NovaConductor
     - OS::TripleO::Services::NovaConsoleauth
@@ -68,7 +57,6 @@
     - OS::TripleO::Services::OVNDBs
     - OS::TripleO::Services::OVNController
     - OS::TripleO::Services::Pacemaker
-    - OS::TripleO::Services::PankoApi
     - OS::TripleO::Services::PlacementApi
     - OS::TripleO::Services::OsloMessagingRpc
     - OS::TripleO::Services::OsloMessagingNotify
@@ -81,8 +69,6 @@
     - OS::TripleO::Services::Timezone
     - OS::TripleO::Services::TripleoFirewall
     - OS::TripleO::Services::TripleoPackages
-    - OS::TripleO::Services::Tuned
-    - OS::TripleO::Services::Vpp
 
 ###############################################################################
 # Role: Compute                                                               #
@@ -108,41 +94,26 @@
   # composable roles.
   uses_deprecated_params: False
   ServicesDefault:
-    - OS::TripleO::Services::AuditD
     - OS::TripleO::Services::BootParams
-    - OS::TripleO::Services::CACerts
-    - OS::TripleO::Services::CertmongerUser
-    - OS::TripleO::Services::Collectd
-    - OS::TripleO::Services::ComputeCeilometerAgent
     - OS::TripleO::Services::ComputeNeutronCorePlugin
-    - OS::TripleO::Services::ComputeNeutronL3Agent
-    - OS::TripleO::Services::ComputeNeutronMetadataAgent
-    - OS::TripleO::Services::ComputeNeutronOvsAgent
     - OS::TripleO::Services::Docker
-    - OS::TripleO::Services::IpaClient
     - OS::TripleO::Services::Ipsec
     - OS::TripleO::Services::Iscsid
     - OS::TripleO::Services::Kernel
     - OS::TripleO::Services::LoginDefs
     - OS::TripleO::Services::MySQLClient
-    - OS::TripleO::Services::NeutronLinuxbridgeAgent
-    - OS::TripleO::Services::NeutronVppAgent
     - OS::TripleO::Services::NovaCompute
     - OS::TripleO::Services::NovaLibvirt
     - OS::TripleO::Services::NovaLibvirtGuests
     - OS::TripleO::Services::NovaMigrationTarget
     - OS::TripleO::Services::ContainersLogrotateCrond
-    - OS::TripleO::Services::OpenDaylightOvs
     - OS::TripleO::Services::Podman
     - OS::TripleO::Services::RsyslogSidecar
     - OS::TripleO::Services::Securetty
-    - OS::TripleO::Services::Snmp
     - OS::TripleO::Services::Sshd
     - OS::TripleO::Services::Timesync
     - OS::TripleO::Services::Timezone
     - OS::TripleO::Services::TripleoFirewall
     - OS::TripleO::Services::TripleoPackages
-    - OS::TripleO::Services::Tuned
-    - OS::TripleO::Services::Vpp
     - OS::TripleO::Services::OVNController
     - OS::TripleO::Services::OVNMetadataAgent
