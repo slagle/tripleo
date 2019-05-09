@@ -12,7 +12,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/containers-deployed-server/deployed-server-port-map.yaml \
 "
 
-export ROLES_DATA="$HOME/tripleo/roles-data/containers-controller-packemaker-deployed-server.yaml"
+export ROLES_DATA="$HOME/tripleo/environments/containers-deployed-server/roles-data.yaml"
 
 export ARGS="\
   --disable-validations \
