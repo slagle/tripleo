@@ -24,7 +24,7 @@
   # For systems with both IPv4 and IPv6, you may specify a gateway network for
   # each, such as ['ControlPlane', 'External']
   default_route_networks: ['External']
-  HostnameFormatDefault: '%stackname%-controller-%index%'
+  HostnameFormatDefault: '%stackname%-openstack-%index%'
   uses_deprecated_params: False
   ServicesDefault:
     - OS::TripleO::Services::BootParams
@@ -85,7 +85,7 @@
       subnet: tenant_subnet
     Storage:
       subnet: storage_subnet
-  HostnameFormatDefault: '%stackname%-novacompute-%index%'
+  HostnameFormatDefault: '%stackname%-compute-%index%'
   RoleParametersDefault:
     TunedProfileName: "virtual-host"
   # Deprecated & backward-compatible values (FIXME: Make parameters consistent)
