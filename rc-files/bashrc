@@ -372,7 +372,6 @@ function tripleo-generate-overclourc {
 alias tripleo-logroate="sudo podman exec -it -u root logrotate_crond logrotate -f /etc/logrotate-crond.conf"
 
 function tripleo-uninstall {
-    xtrace
     sudo podman ps -aq | xargs -t sudo podman rm -f
     sudo /bin/bash -c "rm -rf \
         /var/lib/tripleo-config \
@@ -388,11 +387,16 @@ function tripleo-uninstall {
 }
 
 function xtrace {
-    export old_shellopts=$SHELLOPTS
+    XTRACE_LEVEL=${XTRACE_LEVEL:-"0"}
+    ((XTRACE_LEVEL += 1))
     set -x
 }
 
 function unxtrace {
-    export SHELLOPTS=$old_shellopts
+    XTRACE_LEVEL=${XTRACE_LEVEL:-"1"}
+    ((XTRACE_LEVEL -= 1))
+    if [ "$XTRACE_LEVEL" -eq "0" ]; then
+        set +x
+    fi
 }
 
