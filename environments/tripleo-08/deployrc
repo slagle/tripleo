@@ -16,4 +16,5 @@ export ROLES_DATA="/home/stack/tripleo-heat-templates/roles/Controller.yaml"
 export ARGS="\
   --disable-validations \
   --overcloud-ssh-user stack \
+  --deployed-server \
 "
