@@ -1,0 +1,2 @@
+resource_registry:
+  OS::TripleO::Controller::Net::SoftwareConfig: ../../../tripleo-heat-templates/net-config-static-bridge.yaml
