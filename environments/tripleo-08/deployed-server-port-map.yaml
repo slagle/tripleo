@@ -26,3 +26,20 @@ parameter_defaults:
         tags:
           - 192.168.122.0/24
 
+    controller-1-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.122.241
+      subnets:
+        - cidr: 192.168.122.0/24
+      network:
+        tags:
+          - 192.168.122.0/24
+
+    controller-2-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.122.39
+      subnets:
+        - cidr: 192.168.122.0/24
+      network:
+        tags:
+          - 192.168.122.0/24
