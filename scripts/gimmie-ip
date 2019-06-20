@@ -4,14 +4,14 @@ DOMAIN=${1}
 NETWORK=${2:-"default"}
 
 function gimmieip {
-    macaddr=$(virsh domiflist $DOMAIN | grep ${NETWORK} | awk '{print $5}')
+    macaddr=$(sudo virsh domiflist $DOMAIN | grep ${NETWORK} | awk '{print $5}')
 
     if [ -n "$macaddr" ]; then
         echo "MAC address $macaddr detected for $DOMAIN"
     else
         echo "No MAC address detected for $DOMAIN on $NETWORK"
         echo "Trying network brext..."
-        macaddr=$(virsh domiflist $DOMAIN | grep brext | awk '{print $5}')
+        macaddr=$(sudo virsh domiflist $DOMAIN | grep brext | awk '{print $5}')
         if [ -z "$macaddr" ]; then
             echo "MAC address still not found."
             return
