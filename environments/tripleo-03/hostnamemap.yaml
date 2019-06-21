@@ -3,3 +3,4 @@ parameter_defaults:
     overcloud-controller-0: controller-0
     overcloud-controller-1: controller-1
     overcloud-controller-2: controller-2
+    overcloud-novacompute-0: compute-0

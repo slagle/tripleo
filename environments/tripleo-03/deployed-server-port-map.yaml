@@ -43,3 +43,12 @@ parameter_defaults:
       network:
         tags:
           - 192.168.122.0/24
+
+    compute-0-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.122.73
+      subnets:
+        - cidr: 192.168.122.0/24
+      network:
+        tags:
+          - 192.168.122.0/24
