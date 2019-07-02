@@ -14,7 +14,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/tripleo-03/role-counts.yaml \
 "
 
-export ROLES_DATA="/home/stack/tripleo-heat-templates/roles_data.yaml"
+export ROLES_DATA="$HOME/tripleo/environments/tripleo-03/roles-data.yaml"
 
 export ARGS="\
   --disable-validations \

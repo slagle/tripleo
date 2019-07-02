@@ -30,6 +30,9 @@ query = owner:self (label:Verified-1,jenkins OR label:Code-Review-1)
 [section "Reviewed patches needing re-review"]
 query = reviewer:self NOT message:DO-NOT-MERGE NOT message:WIP NOT message:DNM NOT owner:self NOT label:Workflow-1 NOT label:Workflow+1 NOT (label:Code-Review+2,self OR label:Code-Review+1,self OR label:Code-Review-1,self OR label:Code-Review-2,self)
 
+[section "-1/-2 Patches"]
+query = reviewer:self label:Code-Review-1,self OR label:Code-Review-2,self limit:10
+
 [section "Unreviewed patches (no -1/-2/-W) (no WIP/DNM)"]
 query = NOT reviewer:self NOT message:WIP NOT message:DNM NOT message:"Gate Check" NOT label:Code-Review-2 NOT label:Code-Review-1 NOT owner:self NOT label:Workflow+1 NOT label:Workflow-1 limit:25
 
