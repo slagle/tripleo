@@ -2,57 +2,39 @@
 title = TripleO Inbox
 description = TripleO Review Inbox
 foreach = (
-    project:openstack/tripleo-ansible OR
-    project:openstack/tripleo-image-elements OR
-    project:openstack/tripleo-heat-templates OR
-    project:openstack/tripleo-puppet-elements OR
-    project:openstack/tripleo-specs OR
-    project:openstack/tripleo-common OR
-    project:openstack/tripleo-repos OR
-    project:openstack/tripleo-common-tempest-plugin OR
-    project:openstack/tripleo-validations OR
+    project:^openstack/tripleo-.* OR
     project:openstack/os-apply-config OR
     project:openstack/os-collect-config OR
     project:openstack/os-refresh-config OR
-    project:openstack/os-cloud-config OR
     project:openstack-infra/tripleo-ci OR
     project:openstack/os-net-config OR
-    project:openstack/instack OR
-    project:openstack/instack-undercloud OR
     project:openstack/python-tripleoclient OR
     project:openstack/puppet-tripleo OR
     project:openstack/paunch OR
-    project:openstack/ansible-role-container-registry) status:open
+    project:openstack/ansible-role-chrony OR
+    project:openstack/ansible-role-collect-logs OR
+    project:openstack/ansible-role-openstack-operations OR
+    project:openstack/ansible-role-redhat-subscription OR
+    project:openstack/ansible-role-tripleo-modify-image OR
+    project:openstack/ansible-role-container-registry) status:open NOT (project:openstack/tripleo-quickstart OR project:openstack/tripleo-quickstart-extras)
 
 [section "My Patches Requiring Attention"]
 query = owner:self (label:Verified-1,jenkins OR label:Code-Review-1)
 
 [section "Reviewed patches needing re-review"]
-query = reviewer:self NOT message:DO-NOT-MERGE NOT message:WIP NOT message:DNM NOT owner:self NOT label:Workflow-1 NOT label:Workflow+1 NOT (label:Code-Review+2,self OR label:Code-Review+1,self OR label:Code-Review-1,self OR label:Code-Review-2,self)
+query = reviewer:self NOT owner:self NOT label:Workflow-1 NOT label:Workflow+1 NOT (label:Code-Review+2,self OR label:Code-Review+1,self OR label:Code-Review-1,self OR label:Code-Review-2,self OR label:Abandoned)
 
 [section "-1/-2 Patches"]
-query = reviewer:self label:Code-Review-1,self OR label:Code-Review-2,self NOT label:Abandoned limit:10
+query = reviewer:self (label:Code-Review-1,self OR label:Code-Review-2,self) NOT label:Abandoned limit:10
 
 [section "Unreviewed patches (no -1/-2/-W) (no WIP/DNM)"]
-query = NOT reviewer:self NOT message:WIP NOT message:DNM NOT message:"Gate Check" NOT label:Code-Review-2 NOT label:Code-Review-1 NOT owner:self NOT label:Workflow+1 NOT label:Workflow-1 limit:25
-
-# [section "Needs Approval"]
-# query = label:Verified>=1,zuul NOT owner:self label:Code-Review>=2 NOT label:Code-Review-1 NOT label:Code-Review>=1,self NOT label:Workflow<=-1 NOT label:Code-Review<=-2 limit:25
-
-# [section "5 Days Without Feedback"]
-# query = label:Verified>=1,jenkins NOT owner:self NOT label:Code-Review<=2 age:5d
-
-# [section "No Negative Feedback"]
-# query = label:Verified>=1,jenkins NOT owner:self NOT message:WIP NOT message:DNM NOT label:Code-Review<=-1 NOT label:Code-Review>=2 NOT label:Workflow<=-1 NOT label:Code-Review<=-2
+query = NOT reviewer:self NOT message:DO-NOT-MERGE NOT message:WIP NOT message:DNM NOT message:"Gate Check" NOT label:Code-Review-2 NOT label:Code-Review-1 NOT owner:self NOT label:Workflow+1 NOT label:Workflow-1 limit:25
 
 [section "tripleo-specs"]
-query = NOT owner:self project:openstack/tripleo-specs
+query = project:openstack/tripleo-specs
 
 [section "tripleo-docs"]
-query = NOT owner:self project:openstack/tripleo-docs
+query = project:openstack/tripleo-docs
 
 [section "instack/instack-undercloud"]
-query = NOT owner:self (project:openstack/instack-undercloud OR project:openstack/instack)
-
-# [section "tripleo-quickstart/tripleo-quickstart-extras"]
-# query = NOT owner:self (project:openstack/tripleo-quickstart OR project:openstack/tripleo-quickstart-extras
+query = project:openstack/instack-undercloud OR project:openstack/instack
