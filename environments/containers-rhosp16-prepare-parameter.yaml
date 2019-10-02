@@ -1,6 +1,6 @@
 parameter_defaults:
   ContainerImagePrepare:
-  - push_destination: true
+  - push_destination: false
     set:
       ceph_image: rhceph-4.0-rhel8
       ceph_namespace: docker-registry.upshift.redhat.com/ceph
