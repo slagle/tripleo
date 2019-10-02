@@ -1,7 +1,6 @@
 export STACK_NAME=central
 
 export ENVIRONMENTS="\
-  -e $TEMPLATES/environments/config-download-environment.yaml \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $HOME/tripleo/environments/passwords.yaml \
   -e $HOME/tripleo/environments/stack-action-create.yaml \
