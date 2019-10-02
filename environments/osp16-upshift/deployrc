@@ -1,5 +1,3 @@
-source $HOME/tripleo/environments/osp16-upshift/deployrc
-
 export STACK_NAME=central
 
 export ENVIRONMENTS="\
