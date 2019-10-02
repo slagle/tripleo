@@ -1,0 +1,21 @@
+source $HOME/tripleo/environments/osp16-upshift/deployrc
+
+export STACK_NAME=central
+
+export ENVIRONMENTS="\
+  $ENVIRONMENTS \
+  -e $TEMPLATES/environments/deployed-server-environment.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/role-counts.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/hostnamemap.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/network-environment.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/deployed-server-port-map.yaml \
+  -e $HOME/tripleo/environments/containers-rhosp16-latest.yaml \
+  -e $HOME/tripleo/environments/glance-backend-file.yaml \
+"
+
+export ROLES_DATA="$HOME/tripleo/environments/osp16-upshift/roles-data.yaml"
+
+export ARGS="\
+  --disable-validations \
+  --overcloud-ssh-user cloud-user \
+"

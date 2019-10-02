@@ -1,0 +1,13 @@
+parameter_defaults:
+  ContainerImagePrepare:
+  - push_destination: true
+    set:
+      ceph_image: rhceph-4.0-rhel8
+      ceph_namespace: docker-registry.upshift.redhat.com/ceph
+      ceph_tag: stable
+      name_suffix: ''
+      namespace: registry-proxy.engineering.redhat.com/rh-osbs
+      name_prefix: rhosp16-openstack-
+      neutron_driver: ovn
+      tag: latest
+
