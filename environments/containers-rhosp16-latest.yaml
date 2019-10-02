@@ -20,7 +20,7 @@ parameter_defaults:
   ContainerCeilometerComputeImage: registry-proxy.engineering.redhat.com/rh-osbs/rhosp16-openstack-ceilometer-compute:latest
   ContainerCeilometerConfigImage: registry-proxy.engineering.redhat.com/rh-osbs/rhosp16-openstack-ceilometer-central:latest
   ContainerCeilometerNotificationImage: registry-proxy.engineering.redhat.com/rh-osbs/rhosp16-openstack-ceilometer-notification:latest
-  ContainerCephDaemonImage: registry-proxy.engineering.redhat.com/ceph/rhceph-4-rhel8:stable
+  ContainerCephDaemonImage: docker-registry.upshift.redhat.com/ceph/rhceph-4.0-rhel8:latest
   ContainerCinderApiImage: registry-proxy.engineering.redhat.com/rh-osbs/rhosp16-openstack-cinder-api:latest
   ContainerCinderBackupImage: registry-proxy.engineering.redhat.com/rh-osbs/rhosp16-openstack-cinder-backup:latest
   ContainerCinderConfigImage: registry-proxy.engineering.redhat.com/rh-osbs/rhosp16-openstack-cinder-api:latest
