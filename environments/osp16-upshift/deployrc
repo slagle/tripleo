@@ -1,4 +1,5 @@
 export STACK_NAME=central
+export TEMPLATES="$HOME/tripleo-heat-templates"
 
 export ENVIRONMENTS="\
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
