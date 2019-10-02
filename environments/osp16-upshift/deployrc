@@ -2,6 +2,7 @@ export STACK_NAME=central
 
 export ENVIRONMENTS="\
   $ENVIRONMENTS \
+  -e $TEMPLATES/environments/config-download-environment.yaml \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $HOME/tripleo/environments/osp16-upshift/role-counts.yaml \
   -e $HOME/tripleo/environments/osp16-upshift/hostnamemap.yaml \
