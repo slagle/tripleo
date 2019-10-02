@@ -3,7 +3,7 @@ resource_registry:
 
 parameter_defaults:
   EC2MetadataIp: 192.168.24.1
-  ControlPlaneDefaultRoute: 192.168.24.1
+  ControlPlaneDefaultRoute: 192.168.1.1
   NtpServer:
     - clock.redhat.com
     - clock2.redhat.com
