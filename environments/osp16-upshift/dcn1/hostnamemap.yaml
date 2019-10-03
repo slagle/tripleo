@@ -1,0 +1,5 @@
+parameter_defaults:
+  HostnameMap:
+    dcn1-distributedcomputehci-0: osp16-dcn1-compute-0
+    dcn1-distributedcomputehci-1: osp16-dcn1-compute-1
+    dcn1-distributedcomputehci-2: osp16-dcn1-compute-2

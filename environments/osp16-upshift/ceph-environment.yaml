@@ -1,0 +1,3 @@
+parameter_defaults:
+  CephPoolDefaultSize: 1
+  CephPoolDefaultPgNum: 32

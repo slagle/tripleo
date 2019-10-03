@@ -1,0 +1,27 @@
+export STACK_NAME=dcn1
+export TEMPLATES="$HOME/tripleo-heat-templates"
+
+export ENVIRONMENTS="\
+  -e $TEMPLATES/environments/deployed-server-environment.yaml \
+  -e $TEMPLATES/environments/podman.yaml \
+  -e $TEMPLATES/environments/services/etcd.yaml \
+  -e $TEMPLATES/environments/ceph-ansible/ceph-ansible.yaml \
+  -e $HOME/tripleo/environments/passwords.yaml \
+  -e $HOME/tripleo/environments/stack-action-create.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/redis-vip-noop.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/ceph-environment.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/dcn1/role-counts.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/dcn1/oslo.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/dcn1/hostnamemap.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/network-environment.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/dcn1/deployed-server-port-map.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/dcn1/root-stack-name.yaml \
+  -e $HOME/tripleo/environments/containers-rhosp16-latest.yaml
+"
+
+export ROLES_DATA="$HOME/tripleo/environments/osp16-upshift/dcn1/roles-data.yaml"
+
+export ARGS="\
+  --disable-validations \
+  --overcloud-ssh-user cloud-user \
+"
