@@ -1,3 +1,8 @@
 parameter_defaults:
   CephPoolDefaultSize: 1
   CephPoolDefaultPgNum: 32
+  CephAnsibleDisksConfig:
+    devices:
+    - /dev/vdb
+    osd_scenario: collocated
+    osd_objectstore: bluestore
