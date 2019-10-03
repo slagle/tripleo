@@ -2,8 +2,9 @@
 
 - name: rhos-release
   hosts: all
+  gather_facts: false
   tasks:
     - name: Run rhos-release
       shell: |
         sudo yum localinstall -y http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/rhos-release/rhos-release-latest.noarch.rpm
-        sudo rhos-release 14
+        sudo rhos-release 16
