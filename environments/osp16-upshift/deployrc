@@ -18,6 +18,7 @@ export ENVIRONMENTS="\
 export ROLES_DATA="$HOME/tripleo/environments/osp16-upshift/roles-data.yaml"
 
 export ARGS="\
+  --deployed-server \
   --disable-validations \
   --overcloud-ssh-user cloud-user \
 "

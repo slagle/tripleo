@@ -28,6 +28,7 @@ export ROLES_DATA="$HOME/tripleo/environments/osp16-upshift/dcn1/roles-data.yaml
 export NETWORK_DATA="$HOME/tripleo/environments/osp16-upshift/dcn1/network-data.yaml"
 
 export ARGS="\
+  --deployed-server \
   --disable-validations \
   --overcloud-ssh-user cloud-user \
 "
