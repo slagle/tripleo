@@ -1,2 +1,4 @@
 parameter_defaults:
   CinderStorageAvailabilityZone: dcn1
+  CinderVolumeCluster: dcn1
+  CinderEtcdLocalConnect: true
