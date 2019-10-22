@@ -1,7 +1,7 @@
-- name: Storage_dcn1_dcn1
+- name: Storage_dcn1
   vip: true
   vlan: 30
-  name_lower: storage_dcn1_dcn1
+  name_lower: storage_dcn1
   ip_subnet: '172.16.1.0/24'
   allocation_pools: [{'start': '172.16.1.4', 'end': '172.16.1.250'}]
   ipv6_subnet: 'fd00:fd00:fd00:3000::/64'
