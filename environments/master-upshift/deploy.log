@@ -1290,3 +1290,113 @@ Tue Oct 29 15:13:56 EDT 2019
 | stack_status_reason | Stack CREATE completed successfully                                                                                                                                                                                                                                                    |
 +---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 Tue Oct 29 15:22:24 EDT 2019
+Tue Oct 29 17:11:01 EDT 2019
+2019-10-29 21:11:11Z [upshift]: CREATE_IN_PROGRESS  Stack CREATE started
+2019-10-29 21:11:12Z [upshift.NodeAdminUserData]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:13Z [upshift.PcsdPassword]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:13Z [upshift.PcsdPassword]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:13Z [upshift.NodeAdminUserData]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:14Z [upshift.CloudNames]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:14Z [upshift.CloudNames]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:15Z [upshift.NodeTimesyncUserData]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:16Z [upshift.HorizonSecret]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:16Z [upshift.HorizonSecret]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:17Z [upshift.NodeUserData]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:17Z [upshift.NodeTimesyncUserData]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:18Z [upshift.ServiceNetMap]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:18Z [upshift.NodeUserData]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:19Z [upshift.RabbitCookie]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:19Z [upshift.RabbitCookie]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:20Z [upshift.DeploymentServerBlacklistDict]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:20Z [upshift.DeploymentServerBlacklistDict]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:21Z [upshift.ServiceNetMap]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:21Z [upshift.ControlVirtualIP]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:21Z [upshift.HeatAuthEncryptionKey]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:21Z [upshift.HeatAuthEncryptionKey]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:22Z [upshift.ControlVirtualIP]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:22Z [upshift.Networks]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:22Z [upshift.MysqlRootPassword]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:22Z [upshift.MysqlRootPassword]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:22Z [upshift.DefaultPasswords]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:23Z [upshift.ControllerRoleUserData]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:24Z [upshift.DefaultPasswords]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:24Z [upshift.ControllerNetworkDeploymentActionsValue]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:24Z [upshift.ControllerNetworkDeploymentActionsValue]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:24Z [upshift.ControllerRoleUserData]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:24Z [upshift.ControllerUserData]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:25Z [upshift.ControllerUserData]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:30Z [upshift.Networks]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:30Z [upshift.StorageMgmtVirtualIP]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:30Z [upshift.PublicVirtualIP]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:30Z [upshift.NetCidrMapValue]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:30Z [upshift.InternalApiVirtualIP]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:30Z [upshift.NetCidrMapValue]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:30Z [upshift.ControllerGroupVars]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:31Z [upshift.StorageVirtualIP]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:31Z [upshift.OVNDBsVirtualIP]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:31Z [upshift.ControllerGroupVars]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:31Z [upshift.RedisVirtualIP]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:32Z [upshift.StorageMgmtVirtualIP]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:32Z [upshift.PublicVirtualIP]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:32Z [upshift.InternalApiVirtualIP]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:32Z [upshift.StorageVirtualIP]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:32Z [upshift.RedisVirtualIP]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:32Z [upshift.VipMap]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:33Z [upshift.OVNDBsVirtualIP]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:33Z [upshift.VipMap]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:34Z [upshift.VipHosts]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:34Z [upshift.EndpointMap]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:34Z [upshift.VipHosts]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:35Z [upshift.EndpointMap]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:35Z [upshift.EndpointMapData]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:11:35Z [upshift.EndpointMapData]: CREATE_COMPLETE  state changed
+2019-10-29 21:11:35Z [upshift.ControllerServiceChain]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:09Z [upshift.ControllerServiceChain]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:09Z [upshift.ControllerServiceChainRoleData]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:09Z [upshift.ControllerServiceChainRoleData]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:10Z [upshift.GlobalConfig]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:10Z [upshift.ControllerServiceNames]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:10Z [upshift.GlobalConfig]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:10Z [upshift.ControllerServiceNames]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:10Z [upshift.ControllerServiceConfigSettings]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:10Z [upshift.Controller]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:10Z [upshift.ControllerServiceConfigSettings]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:11Z [upshift.ControllerConfigData]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:11Z [upshift.ControllerConfigData]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:25Z [upshift.Controller]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:27Z [upshift.ControllerServers]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:27Z [upshift.BlacklistedIpAddresses]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:27Z [upshift.ControllerServers]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:27Z [upshift.ControllerNetworkHostnameMap]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:27Z [upshift.BlacklistedHostnames]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:27Z [upshift.BlacklistedIpAddresses]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:27Z [upshift.ServerIdMap]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:27Z [upshift.AnsibleHostVars]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:27Z [upshift.ControllerNetworkHostnameMap]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:27Z [upshift.BlacklistedHostnames]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:27Z [upshift.AllNodesExtraConfig]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:27Z [upshift.HostsValue]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:27Z [upshift.ServerIdMap]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:27Z [upshift.AnsibleHostVars]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:27Z [upshift.HostsValue]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:27Z [upshift.AllNodesExtraConfig]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:27Z [upshift.ControllerIpListMap]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:28Z [upshift.HostsEntryValue]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:28Z [upshift.HostsEntryValue]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:28Z [upshift.AllNodesDeploySteps]: CREATE_IN_PROGRESS  state changed
+2019-10-29 21:19:30Z [upshift.ControllerIpListMap]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:35Z [upshift.AllNodesDeploySteps]: CREATE_COMPLETE  state changed
+2019-10-29 21:19:35Z [upshift]: CREATE_COMPLETE  Stack CREATE completed successfully
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Field               | Value                                                                                                                                                                                                                                                                                  |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| id                  | 0acc83e9-a9b4-4152-82ed-d0ec6bfcc188                                                                                                                                                                                                                                                   |
+| stack_name          | upshift                                                                                                                                                                                                                                                                                |
+| description         | Deploy an OpenStack environment, consisting of several node types (roles), Controller, Compute, BlockStorage, SwiftStorage and CephStorage. The Storage roles enable independent scaling of the storage components, but the minimal deployment is one Controller and one Compute node. |
+|                     |                                                                                                                                                                                                                                                                                        |
+| creation_time       | 2019-10-29T21:11:11Z                                                                                                                                                                                                                                                                   |
+| updated_time        | None                                                                                                                                                                                                                                                                                   |
+| stack_status        | CREATE_COMPLETE                                                                                                                                                                                                                                                                        |
+| stack_status_reason | Stack CREATE completed successfully                                                                                                                                                                                                                                                    |
++---------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+Tue Oct 29 17:19:40 EDT 2019
