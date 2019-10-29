@@ -1,0 +1,29 @@
+export STACK_NAME=upshift
+export TEMPLATES="$HOME/code/openstack/tripleo-heat-templates"
+
+export ENVIRONMENTS="\
+  -e $TEMPLATES/environments/deployed-server-environment.yaml \
+  -e $TEMPLATES/environments/podman.yaml \
+  -e $TEMPLATES/environments/nova-az-config.yaml \
+  -e $HOME/code/openstack/tripleo/environments/passwords.yaml \
+  -e $HOME/code/openstack/tripleo/environments/stack-action-create.yaml \
+  -e $HOME/code/openstack/tripleo/environments/master-upshift/role-counts.yaml \
+  -e $HOME/code/openstack/tripleo/environments/master-upshift/hostnamemap.yaml \
+  -e $HOME/code/openstack/tripleo/environments/master-upshift/network-environment.yaml \
+  -e $HOME/code/openstack/tripleo/environments/master-upshift/deployed-server-port-map.yaml \
+  -e $HOME/code/openstack/tripleo/environments/master-upshift/root-stack-name.yaml \
+  -e $HOME/code/openstack/tripleo/environments/containers-rhosp16-latest.yaml \
+  -e $HOME/code/openstack/tripleo/environments/glance-backend-file.yaml \
+"
+
+export ROLES_DATA="$HOME/code/openstack/tripleo/environments/master-upshift/roles-data.yaml"
+
+export ARGS="\
+  --deployed-server \
+  --disable-validations \
+  --overcloud-ssh-user cloud-user \
+"
+
+export OS_AUTH_TYPE=none
+export OS_ENDPOINT=http://127.0.0.1:8006/v1/admin
+export HEATCLIENT=1

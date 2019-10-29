@@ -1,0 +1,11 @@
+all:
+  hosts:
+    controller-0:
+      ansible_host: 192.168.1.18
+    controller-1:
+      ansible_host: 192.168.1.30
+    controller-2:
+      ansible_host: 192.168.1.48
+  vars:
+    ansible_ssh_user: cloud-user
+    ansible_ssh_private_key_file: /home/jslagle/.ssh/upshift

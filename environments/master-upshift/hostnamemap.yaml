@@ -1,0 +1,5 @@
+parameter_defaults:
+  HostnameMap:
+    upshift-controller-0: controller-0
+    upshift-controller-0: controller-1
+    upshift-controller-0: controller-2

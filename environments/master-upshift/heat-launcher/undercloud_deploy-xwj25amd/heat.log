@@ -1,0 +1,234 @@
+2019-10-29 14:59:57.614 7138 WARNING heat.common.config [-] stack_user_domain_id or stack_user_domain_name not set in heat.conf falling back to using default
+2019-10-29 14:59:57.713 7138 WARNING heat.common.pluginutils [-] Encountered exception while loading heat.engine.clients.os.blazar: "No module named 'blazarclient'". Not using blazar.: ModuleNotFoundError: No module named 'blazarclient'
+2019-10-29 14:59:57.778 7138 INFO heat-api [-] Starting Heat REST API on 127.0.0.1:8006
+2019-10-29 14:59:57.882 7138 INFO keyring.backend [-] Loading SecretService
+2019-10-29 14:59:57.890 7138 INFO keyring.backend [-] Loading kwallet
+2019-10-29 14:59:57.892 7138 INFO keyring.backend [-] Loading macOS
+2019-10-29 14:59:57.893 7138 INFO keyring.backend [-] Loading windows
+2019-10-29 14:59:58.091 7138 WARNING heat.common.pluginutils [-] Encountered exception while loading heat.engine.clients.os.zun: "No module named 'zunclient'". Not using zun.: ModuleNotFoundError: No module named 'zunclient'
+2019-10-29 14:59:58.092 7138 WARNING heat.common.pluginutils [-] Encountered exception while loading heat.engine.clients.os.blazar: "No module named 'blazarclient'". Not using blazar.reservation.: ModuleNotFoundError: No module named 'blazarclient'
+2019-10-29 14:59:58.540 7138 WARNING heat.engine.environment [-] OS::Aodh::Alarm is DEPRECATED. Theshold alarm relies on ceilometer-api and has been deprecated in aodh since Ocata. Use OS::Aodh::GnocchiAggregationByResourcesAlarm instead.
+2019-10-29 14:59:58.541 7138 WARNING heat.engine.environment [-] OS::Aodh::CombinationAlarm is HIDDEN. OS::Aodh::CombinationAlarm is deprecated and has been removed from Aodh, use OS::Aodh::CompositeAlarm instead.
+2019-10-29 14:59:58.541 7138 WARNING heat.engine.environment [-] OS::Designate::Domain is HIDDEN. This resource has been removed, use OS::Designate::Zone instead.
+2019-10-29 14:59:58.541 7138 WARNING heat.engine.environment [-] OS::Designate::Record is HIDDEN. This resource has been removed, use OS::Designate::RecordSet instead.
+2019-10-29 14:59:58.542 7138 WARNING heat.engine.environment [-] OS::Glance::Image is DEPRECATED. Creating a Glance Image based on an existing URL location requires the Glance v1 API, which is deprecated.
+2019-10-29 14:59:58.542 7138 WARNING heat.engine.environment [-] OS::Heat::HARestarter is HIDDEN. The HARestarter resource type has been removed. Existing stacks containing HARestarter resources can still be used, but the HARestarter resource will be a placeholder that does nothing.
+2019-10-29 14:59:58.542 7138 WARNING heat.engine.environment [-] OS::Heat::SoftwareDeployments is HIDDEN. Please use OS::Heat::SoftwareDeploymentGroup instead.
+2019-10-29 14:59:58.543 7138 WARNING heat.engine.environment [-] OS::Heat::StructuredDeployments is HIDDEN. Please use OS::Heat::StructuredDeploymentGroup instead.
+2019-10-29 14:59:58.543 7138 WARNING heat.engine.environment [-] OS::Magnum::Bay is HIDDEN. Please use OS::Magnum::Cluster instead.
+2019-10-29 14:59:58.543 7138 WARNING heat.engine.environment [-] OS::Magnum::BayModel is HIDDEN. Please use OS::Magnum::ClusterTemplate instead.
+2019-10-29 14:59:58.544 7138 WARNING heat.engine.environment [-] OS::Neutron::ExtraRoute is UNSUPPORTED. Use this resource at your own risk.
+2019-10-29 14:59:58.544 7138 WARNING heat.engine.environment [-] OS::Neutron::HealthMonitor is HIDDEN. Use LBaaS V2 instead.
+2019-10-29 14:59:58.545 7138 WARNING heat.engine.environment [-] OS::Neutron::Pool is HIDDEN. Use LBaaS V2 instead.
+2019-10-29 14:59:58.545 7138 WARNING heat.engine.environment [-] OS::Neutron::PoolMember is HIDDEN. Use LBaaS V2 instead.
+2019-10-29 14:59:58.545 7138 WARNING heat.engine.environment [-] OS::Neutron::LoadBalancer is HIDDEN. Use LBaaS V2 instead.
+2019-10-29 14:59:58.546 7138 WARNING heat.engine.environment [-] OS::Neutron::RouterGateway is HIDDEN. Use the `external_gateway_info` property in the router resource to set up the gateway.
+2019-10-29 14:59:58.546 7138 WARNING heat.engine.environment [-] OS::Nova::FloatingIP is HIDDEN. Please use OS::Neutron::FloatingIP instead.
+2019-10-29 14:59:58.546 7138 WARNING heat.engine.environment [-] OS::Nova::FloatingIPAssociation is HIDDEN. Please use OS::Neutron::FloatingIPAssociation instead.
+2019-10-29 14:59:58.549 7138 INFO heat.engine.environment [-] Loading /etc/heat/environment.d/default.yaml
+2019-10-29 14:59:58.549 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::AutoScaling::AutoScalingGroup -> <class 'heat.engine.resources.aws.autoscaling.autoscaling_group.AutoScalingGroup'>
+2019-10-29 14:59:58.550 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::AutoScaling::LaunchConfiguration -> <class 'heat.engine.resources.aws.autoscaling.launch_config.LaunchConfiguration'>
+2019-10-29 14:59:58.550 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::AutoScaling::ScalingPolicy -> <class 'heat.engine.resources.aws.autoscaling.scaling_policy.AWSScalingPolicy'>
+2019-10-29 14:59:58.550 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::CloudFormation::Stack -> <class 'heat.engine.resources.aws.cfn.stack.NestedStack'>
+2019-10-29 14:59:58.550 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::CloudFormation::WaitCondition -> <class 'heat.engine.resources.aws.cfn.wait_condition.WaitCondition'>
+2019-10-29 14:59:58.550 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::CloudFormation::WaitConditionHandle -> <class 'heat.engine.resources.aws.cfn.wait_condition_handle.WaitConditionHandle'>
+2019-10-29 14:59:58.551 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::EIP -> <class 'heat.engine.resources.aws.ec2.eip.ElasticIp'>
+2019-10-29 14:59:58.551 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::EIPAssociation -> <class 'heat.engine.resources.aws.ec2.eip.ElasticIpAssociation'>
+2019-10-29 14:59:58.551 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::Instance -> <class 'heat.engine.resources.aws.ec2.instance.Instance'>
+2019-10-29 14:59:58.551 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::InternetGateway -> <class 'heat.engine.resources.aws.ec2.internet_gateway.InternetGateway'>
+2019-10-29 14:59:58.552 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::VPCGatewayAttachment -> <class 'heat.engine.resources.aws.ec2.internet_gateway.VPCGatewayAttachment'>
+2019-10-29 14:59:58.552 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::NetworkInterface -> <class 'heat.engine.resources.aws.ec2.network_interface.NetworkInterface'>
+2019-10-29 14:59:58.552 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::RouteTable -> <class 'heat.engine.resources.aws.ec2.route_table.RouteTable'>
+2019-10-29 14:59:58.552 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::SubnetRouteTableAssociation -> <class 'heat.engine.resources.aws.ec2.route_table.SubnetRouteTableAssociation'>
+2019-10-29 14:59:58.553 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::SecurityGroup -> <class 'heat.engine.resources.aws.ec2.security_group.SecurityGroup'>
+2019-10-29 14:59:58.553 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::Subnet -> <class 'heat.engine.resources.aws.ec2.subnet.Subnet'>
+2019-10-29 14:59:58.553 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::Volume -> <class 'heat.engine.resources.aws.ec2.volume.Volume'>
+2019-10-29 14:59:58.553 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::VolumeAttachment -> <class 'heat.engine.resources.aws.ec2.volume.VolumeAttachment'>
+2019-10-29 14:59:58.554 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::EC2::VPC -> <class 'heat.engine.resources.aws.ec2.vpc.VPC'>
+2019-10-29 14:59:58.554 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::IAM::User -> <class 'heat.engine.resources.aws.iam.user.User'>
+2019-10-29 14:59:58.554 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::IAM::AccessKey -> <class 'heat.engine.resources.aws.iam.user.AccessKey'>
+2019-10-29 14:59:58.554 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::ElasticLoadBalancing::LoadBalancer -> <class 'heat.engine.resources.aws.lb.loadbalancer.LoadBalancer'>
+2019-10-29 14:59:58.554 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) AWS::S3::Bucket -> <class 'heat.engine.resources.aws.s3.s3.S3Bucket'>
+2019-10-29 14:59:58.554 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Aodh::Alarm -> <class 'heat.engine.resources.openstack.aodh.alarm.AodhAlarm'>
+2019-10-29 14:59:58.554 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Aodh::CombinationAlarm -> <class 'heat.engine.resources.openstack.aodh.alarm.CombinationAlarm'>
+2019-10-29 14:59:58.555 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Aodh::EventAlarm -> <class 'heat.engine.resources.openstack.aodh.alarm.EventAlarm'>
+2019-10-29 14:59:58.555 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Aodh::LBMemberHealthAlarm -> <class 'heat.engine.resources.openstack.aodh.alarm.LBMemberHealthAlarm'>
+2019-10-29 14:59:58.555 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Aodh::CompositeAlarm -> <class 'heat.engine.resources.openstack.aodh.composite_alarm.CompositeAlarm'>
+2019-10-29 14:59:58.555 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Aodh::GnocchiResourcesAlarm -> <class 'heat.engine.resources.openstack.aodh.gnocchi.alarm.AodhGnocchiResourcesAlarm'>
+2019-10-29 14:59:58.555 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Aodh::GnocchiAggregationByMetricsAlarm -> <class 'heat.engine.resources.openstack.aodh.gnocchi.alarm.AodhGnocchiAggregationByMetricsAlarm'>
+2019-10-29 14:59:58.556 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Aodh::GnocchiAggregationByResourcesAlarm -> <class 'heat.engine.resources.openstack.aodh.gnocchi.alarm.AodhGnocchiAggregationByResourcesAlarm'>
+2019-10-29 14:59:58.556 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Barbican::GenericContainer -> <class 'heat.engine.resources.openstack.barbican.container.GenericContainer'>
+2019-10-29 14:59:58.556 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Barbican::CertificateContainer -> <class 'heat.engine.resources.openstack.barbican.container.CertificateContainer'>
+2019-10-29 14:59:58.556 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Barbican::RSAContainer -> <class 'heat.engine.resources.openstack.barbican.container.RSAContainer'>
+2019-10-29 14:59:58.556 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Barbican::Order -> <class 'heat.engine.resources.openstack.barbican.order.Order'>
+2019-10-29 14:59:58.557 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Barbican::Secret -> <class 'heat.engine.resources.openstack.barbican.secret.Secret'>
+2019-10-29 14:59:58.557 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Blazar::Host -> <class 'heat.engine.resources.openstack.blazar.host.Host'>
+2019-10-29 14:59:58.557 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Blazar::Lease -> <class 'heat.engine.resources.openstack.blazar.lease.Lease'>
+2019-10-29 14:59:58.557 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Cinder::EncryptedVolumeType -> <class 'heat.engine.resources.openstack.cinder.encrypted_volume_type.CinderEncryptedVolumeType'>
+2019-10-29 14:59:58.557 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Cinder::QoSSpecs -> <class 'heat.engine.resources.openstack.cinder.qos_specs.QoSSpecs'>
+2019-10-29 14:59:58.557 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Cinder::QoSAssociation -> <class 'heat.engine.resources.openstack.cinder.qos_specs.QoSAssociation'>
+2019-10-29 14:59:58.558 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Cinder::Quota -> <class 'heat.engine.resources.openstack.cinder.quota.CinderQuota'>
+2019-10-29 14:59:58.558 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Cinder::Volume -> <class 'heat.engine.resources.openstack.cinder.volume.CinderVolume'>
+2019-10-29 14:59:58.558 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Cinder::VolumeAttachment -> <class 'heat.engine.resources.openstack.cinder.volume.CinderVolumeAttachment'>
+2019-10-29 14:59:58.558 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Cinder::VolumeType -> <class 'heat.engine.resources.openstack.cinder.volume_type.CinderVolumeType'>
+2019-10-29 14:59:58.558 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Designate::Domain -> <class 'heat.engine.resources.openstack.designate.domain.DesignateDomain'>
+2019-10-29 14:59:58.559 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Designate::Record -> <class 'heat.engine.resources.openstack.designate.record.DesignateRecord'>
+2019-10-29 14:59:58.559 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Designate::RecordSet -> <class 'heat.engine.resources.openstack.designate.recordset.DesignateRecordSet'>
+2019-10-29 14:59:58.559 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Designate::Zone -> <class 'heat.engine.resources.openstack.designate.zone.DesignateZone'>
+2019-10-29 14:59:58.559 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Glance::Image -> <class 'heat.engine.resources.openstack.glance.image.GlanceImage'>
+2019-10-29 14:59:58.559 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Glance::WebImage -> <class 'heat.engine.resources.openstack.glance.image.GlanceWebImage'>
+2019-10-29 14:59:58.559 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::AccessPolicy -> <class 'heat.engine.resources.openstack.heat.access_policy.AccessPolicy'>
+2019-10-29 14:59:58.560 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::AutoScalingGroup -> <class 'heat.engine.resources.openstack.heat.autoscaling_group.AutoScalingResourceGroup'>
+2019-10-29 14:59:58.560 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::CloudConfig -> <class 'heat.engine.resources.openstack.heat.cloud_config.CloudConfig'>
+2019-10-29 14:59:58.560 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::Delay -> <class 'heat.engine.resources.openstack.heat.delay.Delay'>
+2019-10-29 14:59:58.560 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::DeployedServer -> <class 'heat.engine.resources.openstack.heat.deployed_server.DeployedServer'>
+2019-10-29 14:59:58.561 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::HARestarter -> <class 'heat.engine.resources.openstack.heat.ha_restarter.Restarter'>
+2019-10-29 14:59:58.561 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::InstanceGroup -> <class 'heat.engine.resources.openstack.heat.instance_group.InstanceGroup'>
+2019-10-29 14:59:58.561 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::MultipartMime -> <class 'heat.engine.resources.openstack.heat.multi_part.MultipartMime'>
+2019-10-29 14:59:58.561 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::None -> <class 'heat.engine.resources.openstack.heat.none_resource.NoneResource'>
+2019-10-29 14:59:58.561 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::RandomString -> <class 'heat.engine.resources.openstack.heat.random_string.RandomString'>
+2019-10-29 14:59:58.561 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::Stack -> <class 'heat.engine.resources.openstack.heat.remote_stack.RemoteStack'>
+2019-10-29 14:59:58.561 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::ResourceChain -> <class 'heat.engine.resources.openstack.heat.resource_chain.ResourceChain'>
+2019-10-29 14:59:58.562 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::ResourceGroup -> <class 'heat.engine.resources.openstack.heat.resource_group.ResourceGroup'>
+2019-10-29 14:59:58.562 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::ScalingPolicy -> <class 'heat.engine.resources.openstack.heat.scaling_policy.AutoScalingPolicy'>
+2019-10-29 14:59:58.562 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::SoftwareComponent -> <class 'heat.engine.resources.openstack.heat.software_component.SoftwareComponent'>
+2019-10-29 14:59:58.562 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::SoftwareConfig -> <class 'heat.engine.resources.openstack.heat.software_config.SoftwareConfig'>
+2019-10-29 14:59:58.562 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::SoftwareDeployment -> <class 'heat.engine.resources.openstack.heat.software_deployment.SoftwareDeployment'>
+2019-10-29 14:59:58.563 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::SoftwareDeploymentGroup -> <class 'heat.engine.resources.openstack.heat.software_deployment.SoftwareDeploymentGroup'>
+2019-10-29 14:59:58.563 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::SoftwareDeployments -> <class 'heat.engine.resources.openstack.heat.software_deployment.SoftwareDeployments'>
+2019-10-29 14:59:58.563 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::StructuredConfig -> <class 'heat.engine.resources.openstack.heat.structured_config.StructuredConfig'>
+2019-10-29 14:59:58.563 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::StructuredDeployment -> <class 'heat.engine.resources.openstack.heat.structured_config.StructuredDeployment'>
+2019-10-29 14:59:58.564 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::StructuredDeploymentGroup -> <class 'heat.engine.resources.openstack.heat.structured_config.StructuredDeploymentGroup'>
+2019-10-29 14:59:58.564 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::StructuredDeployments -> <class 'heat.engine.resources.openstack.heat.structured_config.StructuredDeployments'>
+2019-10-29 14:59:58.564 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::SwiftSignal -> <class 'heat.engine.resources.openstack.heat.swiftsignal.SwiftSignal'>
+2019-10-29 14:59:58.564 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::SwiftSignalHandle -> <class 'heat.engine.resources.openstack.heat.swiftsignal.SwiftSignalHandle'>
+2019-10-29 14:59:58.564 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::TestResource -> <class 'heat.engine.resources.openstack.heat.test_resource.TestResource'>
+2019-10-29 14:59:58.565 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::Value -> <class 'heat.engine.resources.openstack.heat.value.Value'>
+2019-10-29 14:59:58.565 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::WaitCondition -> <class 'heat.engine.resources.openstack.heat.wait_condition.HeatWaitCondition'>
+2019-10-29 14:59:58.565 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::WaitConditionHandle -> <class 'heat.engine.resources.openstack.heat.wait_condition_handle.HeatWaitConditionHandle'>
+2019-10-29 14:59:58.565 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Heat::UpdateWaitConditionHandle -> <class 'heat.engine.resources.openstack.heat.wait_condition_handle.UpdateWaitConditionHandle'>
+2019-10-29 14:59:58.565 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Keystone::Domain -> <class 'heat.engine.resources.openstack.keystone.domain.KeystoneDomain'>
+2019-10-29 14:59:58.565 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Keystone::Endpoint -> <class 'heat.engine.resources.openstack.keystone.endpoint.KeystoneEndpoint'>
+2019-10-29 14:59:58.565 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Keystone::Group -> <class 'heat.engine.resources.openstack.keystone.group.KeystoneGroup'>
+2019-10-29 14:59:58.565 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Keystone::Project -> <class 'heat.engine.resources.openstack.keystone.project.KeystoneProject'>
+2019-10-29 14:59:58.566 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Keystone::Region -> <class 'heat.engine.resources.openstack.keystone.region.KeystoneRegion'>
+2019-10-29 14:59:58.566 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Keystone::Role -> <class 'heat.engine.resources.openstack.keystone.role.KeystoneRole'>
+2019-10-29 14:59:58.566 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Keystone::UserRoleAssignment -> <class 'heat.engine.resources.openstack.keystone.role_assignments.KeystoneUserRoleAssignment'>
+2019-10-29 14:59:58.566 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Keystone::GroupRoleAssignment -> <class 'heat.engine.resources.openstack.keystone.role_assignments.KeystoneGroupRoleAssignment'>
+2019-10-29 14:59:58.567 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Keystone::Service -> <class 'heat.engine.resources.openstack.keystone.service.KeystoneService'>
+2019-10-29 14:59:58.567 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Keystone::User -> <class 'heat.engine.resources.openstack.keystone.user.KeystoneUser'>
+2019-10-29 14:59:58.567 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Magnum::Bay -> <class 'heat.engine.resources.openstack.magnum.bay.Bay'>
+2019-10-29 14:59:58.567 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Magnum::BayModel -> <class 'heat.engine.resources.openstack.magnum.baymodel.BayModel'>
+2019-10-29 14:59:58.568 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Magnum::Cluster -> <class 'heat.engine.resources.openstack.magnum.cluster.Cluster'>
+2019-10-29 14:59:58.568 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Magnum::ClusterTemplate -> <class 'heat.engine.resources.openstack.magnum.cluster_template.ClusterTemplate'>
+2019-10-29 14:59:58.568 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Manila::SecurityService -> <class 'heat.engine.resources.openstack.manila.security_service.SecurityService'>
+2019-10-29 14:59:58.568 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Manila::Share -> <class 'heat.engine.resources.openstack.manila.share.ManilaShare'>
+2019-10-29 14:59:58.569 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Manila::ShareNetwork -> <class 'heat.engine.resources.openstack.manila.share_network.ManilaShareNetwork'>
+2019-10-29 14:59:58.569 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Manila::ShareType -> <class 'heat.engine.resources.openstack.manila.share_type.ManilaShareType'>
+2019-10-29 14:59:58.569 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Mistral::CronTrigger -> <class 'heat.engine.resources.openstack.mistral.cron_trigger.CronTrigger'>
+2019-10-29 14:59:58.569 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Mistral::ExternalResource -> <class 'heat.engine.resources.openstack.mistral.external_resource.MistralExternalResource'>
+2019-10-29 14:59:58.569 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Mistral::Workflow -> <class 'heat.engine.resources.openstack.mistral.workflow.Workflow'>
+2019-10-29 14:59:58.569 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Monasca::AlarmDefinition -> <class 'heat.engine.resources.openstack.monasca.alarm_definition.MonascaAlarmDefinition'>
+2019-10-29 14:59:58.569 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Monasca::Notification -> <class 'heat.engine.resources.openstack.monasca.notification.MonascaNotification'>
+2019-10-29 14:59:58.570 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::AddressScope -> <class 'heat.engine.resources.openstack.neutron.address_scope.AddressScope'>
+2019-10-29 14:59:58.570 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::ExtraRoute -> <class 'heat.engine.resources.openstack.neutron.extraroute.ExtraRoute'>
+2019-10-29 14:59:58.570 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::Firewall -> <class 'heat.engine.resources.openstack.neutron.firewall.Firewall'>
+2019-10-29 14:59:58.570 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::FirewallPolicy -> <class 'heat.engine.resources.openstack.neutron.firewall.FirewallPolicy'>
+2019-10-29 14:59:58.570 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::FirewallRule -> <class 'heat.engine.resources.openstack.neutron.firewall.FirewallRule'>
+2019-10-29 14:59:58.570 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::FloatingIP -> <class 'heat.engine.resources.openstack.neutron.floatingip.FloatingIP'>
+2019-10-29 14:59:58.570 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::FloatingIPAssociation -> <class 'heat.engine.resources.openstack.neutron.floatingip.FloatingIPAssociation'>
+2019-10-29 14:59:58.570 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::L2Gateway -> <class 'heat.engine.resources.openstack.neutron.l2_gateway.L2Gateway'>
+2019-10-29 14:59:58.571 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::L2GatewayConnection -> <class 'heat.engine.resources.openstack.neutron.l2_gateway_connection.L2GatewayConnection'>
+2019-10-29 14:59:58.571 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::LBaaS::HealthMonitor -> <class 'heat.engine.resources.openstack.neutron.lbaas.health_monitor.HealthMonitor'>
+2019-10-29 14:59:58.571 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::LBaaS::L7Policy -> <class 'heat.engine.resources.openstack.neutron.lbaas.l7policy.L7Policy'>
+2019-10-29 14:59:58.571 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::LBaaS::L7Rule -> <class 'heat.engine.resources.openstack.neutron.lbaas.l7rule.L7Rule'>
+2019-10-29 14:59:58.571 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::LBaaS::Listener -> <class 'heat.engine.resources.openstack.neutron.lbaas.listener.Listener'>
+2019-10-29 14:59:58.571 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::LBaaS::LoadBalancer -> <class 'heat.engine.resources.openstack.neutron.lbaas.loadbalancer.LoadBalancer'>
+2019-10-29 14:59:58.571 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::LBaaS::Pool -> <class 'heat.engine.resources.openstack.neutron.lbaas.pool.Pool'>
+2019-10-29 14:59:58.571 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::LBaaS::PoolMember -> <class 'heat.engine.resources.openstack.neutron.lbaas.pool_member.PoolMember'>
+2019-10-29 14:59:58.572 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::HealthMonitor -> <class 'heat.engine.resources.openstack.neutron.loadbalancer.HealthMonitor'>
+2019-10-29 14:59:58.572 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::Pool -> <class 'heat.engine.resources.openstack.neutron.loadbalancer.Pool'>
+2019-10-29 14:59:58.572 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::PoolMember -> <class 'heat.engine.resources.openstack.neutron.loadbalancer.PoolMember'>
+2019-10-29 14:59:58.572 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::LoadBalancer -> <class 'heat.engine.resources.openstack.neutron.loadbalancer.LoadBalancer'>
+2019-10-29 14:59:58.572 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::MeteringLabel -> <class 'heat.engine.resources.openstack.neutron.metering.MeteringLabel'>
+2019-10-29 14:59:58.572 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::MeteringRule -> <class 'heat.engine.resources.openstack.neutron.metering.MeteringRule'>
+2019-10-29 14:59:58.572 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::Net -> <class 'heat.engine.resources.openstack.neutron.net.Net'>
+2019-10-29 14:59:58.572 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::NetworkGateway -> <class 'heat.engine.resources.openstack.neutron.network_gateway.NetworkGateway'>
+2019-10-29 14:59:58.573 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::Port -> <class 'heat.engine.resources.openstack.neutron.port.Port'>
+2019-10-29 14:59:58.573 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::ProviderNet -> <class 'heat.engine.resources.openstack.neutron.provider_net.ProviderNet'>
+2019-10-29 14:59:58.573 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::QoSPolicy -> <class 'heat.engine.resources.openstack.neutron.qos.QoSPolicy'>
+2019-10-29 14:59:58.573 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::QoSBandwidthLimitRule -> <class 'heat.engine.resources.openstack.neutron.qos.QoSBandwidthLimitRule'>
+2019-10-29 14:59:58.573 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::QoSDscpMarkingRule -> <class 'heat.engine.resources.openstack.neutron.qos.QoSDscpMarkingRule'>
+2019-10-29 14:59:58.573 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::Quota -> <class 'heat.engine.resources.openstack.neutron.quota.NeutronQuota'>
+2019-10-29 14:59:58.573 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::RBACPolicy -> <class 'heat.engine.resources.openstack.neutron.rbac_policy.RBACPolicy'>
+2019-10-29 14:59:58.573 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::Router -> <class 'heat.engine.resources.openstack.neutron.router.Router'>
+2019-10-29 14:59:58.574 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::RouterInterface -> <class 'heat.engine.resources.openstack.neutron.router.RouterInterface'>
+2019-10-29 14:59:58.574 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::RouterGateway -> <class 'heat.engine.resources.openstack.neutron.router.RouterGateway'>
+2019-10-29 14:59:58.574 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::SecurityGroup -> <class 'heat.engine.resources.openstack.neutron.security_group.SecurityGroup'>
+2019-10-29 14:59:58.574 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::SecurityGroupRule -> <class 'heat.engine.resources.openstack.neutron.security_group_rule.SecurityGroupRule'>
+2019-10-29 14:59:58.575 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::Segment -> <class 'heat.engine.resources.openstack.neutron.segment.Segment'>
+2019-10-29 14:59:58.575 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::FlowClassifier -> <class 'heat.engine.resources.openstack.neutron.sfc.flow_classifier.FlowClassifier'>
+2019-10-29 14:59:58.576 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::PortChain -> <class 'heat.engine.resources.openstack.neutron.sfc.port_chain.PortChain'>
+2019-10-29 14:59:58.576 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::PortPair -> <class 'heat.engine.resources.openstack.neutron.sfc.port_pair.PortPair'>
+2019-10-29 14:59:58.576 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::PortPairGroup -> <class 'heat.engine.resources.openstack.neutron.sfc.port_pair_group.PortPairGroup'>
+2019-10-29 14:59:58.577 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::Subnet -> <class 'heat.engine.resources.openstack.neutron.subnet.Subnet'>
+2019-10-29 14:59:58.577 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::SubnetPool -> <class 'heat.engine.resources.openstack.neutron.subnetpool.SubnetPool'>
+2019-10-29 14:59:58.577 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::TaaS::TapFlow -> <class 'heat.engine.resources.openstack.neutron.taas.tap_flow.TapFlow'>
+2019-10-29 14:59:58.577 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::TaaS::TapService -> <class 'heat.engine.resources.openstack.neutron.taas.tap_service.TapService'>
+2019-10-29 14:59:58.578 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::Trunk -> <class 'heat.engine.resources.openstack.neutron.trunk.Trunk'>
+2019-10-29 14:59:58.578 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::VPNService -> <class 'heat.engine.resources.openstack.neutron.vpnservice.VPNService'>
+2019-10-29 14:59:58.578 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::IPsecSiteConnection -> <class 'heat.engine.resources.openstack.neutron.vpnservice.IPsecSiteConnection'>
+2019-10-29 14:59:58.578 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::IKEPolicy -> <class 'heat.engine.resources.openstack.neutron.vpnservice.IKEPolicy'>
+2019-10-29 14:59:58.578 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Neutron::IPsecPolicy -> <class 'heat.engine.resources.openstack.neutron.vpnservice.IPsecPolicy'>
+2019-10-29 14:59:58.579 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Nova::Flavor -> <class 'heat.engine.resources.openstack.nova.flavor.NovaFlavor'>
+2019-10-29 14:59:58.579 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Nova::FloatingIP -> <class 'heat.engine.resources.openstack.nova.floatingip.NovaFloatingIp'>
+2019-10-29 14:59:58.579 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Nova::FloatingIPAssociation -> <class 'heat.engine.resources.openstack.nova.floatingip.NovaFloatingIpAssociation'>
+2019-10-29 14:59:58.579 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Nova::HostAggregate -> <class 'heat.engine.resources.openstack.nova.host_aggregate.HostAggregate'>
+2019-10-29 14:59:58.580 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Nova::KeyPair -> <class 'heat.engine.resources.openstack.nova.keypair.KeyPair'>
+2019-10-29 14:59:58.580 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Nova::Quota -> <class 'heat.engine.resources.openstack.nova.quota.NovaQuota'>
+2019-10-29 14:59:58.580 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Nova::Server -> <class 'heat.engine.resources.openstack.nova.server.Server'>
+2019-10-29 14:59:58.580 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Nova::ServerGroup -> <class 'heat.engine.resources.openstack.nova.server_group.ServerGroup'>
+2019-10-29 14:59:58.580 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Octavia::HealthMonitor -> <class 'heat.engine.resources.openstack.octavia.health_monitor.HealthMonitor'>
+2019-10-29 14:59:58.581 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Octavia::L7Policy -> <class 'heat.engine.resources.openstack.octavia.l7policy.L7Policy'>
+2019-10-29 14:59:58.581 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Octavia::L7Rule -> <class 'heat.engine.resources.openstack.octavia.l7rule.L7Rule'>
+2019-10-29 14:59:58.581 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Octavia::Listener -> <class 'heat.engine.resources.openstack.octavia.listener.Listener'>
+2019-10-29 14:59:58.581 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Octavia::LoadBalancer -> <class 'heat.engine.resources.openstack.octavia.loadbalancer.LoadBalancer'>
+2019-10-29 14:59:58.581 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Octavia::Pool -> <class 'heat.engine.resources.openstack.octavia.pool.Pool'>
+2019-10-29 14:59:58.582 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Octavia::PoolMember -> <class 'heat.engine.resources.openstack.octavia.pool_member.PoolMember'>
+2019-10-29 14:59:58.582 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Sahara::Cluster -> <class 'heat.engine.resources.openstack.sahara.cluster.SaharaCluster'>
+2019-10-29 14:59:58.582 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Sahara::DataSource -> <class 'heat.engine.resources.openstack.sahara.data_source.DataSource'>
+2019-10-29 14:59:58.582 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Sahara::ImageRegistry -> <class 'heat.engine.resources.openstack.sahara.image.SaharaImageRegistry'>
+2019-10-29 14:59:58.583 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Sahara::Job -> <class 'heat.engine.resources.openstack.sahara.job.SaharaJob'>
+2019-10-29 14:59:58.583 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Sahara::JobBinary -> <class 'heat.engine.resources.openstack.sahara.job_binary.JobBinary'>
+2019-10-29 14:59:58.583 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Sahara::NodeGroupTemplate -> <class 'heat.engine.resources.openstack.sahara.templates.SaharaNodeGroupTemplate'>
+2019-10-29 14:59:58.583 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Sahara::ClusterTemplate -> <class 'heat.engine.resources.openstack.sahara.templates.SaharaClusterTemplate'>
+2019-10-29 14:59:58.583 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Senlin::Cluster -> <class 'heat.engine.resources.openstack.senlin.cluster.Cluster'>
+2019-10-29 14:59:58.584 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Senlin::Node -> <class 'heat.engine.resources.openstack.senlin.node.Node'>
+2019-10-29 14:59:58.584 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Senlin::Policy -> <class 'heat.engine.resources.openstack.senlin.policy.Policy'>
+2019-10-29 14:59:58.584 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Senlin::Profile -> <class 'heat.engine.resources.openstack.senlin.profile.Profile'>
+2019-10-29 14:59:58.584 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Senlin::Receiver -> <class 'heat.engine.resources.openstack.senlin.receiver.Receiver'>
+2019-10-29 14:59:58.584 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Swift::Container -> <class 'heat.engine.resources.openstack.swift.container.SwiftContainer'>
+2019-10-29 14:59:58.585 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Trove::Cluster -> <class 'heat.engine.resources.openstack.trove.cluster.TroveCluster'>
+2019-10-29 14:59:58.585 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Trove::Instance -> <class 'heat.engine.resources.openstack.trove.instance.Instance'>
+2019-10-29 14:59:58.585 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Zaqar::Queue -> <class 'heat.engine.resources.openstack.zaqar.queue.ZaqarQueue'>
+2019-10-29 14:59:58.585 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Zaqar::SignedQueueURL -> <class 'heat.engine.resources.openstack.zaqar.queue.ZaqarSignedQueueURL'>
+2019-10-29 14:59:58.586 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Zaqar::Subscription -> <class 'heat.engine.resources.openstack.zaqar.subscription.ZaqarSubscription'>
+2019-10-29 14:59:58.586 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Zaqar::MistralTrigger -> <class 'heat.engine.resources.openstack.zaqar.subscription.MistralTrigger'>
+2019-10-29 14:59:58.586 7138 INFO heat.engine.environment [-] Registered: [Plugin](User:False) OS::Zun::Container -> <class 'heat.engine.resources.openstack.zun.container.Container'>
+2019-10-29 14:59:58.586 7138 INFO heat.engine.environment [-] Registered: [Wildcard Mapping](User:False) OS::Quantum* -> OS::Neutron*
+2019-10-29 14:59:58.586 7138 INFO heat.engine.environment [-] Registered: [Template](User:False) AWS::CloudWatch::Alarm -> file:///etc/heat/templates/AWS_CloudWatch_Alarm.yaml
+2019-10-29 14:59:58.587 7138 INFO heat.engine.environment [-] Registered: [Mapping](User:False) OS::Metering::Alarm -> OS::Aodh::Alarm
+2019-10-29 14:59:58.587 7138 INFO heat.engine.environment [-] Registered: [Template](User:False) AWS::RDS::DBInstance -> file:///etc/heat/templates/AWS_RDS_DBInstance.yaml
+2019-10-29 14:59:58.587 7138 INFO heat.engine.environment [-] Registered: [Mapping](User:False) OS::Ceilometer::Alarm -> OS::Aodh::Alarm
+2019-10-29 14:59:58.587 7138 INFO heat.engine.environment [-] Registered: [Mapping](User:False) OS::Ceilometer::GnocchiResourcesAlarm -> OS::Aodh::GnocchiResourcesAlarm
+2019-10-29 14:59:58.587 7138 INFO heat.engine.environment [-] Registered: [Mapping](User:False) OS::Ceilometer::GnocchiAggregationByMetricsAlarm -> OS::Aodh::GnocchiAggregationByMetricsAlarm
+2019-10-29 14:59:58.588 7138 INFO heat.engine.environment [-] Registered: [Mapping](User:False) OS::Ceilometer::GnocchiAggregationByResourcesAlarm -> OS::Aodh::GnocchiAggregationByResourcesAlarm
+2019-10-29 14:59:58.588 7138 INFO heat.engine.environment [-] Registered: [Mapping](User:False) OS::Ceilometer::CombinationAlarm -> OS::Aodh::CombinationAlarm
+2019-10-29 14:59:58.589 7138 INFO heat.common.wsgi [-] Starting single process server
+2019-10-29 14:59:58.590 7138 INFO eventlet.wsgi.server [-] (7138) wsgi starting up on http://127.0.0.1:8006
+2019-10-29 14:59:58.596 7138 WARNING oslo_config.cfg [-] Deprecated: Option "deferred_auth_method" from group "DEFAULT" is deprecated for removal (Stored password based deferred auth is broken when used with keystone v3 and is not supported.).  Its value may be silently ignored in the future.
+2019-10-29 14:59:58.605 7138 INFO heat.engine.worker [-] Starting engine_worker (1.4) in engine cbc349b2-a209-479a-8e6e-e663e79d8927.
+2019-10-29 15:00:00.254 7138 INFO heat.common.wsgi [-] Processing request: GET /v1/admin/stacks
+2019-10-29 15:00:00.255 7138 ERROR heat.common.wsgi [-] Unexpected error occurred serving API: context
+2019-10-29 15:00:00.257 7138 INFO eventlet.wsgi.server [-] 127.0.0.1 - - [29/Oct/2019 15:00:00] "GET /v1/admin/stacks HTTP/1.1" 400 417 0.036617
+2019-10-29 15:00:18.572 7138 INFO oslo_service.service [-] Caught SIGINT signal, instantaneous exiting
