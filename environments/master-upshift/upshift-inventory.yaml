@@ -1,0 +1,281 @@
+Undercloud:
+  hosts:
+    undercloud: {}
+  vars:
+    ansible_connection: local
+    ansible_host: localhost
+    ansible_python_interpreter: /home/jslagle/devel/venvs/tripleo-3.6/bin/python3
+    ansible_remote_tmp: /tmp/ansible-${USER}
+    auth_url: null
+    cacert: null
+    os_auth_token: null
+    overcloud_admin_password: admin-password
+    overcloud_horizon_url: http://192.168.24.100:80/dashboard
+    overcloud_keystone_url: http://192.168.24.100:5000
+    plan: upshift
+    project_name: null
+    undercloud_service_list: [tripleo_nova_compute, tripleo_heat_engine, tripleo_ironic_conductor,
+      tripleo_swift_container_server, tripleo_swift_object_server, tripleo_mistral_engine]
+    undercloud_swift_url: null
+    username: null
+Controller:
+  hosts:
+    controller-0:
+      ansible_host: 192.168.24.6
+      canonical_hostname: controller-0.localdomain
+      ctlplane_hostname: controller-0.ctlplane.localdomain
+      ctlplane_ip: 192.168.24.6
+      deploy_server_id: 62a10503-9581-4dee-9a3d-40939c5ba61c
+      enabled_networks: [ctlplane, storage, storage_mgmt, internal_api, tenant, external,
+        management]
+      external_hostname: controller-0.external.localdomain
+      external_ip: 192.168.24.6
+      internal_api_hostname: controller-0.internalapi.localdomain
+      internal_api_ip: 192.168.24.6
+      management_ip: 192.168.24.6
+      storage_hostname: controller-0.storage.localdomain
+      storage_ip: 192.168.24.6
+      storage_mgmt_hostname: controller-0.storagemgmt.localdomain
+      storage_mgmt_ip: 192.168.24.6
+      tenant_hostname: controller-0.tenant.localdomain
+      tenant_ip: 192.168.24.6
+  vars: {ansible_ssh_user: centos, bootstrap_server_id: 62a10503-9581-4dee-9a3d-40939c5ba61c,
+    serial: '1', tripleo_role_name: Controller}
+overcloud:
+  children:
+    Controller: {}
+  vars: {container_cli: podman, ctlplane_vip: 192.168.24.100, external_vip: 192.168.24.100,
+    internal_api_vip: 192.168.24.100, redis_vip: 192.168.24.100, storage_mgmt_vip: 192.168.24.100,
+    storage_vip: 192.168.24.100}
+aodh_listener:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+aodh_api:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+tripleo_packages:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+swift_ringbuilder:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+ceilometer_agent_notification:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+cinder_api:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+chrony:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+gnocchi_statsd:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+podman:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+heat_api:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+mysql_client:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+nova_api:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+glance_api:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+aodh_evaluator:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+kernel:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+placement:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+memcached:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+ceilometer_agent_central:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+neutron_api:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+oslo_messaging_rpc:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+mysql:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+heat_engine:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+pacemaker:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+gnocchi_metricd:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+timezone:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+boot_params_service:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+keystone_public_api:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+nova_conductor:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+logrotate_crond:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+clustercheck:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+container_image_prepare:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+certmonger_user:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+ovn_dbs:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+swift_storage:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+keystone_admin_api:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+nova_scheduler:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+horizon:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+neutron_plugin_ml2_ovn:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+gnocchi_api:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+heat_api_cfn:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+haproxy:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+heat_api_cloudwatch_disabled:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+tuned:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+tripleo_firewall:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+aodh_notifier:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+ca_certs:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+ovn_controller:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+cinder_scheduler:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+redis:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+sshd:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+swift_proxy:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+cinder_volume:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+keystone:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+nova_metadata:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+nova_vnc_proxy:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+snmp:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+iscsid:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
+oslo_messaging_notify:
+  children:
+    Controller: {}
+  vars: {ansible_ssh_user: centos}
