@@ -5,14 +5,16 @@
   description: |
     Distributed Compute Node role hosting Ceph OSD and Cinder volume.
   networks:
-    InternalApi_dcn1:
-      subnet: internal_api_subnet_dcn1
-    Tenant_dcn1:
-      subnet: tenant_subnet_dcn1
-    Storage_dcn1:
-      subnet: storage_subnet_dcn1
-    StorageMgmt_dcn1:
-      subnet: storage_mgmt_subnet_dcn1
+    External:
+      subnet: external_subnet
+    InternalApi:
+      subnet: internal_api_subnet
+    Storage:
+      subnet: storage_subnet
+    StorageMgmt:
+      subnet: storage_mgmt_subnet
+    Tenant:
+      subnet: tenant_subnet
   RoleParametersDefault:
     TunedProfileName: "throughput-performance"
   # CephOSD present so serial has to be 1
