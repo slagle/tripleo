@@ -1,6 +1,6 @@
 resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: ../../../tripleo-heat-templates/net-config-static-bridge.yaml
-  OS::TripleO::DistributedComputeHCI::Net::SoftwareConfig: ../../../tripleo-heat-templates/net-config-static-bridge.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: ../../../tripleo-heat-templates/network/config/single-nic-vlans/controller.yaml
+  OS::TripleO::DistributedComputeHCI::Net::SoftwareConfig: ../../../tripleo-heat-templates/network/config/single-nic-vlans/controller.yaml
 
 parameter_defaults:
   EC2MetadataIp: 192.168.24.1

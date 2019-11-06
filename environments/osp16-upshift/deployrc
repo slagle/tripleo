@@ -5,6 +5,7 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $TEMPLATES/environments/podman.yaml \
   -e $TEMPLATES/environments/nova-az-config.yaml \
+  -e $TEMPLATES/environments/network-isolation.yaml \
   -e $HOME/tripleo/environments/passwords.yaml \
   -e $HOME/tripleo/environments/stack-action-create.yaml \
   -e $HOME/tripleo/environments/osp16-upshift/role-counts.yaml \
