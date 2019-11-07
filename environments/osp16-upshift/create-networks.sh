@@ -52,9 +52,12 @@ ssh-keygen -R 192.168.24.8
 tripleo-ansible-inventory --stack dcn1 --static-yaml-inventory dcn1-inventory.yaml --ansible_ssh_user cloud-user
 tripleo-config-download --stack-name dcn1 --output-dir dcn1-config-download
 
+ssh-keyscan 192.168.24.18 >> /home/cloud-user/.ssh/known_hosts
+ssh-keyscan 192.168.24.19 >> /home/cloud-user/.ssh/known_hosts
+ssh-keyscan 192.168.24.8 >> /home/cloud-user/.ssh/known_hosts
+ansible --become -i ~/dcn1-inventory.yaml -m lineinfile -a "path=/etc/resolv.conf line='nameserver 192.168.122.1' state=absent" overcloud --private-key ~/.ssh/upshift
 ansible-playbook -i ~/dcn1-inventory.yaml ~/tripleo/playbooks/rhos-release.yaml --limit overcloud
 ansible --become -i ~/dcn1-inventory.yaml -a "dnf -y install lvm2" overcloud --private-key ~/.ssh/upshift
-ansible --become -i ~/dcn1-inventory.yaml -m lineinfile -a "path=/etc/resolv.conf line='nameserver 192.168.122.1' state=absent" overcloud --private-key ~/.ssh/upshift
 
 cd dcn1-config-download; ANSIBLE_CONFIG=~/ansible.cfg ansible-playbook -i ~/dcn1-inventory.yaml --become  deploy_steps_playbook.yaml
 
@@ -62,7 +65,6 @@ ANSIBLE_CONFIG=~/ansible.cfg ansible-playbook -i ~/dcn1-inventory.yaml --become 
 
 for i in $(seq 0 6); do ip link set dev eth$i up; done
 for i in $(seq 2 6); do ifdown eth$i; ifup eth$i; done
-
 ###############################################################################
 ###############################################################################
 ###############################################################################
