@@ -1,6 +1,6 @@
 resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: /home/cloud-user/tripleo/environments/osp16-upshift/single-nic-vlans.yaml
-  OS::TripleO::DistributedComputeHCI::Net::SoftwareConfig: /home/cloud-user/tripleo/environments/osp16-upshift/single-nic-vlans.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: /home/cloud-user/tripleo/environments/osp16-upshift/multiple-nics.yaml
+  OS::TripleO::DistributedComputeHCI::Net::SoftwareConfig: /home/cloud-user/tripleo/environments/osp16-upshift/multiple-nics.yaml
 
 parameter_defaults:
   EC2MetadataIp: 192.168.24.1
