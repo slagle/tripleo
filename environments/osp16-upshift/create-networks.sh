@@ -45,13 +45,14 @@ for i in 0 1 2; do openstack volume create osp16-dcn1-compute-$i --size 10 & don
 wait
 for i in 0 1 2; do openstack server add volume osp16-dcn1-compute-$i osp16-dcn1-compute-$i & done
 
-ssh-keygen -R 192.168.24.18
-ssh-keygen -R 192.168.24.19
-ssh-keygen -R 192.168.24.8
 
 tripleo-ansible-inventory --stack dcn1 --static-yaml-inventory dcn1-inventory.yaml --ansible_ssh_user cloud-user
 tripleo-config-download --stack-name dcn1 --output-dir dcn1-config-download
 
+ssh-keygen -R 192.168.24.18
+ssh-keygen -R 192.168.24.19
+ssh-keygen -R 192.168.24.8
+until ! nmap 192.168.24.18 192.168.24.19 192.168.24.8 -PN -p ssh 2>&1 | grep -q -E 'filtered|closed'; do echo "trying again..."; sleep 1; done
 ssh-keyscan 192.168.24.18 >> /home/cloud-user/.ssh/known_hosts
 ssh-keyscan 192.168.24.19 >> /home/cloud-user/.ssh/known_hosts
 ssh-keyscan 192.168.24.8 >> /home/cloud-user/.ssh/known_hosts

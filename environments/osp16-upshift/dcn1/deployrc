@@ -19,7 +19,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/osp16-upshift/dcn1/deployed-server-port-map.yaml \
   -e $HOME/tripleo/environments/osp16-upshift/dcn1/root-stack-name.yaml \
   -e $HOME/tripleo/environments/osp16-upshift/dcn1/cinder-az.yaml \
-  -e $HOME/tripleo/environments/osp16-upshift/dcn1/ceph-service-net-map.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/ceph-service-net-map.yaml \
   -e $HOME/tripleo/environments/containers-rhosp16-prepare-parameter.yaml \
   -e $HOME/tripleo/environments/containers-rhosp16-latest.yaml
   -e $HOME/central-export.yaml \
