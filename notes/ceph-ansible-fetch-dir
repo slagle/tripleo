@@ -1,0 +1,3 @@
+Run ansible-playbook with:
+
+-e local_ceph_ansible_fetch_directory_backup=ceph-fetch-backup
