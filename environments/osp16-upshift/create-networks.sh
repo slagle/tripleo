@@ -36,14 +36,11 @@ for i in 0 1 2; do
     done
 done
 
-for i in 0 1 2; do openstack server remove volume osp16-dcn1-compute-$i osp16-dcn1-compute-$i & done
-wait
+for i in 0 1 2; do openstack server remove volume osp16-dcn1-compute-$i osp16-dcn1-compute-$i & done; wait
 for i in 0 1 2; do openstack server rebuild osp16-dcn1-compute-$i & done
-for i in 0 1 2; do openstack volume delete  osp16-dcn1-compute-$i & done
-wait
-for i in 0 1 2; do openstack volume create osp16-dcn1-compute-$i --size 10 & done
-wait
-for i in 0 1 2; do openstack server add volume osp16-dcn1-compute-$i osp16-dcn1-compute-$i & done
+for i in 0 1 2; do openstack volume delete  osp16-dcn1-compute-$i & done; wait
+for i in 0 1 2; do openstack volume create osp16-dcn1-compute-$i --size 10 & done; wait
+for i in 0 1 2; do openstack server add volume osp16-dcn1-compute-$i osp16-dcn1-compute-$i & done; wait
 
 
 tripleo-ansible-inventory --stack dcn1 --static-yaml-inventory dcn1-inventory.yaml --ansible_ssh_user cloud-user
