@@ -37,9 +37,9 @@ for i in 0 1 2; do
 done
 
 for i in 0 1 2; do openstack server remove volume osp16-dcn1-compute-$i osp16-dcn1-compute-$i & done; wait
-for i in 0 1 2; do openstack server rebuild osp16-dcn1-compute-$i & done
 for i in 0 1 2; do openstack volume delete  osp16-dcn1-compute-$i & done; wait
 for i in 0 1 2; do openstack volume create osp16-dcn1-compute-$i --size 10 & done; wait
+for i in 0 1 2; do openstack server rebuild osp16-dcn1-compute-$i --wait & done; wait
 for i in 0 1 2; do openstack server add volume osp16-dcn1-compute-$i osp16-dcn1-compute-$i & done; wait
 
 
@@ -55,12 +55,16 @@ ssh-keyscan 192.168.24.19 >> /home/cloud-user/.ssh/known_hosts
 ssh-keyscan 192.168.24.8 >> /home/cloud-user/.ssh/known_hosts
 ansible --become -i ~/dcn1-inventory.yaml -m lineinfile -a "path=/etc/resolv.conf line='nameserver 192.168.122.1' state=absent" overcloud --private-key ~/.ssh/upshift
 ansible-playbook -i ~/dcn1-inventory.yaml ~/tripleo/playbooks/rhos-release.yaml --limit overcloud
-ansible --become -i ~/dcn1-inventory.yaml -a "dnf -y install lvm2" overcloud --private-key ~/.ssh/upshift
+ansible --become -i ~/dcn1-inventory.yaml -a "dnf -y install lvm2 http://download.devel.redhat.com/rhel-8/nightly/updates/RHEL-8/latest-RHEL-8.1.0/compose/AppStream/x86_64/os/Packages/python3-psutil-5.4.3-10.el8.x86_64.rpm" overcloud --private-key ~/.ssh/upshift
 
-cd dcn1-config-download; ANSIBLE_CONFIG=~/ansible.cfg ansible-playbook -i ~/dcn1-inventory.yaml --become  deploy_steps_playbook.yaml
+cd
+tripleo-ansible-inventory --stack dcn1 --static-yaml-inventory ~/dcn1-inventory.yaml --ansible_ssh_user cloud-user
+tripleo-config-download --stack-name dcn1 --output-dir ~/dcn1-config-download
 
-ANSIBLE_CONFIG=~/ansible.cfg ansible-playbook -i ~/dcn1-inventory.yaml --become  deploy_steps_playbook.yaml --start-at-task "External deployment step 2" -e @global_vars.yam l -e gather_facts=true -e local_ceph_ansible_fetch_directory_backup=ceph-fetch-backup
+cd dcn1-config-download
+ANSIBLE_CONFIG=~/ansible.cfg ansible-playbook -i ~/dcn1-inventory.yaml --become  deploy_steps_playbook.yaml -e local_ceph_ansible_fetch_directory_backup=ceph-fetch-backup
 
+sed -i 's/latest-RHCEPH-4-RHEL-8/RHCEPH-4.0-RHEL-8-20191007.6/' /etc/yum.repos.d/rhos-release-ceph-4.repo
 for i in $(seq 0 6); do ip link set dev eth$i up; done
 for i in $(seq 2 6); do ifdown eth$i; ifup eth$i; done
 ###############################################################################
