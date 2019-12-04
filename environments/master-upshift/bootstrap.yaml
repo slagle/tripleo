@@ -32,5 +32,6 @@
       become: true
       selinux:
         state: permissive
+        policy: targeted
       tags:
         - selinux
