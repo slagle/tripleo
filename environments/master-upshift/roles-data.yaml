@@ -75,7 +75,6 @@
     - OS::TripleO::Services::DesignateMDNS
     - OS::TripleO::Services::DesignateSink
     - OS::TripleO::Services::Docker
-    - OS::TripleO::Services::Ec2Api
     - OS::TripleO::Services::Etcd
     - OS::TripleO::Services::ExternalSwiftProxy
     - OS::TripleO::Services::GlanceApi
@@ -153,6 +152,7 @@
     - OS::TripleO::Services::OsloMessagingRpc
     - OS::TripleO::Services::OsloMessagingNotify
     - OS::TripleO::Services::Podman
+    - OS::TripleO::Services::Rear
     - OS::TripleO::Services::Redis
     - OS::TripleO::Services::Rhsm
     - OS::TripleO::Services::Rsyslog
