@@ -28,3 +28,9 @@
       become: true
       tags:
         - eth1
+    - name: permissive selinux
+      become: true
+      selinux:
+        state: permissive
+      tags:
+        - selinux
