@@ -1,5 +1,15 @@
 parameter_defaults:
   HostnameMap:
-    upshift-controller-0: controller-0
-    upshift-controller-1: controller-1
-    upshift-controller-2: controller-2
+    overcloud-controller-0: controller-0
+    overcloud-controller-1: controller-1
+    overcloud-controller-2: controller-2
+    overcloud-compute-0: compute-0
+    overcloud-compute-1: compute-1
+    overcloud-compute-2: compute-2
+    overcloud-compute-3: compute-3
+    overcloud-compute-4: compute-4
+    overcloud-compute-5: compute-5
+    overcloud-compute-6: compute-6
+    overcloud-compute-7: compute-7
+    overcloud-compute-8: compute-8
+    overcloud-compute-9: compute-9

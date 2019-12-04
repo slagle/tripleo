@@ -1,2 +1,2 @@
 parameter_defaults:
-  RootStackName: upshift
+  RootStackName: overcloud

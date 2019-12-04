@@ -1,11 +1,11 @@
-export STACK_NAME=upshift
+export STACK_NAME=overcloud
 export TEMPLATES="$HOME/code/openstack/tripleo-heat-templates"
 
 export COMMON_ENVIRONMENTS=0
 export ENVIRONMENTS="\
   -e $TEMPLATES/overcloud-resource-registry-puppet.yaml \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
-  -e $TEMPLATES/environments/podman.yaml \
+  -e $TEMPLATES/environments/docker-ha.yaml \
   -e $HOME/code/openstack/tripleo/environments/passwords.yaml \
   -e $HOME/code/openstack/tripleo/environments/stack-action-create.yaml \
   -e $HOME/code/openstack/tripleo/environments/master-upshift/role-counts.yaml \
@@ -13,8 +13,7 @@ export ENVIRONMENTS="\
   -e $HOME/code/openstack/tripleo/environments/master-upshift/network-environment.yaml \
   -e $HOME/code/openstack/tripleo/environments/master-upshift/deployed-server-port-map.yaml \
   -e $HOME/code/openstack/tripleo/environments/master-upshift/root-stack-name.yaml \
-  -e $HOME/code/openstack/tripleo/environments/master-upshift/controller-services.yaml \
-  -e $HOME/code/openstack/tripleo/environments/containers-rhosp16-latest.yaml \
+  -e $HOME/code/openstack/tripleo/environments/environments/containers-tripleomaster-current-tripleo.yaml \
   -e $HOME/code/openstack/tripleo/environments/glance-backend-file.yaml \
 "
 
@@ -25,12 +24,3 @@ export ARGS="\
   --disable-validations \
   --overcloud-ssh-user centos \
 "
-
-export TRIPLEO_ANSIBLE_WORKPATH=/home/jslagle/code/openstack/tripleo-ansible
-export ANSIBLE_STDOUT_CALLBACK=debug
-export ANSIBLE_ACTION_PLUGINS="${TRIPLEO_ANSIBLE_WORKPATH}/tripleo_ansible/roles.galaxy/config_template/action:${TRIPLEO_ANSIBLE_WORKPATH}/tripleo_ansible/ansible_plugins/action"
-export ANSIBLE_CALLBACK_PLUGINS="${TRIPLEO_ANSIBLE_WORKPATH}/tripleo_ansible/ansible_plugins/callback"
-export ANSIBLE_FILTER_PLUGINS="${TRIPLEO_ANSIBLE_WORKPATH}/tripleo_ansible/ansible_plugins/filter"
-export ANSIBLE_LIBRARY="${TRIPLEO_ANSIBLE_WORKPATH}/tripleo_ansible/roles.galaxy/config_template/library:${TRIPLEO_ANSIBLE_WORKPATH}/tripleo_ansible/ansible_plugins/modules"
-export ANSIBLE_MODULE_UTILS="${TRIPLEO_ANSIBLE_WORKPATH}/tripleo_ansible/ansible_plugins/module_utils"
-export ANSIBLE_ROLES_PATH="${TRIPLEO_ANSIBLE_WORKPATH}/tripleo_ansible/roles.galaxy:${TRIPLEO_ANSIBLE_WORKPATH}/tripleo_ansible/roles:/home/jslagle/devel/venvs/tripleo-3.6/share/ansible/roles"

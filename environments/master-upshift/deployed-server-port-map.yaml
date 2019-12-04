@@ -18,7 +18,7 @@ parameter_defaults:
           - 192.168.24.0/24
     controller-0-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.6
+        - ip_address: 192.168.24.100
       subnets:
         - cidr: 192.168.24.0/24
       network:
@@ -26,7 +26,7 @@ parameter_defaults:
           - 192.168.24.0/24
     controller-1-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.24
+        - ip_address: 192.168.24.101
       subnets:
         - cidr: 192.168.24.0/24
       network:
@@ -34,7 +34,87 @@ parameter_defaults:
           - 192.168.24.0/24
     controller-2-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.7
+        - ip_address: 192.168.24.102
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-0-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.200
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-1-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.201
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-2-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.202
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-3-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.203
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-4-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.204
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-5-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.205
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-6-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.206
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-7-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.207
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-8-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.208
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-9-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.209
       subnets:
         - cidr: 192.168.24.0/24
       network:
