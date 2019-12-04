@@ -1,7 +1,7 @@
 resource_registry:
-  OS::TripleO::DeployedServer::ControlPlanePort: /home/jslagle/code/openstack/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
-  OS::TripleO::Network::Ports::ControlPlaneVipPort: /home/jslagle/code/openstack/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
-  OS::TripleO::Network::Ports::RedisVipPort: /home/jslagle/code/openstack/tripleo-heat-templates/network/ports/noop.yaml
+  OS::TripleO::DeployedServer::ControlPlanePort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+  OS::TripleO::Network::Ports::ControlPlaneVipPort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+  OS::TripleO::Network::Ports::RedisVipPort: /home/centos/tripleo-heat-templates/network/ports/noop.yaml
 
 parameter_defaults:
   NeutronPublicInterface: eth1
