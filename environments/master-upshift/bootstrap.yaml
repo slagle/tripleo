@@ -7,11 +7,12 @@
       delegate_to: localhost
       run_once: true
       shell: |
+        rm -f ~/.ssh/known_hosts
         ssh-keygen -R {{ hostvars[item]['ansible_host'] }}
         ssh-keyscan {{ hostvars[item]['ansible_host'] }} >> ~/.ssh/known_hosts
       loop: "{{ groups['all'] }}"
     - name: tripleo-repos
-      command: |
+      shell: |
         rpm -q git || sudo yum -y install git
         sudo yum -y install python-setuptools python-requests
         git clone https://git.openstack.org/openstack/tripleo-repos
