@@ -6,5 +6,6 @@ cd ~/overcloud-config-download
 ansible-playbook \
     --become \
     -i ~/overcloud-inventory.yaml \
+    -k ~/.ssh/upshift \
     deploy_steps_playbook.yaml \
     $@
