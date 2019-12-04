@@ -4,4 +4,4 @@ set -eux
 
 tripleo-config-download \
     --stack-name $STACK_NAME \
-    --output-dir ~/centos/overcloud-config-download
+    --output-dir ~/overcloud-config-download
