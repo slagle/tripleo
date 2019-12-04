@@ -7,8 +7,8 @@
       run_once: true
       become: true
       command:
-        ssh-keygen -R {{ item }}
-      loop: "{{ groups['all']['ansible_host'] }}"
+        ssh-keygen -R {{ hostvars[item]['ansible_host'] }}
+      loop: "{{ groups['ALL'] }}"
     - name: tripleo-repos
       command: |
         rpm -q git || sudo yum -y install git
