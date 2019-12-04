@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook -i tripleo/environments/master-upshift/inventory.yaml tripleo/environments/master-upshift/bootstrap.yaml
+ansible-playbook --forks 20 -i tripleo/environments/master-upshift/inventory.yaml tripleo/environments/master-upshift/bootstrap.yaml
