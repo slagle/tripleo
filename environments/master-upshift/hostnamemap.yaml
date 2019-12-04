@@ -13,3 +13,14 @@ parameter_defaults:
     overcloud-compute-7: compute-7
     overcloud-compute-8: compute-8
     overcloud-compute-9: compute-9
+    overcloud-compute-10: compute-10
+    overcloud-compute-11: compute-11
+    overcloud-compute-12: compute-12
+    overcloud-compute-13: compute-13
+    overcloud-compute-14: compute-14
+    overcloud-compute-15: compute-15
+    overcloud-compute-16: compute-16
+    overcloud-compute-17: compute-17
+    overcloud-compute-18: compute-18
+    overcloud-compute-19: compute-19
+    overcloud-compute-20: compute-20

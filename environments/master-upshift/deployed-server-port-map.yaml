@@ -120,3 +120,91 @@ parameter_defaults:
       network:
         tags:
           - 192.168.24.0/24
+    compute-10-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.210
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-11-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.211
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-12-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.212
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-13-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.213
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-14-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.214
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-15-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.215
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-16-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.216
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-17-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.217
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-18-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.218
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-19-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.219
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
+    compute-20-ctlplane:
+      fixed_ips:
+        - ip_address: 192.168.24.220
+      subnets:
+        - cidr: 192.168.24.0/24
+      network:
+        tags:
+          - 192.168.24.0/24
