@@ -1,4 +1,5 @@
 #!/bin/bash
+set -eux
 
 export ANSIBLE_CONFIG=~/ansible.cfg
 cd ~/overcloud-config-download
