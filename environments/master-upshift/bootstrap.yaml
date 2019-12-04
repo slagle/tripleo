@@ -1,5 +1,6 @@
 - name: Bootstrap tasks
   hosts: all
+  gather_facts: no
   tasks:
     - name: ssh-keygen -R
       delegate_to: localhost
