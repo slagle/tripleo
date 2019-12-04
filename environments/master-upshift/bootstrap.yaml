@@ -3,14 +3,16 @@
   gather_facts: no
   any_errors_fatal: true
   tasks:
-    - name: ssh-keygen -R / ssh-keyscan
+    - name: rm -rf .ssh/known_hosts
       delegate_to: localhost
       run_once: true
+      shell:
+        rm -rf ~/.ssh/known_hosts
+    - name: ssh-keygen -R / ssh-keyscan
+      delegate_to: localhost
       shell: |
-        rm -f ~/.ssh/known_hosts
-        ssh-keygen -R {{ hostvars[item]['ansible_host'] }}
-        ssh-keyscan {{ hostvars[item]['ansible_host'] }} >> ~/.ssh/known_hosts
-      loop: "{{ groups['all'] }}"
+        ssh-keygen -R {{ hostvars[inventory_hostname]['ansible_host'] }}
+        ssh-keyscan {{ hostvars[inventory_hostname]['ansible_host'] }} >> ~/.ssh/known_hosts
     - name: tripleo-repos
       shell: |
         rpm -q git || sudo yum -y install git
