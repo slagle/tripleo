@@ -1,6 +1,13 @@
 - name: Bootstrap tasks
   hosts: all
   tasks:
+    - name: ssh-keygen -R
+      delegate_to: localhost
+      run_once: true
+      become: true
+      command:
+        ssh-keygen -R {{ item }}
+      loop: "{{ groups['all']['ansible_host'] }}"
     - name: tripleo-repos
       command: |
         rpm -q git || sudo yum -y install git
