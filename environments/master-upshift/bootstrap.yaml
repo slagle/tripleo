@@ -22,3 +22,9 @@
         sudo python setup.py install
         popd
         sudo tripleo-repos current-tripleo-dev
+    - name: dhclient eth1
+      shell:
+        dhclient eth1
+      become: true
+      tags:
+        - eth1
