@@ -1,2 +1,0 @@
-2019-10-29 14:56:46.376 6849 WARNING heat.common.config [-] stack_user_domain_id or stack_user_domain_name not set in heat.conf falling back to using default
-2019-10-29 14:56:46.472 6849 WARNING heat.common.pluginutils [-] Encountered exception while loading heat.engine.clients.os.blazar: "No module named 'blazarclient'". Not using blazar.: ModuleNotFoundError: No module named 'blazarclient'
