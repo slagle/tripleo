@@ -6,18 +6,18 @@ export ENVIRONMENTS="\
   -e $TEMPLATES/overcloud-resource-registry-puppet.yaml \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $TEMPLATES/environments/docker-ha.yaml \
-  -e $HOME/code/openstack/tripleo/environments/passwords.yaml \
-  -e $HOME/code/openstack/tripleo/environments/stack-action-create.yaml \
-  -e $HOME/code/openstack/tripleo/environments/master-upshift/role-counts.yaml \
-  -e $HOME/code/openstack/tripleo/environments/master-upshift/hostnamemap.yaml \
-  -e $HOME/code/openstack/tripleo/environments/master-upshift/network-environment.yaml \
-  -e $HOME/code/openstack/tripleo/environments/master-upshift/deployed-server-port-map.yaml \
-  -e $HOME/code/openstack/tripleo/environments/master-upshift/root-stack-name.yaml \
-  -e $HOME/code/openstack/tripleo/environments/environments/containers-tripleomaster-current-tripleo.yaml \
-  -e $HOME/code/openstack/tripleo/environments/glance-backend-file.yaml \
+  -e $HOME/tripleo/environments/passwords.yaml \
+  -e $HOME/tripleo/environments/stack-action-create.yaml \
+  -e $HOME/tripleo/environments/master-upshift/role-counts.yaml \
+  -e $HOME/tripleo/environments/master-upshift/hostnamemap.yaml \
+  -e $HOME/tripleo/environments/master-upshift/network-environment.yaml \
+  -e $HOME/tripleo/environments/master-upshift/deployed-server-port-map.yaml \
+  -e $HOME/tripleo/environments/master-upshift/root-stack-name.yaml \
+  -e $HOME/tripleo/environments/environments/containers-tripleomaster-current-tripleo.yaml \
+  -e $HOME/tripleo/environments/glance-backend-file.yaml \
 "
 
-export ROLES_DATA="$HOME/code/openstack/tripleo/environments/master-upshift/roles-data.yaml"
+export ROLES_DATA="$HOME/tripleo/environments/master-upshift/roles-data.yaml"
 
 export ARGS="\
   --deployed-server \
