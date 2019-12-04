@@ -1,11 +1,12 @@
 - name: Bootstrap tasks
   hosts: all
   gather_facts: no
+  any_errors_fatal: true
   tasks:
     - name: ssh-keygen -R / ssh-keyscan
       delegate_to: localhost
       run_once: true
-      shell:
+      shell: |
         ssh-keygen -R {{ hostvars[item]['ansible_host'] }}
         ssh-keyscan {{ hostvars[item]['ansible_host'] }} >> ~/.ssh/known_hosts
       loop: "{{ groups['all'] }}"
