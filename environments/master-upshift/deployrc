@@ -1,5 +1,5 @@
 export STACK_NAME=overcloud
-export TEMPLATES="$HOME/code/openstack/tripleo-heat-templates"
+export TEMPLATES="$HOME/tripleo-heat-templates"
 
 export COMMON_ENVIRONMENTS=0
 export ENVIRONMENTS="\
