@@ -2,6 +2,7 @@ resource_registry:
   OS::TripleO::DeployedServer::ControlPlanePort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
   OS::TripleO::Network::Ports::ControlPlaneVipPort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
   OS::TripleO::Network::Ports::RedisVipPort: /home/centos/tripleo-heat-templates/network/ports/noop.yaml
+  OS::TripleO::Network::Ports::OVNDBsVipPort: /home/centos/tripleo-heat-templates/network/ports/noop.yaml
 
 parameter_defaults:
   NeutronPublicInterface: eth1
@@ -11,14 +12,6 @@ parameter_defaults:
     control_virtual_ip:
       fixed_ips:
         - ip_address: 192.168.24.99
-      subnets:
-        - cidr: 192.168.24.0/24
-      network:
-        tags:
-          - 192.168.24.0/24
-    ovn_dbs_virtual_ip:
-      fixed_ips:
-        - ip_address: 192.168.24.98
       subnets:
         - cidr: 192.168.24.0/24
       network:
