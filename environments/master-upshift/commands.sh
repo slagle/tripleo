@@ -3,6 +3,8 @@
 openstack port list | grep 97137450-073a-477b-b100-463dd90ec911 | grep -E '192.168.1.(100-102)'
 openstack port list | grep 7e4ceb14-1e34-48e7-a0ef-eabf748c79e6 | grep -E '192.168.24.(100-102)'
 
+openstack port create --fixed-ip ip-address=192.168.24.99 --network jslagle-master control-virtual-ip
+
 for i in 0 1 2; do
     openstack server delete controller-${i} &
     openstack port delete controller-${i}-test &

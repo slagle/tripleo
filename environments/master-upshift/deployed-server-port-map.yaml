@@ -10,7 +10,7 @@ parameter_defaults:
   DeployedServerPortMap:
     control_virtual_ip:
       fixed_ips:
-        - ip_address: 192.168.24.100
+        - ip_address: 192.168.24.99
       subnets:
         - cidr: 192.168.24.0/24
       network:
