@@ -53,6 +53,11 @@ for i in $(seq 10 19); do
     create compute $ip $i ci.m1.micro &
 done
 
+for i in $(seq 20 29); do
+    ip=$((200 + $i))
+    create compute $ip $i ci.m1.micro &
+done
+
 for i in 0 1 2; do
     openstack server rebuild controller-${i} &
 done
