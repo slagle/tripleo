@@ -24,12 +24,12 @@ parameter_defaults:
     overcloud-compute-18: compute-18
     overcloud-compute-19: compute-19
     overcloud-compute-20: compute-20
-    overcloud-compute-21: compute-11
-    overcloud-compute-22: compute-12
-    overcloud-compute-23: compute-13
-    overcloud-compute-24: compute-14
-    overcloud-compute-25: compute-15
-    overcloud-compute-26: compute-16
-    overcloud-compute-27: compute-17
-    overcloud-compute-28: compute-18
-    overcloud-compute-29: compute-19
+    overcloud-compute-21: compute-21
+    overcloud-compute-22: compute-22
+    overcloud-compute-23: compute-23
+    overcloud-compute-24: compute-24
+    overcloud-compute-25: compute-25
+    overcloud-compute-26: compute-26
+    overcloud-compute-27: compute-27
+    overcloud-compute-28: compute-28
+    overcloud-compute-29: compute-29
