@@ -13,15 +13,21 @@
       shell: |
         ssh-keygen -R {{ hostvars[inventory_hostname]['ansible_host'] }}
         ssh-keyscan {{ hostvars[inventory_hostname]['ansible_host'] }} >> ~/.ssh/known_hosts
-    - name: tripleo-repos
+    - name: install tripleo-repos
       shell: |
-        rpm -q git || sudo yum -y install git
-        sudo yum -y install python-setuptools python-requests
-        sudo rm -rf tripleo-repos
-        git clone https://git.openstack.org/openstack/tripleo-repos
-        pushd tripleo-repos
-        sudo python setup.py install
-        popd
+        if [ ! -d tripleo-repos ]; then
+          rpm -q git || sudo yum -y install git
+          sudo yum -y install python-setuptools python-requests
+          sudo rm -rf tripleo-repos
+          git clone https://git.openstack.org/openstack/tripleo-repos
+          pushd tripleo-repos
+          sudo python setup.py install
+          popd
+        fi
+      tags:
+        - tripleo-repos
+    - name: run tripleo-repos
+      shell: |
         sudo tripleo-repos current-tripleo-dev
       tags:
         - tripleo-repos
