@@ -51,7 +51,7 @@ all:
     compute-21:
       ansible_host: 192.168.1.221
     compute-22:
-      ansible_host: 192.168.1.219
+      ansible_host: 192.168.1.222
     compute-23:
       ansible_host: 192.168.1.223
     compute-24:
