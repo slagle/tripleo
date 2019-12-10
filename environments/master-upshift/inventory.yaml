@@ -66,6 +66,26 @@ all:
       ansible_host: 192.168.1.228
     compute-29:
       ansible_host: 192.168.1.229
+    compute-30:
+      ansible_host: 192.168.1.230
+    compute-31:
+      ansible_host: 192.168.1.231
+    compute-32:
+      ansible_host: 192.168.1.232
+    compute-33:
+      ansible_host: 192.168.1.233
+    compute-34:
+      ansible_host: 192.168.1.234
+    compute-35:
+      ansible_host: 192.168.1.235
+    compute-36:
+      ansible_host: 192.168.1.236
+    compute-37:
+      ansible_host: 192.168.1.237
+    compute-38:
+      ansible_host: 192.168.1.238
+    compute-39:
+      ansible_host: 192.168.1.239
   vars:
     ansible_ssh_user: centos
     ansible_ssh_private_key_file: /home/centos/.ssh/upshift

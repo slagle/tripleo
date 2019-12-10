@@ -33,3 +33,13 @@ parameter_defaults:
     overcloud-compute-27: compute-27
     overcloud-compute-28: compute-28
     overcloud-compute-29: compute-29
+    overcloud-compute-30: compute-30
+    overcloud-compute-31: compute-31
+    overcloud-compute-32: compute-32
+    overcloud-compute-33: compute-33
+    overcloud-compute-34: compute-34
+    overcloud-compute-35: compute-35
+    overcloud-compute-36: compute-36
+    overcloud-compute-37: compute-37
+    overcloud-compute-38: compute-38
+    overcloud-compute-39: compute-39
