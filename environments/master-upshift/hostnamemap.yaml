@@ -43,3 +43,13 @@ parameter_defaults:
     overcloud-compute-37: compute-37
     overcloud-compute-38: compute-38
     overcloud-compute-39: compute-39
+    overcloud-compute-40: compute-40
+    overcloud-compute-41: compute-41
+    overcloud-compute-42: compute-42
+    overcloud-compute-43: compute-43
+    overcloud-compute-44: compute-44
+    overcloud-compute-45: compute-45
+    overcloud-compute-46: compute-46
+    overcloud-compute-47: compute-47
+    overcloud-compute-48: compute-48
+    overcloud-compute-49: compute-49
