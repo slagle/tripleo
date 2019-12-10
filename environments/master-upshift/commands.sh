@@ -3,7 +3,8 @@
 openstack port list | grep 97137450-073a-477b-b100-463dd90ec911 | grep -E '192.168.1.(100-102)'
 openstack port list | grep 7e4ceb14-1e34-48e7-a0ef-eabf748c79e6 | grep -E '192.168.24.(100-102)'
 
-openstack port create --fixed-ip ip-address=192.168.24.99 --network jslagle-master control-virtual-ip
+openstack port create --fixed-ip ip-address=192.168.24.49 --network jslagle-master control-virtual-ip &
+openstack port delete control-virtual-ip &
 
 for i in 0 1 2; do
     openstack server delete controller-${i} &
@@ -39,32 +40,45 @@ function create {
 }
 
 for i in 0 1 2; do
-    ip=$((100 + $i))
+    ip=$((46 + $i))
     create controller $ip $i m1.large &
 done
 
+for i in $(seq 0 49); do
+    openstack port delete compute-${i}-test &
+    openstack port delete compute-${i}-master &
+done
+for i in $(seq 0 49); do
+    openstack server delete compute-${i} &
+done
+
+for i in $(seq 0 49); do
+    ip=$((50 + $i))
+    create compute $ip $i ci.m1.micro &
+done
+
 for i in $(seq 0 9); do
-    ip=$((200 + $i))
+    ip=$((50 + $i))
     create compute $ip $i ci.m1.micro &
 done
 
 for i in $(seq 10 19); do
-    ip=$((200 + $i))
+    ip=$((50 + $i))
     create compute $ip $i ci.m1.micro &
 done
 
 for i in $(seq 20 29); do
-    ip=$((200 + $i))
+    ip=$((50 + $i))
     create compute $ip $i ci.m1.micro &
 done
 
 for i in $(seq 30 39); do
-    ip=$((200 + $i))
+    ip=$((50 + $i))
     create compute $ip $i ci.m1.micro &
 done
 
 for i in $(seq 40 49); do
-    ip=$((200 + $i))
+    ip=$((50 + $i))
     create compute $ip $i ci.m1.micro &
 done
 
