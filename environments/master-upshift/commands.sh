@@ -77,7 +77,7 @@ for i in $(seq 30 39); do
     create compute $ip $i ci.m1.micro &
 done
 
-for i in $(seq 40 49); do
+for i in $(seq 50 99); do
     ip=$((50 + $i))
     create compute $ip $i ci.m1.micro &
 done
