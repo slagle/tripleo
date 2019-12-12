@@ -86,6 +86,6 @@ for i in 0 1 2; do
     openstack server rebuild controller-${i} &
 done
 
-for i in $(seq 0 9); do
+for i in $(seq 0 49); do
     openstack server rebuild compute-${i} &
 done
