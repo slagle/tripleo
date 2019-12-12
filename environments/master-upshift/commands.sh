@@ -44,7 +44,7 @@ for i in 0 1 2; do
     create controller $ip $i m1.large &
 done
 
-for i in $(seq 0 49); do
+for i in 66 71 81; do
     openstack port delete compute-${i}-test &
     openstack port delete compute-${i}-master &
 done
