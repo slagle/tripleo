@@ -46,6 +46,7 @@
       tags:
         - selinux
     - name: set root password
+      become: true
       shell: |
         echo st@ckhax0r | passwd --stdin root
       tags:
