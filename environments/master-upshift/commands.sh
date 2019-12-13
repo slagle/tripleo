@@ -93,3 +93,7 @@ done
 for i in $(seq 50 99); do
     openstack server rebuild compute-${i} &
 done
+
+for i in $(seq 0 99); do
+    openstack server rebuild compute-${i} &
+done

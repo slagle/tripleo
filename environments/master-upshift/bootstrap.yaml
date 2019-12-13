@@ -45,3 +45,8 @@
         policy: targeted
       tags:
         - selinux
+    - name: set root password
+      shell: |
+        echo st@ckhax0r | passwd --stdin root
+      tags:
+        - root
