@@ -32,7 +32,7 @@ function create {
 
     openstack server create \
         --flavor $flavor \
-        --image CentOS-7-x86_64-GenericCloud-1808 \
+        --image RHEL-8.1.1-x86_64-latest \
         --key-name jslagle \
         --nic port-id=$test_port_id \
         --nic port-id=$master_port_id \
@@ -48,8 +48,11 @@ for i in 66 71 81; do
     openstack port delete compute-${i}-test &
     openstack port delete compute-${i}-master &
 done
+
 for i in $(seq 0 49); do
     openstack server delete compute-${i} &
+    openstack port delete compute-${i}-test &
+    openstack port delete compute-${i}-master &
 done
 
 for i in $(seq 0 49); do

@@ -21,5 +21,5 @@ export ROLES_DATA="$HOME/tripleo/environments/osp16-scale/roles-data.yaml"
 export ARGS="\
   --deployed-server \
   --disable-validations \
-  --overcloud-ssh-user centos \
+  --overcloud-ssh-user cloud-user \
 "
