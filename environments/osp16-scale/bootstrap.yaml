@@ -1,0 +1,45 @@
+- name: Bootstrap tasks
+  hosts: all
+  gather_facts: no
+  any_errors_fatal: true
+  tasks:
+    - name: rm -rf .ssh/known_hosts
+      delegate_to: localhost
+      run_once: true
+      shell:
+        rm -rf ~/.ssh/known_hosts
+    - name: ssh-keygen -R / ssh-keyscan
+      delegate_to: localhost
+      shell: |
+        ssh-keygen -R {{ hostvars[inventory_hostname]['ansible_host'] }}
+        ssh-keyscan {{ hostvars[inventory_hostname]['ansible_host'] }} >> ~/.ssh/known_hosts
+    - name: install rhos-release
+      shell: |
+        sudo yum localinstall -y http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/rhos-release/rhos-release-latest.noarch.rpm
+      tags:
+        - rhos-release
+    - name: run tripleo-repos
+      shell: |
+        sudo rhos-release 16
+      tags:
+        - rhos-release
+    - name: dhclient eth1
+      shell:
+        dhclient eth1
+      become: true
+      tags:
+        - eth1
+      ignore_errors: true
+    - name: permissive selinux
+      become: true
+      selinux:
+        state: permissive
+        policy: targeted
+      tags:
+        - selinux
+    - name: set root password
+      become: true
+      shell: |
+        echo st@ckhax0r | passwd --stdin root
+      tags:
+        - root

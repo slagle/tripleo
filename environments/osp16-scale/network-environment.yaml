@@ -1,0 +1,13 @@
+resource_registry:
+  OS::TripleO::Controller::Net::SoftwareConfig: /home/centos/tripleo-heat-templates/net-config-static-bridge.yaml
+  OS::TripleO::Compute::Net::SoftwareConfig: /home/centos/tripleo-heat-templates/net-config-static-bridge.yaml
+
+parameter_defaults:
+  EC2MetadataIp: 192.168.24.1
+  ControlPlaneDefaultRoute: 192.168.1.1
+  NtpServer:
+    - clock.redhat.com
+    - clock2.redhat.com
+  DnsServers:
+    - 10.11.5.19
+    - 10.5.30.160
