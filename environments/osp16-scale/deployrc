@@ -4,6 +4,7 @@ export TEMPLATES="$HOME/tripleo-heat-templates"
 export COMMON_ENVIRONMENTS=0
 export ENVIRONMENTS="\
   -e $TEMPLATES/overcloud-resource-registry-puppet.yaml \
+  -e $TEMPLATES/environments/docker-ha.yaml \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $HOME/tripleo/environments/passwords.yaml \
   -e $HOME/tripleo/environments/stack-action-create.yaml \
