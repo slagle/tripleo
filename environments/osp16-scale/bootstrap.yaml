@@ -18,7 +18,7 @@
         sudo yum localinstall -y http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/rhos-release/rhos-release-latest.noarch.rpm
       tags:
         - rhos-release
-    - name: run tripleo-repos
+    - name: run rhos-release
       shell: |
         sudo rhos-release 16
       tags:
