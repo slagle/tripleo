@@ -23,4 +23,5 @@ export ARGS="\
   --deployed-server \
   --disable-validations \
   --overcloud-ssh-user cloud-user \
+  --overcloud-ssh-key ~/.ssh/upshift \
 "
