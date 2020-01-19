@@ -60,6 +60,16 @@ for i in $(seq 0 49); do
     create compute $ip $i ci.m1.micro &
 done
 
+for i in $(seq 0 49); do
+    ip=$((50 + $i))
+    create compute $ip $i ci.m1.medium &
+done
+
+for i in $(seq 50 99); do
+    ip=$((50 + $i))
+    create compute $ip $i ci.m1.medium &
+done
+
 for i in $(seq 0 9); do
     ip=$((50 + $i))
     create compute $ip $i ci.m1.micro &

@@ -106,6 +106,106 @@ all:
       ansible_host: 192.168.1.98
     compute-49:
       ansible_host: 192.168.1.99
+    compute-50:
+      ansible_host: 192.168.1.100
+    compute-51:
+      ansible_host: 192.168.1.101
+    compute-52:
+      ansible_host: 192.168.1.102
+    compute-53:
+      ansible_host: 192.168.1.103
+    compute-54:
+      ansible_host: 192.168.1.104
+    compute-55:
+      ansible_host: 192.168.1.105
+    compute-56:
+      ansible_host: 192.168.1.106
+    compute-57:
+      ansible_host: 192.168.1.107
+    compute-58:
+      ansible_host: 192.168.1.108
+    compute-59:
+      ansible_host: 192.168.1.109
+    compute-60:
+      ansible_host: 192.168.1.110
+    compute-61:
+      ansible_host: 192.168.1.111
+    compute-62:
+      ansible_host: 192.168.1.112
+    compute-63:
+      ansible_host: 192.168.1.113
+    compute-64:
+      ansible_host: 192.168.1.114
+    compute-65:
+      ansible_host: 192.168.1.115
+    compute-66:
+      ansible_host: 192.168.1.116
+    compute-67:
+      ansible_host: 192.168.1.117
+    compute-68:
+      ansible_host: 192.168.1.118
+    compute-69:
+      ansible_host: 192.168.1.119
+    compute-70:
+      ansible_host: 192.168.1.120
+    compute-71:
+      ansible_host: 192.168.1.121
+    compute-72:
+      ansible_host: 192.168.1.122
+    compute-73:
+      ansible_host: 192.168.1.123
+    compute-74:
+      ansible_host: 192.168.1.124
+    compute-75:
+      ansible_host: 192.168.1.125
+    compute-76:
+      ansible_host: 192.168.1.126
+    compute-77:
+      ansible_host: 192.168.1.127
+    compute-78:
+      ansible_host: 192.168.1.128
+    compute-79:
+      ansible_host: 192.168.1.129
+    compute-80:
+      ansible_host: 192.168.1.130
+    compute-81:
+      ansible_host: 192.168.1.131
+    compute-82:
+      ansible_host: 192.168.1.132
+    compute-83:
+      ansible_host: 192.168.1.133
+    compute-84:
+      ansible_host: 192.168.1.134
+    compute-85:
+      ansible_host: 192.168.1.135
+    compute-86:
+      ansible_host: 192.168.1.136
+    compute-87:
+      ansible_host: 192.168.1.137
+    compute-88:
+      ansible_host: 192.168.1.138
+    compute-89:
+      ansible_host: 192.168.1.139
+    compute-90:
+      ansible_host: 192.168.1.140
+    compute-91:
+      ansible_host: 192.168.1.141
+    compute-92:
+      ansible_host: 192.168.1.142
+    compute-93:
+      ansible_host: 192.168.1.143
+    compute-94:
+      ansible_host: 192.168.1.144
+    compute-95:
+      ansible_host: 192.168.1.145
+    compute-96:
+      ansible_host: 192.168.1.146
+    compute-97:
+      ansible_host: 192.168.1.147
+    compute-98:
+      ansible_host: 192.168.1.148
+    compute-99:
+      ansible_host: 192.168.1.149
   vars:
     ansible_ssh_user: cloud-user
     ansible_ssh_private_key_file: /home/cloud-user/.ssh/upshift
