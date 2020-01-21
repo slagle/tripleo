@@ -26,4 +26,7 @@ with open(infile) as f:
             tasks[task] = task_length
         task-start = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S,sss')
 
-
+for k, v in plays.items():
+    print(v, k)
+for k, v in tasks.items():
+    print(v, k)
