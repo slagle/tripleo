@@ -12,20 +12,18 @@ tasks = {}
 with open(infile) as f:
     line = f.readline()
     while line:
-        if 'PLAY ' in line:
-            play = line
-            play_start = line.split(' ')[0]
-            if play_start:
-                play_length = play_end - play_start
-                plays[play] = play_length
-            play_start = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S,sss')
-        if 'TASK ' in line:
-            task = line
-            task_start = line.split(' ')[0]
-            if task_start:
-                task_length = task_end - task_start
-                tasks[task] = task_length
-            task_start = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S,sss')
+        for i in ['PLAY ', 'TASK ']:
+            if i in line:
+                task = line
+                start = line.split(' ')[0]
+                current = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S,sss')
+                if task_start:
+                    length = current - task_start
+                    if 'PLAY' in i:
+                        plays[task] = length
+                    else:
+                        tasks[task] = length
+                task_start = current
         line = f.readline()
 
 for k, v in plays.items():
