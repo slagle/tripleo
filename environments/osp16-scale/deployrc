@@ -24,4 +24,5 @@ export ARGS="\
   --disable-validations \
   --overcloud-ssh-user cloud-user \
   --overcloud-ssh-key ~/.ssh/upshift \
+  --override-ansible-cfg $HOME/tripleo/environments/osp16-scale/override-ansible.cfg \
 "
