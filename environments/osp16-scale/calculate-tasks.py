@@ -15,7 +15,7 @@ with open(infile) as f:
         for i in ['PLAY ', 'TASK ']:
             if i in line:
                 task = line
-                start = line.split(' ')[0]
+                start = line.split(' ')[0] + ' ' + line.split(' ')[1]
                 current = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S,sss')
                 if task_start:
                     length = current - task_start
