@@ -9,8 +9,6 @@ play_start = task_start = play = task = None
 plays = {}
 tasks = {}
 old_start = None
-old_start['PLAY '] = None
-old_start['TASK '] = None
 
 with open(infile) as f:
     line = f.readline()
