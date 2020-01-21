@@ -19,7 +19,7 @@ with open(infile) as f:
             start = line.split(' ')[0] + ' ' + line.split(' ')[1].split(',')[0]
             current = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S')
             if old_start:
-                length = current - old_start[i]
+                length = current - old_start
                 plays[task] = length
             old_start = current
             task = line
@@ -34,7 +34,7 @@ with open(infile) as f:
             start = line.split(' ')[0] + ' ' + line.split(' ')[1].split(',')[0]
             current = datetime.datetime.strptime(start, '%Y-%m-%d %H:%M:%S')
             if old_start:
-                length = current - old_start[i]
+                length = current - old_start
                 tasks[task] = length
             old_start = current
             task = line
