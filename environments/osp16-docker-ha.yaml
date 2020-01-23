@@ -4,9 +4,9 @@
 resource_registry:
   # Pacemaker runs on the host
   # FIXME(bogdando): switch it, once it is containerized
-  OS::TripleO::Services::Pacemaker: ../deployment/pacemaker/pacemaker-baremetal-puppet.yaml
+  OS::TripleO::Services::Pacemaker: ../../tripleo-heat-templates/deployment/pacemaker/pacemaker-baremetal-puppet.yaml
   # FIXME(bogdando): switch it, once it is containerized
-  OS::TripleO::Services::PacemakerRemote: ../deployment/pacemaker/pacemaker-remote-baremetal-puppet.yaml
+  OS::TripleO::Services::PacemakerRemote: ../../tripleo-heat-templates/deployment/pacemaker/pacemaker-remote-baremetal-puppet.yaml
   OS::TripleO::Tasks::ControllerPreConfig: OS::Heat::None
   OS::TripleO::Tasks::ControllerPostConfig: OS::Heat::None
 
@@ -14,14 +14,14 @@ resource_registry:
   OS::TripleO::Services::Keepalived: OS::Heat::None
 
   # HA Containers managed by pacemaker
-  OS::TripleO::Services::CinderVolume: ../deployment/cinder/cinder-volume-pacemaker-puppet.yaml
-  OS::TripleO::Services::Clustercheck: ../deployment/pacemaker/clustercheck-container-puppet.yaml
-  OS::TripleO::Services::HAproxy: ../deployment/haproxy/haproxy-pacemaker-puppet.yaml
-  OS::TripleO::Services::MySQL: ../deployment/database/mysql-pacemaker-puppet.yaml
-  OS::TripleO::Services::OsloMessagingRpc: ../deployment/rabbitmq/rabbitmq-messaging-rpc-pacemaker-puppet.yaml
-  OS::TripleO::Services::OsloMessagingNotify: ../deployment/rabbitmq/rabbitmq-messaging-notify-shared-puppet.yaml
-  OS::TripleO::Services::Redis: ../deployment/database/redis-pacemaker-puppet.yaml
-  OS::TripleO::Services::OVNDBs: ../deployment/ovn/ovn-dbs-pacemaker-puppet.yaml
+  OS::TripleO::Services::CinderVolume: ../../tripleo-heat-templates/deployment/cinder/cinder-volume-pacemaker-puppet.yaml
+  OS::TripleO::Services::Clustercheck: ../../tripleo-heat-templates/deployment/pacemaker/clustercheck-container-puppet.yaml
+  OS::TripleO::Services::HAproxy: ../../tripleo-heat-templates/deployment/haproxy/haproxy-pacemaker-puppet.yaml
+  OS::TripleO::Services::MySQL: ../../tripleo-heat-templates/deployment/database/mysql-pacemaker-puppet.yaml
+  OS::TripleO::Services::OsloMessagingRpc: ../../tripleo-heat-templates/deployment/rabbitmq/rabbitmq-messaging-rpc-pacemaker-puppet.yaml
+  OS::TripleO::Services::OsloMessagingNotify: ../../tripleo-heat-templates/deployment/rabbitmq/rabbitmq-messaging-notify-shared-puppet.yaml
+  OS::TripleO::Services::Redis: ../../tripleo-heat-templates/deployment/database/redis-pacemaker-puppet.yaml
+  OS::TripleO::Services::OVNDBs: ../../tripleo-heat-templates/deployment/ovn/ovn-dbs-pacemaker-puppet.yaml
 
 parameter_defaults:
   ContainerCli: podman
