@@ -1,0 +1,36 @@
+0:00:03 2020-01-21 15:39:04,750 p=1027108 u=mistral |  PLAY [Gather facts from undercloud] ********************************************
+0:00:25 2020-01-21 15:39:07,756 p=1027108 u=mistral |  PLAY [Gather facts from overcloud] *********************************************
+0:00:25 2020-01-21 15:39:32,596 p=1027108 u=mistral |  PLAY [Load global variables] ***************************************************
+0:30:50 2020-01-21 15:39:57,742 p=1027108 u=mistral |  PLAY [Render all_nodes data as group_vars for overcloud] ***********************
+0:00:29 2020-01-21 16:10:47,207 p=1027108 u=mistral |  PLAY [Set all_nodes data as group_vars for overcloud] **************************
+0:00:30 2020-01-21 16:11:16,013 p=1027108 u=mistral |  PLAY [Manage SELinux] **********************************************************
+0:13:47 2020-01-21 16:11:46,899 p=1027108 u=mistral |  PLAY [Common roles for TripleO servers] ****************************************
+0:23:09 2020-01-21 16:25:33,121 p=1027108 u=mistral |  PLAY [Overcloud deploy step tasks for step 0] **********************************
+0:02:30 2020-01-21 16:48:42,079 p=1027108 u=mistral |  PLAY [Server pre deployment steps] *********************************************
+0:02:26 2020-01-21 16:51:12,376 p=1027108 u=mistral |  PLAY [Server hieradata from vars] **********************************************
+0:30:25 2020-01-21 16:53:38,114 p=1027108 u=mistral |  PLAY [Server deployments] ******************************************************
+0:01:58 2020-01-21 17:24:03,549 p=1027108 u=mistral |  PLAY [Controller Host prep steps] **********************************************
+0:00:00 2020-01-21 17:26:01,604 p=1027108 u=mistral |  PLAY [Compute Host prep steps] *************************************************
+0:39:25 2020-01-21 17:26:01,614 p=1027108 u=mistral |  PLAY [ms5039Compute Host prep steps] *******************************************
+0:14:41 2020-01-21 18:05:26,525 p=1027108 u=mistral |  PLAY [u1029Compute Host prep steps] ********************************************
+0:14:53 2020-01-21 18:20:07,175 p=1027108 u=mistral |  PLAY [p1029Compute Host prep steps] ********************************************
+0:00:41 2020-01-21 18:35:00,523 p=1027108 u=mistral |  PLAY [CephStorage Host prep steps] *********************************************
+0:00:41 2020-01-21 18:35:41,343 p=1027108 u=mistral |  PLAY [External deployment step 1] **********************************************
+0:08:33 2020-01-21 18:36:22,650 p=1027108 u=mistral |  PLAY [Overcloud deploy step tasks for 1] ***************************************
+0:26:12 2020-01-21 18:44:55,008 p=1027108 u=mistral |  PLAY [Overcloud common deploy step 1 tasks] ************************************
+0:22:09 2020-01-21 19:11:07,491 p=1027108 u=mistral |  PLAY [Overcloud common deploy step tasks 1] ************************************
+1:26:40 2020-01-21 19:33:16,197 p=1027108 u=mistral |  PLAY [External deployment step 2] **********************************************
+0:07:50 2020-01-21 20:59:56,926 p=1027108 u=mistral |  PLAY [Overcloud deploy step tasks for 2] ***************************************
+0:25:36 2020-01-21 21:07:46,270 p=1027108 u=mistral |  PLAY [Overcloud common deploy step tasks 2] ************************************
+0:00:04 2020-01-21 21:33:22,355 p=1027108 u=mistral |  PLAY [External deployment step 3] **********************************************
+0:06:36 2020-01-21 21:33:26,413 p=1027108 u=mistral |  PLAY [Overcloud deploy step tasks for 3] ***************************************
+0:25:33 2020-01-21 21:40:02,733 p=1027108 u=mistral |  PLAY [Overcloud common deploy step tasks 3] ************************************
+0:00:04 2020-01-21 22:05:35,474 p=1027108 u=mistral |  PLAY [External deployment step 4] **********************************************
+0:06:42 2020-01-21 22:05:39,590 p=1027108 u=mistral |  PLAY [Overcloud deploy step tasks for 4] ***************************************
+0:25:35 2020-01-21 22:12:21,618 p=1027108 u=mistral |  PLAY [Overcloud common deploy step tasks 4] ************************************
+0:00:04 2020-01-21 22:37:56,356 p=1027108 u=mistral |  PLAY [External deployment step 5] **********************************************
+0:06:41 2020-01-21 22:38:00,294 p=1027108 u=mistral |  PLAY [Overcloud deploy step tasks for 5] ***************************************
+0:25:35 2020-01-21 22:44:41,074 p=1027108 u=mistral |  PLAY [Overcloud common deploy step tasks 5] ************************************
+0:00:51 2020-01-21 23:10:16,757 p=1027108 u=mistral |  PLAY [Server Post Deployments] *************************************************
+0:00:04 2020-01-21 23:11:07,043 p=1027108 u=mistral |  PLAY [External deployment Post Deploy tasks] ***********************************
+-1 day, 16:27:53 2020-01-21 23:11:11,547 p=1027108 u=mistral |  PLAY RECAP *********************************************************************

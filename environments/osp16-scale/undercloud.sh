@@ -21,6 +21,9 @@ sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
 sudo hostnamectl set-hostname osp16-scale.localdomain
+sudo cat >> /etc/fstab << EOF
+swap /swapfile swap defaults 0 0
+EOF
 openstack undercloud install
 echo "source ~/stackrc" >> ~/.bashrc
 openstack complete | grep -v osc_lib | sudo tee /etc/bash_completion.d/openstack
