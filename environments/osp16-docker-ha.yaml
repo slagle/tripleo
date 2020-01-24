@@ -23,6 +23,9 @@ resource_registry:
   OS::TripleO::Services::Redis: ../../tripleo-heat-templates/deployment/database/redis-pacemaker-puppet.yaml
   OS::TripleO::Services::OVNDBs: ../../tripleo-heat-templates/deployment/ovn/ovn-dbs-pacemaker-puppet.yaml
 
+  # Unmap Docker in case it was accidentally mapped on an earlier attempt
+  OS::TripleO::Services::Docker: OS::Heat::None
+
 parameter_defaults:
   ContainerCli: podman
   ClusterCommonTag: true
