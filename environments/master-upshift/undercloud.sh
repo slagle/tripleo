@@ -8,7 +8,7 @@ sudo python setup.py install
 popd
 sudo tripleo-repos current-tripleo-dev
 
-sudo dnf -y install git bash-completion tmux python-tripleoclient expect
+sudo yum -y install git bash-completion tmux python-tripleoclient expect tripleo-ansible libibverbs
   
 cat >~/.tmux.conf<<EOF
 # Prefix key
@@ -24,9 +24,9 @@ sudo dd if=/dev/zero of=/swapfile bs=1M count=8192
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
-sudo hostnamectl set-hostname osp16-scale.localdomain
-sudo cat >> /etc/fstab << EOF
-swap /swapfile swap defaults 0 0
+sudo hostnamectl set-hostname uc.localdomain
+sudo tee -a /etc/fstab << EOF
+/swapfile swap swap defaults 0 0
 EOF
 openstack undercloud install
 echo "source ~/stackrc" >> ~/.bashrc

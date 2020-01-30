@@ -75,6 +75,11 @@ for i in $(seq 100 149); do
     create compute $ip $i ci.m1.medium &
 done
 
+for i in $(seq 150 199); do
+    ip=$((50 + $i))
+    create compute $ip $i ci.m1.medium &
+done
+
 for i in $(seq 0 9); do
     ip=$((50 + $i))
     create compute $ip $i ci.m1.micro &
@@ -101,17 +106,21 @@ for i in $(seq 50 99); do
 done
 
 for i in 0 1 2; do
-    openstack server rebuild controller-${i} &
+    openstack server rebuild --image RHEL-8.1.1-x86_64-latest controller-${i} &
 done
 
 for i in $(seq 0 49); do
-    openstack server rebuild compute-${i} &
+    openstack server rebuild --image RHEL-8.1.1-x86_64-latest compute-${i} &
 done
 
 for i in $(seq 50 99); do
-    openstack server rebuild compute-${i} &
+    openstack server rebuild --image RHEL-8.1.1-x86_64-latest compute-${i} &
+done
+
+for i in $(seq 100 149); do
+    openstack server rebuild --image RHEL-8.1.1-x86_64-latest compute-${i} &
 done
 
 for i in $(seq 0 99); do
-    openstack server rebuild compute-${i} &
+    openstack server rebuild --image RHEL-8.1.1-x86_64-latest compute-${i} &
 done
