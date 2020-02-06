@@ -83,11 +83,11 @@ for i in $(seq 50 99); do
 done
 
 for i in 0 1 2; do
-    openstack server rebuild controller-${i} &
+    openstack server rebuild controller-${i} --image CentOS-7-x86_64-GenericCloud-1808 &
 done
 
 for i in $(seq 0 49); do
-    openstack server rebuild compute-${i} &
+    openstack server rebuild compute-${i} --image CentOS-7-x86_64-GenericCloud-1808 &
 done
 
 for i in $(seq 50 99); do
