@@ -6,6 +6,19 @@ openstack port list | grep 7e4ceb14-1e34-48e7-a0ef-eabf748c79e6 | grep -E '192.1
 openstack port create --fixed-ip ip-address=192.168.24.49 --network jslagle-master control-virtual-ip &
 openstack port delete control-virtual-ip &
 
+openstack port create \
+    --fixed-ip ip-address=192.168.24.8 \
+    --network jslagle-master \
+    uc-local-ip
+openstack port create \
+    --fixed-ip ip-address=192.168.24.9 \
+    --network jslagle-master \
+    uc-admin-host
+openstack port create \
+    --fixed-ip ip-address=192.168.24.10 \
+    --network jslagle-master \
+    uc-public-host
+
 for i in 0 1 2; do
     openstack server delete controller-${i} &
     openstack port delete controller-${i}-test &
@@ -42,6 +55,14 @@ function create {
 for i in 0 1 2; do
     ip=$((46 + $i))
     create controller $ip $i m1.large &
+done
+
+for i in 0 1 2; do
+    openstack server delete controller-${i} &
+done
+for i in 0 1 2; do
+    openstack port delete controller-${i}-test &
+    openstack port delete controller-${i}-master &
 done
 
 for i in 66 71 81; do
