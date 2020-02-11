@@ -1,0 +1,1255 @@
+0:00:03 2020-01-21 15:39:04,757 p=1027108 u=mistral |  TASK [Gathering Facts] *********************************************************
+0:00:25 2020-01-21 15:39:07,785 p=1027108 u=mistral |  TASK [Gathering Facts] *********************************************************
+0:00:25 2020-01-21 15:39:32,720 p=1027108 u=mistral |  TASK [include_vars] ************************************************************
+0:00:01 2020-01-21 15:39:57,852 p=1027108 u=mistral |  TASK [Get current user] ********************************************************
+0:30:49 2020-01-21 15:39:58,594 p=1027108 u=mistral |  TASK [render all_nodes data as group_vars for overcloud] ***********************
+0:00:29 2020-01-21 16:10:47,316 p=1027108 u=mistral |  TASK [Set all_nodes data as group_vars for overcloud] **************************
+0:00:31 2020-01-21 16:11:16,134 p=1027108 u=mistral |  TASK [Set selinux state] *******************************************************
+0:00:00 2020-01-21 16:11:47,003 p=1027108 u=mistral |  TASK [Common roles for TripleO servers] ****************************************
+0:00:30 2020-01-21 16:11:47,153 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Gather variables for each operating system] **********
+0:00:30 2020-01-21 16:12:17,270 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Deploy required packages to bootstrap TripleO] *******
+0:00:29 2020-01-21 16:12:47,999 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Create /var/lib/heat-config/tripleo-config-download directory for deployment data] ***
+0:00:30 2020-01-21 16:13:16,411 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Deploy network-scripts required for deprecated network service] ***
+0:00:30 2020-01-21 16:13:46,183 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Ensure network service is enabled] *******************
+0:00:30 2020-01-21 16:14:16,991 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Symlink puppet modules under /etc/puppet/modules] ****
+0:00:36 2020-01-21 16:14:46,231 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Create empty ruleset in /etc/sysconfig/iptables and /etc/sysconfig/ip6tables] ***
+0:00:30 2020-01-21 16:15:22,705 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Check if /usr/bin/ansible-playbook exists] ***********
+0:00:29 2020-01-21 16:15:52,507 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Check if /usr/bin/ansible-playbook-3 exists] *********
+0:00:29 2020-01-21 16:16:21,758 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Symlink /usr/local/bin/ansible-playbook to /usr/bin/ansible-playbook-3] ***
+0:00:30 2020-01-21 16:16:50,824 p=1027108 u=mistral |  TASK [tripleo-bootstrap : Symlink /usr/local/bin/ansible-playbook-3 to /usr/bin/ansible-playbook] ***
+0:00:28 2020-01-21 16:17:20,221 p=1027108 u=mistral |  TASK [tripleo-ssh-known-hosts : Create temporary file for ssh_known_hosts] *****
+0:00:29 2020-01-21 16:17:48,555 p=1027108 u=mistral |  TASK [tripleo-ssh-known-hosts : Check for ssh_known_hosts file] ****************
+0:00:30 2020-01-21 16:18:17,692 p=1027108 u=mistral |  TASK [tripleo-ssh-known-hosts : Create a temporary copy of ssh_known_hosts] ****
+0:00:33 2020-01-21 16:18:47,550 p=1027108 u=mistral |  TASK [tripleo-ssh-known-hosts : Write temporary file] **************************
+0:04:43 2020-01-21 16:19:20,977 p=1027108 u=mistral |  TASK [tripleo-ssh-known-hosts : Set ssh_known_hosts fact] **********************
+0:00:30 2020-01-21 16:24:03,285 p=1027108 u=mistral |  TASK [tripleo-ssh-known-hosts : Add host keys to temporary ssh_known_hosts] ****
+0:00:30 2020-01-21 16:24:33,336 p=1027108 u=mistral |  TASK [tripleo-ssh-known-hosts : In-place update of /etc/ssh_known_hosts] *******
+0:00:30 2020-01-21 16:25:03,207 p=1027108 u=mistral |  TASK [tripleo-ssh-known-hosts : Remove temp file] ******************************
+0:00:50 2020-01-21 16:25:33,301 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 16:26:23,278 p=1027108 u=mistral |  TASK [Deploy step tasks for step 0] ********************************************
+0:00:30 2020-01-21 16:26:23,472 p=1027108 u=mistral |  TASK [Ensure /var/log/journal exists] ******************************************
+0:00:30 2020-01-21 16:26:53,997 p=1027108 u=mistral |  TASK [Create /var/lib/container-puppet] ****************************************
+0:00:31 2020-01-21 16:27:23,648 p=1027108 u=mistral |  TASK [Write container-puppet.py] ***********************************************
+0:00:30 2020-01-21 16:27:54,341 p=1027108 u=mistral |  TASK [Write container-puppet.sh] ***********************************************
+0:00:01 2020-01-21 16:28:24,657 p=1027108 u=mistral |  TASK [Check for Controller/deploy_steps_tasks_step0.yaml] **********************
+0:00:30 2020-01-21 16:28:25,058 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 16:28:55,480 p=1027108 u=mistral |  TASK [tuned : Gather variables for each operating system] **********************
+0:00:02 2020-01-21 16:28:55,985 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:02 2020-01-21 16:28:57,447 p=1027108 u=mistral |  TASK [tuned : Install tuned] ***************************************************
+0:00:00 2020-01-21 16:28:59,004 p=1027108 u=mistral |  TASK [tuned : Check for tuned-adm] *********************************************
+0:00:02 2020-01-21 16:28:59,725 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:00 2020-01-21 16:29:01,294 p=1027108 u=mistral |  TASK [tuned : Ensure profile directory exists] *********************************
+0:00:01 2020-01-21 16:29:01,776 p=1027108 u=mistral |  TASK [tuned : Create custom tuned profile] *************************************
+0:00:01 2020-01-21 16:29:02,261 p=1027108 u=mistral |  TASK [tuned : Check tuned active profile] **************************************
+0:00:00 2020-01-21 16:29:03,005 p=1027108 u=mistral |  TASK [tuned : Check Tuned Configuration file exists] ***************************
+0:00:01 2020-01-21 16:29:03,705 p=1027108 u=mistral |  TASK [tuned : Fail if tuned profile conf is absent but isolated cores is provided] ***
+0:00:00 2020-01-21 16:29:04,207 p=1027108 u=mistral |  TASK [tuned : Configure isolated cores for profile throughput-performance] *****
+0:00:01 2020-01-21 16:29:04,737 p=1027108 u=mistral |  TASK [tuned : Enable tuned profile] ********************************************
+0:00:00 2020-01-21 16:29:05,253 p=1027108 u=mistral |  TASK [tripleo-kernel : Get the command line args of the node] ******************
+0:00:01 2020-01-21 16:29:05,959 p=1027108 u=mistral |  TASK [tripleo-kernel : Ensure the kernel args (  ) is present as TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS] ***
+0:00:00 2020-01-21 16:29:06,439 p=1027108 u=mistral |  TASK [tripleo-kernel : Add TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS to the GRUB_CMDLINE_LINUX parameter] ***
+0:00:01 2020-01-21 16:29:06,917 p=1027108 u=mistral |  TASK [tripleo-kernel : Generate grub config file] ******************************
+0:00:00 2020-01-21 16:29:07,400 p=1027108 u=mistral |  TASK [tripleo-kernel : Set reboot required fact] *******************************
+0:00:01 2020-01-21 16:29:07,885 p=1027108 u=mistral |  TASK [Apply DPDK workarounds] **************************************************
+0:00:00 2020-01-21 16:29:08,372 p=1027108 u=mistral |  TASK [tripleo-module-load : Check whether /etc/modules-load.d exists] **********
+0:00:01 2020-01-21 16:29:08,862 p=1027108 u=mistral |  TASK [tripleo-module-load : Check whether /etc/modules-load.d exists] **********
+0:00:00 2020-01-21 16:29:09,345 p=1027108 u=mistral |  TASK [tripleo-module-load : Load modules] **************************************
+0:00:01 2020-01-21 16:29:09,849 p=1027108 u=mistral |  TASK [tripleo-module-load : Persist modules via modules-load.d] ****************
+0:00:00 2020-01-21 16:29:10,388 p=1027108 u=mistral |  TASK [tripleo-module-load : Drop module persistence] ***************************
+0:00:01 2020-01-21 16:29:10,873 p=1027108 u=mistral |  TASK [tripleo-module-load : Set modules persistence via /etc/modules] **********
+0:00:00 2020-01-21 16:29:11,360 p=1027108 u=mistral |  TASK [tripleo-kernel : Reboot and workaround block] ****************************
+0:00:01 2020-01-21 16:29:11,840 p=1027108 u=mistral |  TASK [create iptables service] *************************************************
+0:00:02 2020-01-21 16:29:12,962 p=1027108 u=mistral |  TASK [create ip6tables service] ************************************************
+0:00:02 2020-01-21 16:29:14,012 p=1027108 u=mistral |  TASK [enable tripleo-iptables service (and do a daemon-reload systemd)] ********
+0:00:01 2020-01-21 16:29:16,027 p=1027108 u=mistral |  TASK [enable tripleo-ip6tables service] ****************************************
+0:00:00 2020-01-21 16:29:17,094 p=1027108 u=mistral |  TASK [Check for Compute/deploy_steps_tasks_step0.yaml] *************************
+0:00:28 2020-01-21 16:29:17,462 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 16:29:45,298 p=1027108 u=mistral |  TASK [Check for ms5039Compute/deploy_steps_tasks_step0.yaml] *******************
+0:00:43 2020-01-21 16:29:45,669 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:16 2020-01-21 16:30:28,396 p=1027108 u=mistral |  TASK [tuned : Gather variables for each operating system] **********************
+0:00:29 2020-01-21 16:30:44,812 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:19 2020-01-21 16:31:13,655 p=1027108 u=mistral |  TASK [tuned : Install tuned] ***************************************************
+0:00:17 2020-01-21 16:31:32,213 p=1027108 u=mistral |  TASK [tuned : Check for tuned-adm] *********************************************
+0:00:29 2020-01-21 16:31:49,163 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:16 2020-01-21 16:32:18,433 p=1027108 u=mistral |  TASK [tuned : Ensure profile directory exists] *********************************
+0:00:16 2020-01-21 16:32:34,724 p=1027108 u=mistral |  TASK [tuned : Create custom tuned profile] *************************************
+0:00:17 2020-01-21 16:32:50,214 p=1027108 u=mistral |  TASK [tuned : Check tuned active profile] **************************************
+0:00:16 2020-01-21 16:33:07,395 p=1027108 u=mistral |  TASK [tuned : Check Tuned Configuration file exists] ***************************
+0:00:16 2020-01-21 16:33:23,920 p=1027108 u=mistral |  TASK [tuned : Fail if tuned profile conf is absent but isolated cores is provided] ***
+0:00:16 2020-01-21 16:33:39,799 p=1027108 u=mistral |  TASK [tuned : Configure isolated cores for profile virtual-host] ***************
+0:00:18 2020-01-21 16:33:55,937 p=1027108 u=mistral |  TASK [tuned : Enable tuned profile] ********************************************
+0:00:16 2020-01-21 16:34:13,458 p=1027108 u=mistral |  TASK [tripleo-kernel : Get the command line args of the node] ******************
+0:00:17 2020-01-21 16:34:29,997 p=1027108 u=mistral |  TASK [tripleo-kernel : Ensure the kernel args (  ) is present as TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS] ***
+0:00:16 2020-01-21 16:34:46,135 p=1027108 u=mistral |  TASK [tripleo-kernel : Add TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS to the GRUB_CMDLINE_LINUX parameter] ***
+0:00:16 2020-01-21 16:35:02,141 p=1027108 u=mistral |  TASK [tripleo-kernel : Generate grub config file] ******************************
+0:00:17 2020-01-21 16:35:18,161 p=1027108 u=mistral |  TASK [tripleo-kernel : Set reboot required fact] *******************************
+0:00:16 2020-01-21 16:35:35,334 p=1027108 u=mistral |  TASK [Apply DPDK workarounds] **************************************************
+0:00:17 2020-01-21 16:35:51,787 p=1027108 u=mistral |  TASK [tripleo-module-load : Check whether /etc/modules-load.d exists] **********
+0:00:17 2020-01-21 16:36:08,262 p=1027108 u=mistral |  TASK [tripleo-module-load : Check whether /etc/modules-load.d exists] **********
+0:00:17 2020-01-21 16:36:25,161 p=1027108 u=mistral |  TASK [tripleo-module-load : Load modules] **************************************
+0:00:17 2020-01-21 16:36:42,227 p=1027108 u=mistral |  TASK [tripleo-module-load : Persist modules via modules-load.d] ****************
+0:00:17 2020-01-21 16:36:59,543 p=1027108 u=mistral |  TASK [tripleo-module-load : Drop module persistence] ***************************
+0:00:16 2020-01-21 16:37:16,370 p=1027108 u=mistral |  TASK [tripleo-module-load : Set modules persistence via /etc/modules] **********
+0:00:17 2020-01-21 16:37:32,805 p=1027108 u=mistral |  TASK [tripleo-kernel : Reboot and workaround block] ****************************
+0:00:18 2020-01-21 16:37:49,138 p=1027108 u=mistral |  TASK [create iptables service] *************************************************
+0:00:18 2020-01-21 16:38:07,306 p=1027108 u=mistral |  TASK [create ip6tables service] ************************************************
+0:00:17 2020-01-21 16:38:25,115 p=1027108 u=mistral |  TASK [enable tripleo-iptables service (and do a daemon-reload systemd)] ********
+0:00:17 2020-01-21 16:38:42,812 p=1027108 u=mistral |  TASK [enable tripleo-ip6tables service] ****************************************
+0:00:01 2020-01-21 16:38:59,851 p=1027108 u=mistral |  TASK [Check for u1029Compute/deploy_steps_tasks_step0.yaml] ********************
+0:00:44 2020-01-21 16:39:00,234 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:07 2020-01-21 16:39:44,413 p=1027108 u=mistral |  TASK [tuned : Gather variables for each operating system] **********************
+0:00:10 2020-01-21 16:39:51,363 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:07 2020-01-21 16:40:01,995 p=1027108 u=mistral |  TASK [tuned : Install tuned] ***************************************************
+0:00:07 2020-01-21 16:40:08,996 p=1027108 u=mistral |  TASK [tuned : Check for tuned-adm] *********************************************
+0:00:11 2020-01-21 16:40:15,416 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:07 2020-01-21 16:40:26,893 p=1027108 u=mistral |  TASK [tuned : Ensure profile directory exists] *********************************
+0:00:07 2020-01-21 16:40:33,980 p=1027108 u=mistral |  TASK [tuned : Create custom tuned profile] *************************************
+0:00:06 2020-01-21 16:40:40,209 p=1027108 u=mistral |  TASK [tuned : Check tuned active profile] **************************************
+0:00:07 2020-01-21 16:40:46,675 p=1027108 u=mistral |  TASK [tuned : Check Tuned Configuration file exists] ***************************
+0:00:06 2020-01-21 16:40:53,065 p=1027108 u=mistral |  TASK [tuned : Fail if tuned profile conf is absent but isolated cores is provided] ***
+0:00:06 2020-01-21 16:40:59,218 p=1027108 u=mistral |  TASK [tuned : Configure isolated cores for profile virtual-host] ***************
+0:00:08 2020-01-21 16:41:05,401 p=1027108 u=mistral |  TASK [tuned : Enable tuned profile] ********************************************
+0:00:07 2020-01-21 16:41:13,331 p=1027108 u=mistral |  TASK [tripleo-kernel : Get the command line args of the node] ******************
+0:00:06 2020-01-21 16:41:20,650 p=1027108 u=mistral |  TASK [tripleo-kernel : Ensure the kernel args (  ) is present as TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS] ***
+0:00:07 2020-01-21 16:41:26,868 p=1027108 u=mistral |  TASK [tripleo-kernel : Add TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS to the GRUB_CMDLINE_LINUX parameter] ***
+0:00:07 2020-01-21 16:41:33,098 p=1027108 u=mistral |  TASK [tripleo-kernel : Generate grub config file] ******************************
+0:00:06 2020-01-21 16:41:40,134 p=1027108 u=mistral |  TASK [tripleo-kernel : Set reboot required fact] *******************************
+0:00:06 2020-01-21 16:41:46,406 p=1027108 u=mistral |  TASK [Apply DPDK workarounds] **************************************************
+0:00:06 2020-01-21 16:41:52,643 p=1027108 u=mistral |  TASK [tripleo-module-load : Check whether /etc/modules-load.d exists] **********
+0:00:07 2020-01-21 16:41:58,844 p=1027108 u=mistral |  TASK [tripleo-module-load : Check whether /etc/modules-load.d exists] **********
+0:00:06 2020-01-21 16:42:05,083 p=1027108 u=mistral |  TASK [tripleo-module-load : Load modules] **************************************
+0:00:06 2020-01-21 16:42:11,378 p=1027108 u=mistral |  TASK [tripleo-module-load : Persist modules via modules-load.d] ****************
+0:00:06 2020-01-21 16:42:17,628 p=1027108 u=mistral |  TASK [tripleo-module-load : Drop module persistence] ***************************
+0:00:07 2020-01-21 16:42:23,943 p=1027108 u=mistral |  TASK [tripleo-module-load : Set modules persistence via /etc/modules] **********
+0:00:06 2020-01-21 16:42:30,148 p=1027108 u=mistral |  TASK [tripleo-kernel : Reboot and workaround block] ****************************
+0:00:08 2020-01-21 16:42:36,957 p=1027108 u=mistral |  TASK [create iptables service] *************************************************
+0:00:07 2020-01-21 16:42:44,162 p=1027108 u=mistral |  TASK [create ip6tables service] ************************************************
+0:00:07 2020-01-21 16:42:51,196 p=1027108 u=mistral |  TASK [enable tripleo-iptables service (and do a daemon-reload systemd)] ********
+0:00:08 2020-01-21 16:42:58,734 p=1027108 u=mistral |  TASK [enable tripleo-ip6tables service] ****************************************
+0:00:00 2020-01-21 16:43:06,090 p=1027108 u=mistral |  TASK [Check for p1029Compute/deploy_steps_tasks_step0.yaml] ********************
+0:00:51 2020-01-21 16:43:06,465 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:06 2020-01-21 16:43:57,242 p=1027108 u=mistral |  TASK [tuned : Gather variables for each operating system] **********************
+0:00:12 2020-01-21 16:44:03,703 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:08 2020-01-21 16:44:15,960 p=1027108 u=mistral |  TASK [tuned : Install tuned] ***************************************************
+0:00:07 2020-01-21 16:44:23,531 p=1027108 u=mistral |  TASK [tuned : Check for tuned-adm] *********************************************
+0:00:11 2020-01-21 16:44:30,256 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:07 2020-01-21 16:44:41,984 p=1027108 u=mistral |  TASK [tuned : Ensure profile directory exists] *********************************
+0:00:06 2020-01-21 16:44:48,493 p=1027108 u=mistral |  TASK [tuned : Create custom tuned profile] *************************************
+0:00:07 2020-01-21 16:44:54,707 p=1027108 u=mistral |  TASK [tuned : Check tuned active profile] **************************************
+0:00:08 2020-01-21 16:45:01,326 p=1027108 u=mistral |  TASK [tuned : Check Tuned Configuration file exists] ***************************
+0:00:06 2020-01-21 16:45:09,094 p=1027108 u=mistral |  TASK [tuned : Fail if tuned profile conf is absent but isolated cores is provided] ***
+0:00:06 2020-01-21 16:45:15,537 p=1027108 u=mistral |  TASK [tuned : Configure isolated cores for profile virtual-host] ***************
+0:00:09 2020-01-21 16:45:21,969 p=1027108 u=mistral |  TASK [tuned : Enable tuned profile] ********************************************
+0:00:07 2020-01-21 16:45:30,115 p=1027108 u=mistral |  TASK [tripleo-kernel : Get the command line args of the node] ******************
+0:00:07 2020-01-21 16:45:37,663 p=1027108 u=mistral |  TASK [tripleo-kernel : Ensure the kernel args (  ) is present as TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS] ***
+0:00:06 2020-01-21 16:45:44,220 p=1027108 u=mistral |  TASK [tripleo-kernel : Add TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS to the GRUB_CMDLINE_LINUX parameter] ***
+0:00:07 2020-01-21 16:45:50,663 p=1027108 u=mistral |  TASK [tripleo-kernel : Generate grub config file] ******************************
+0:00:06 2020-01-21 16:45:57,108 p=1027108 u=mistral |  TASK [tripleo-kernel : Set reboot required fact] *******************************
+0:00:07 2020-01-21 16:46:03,618 p=1027108 u=mistral |  TASK [Apply DPDK workarounds] **************************************************
+0:00:07 2020-01-21 16:46:10,027 p=1027108 u=mistral |  TASK [tripleo-module-load : Check whether /etc/modules-load.d exists] **********
+0:00:07 2020-01-21 16:46:17,454 p=1027108 u=mistral |  TASK [tripleo-module-load : Check whether /etc/modules-load.d exists] **********
+0:00:06 2020-01-21 16:46:24,148 p=1027108 u=mistral |  TASK [tripleo-module-load : Load modules] **************************************
+0:00:07 2020-01-21 16:46:30,682 p=1027108 u=mistral |  TASK [tripleo-module-load : Persist modules via modules-load.d] ****************
+0:00:06 2020-01-21 16:46:37,299 p=1027108 u=mistral |  TASK [tripleo-module-load : Drop module persistence] ***************************
+0:00:07 2020-01-21 16:46:43,809 p=1027108 u=mistral |  TASK [tripleo-module-load : Set modules persistence via /etc/modules] **********
+0:00:06 2020-01-21 16:46:50,342 p=1027108 u=mistral |  TASK [tripleo-kernel : Reboot and workaround block] ****************************
+0:00:08 2020-01-21 16:46:56,691 p=1027108 u=mistral |  TASK [create iptables service] *************************************************
+0:00:08 2020-01-21 16:47:04,383 p=1027108 u=mistral |  TASK [create ip6tables service] ************************************************
+0:00:08 2020-01-21 16:47:12,042 p=1027108 u=mistral |  TASK [enable tripleo-iptables service (and do a daemon-reload systemd)] ********
+0:00:09 2020-01-21 16:47:20,462 p=1027108 u=mistral |  TASK [enable tripleo-ip6tables service] ****************************************
+0:00:00 2020-01-21 16:47:29,451 p=1027108 u=mistral |  TASK [Check for CephStorage/deploy_steps_tasks_step0.yaml] *********************
+0:00:54 2020-01-21 16:47:29,855 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 16:48:23,544 p=1027108 u=mistral |  TASK [tuned : Gather variables for each operating system] **********************
+0:00:01 2020-01-21 16:48:23,963 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:02 2020-01-21 16:48:24,818 p=1027108 u=mistral |  TASK [tuned : Install tuned] ***************************************************
+0:00:00 2020-01-21 16:48:26,027 p=1027108 u=mistral |  TASK [tuned : Check for tuned-adm] *********************************************
+0:00:01 2020-01-21 16:48:26,642 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:01 2020-01-21 16:48:27,961 p=1027108 u=mistral |  TASK [tuned : Ensure profile directory exists] *********************************
+0:00:00 2020-01-21 16:48:28,363 p=1027108 u=mistral |  TASK [tuned : Create custom tuned profile] *************************************
+0:00:01 2020-01-21 16:48:28,764 p=1027108 u=mistral |  TASK [tuned : Check tuned active profile] **************************************
+0:00:00 2020-01-21 16:48:29,359 p=1027108 u=mistral |  TASK [tuned : Check Tuned Configuration file exists] ***************************
+0:00:01 2020-01-21 16:48:29,967 p=1027108 u=mistral |  TASK [tuned : Fail if tuned profile conf is absent but isolated cores is provided] ***
+0:00:00 2020-01-21 16:48:30,417 p=1027108 u=mistral |  TASK [tuned : Configure isolated cores for profile throughput-performance] *****
+0:00:01 2020-01-21 16:48:30,822 p=1027108 u=mistral |  TASK [tuned : Enable tuned profile] ********************************************
+0:00:01 2020-01-21 16:48:31,229 p=1027108 u=mistral |  TASK [tripleo-kernel : Get the command line args of the node] ******************
+0:00:01 2020-01-21 16:48:32,735 p=1027108 u=mistral |  TASK [tripleo-kernel : Ensure the kernel args (  ) is present as TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS] ***
+0:00:00 2020-01-21 16:48:33,133 p=1027108 u=mistral |  TASK [tripleo-kernel : Add TRIPLEO_HEAT_TEMPLATE_KERNEL_ARGS to the GRUB_CMDLINE_LINUX parameter] ***
+0:00:01 2020-01-21 16:48:33,548 p=1027108 u=mistral |  TASK [tripleo-kernel : Generate grub config file] ******************************
+0:00:00 2020-01-21 16:48:34,013 p=1027108 u=mistral |  TASK [tripleo-kernel : Set reboot required fact] *******************************
+0:00:00 2020-01-21 16:48:34,437 p=1027108 u=mistral |  TASK [Apply DPDK workarounds] **************************************************
+0:00:01 2020-01-21 16:48:34,842 p=1027108 u=mistral |  TASK [tripleo-module-load : Check whether /etc/modules-load.d exists] **********
+0:00:00 2020-01-21 16:48:35,245 p=1027108 u=mistral |  TASK [tripleo-module-load : Check whether /etc/modules-load.d exists] **********
+0:00:01 2020-01-21 16:48:35,653 p=1027108 u=mistral |  TASK [tripleo-module-load : Load modules] **************************************
+0:00:00 2020-01-21 16:48:36,057 p=1027108 u=mistral |  TASK [tripleo-module-load : Persist modules via modules-load.d] ****************
+0:00:00 2020-01-21 16:48:36,457 p=1027108 u=mistral |  TASK [tripleo-module-load : Drop module persistence] ***************************
+0:00:01 2020-01-21 16:48:36,861 p=1027108 u=mistral |  TASK [tripleo-module-load : Set modules persistence via /etc/modules] **********
+0:00:00 2020-01-21 16:48:37,265 p=1027108 u=mistral |  TASK [tripleo-kernel : Reboot and workaround block] ****************************
+0:00:01 2020-01-21 16:48:37,664 p=1027108 u=mistral |  TASK [create iptables service] *************************************************
+0:00:01 2020-01-21 16:48:38,687 p=1027108 u=mistral |  TASK [create ip6tables service] ************************************************
+0:00:02 2020-01-21 16:48:39,702 p=1027108 u=mistral |  TASK [enable tripleo-iptables service (and do a daemon-reload systemd)] ********
+0:00:01 2020-01-21 16:48:41,403 p=1027108 u=mistral |  TASK [enable tripleo-ip6tables service] ****************************************
+0:00:52 2020-01-21 16:48:42,215 p=1027108 u=mistral |  TASK [Hiera config] ************************************************************
+0:00:31 2020-01-21 16:49:34,541 p=1027108 u=mistral |  TASK [tripleo-hieradata : Create /etc/puppet/hieradata] ************************
+0:00:35 2020-01-21 16:50:05,709 p=1027108 u=mistral |  TASK [tripleo-hieradata : Write hiera config] **********************************
+0:00:32 2020-01-21 16:50:40,362 p=1027108 u=mistral |  TASK [Hiera symlink] ***********************************************************
+0:00:52 2020-01-21 16:51:12,518 p=1027108 u=mistral |  TASK [Hieradata from vars] *****************************************************
+0:00:35 2020-01-21 16:52:04,859 p=1027108 u=mistral |  TASK [tripleo-hieradata : Copy overcloud.json to all_nodes.json] ***************
+0:00:59 2020-01-21 16:52:39,676 p=1027108 u=mistral |  TASK [tripleo-hieradata : Render hieradata from template] **********************
+0:00:00 2020-01-21 16:53:38,257 p=1027108 u=mistral |  TASK [Server deployments] ******************************************************
+0:00:30 2020-01-21 16:53:38,445 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:31 2020-01-21 16:54:08,362 p=1027108 u=mistral |  TASK [Check for previous run of NetworkConfig] *********************************
+0:00:31 2020-01-21 16:54:39,845 p=1027108 u=mistral |  TASK [Check result of previous run of NetworkConfig] ***************************
+0:00:34 2020-01-21 16:55:10,709 p=1027108 u=mistral |  TASK [Check NetworkConfig script existence] ************************************
+0:00:32 2020-01-21 16:55:44,700 p=1027108 u=mistral |  TASK [Create /var/lib/tripleo-config/scripts directory] ************************
+0:00:34 2020-01-21 16:56:16,439 p=1027108 u=mistral |  TASK [Render NetworkConfig script] *********************************************
+0:00:40 2020-01-21 16:56:50,900 p=1027108 u=mistral |  TASK [Run NetworkConfig script] ************************************************
+0:00:34 2020-01-21 16:57:30,416 p=1027108 u=mistral |  TASK [Write rc of NetworkConfig script] ****************************************
+0:00:29 2020-01-21 16:58:04,277 p=1027108 u=mistral |  TASK [NetworkConfig stdout] ****************************************************
+0:00:32 2020-01-21 16:58:33,775 p=1027108 u=mistral |  TASK [Ensure network service is enabled] ***************************************
+0:00:34 2020-01-21 16:59:05,900 p=1027108 u=mistral |  TASK [AllNodesValidationConfig] ************************************************
+0:00:34 2020-01-21 16:59:39,910 p=1027108 u=mistral |  TASK [ArtifactsConfig] *********************************************************
+0:00:52 2020-01-21 17:00:13,408 p=1027108 u=mistral |  TASK [Configure Hosts Entries] *************************************************
+0:00:32 2020-01-21 17:01:05,910 p=1027108 u=mistral |  TASK [tripleo-hosts-entries : Remove old Heat hosts configuration (if present)] ***
+0:22:26 2020-01-21 17:01:37,902 p=1027108 u=mistral |  TASK [tripleo-hosts-entries : Update /etc/hosts] *******************************
+0:00:00 2020-01-21 17:24:03,683 p=1027108 u=mistral |  TASK [Controller Host prep steps] **********************************************
+0:00:02 2020-01-21 17:24:03,894 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:05,128 p=1027108 u=mistral |  TASK [cinder logs readme] ******************************************************
+0:00:01 2020-01-21 17:24:06,279 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:07,209 p=1027108 u=mistral |  TASK [enable virt_sandbox_use_netlink for healthcheck] *************************
+0:00:01 2020-01-21 17:24:08,194 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:09,367 p=1027108 u=mistral |  TASK [ensure ceph configurations exist] ****************************************
+0:00:00 2020-01-21 17:24:10,039 p=1027108 u=mistral |  TASK [cinder_enable_iscsi_backend fact] ****************************************
+0:00:00 2020-01-21 17:24:10,491 p=1027108 u=mistral |  TASK [ensure LVM rpm dependencies are installed] *******************************
+0:00:01 2020-01-21 17:24:10,942 p=1027108 u=mistral |  TASK [cinder create LVM volume group dd] ***************************************
+0:00:00 2020-01-21 17:24:11,403 p=1027108 u=mistral |  TASK [cinder create LVM volume group] ******************************************
+0:00:01 2020-01-21 17:24:11,847 p=1027108 u=mistral |  TASK [cinder create service to run losetup for LVM on startup] *****************
+0:00:00 2020-01-21 17:24:12,320 p=1027108 u=mistral |  TASK [cinder enable the LVM losetup service] ***********************************
+0:00:02 2020-01-21 17:24:12,793 p=1027108 u=mistral |  TASK [create persistent logs directory] ****************************************
+0:00:01 2020-01-21 17:24:14,034 p=1027108 u=mistral |  TASK [glance logs readme] ******************************************************
+0:00:00 2020-01-21 17:24:15,149 p=1027108 u=mistral |  TASK [Mount NFS on host] *******************************************************
+0:00:01 2020-01-21 17:24:15,603 p=1027108 u=mistral |  TASK [Mount Node Staging Location] *********************************************
+0:00:00 2020-01-21 17:24:16,059 p=1027108 u=mistral |  TASK [ensure /var/lib/glance exists] *******************************************
+0:00:01 2020-01-21 17:24:16,779 p=1027108 u=mistral |  TASK [get parameters] **********************************************************
+0:00:00 2020-01-21 17:24:17,264 p=1027108 u=mistral |  TASK [get DeployedSSLCertificatePath attributes] *******************************
+0:00:01 2020-01-21 17:24:17,726 p=1027108 u=mistral |  TASK [set is_haproxy_bootstrap_node fact] **************************************
+0:00:00 2020-01-21 17:24:18,183 p=1027108 u=mistral |  TASK [get haproxy status] ******************************************************
+0:00:01 2020-01-21 17:24:18,629 p=1027108 u=mistral |  TASK [get pacemaker status] ****************************************************
+0:00:00 2020-01-21 17:24:19,074 p=1027108 u=mistral |  TASK [get docker status] *******************************************************
+0:00:01 2020-01-21 17:24:19,552 p=1027108 u=mistral |  TASK [get container_id] ********************************************************
+0:00:00 2020-01-21 17:24:20,050 p=1027108 u=mistral |  TASK [get pcs resource name for haproxy container] *****************************
+0:00:01 2020-01-21 17:24:20,544 p=1027108 u=mistral |  TASK [remove DeployedSSLCertificatePath if is dir] *****************************
+0:00:00 2020-01-21 17:24:21,038 p=1027108 u=mistral |  TASK [push certificate content] ************************************************
+0:00:01 2020-01-21 17:24:21,511 p=1027108 u=mistral |  TASK [set certificate ownership] ***********************************************
+0:00:00 2020-01-21 17:24:22,021 p=1027108 u=mistral |  TASK [reload haproxy if enabled] ***********************************************
+0:00:00 2020-01-21 17:24:22,518 p=1027108 u=mistral |  TASK [restart pacemaker resource for haproxy] **********************************
+0:00:01 2020-01-21 17:24:22,972 p=1027108 u=mistral |  TASK [set kolla_dir fact] ******************************************************
+0:00:00 2020-01-21 17:24:23,437 p=1027108 u=mistral |  TASK [assert {{ kolla_dir }}{{ cert_path }} exists] ****************************
+0:00:01 2020-01-21 17:24:23,889 p=1027108 u=mistral |  TASK [set certificate group on host via container] *****************************
+0:00:00 2020-01-21 17:24:24,346 p=1027108 u=mistral |  TASK [copy certificate from kolla directory to final location] *****************
+0:00:01 2020-01-21 17:24:24,807 p=1027108 u=mistral |  TASK [send restart order to haproxy container] *********************************
+0:00:01 2020-01-21 17:24:25,259 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:26,603 p=1027108 u=mistral |  TASK [haproxy logs readme] *****************************************************
+0:00:02 2020-01-21 17:24:27,786 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:29,069 p=1027108 u=mistral |  TASK [heat logs readme] ********************************************************
+0:00:01 2020-01-21 17:24:30,201 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:31,356 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:32,290 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:33,744 p=1027108 u=mistral |  TASK [horizon logs readme] *****************************************************
+0:00:01 2020-01-21 17:24:34,880 p=1027108 u=mistral |  TASK [ensure /etc/iscsi exists] ************************************************
+0:00:01 2020-01-21 17:24:35,549 p=1027108 u=mistral |  TASK [ensure /var/lib/iscsi exists] ********************************************
+0:00:00 2020-01-21 17:24:36,225 p=1027108 u=mistral |  TASK [stat /lib/systemd/system/iscsid.socket] **********************************
+0:00:02 2020-01-21 17:24:36,922 p=1027108 u=mistral |  TASK [Stop and disable iscsid.socket service] **********************************
+0:00:01 2020-01-21 17:24:38,446 p=1027108 u=mistral |  TASK [Check if iscsi.service is enabled] ***************************************
+0:00:00 2020-01-21 17:24:39,138 p=1027108 u=mistral |  TASK [Stop iscsi.service] ******************************************************
+0:00:01 2020-01-21 17:24:39,582 p=1027108 u=mistral |  TASK [include_role : tripleo-kernel] *******************************************
+0:00:00 2020-01-21 17:24:40,446 p=1027108 u=mistral |  TASK [tripleo-kernel : Install additional packages] ****************************
+0:00:01 2020-01-21 17:24:40,900 p=1027108 u=mistral |  TASK [tripleo-kernel : Ensure the /etc/modules-load.d/ directory exists] *******
+0:00:01 2020-01-21 17:24:41,602 p=1027108 u=mistral |  TASK [tripleo-kernel : Write list of modules to load at boot] ******************
+0:00:02 2020-01-21 17:24:42,769 p=1027108 u=mistral |  TASK [tripleo-kernel : Set default sysctl options] *****************************
+0:00:03 2020-01-21 17:24:44,121 p=1027108 u=mistral |  TASK [tripleo-kernel : Set extra sysctl options] *******************************
+0:00:02 2020-01-21 17:24:47,771 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:49,012 p=1027108 u=mistral |  TASK [keystone logs readme] ****************************************************
+0:00:00 2020-01-21 17:24:50,149 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:50,833 p=1027108 u=mistral |  TASK [memcached logs readme] ***************************************************
+0:00:02 2020-01-21 17:24:51,973 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:53,172 p=1027108 u=mistral |  TASK [mysql logs readme] *******************************************************
+0:00:01 2020-01-21 17:24:54,296 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:55,441 p=1027108 u=mistral |  TASK [neutron logs readme] *****************************************************
+0:00:01 2020-01-21 17:24:56,546 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:57,729 p=1027108 u=mistral |  TASK [nova logs readme] ********************************************************
+0:00:01 2020-01-21 17:24:58,835 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:24:59,750 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:25:00,918 p=1027108 u=mistral |  TASK [allow logrotate to read inside containers] *******************************
+0:00:02 2020-01-21 17:25:01,908 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:25:03,184 p=1027108 u=mistral |  TASK [openvswitch logs readme] *************************************************
+0:00:01 2020-01-21 17:25:04,379 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:25:05,366 p=1027108 u=mistral |  TASK [create persistent logs directory] ****************************************
+0:00:01 2020-01-21 17:25:06,608 p=1027108 u=mistral |  TASK [Placement logs readme] ***************************************************
+0:00:01 2020-01-21 17:25:07,714 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:01 2020-01-21 17:25:08,880 p=1027108 u=mistral |  TASK [rabbitmq logs readme] ****************************************************
+0:00:01 2020-01-21 17:25:09,994 p=1027108 u=mistral |  TASK [stop the Erlang port mapper on the host and make sure it cannot bind to the port used by container] ***
+0:00:01 2020-01-21 17:25:10,748 p=1027108 u=mistral |  TASK [Set login facts] *********************************************************
+0:00:00 2020-01-21 17:25:11,190 p=1027108 u=mistral |  TASK [Convert logins json to dict] *********************************************
+0:00:01 2020-01-21 17:25:11,625 p=1027108 u=mistral |  TASK [Set registry logins] *****************************************************
+0:00:00 2020-01-21 17:25:12,065 p=1027108 u=mistral |  TASK [Run podman install] ******************************************************
+0:00:02 2020-01-21 17:25:12,886 p=1027108 u=mistral |  TASK [tripleo-podman : ensure podman and deps are installed] *******************
+0:00:00 2020-01-21 17:25:14,192 p=1027108 u=mistral |  TASK [tripleo-podman : Check for cni0 interface] *******************************
+0:00:01 2020-01-21 17:25:14,890 p=1027108 u=mistral |  TASK [tripleo-podman : Delete cni0 interface] **********************************
+0:00:01 2020-01-21 17:25:15,349 p=1027108 u=mistral |  TASK [tripleo-podman : Remove default cni config for cni0 if exists] ***********
+0:00:01 2020-01-21 17:25:16,519 p=1027108 u=mistral |  TASK [tripleo-podman : configure insecure registries /etc/containers/registries.conf] ***
+0:00:02 2020-01-21 17:25:17,990 p=1027108 u=mistral |  TASK [Run podman login] ********************************************************
+0:00:00 2020-01-21 17:25:19,497 p=1027108 u=mistral |  TASK [tripleo-podman : Perform container registry login(s)] ********************
+0:00:02 2020-01-21 17:25:19,976 p=1027108 u=mistral |  TASK [Configure paunch to generate systemd drop-in dependencies] ***************
+0:00:01 2020-01-21 17:25:21,225 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:02 2020-01-21 17:25:22,450 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:00 2020-01-21 17:25:24,151 p=1027108 u=mistral |  TASK [Set swift_use_local_disks fact] ******************************************
+0:00:01 2020-01-21 17:25:24,620 p=1027108 u=mistral |  TASK [Create Swift d1 directory if needed] *************************************
+0:00:01 2020-01-21 17:25:25,323 p=1027108 u=mistral |  TASK [swift logs readme] *******************************************************
+0:00:00 2020-01-21 17:25:26,497 p=1027108 u=mistral |  TASK [Set fact for SwiftRawDisks] **********************************************
+0:00:01 2020-01-21 17:25:26,968 p=1027108 u=mistral |  TASK [Format SwiftRawDisks] ****************************************************
+0:00:00 2020-01-21 17:25:27,461 p=1027108 u=mistral |  TASK [Mount devices defined in SwiftRawDisks] **********************************
+0:00:02 2020-01-21 17:25:27,929 p=1027108 u=mistral |  TASK [Populate service facts (chrony)] *****************************************
+0:00:01 2020-01-21 17:25:29,677 p=1027108 u=mistral |  TASK [Disable NTP before configuring Chrony] ***********************************
+0:00:01 2020-01-21 17:25:30,328 p=1027108 u=mistral |  TASK [Install, Configure and Run Chrony] ***************************************
+0:00:01 2020-01-21 17:25:31,531 p=1027108 u=mistral |  TASK [chrony : Load distro-specific variables] *********************************
+0:00:01 2020-01-21 17:25:32,173 p=1027108 u=mistral |  TASK [chrony : Install chronyd] ************************************************
+0:00:01 2020-01-21 17:25:33,453 p=1027108 u=mistral |  TASK [chrony : Install chronyd package] ****************************************
+0:00:00 2020-01-21 17:25:34,084 p=1027108 u=mistral |  TASK [chrony : Upgrade chronyd] ************************************************
+0:00:01 2020-01-21 17:25:34,716 p=1027108 u=mistral |  TASK [chrony : Configure chronyd] **********************************************
+0:00:02 2020-01-21 17:25:35,877 p=1027108 u=mistral |  TASK [chrony : Install chrony configuration file] ******************************
+0:00:03 2020-01-21 17:25:37,305 p=1027108 u=mistral |  TASK [chrony : Ensure chronyd is running] **************************************
+0:00:03 2020-01-21 17:25:40,362 p=1027108 u=mistral |  TASK [chrony : Force chronyd restart] ******************************************
+0:00:00 2020-01-21 17:25:43,029 p=1027108 u=mistral |  TASK [Ensure system is NTP time synced] ****************************************
+0:00:01 2020-01-21 17:25:43,910 p=1027108 u=mistral |  TASK [Set timezone fact] *******************************************************
+0:00:03 2020-01-21 17:25:44,541 p=1027108 u=mistral |  TASK [Set timezone to UTC] *****************************************************
+0:00:02 2020-01-21 17:25:47,232 p=1027108 u=mistral |  TASK [Populate service facts] **************************************************
+0:00:01 2020-01-21 17:25:49,615 p=1027108 u=mistral |  TASK [Restart services] ********************************************************
+0:00:01 2020-01-21 17:25:50,259 p=1027108 u=mistral |  TASK [include_role : tuned] ****************************************************
+0:00:01 2020-01-21 17:25:51,462 p=1027108 u=mistral |  TASK [tuned : Gather variables for each operating system] **********************
+0:00:01 2020-01-21 17:25:52,114 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:01 2020-01-21 17:25:53,301 p=1027108 u=mistral |  TASK [tuned : Install tuned] ***************************************************
+0:00:01 2020-01-21 17:25:54,806 p=1027108 u=mistral |  TASK [tuned : Check for tuned-adm] *********************************************
+0:00:01 2020-01-21 17:25:55,677 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:01 2020-01-21 17:25:56,837 p=1027108 u=mistral |  TASK [tuned : Ensure profile directory exists] *********************************
+0:00:01 2020-01-21 17:25:57,459 p=1027108 u=mistral |  TASK [tuned : Create custom tuned profile] *************************************
+0:00:00 2020-01-21 17:25:58,123 p=1027108 u=mistral |  TASK [tuned : Check tuned active profile] **************************************
+0:00:01 2020-01-21 17:25:58,986 p=1027108 u=mistral |  TASK [tuned : Check Tuned Configuration file exists] ***************************
+0:00:01 2020-01-21 17:25:59,864 p=1027108 u=mistral |  TASK [tuned : Fail if tuned profile conf is absent but isolated cores is provided] ***
+0:00:01 2020-01-21 17:26:00,500 p=1027108 u=mistral |  TASK [tuned : Configure isolated cores for profile throughput-performance] *****
+0:00:00 2020-01-21 17:26:01,127 p=1027108 u=mistral |  TASK [tuned : Enable tuned profile] ********************************************
+0:00:00 2020-01-21 17:26:01,720 p=1027108 u=mistral |  TASK [ms5039Compute Host prep steps] *******************************************
+0:00:18 2020-01-21 17:26:01,856 p=1027108 u=mistral |  TASK [ensure /etc/iscsi exists] ************************************************
+0:00:18 2020-01-21 17:26:19,962 p=1027108 u=mistral |  TASK [ensure /var/lib/iscsi exists] ********************************************
+0:00:18 2020-01-21 17:26:37,748 p=1027108 u=mistral |  TASK [stat /lib/systemd/system/iscsid.socket] **********************************
+0:00:19 2020-01-21 17:26:55,458 p=1027108 u=mistral |  TASK [Stop and disable iscsid.socket service] **********************************
+0:00:17 2020-01-21 17:27:14,315 p=1027108 u=mistral |  TASK [Check if iscsi.service is enabled] ***************************************
+0:00:17 2020-01-21 17:27:31,690 p=1027108 u=mistral |  TASK [Stop iscsi.service] ******************************************************
+0:00:29 2020-01-21 17:27:48,550 p=1027108 u=mistral |  TASK [include_role : tripleo-kernel] *******************************************
+0:00:16 2020-01-21 17:28:17,129 p=1027108 u=mistral |  TASK [tripleo-kernel : Install additional packages] ****************************
+0:00:17 2020-01-21 17:28:33,322 p=1027108 u=mistral |  TASK [tripleo-kernel : Ensure the /etc/modules-load.d/ directory exists] *******
+0:00:19 2020-01-21 17:28:50,845 p=1027108 u=mistral |  TASK [tripleo-kernel : Write list of modules to load at boot] ******************
+0:00:20 2020-01-21 17:29:09,762 p=1027108 u=mistral |  TASK [tripleo-kernel : Set default sysctl options] *****************************
+0:00:27 2020-01-21 17:29:29,488 p=1027108 u=mistral |  TASK [tripleo-kernel : Set extra sysctl options] *******************************
+0:00:19 2020-01-21 17:29:56,456 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:20 2020-01-21 17:30:15,222 p=1027108 u=mistral |  TASK [nova logs readme] ********************************************************
+0:00:17 2020-01-21 17:30:35,073 p=1027108 u=mistral |  TASK [Mount Nova NFS Share] ****************************************************
+0:00:17 2020-01-21 17:30:52,056 p=1027108 u=mistral |  TASK [is Nova Resume Guests State On Host Boot enabled] ************************
+0:00:17 2020-01-21 17:31:09,089 p=1027108 u=mistral |  TASK [make sure libvirt-client is installed] ***********************************
+0:00:17 2020-01-21 17:31:26,670 p=1027108 u=mistral |  TASK [libvirt-guests unit to stop nova_compute container before shutdown VMs] ***
+0:00:17 2020-01-21 17:31:43,701 p=1027108 u=mistral |  TASK [libvirt-guests enable VM shutdown on compute reboot/shutdown] ************
+0:00:17 2020-01-21 17:32:00,964 p=1027108 u=mistral |  TASK [make sure default libvirt-guests is disabled] ****************************
+0:00:18 2020-01-21 17:32:17,935 p=1027108 u=mistral |  TASK [libvirt-guests unit to stop nova_compute container before shutdown VMs] ***
+0:00:16 2020-01-21 17:32:35,165 p=1027108 u=mistral |  TASK [tripleo_nova_libvirt_guests enable VM shutdown on compute reboot/shutdown] ***
+0:00:20 2020-01-21 17:32:51,881 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:18 2020-01-21 17:33:11,994 p=1027108 u=mistral |  TASK [ensure ceph configurations exist] ****************************************
+0:00:16 2020-01-21 17:33:29,347 p=1027108 u=mistral |  TASK [is Instance HA enabled] **************************************************
+0:00:17 2020-01-21 17:33:45,322 p=1027108 u=mistral |  TASK [enable virt_sandbox_use_netlink for healthcheck] *************************
+0:00:17 2020-01-21 17:34:02,120 p=1027108 u=mistral |  TASK [prepare Instance HA script directory] ************************************
+0:00:17 2020-01-21 17:34:19,102 p=1027108 u=mistral |  TASK [install Instance HA script that runs nova-compute] ***********************
+0:00:17 2020-01-21 17:34:36,127 p=1027108 u=mistral |  TASK [Get list of instance HA compute nodes] ***********************************
+0:00:16 2020-01-21 17:34:53,393 p=1027108 u=mistral |  TASK [If instance HA is enabled on the node activate the evacuation completed check] ***
+0:00:17 2020-01-21 17:35:09,368 p=1027108 u=mistral |  TASK [is KSM enabled] **********************************************************
+0:00:24 2020-01-21 17:35:26,098 p=1027108 u=mistral |  TASK [Populate service facts (ksm)] ********************************************
+0:00:25 2020-01-21 17:35:50,729 p=1027108 u=mistral |  TASK [disable KSM services] ****************************************************
+0:00:24 2020-01-21 17:36:15,226 p=1027108 u=mistral |  TASK [delete PageKSM after disable ksm on compute] *****************************
+0:00:23 2020-01-21 17:36:39,207 p=1027108 u=mistral |  TASK [Populate service facts (ksm)] ********************************************
+0:00:24 2020-01-21 17:37:02,594 p=1027108 u=mistral |  TASK [make sure package providing ksmtuned is installed (CentOS)] **************
+0:00:23 2020-01-21 17:37:26,880 p=1027108 u=mistral |  TASK [make sure package providing ksmtuned is installed (RHEL)] ****************
+0:00:24 2020-01-21 17:37:49,614 p=1027108 u=mistral |  TASK [enable ksmtunded] ********************************************************
+0:00:25 2020-01-21 17:38:13,384 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:25 2020-01-21 17:38:38,521 p=1027108 u=mistral |  TASK [libvirt logs readme] *****************************************************
+0:00:32 2020-01-21 17:39:03,816 p=1027108 u=mistral |  TASK [create libvirt persistent data directories] ******************************
+0:00:24 2020-01-21 17:39:35,923 p=1027108 u=mistral |  TASK [ensure qemu group is present on the host] ********************************
+0:00:25 2020-01-21 17:39:59,793 p=1027108 u=mistral |  TASK [ensure qemu user is present on the host] *********************************
+0:00:26 2020-01-21 17:40:24,872 p=1027108 u=mistral |  TASK [create directory for vhost-user sockets with qemu ownership] *************
+0:00:24 2020-01-21 17:40:50,064 p=1027108 u=mistral |  TASK [check if libvirt is installed] *******************************************
+0:00:29 2020-01-21 17:41:14,647 p=1027108 u=mistral |  TASK [make sure libvirt services are disabled and masked] **********************
+0:00:27 2020-01-21 17:41:43,719 p=1027108 u=mistral |  TASK [ensure /var/run/libvirt is present upon reboot] **************************
+0:00:25 2020-01-21 17:42:10,559 p=1027108 u=mistral |  TASK [allow logrotate to read inside containers] *******************************
+0:00:23 2020-01-21 17:42:35,130 p=1027108 u=mistral |  TASK [Set login facts] *********************************************************
+0:00:23 2020-01-21 17:42:58,471 p=1027108 u=mistral |  TASK [Convert logins json to dict] *********************************************
+0:00:23 2020-01-21 17:43:21,440 p=1027108 u=mistral |  TASK [Set registry logins] *****************************************************
+0:00:41 2020-01-21 17:43:44,832 p=1027108 u=mistral |  TASK [Run podman install] ******************************************************
+0:00:25 2020-01-21 17:44:25,212 p=1027108 u=mistral |  TASK [tripleo-podman : ensure podman and deps are installed] *******************
+0:00:24 2020-01-21 17:44:50,357 p=1027108 u=mistral |  TASK [tripleo-podman : Check for cni0 interface] *******************************
+0:00:25 2020-01-21 17:45:14,779 p=1027108 u=mistral |  TASK [tripleo-podman : Delete cni0 interface] **********************************
+0:00:27 2020-01-21 17:45:39,155 p=1027108 u=mistral |  TASK [tripleo-podman : Remove default cni config for cni0 if exists] ***********
+0:00:25 2020-01-21 17:46:06,145 p=1027108 u=mistral |  TASK [tripleo-podman : configure insecure registries /etc/containers/registries.conf] ***
+0:00:43 2020-01-21 17:46:31,150 p=1027108 u=mistral |  TASK [Run podman login] ********************************************************
+0:00:24 2020-01-21 17:47:14,443 p=1027108 u=mistral |  TASK [tripleo-podman : Perform container registry login(s)] ********************
+0:00:26 2020-01-21 17:47:38,672 p=1027108 u=mistral |  TASK [Configure paunch to generate systemd drop-in dependencies] ***************
+0:00:32 2020-01-21 17:48:04,911 p=1027108 u=mistral |  TASK [Populate service facts (chrony)] *****************************************
+0:00:23 2020-01-21 17:48:36,302 p=1027108 u=mistral |  TASK [Disable NTP before configuring Chrony] ***********************************
+0:00:43 2020-01-21 17:48:59,315 p=1027108 u=mistral |  TASK [Install, Configure and Run Chrony] ***************************************
+0:00:23 2020-01-21 17:49:42,171 p=1027108 u=mistral |  TASK [chrony : Load distro-specific variables] *********************************
+0:00:43 2020-01-21 17:50:05,350 p=1027108 u=mistral |  TASK [chrony : Install chronyd] ************************************************
+0:00:24 2020-01-21 17:50:48,307 p=1027108 u=mistral |  TASK [chrony : Install chronyd package] ****************************************
+0:00:25 2020-01-21 17:51:12,927 p=1027108 u=mistral |  TASK [chrony : Upgrade chronyd] ************************************************
+0:00:43 2020-01-21 17:51:37,636 p=1027108 u=mistral |  TASK [chrony : Configure chronyd] **********************************************
+0:00:26 2020-01-21 17:52:20,912 p=1027108 u=mistral |  TASK [chrony : Install chrony configuration file] ******************************
+0:00:26 2020-01-21 17:52:46,984 p=1027108 u=mistral |  TASK [chrony : Ensure chronyd is running] **************************************
+0:00:48 2020-01-21 17:53:12,413 p=1027108 u=mistral |  TASK [chrony : Force chronyd restart] ******************************************
+0:00:25 2020-01-21 17:54:00,834 p=1027108 u=mistral |  TASK [Ensure system is NTP time synced] ****************************************
+0:00:24 2020-01-21 17:54:25,464 p=1027108 u=mistral |  TASK [Set timezone fact] *******************************************************
+0:00:24 2020-01-21 17:54:49,035 p=1027108 u=mistral |  TASK [Set timezone to UTC] *****************************************************
+0:00:32 2020-01-21 17:55:13,210 p=1027108 u=mistral |  TASK [Populate service facts] **************************************************
+0:00:25 2020-01-21 17:55:45,532 p=1027108 u=mistral |  TASK [Restart services] ********************************************************
+0:00:45 2020-01-21 17:56:10,068 p=1027108 u=mistral |  TASK [include_role : tuned] ****************************************************
+0:00:25 2020-01-21 17:56:55,526 p=1027108 u=mistral |  TASK [tuned : Gather variables for each operating system] **********************
+0:00:42 2020-01-21 17:57:20,153 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:25 2020-01-21 17:58:02,177 p=1027108 u=mistral |  TASK [tuned : Install tuned] ***************************************************
+0:00:25 2020-01-21 17:58:27,948 p=1027108 u=mistral |  TASK [tuned : Check for tuned-adm] *********************************************
+0:00:43 2020-01-21 17:58:52,363 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:24 2020-01-21 17:59:35,199 p=1027108 u=mistral |  TASK [tuned : Ensure profile directory exists] *********************************
+0:00:23 2020-01-21 17:59:59,217 p=1027108 u=mistral |  TASK [tuned : Create custom tuned profile] *************************************
+0:00:26 2020-01-21 18:00:22,534 p=1027108 u=mistral |  TASK [tuned : Check tuned active profile] **************************************
+0:00:25 2020-01-21 18:00:48,231 p=1027108 u=mistral |  TASK [tuned : Check Tuned Configuration file exists] ***************************
+0:00:24 2020-01-21 18:01:13,169 p=1027108 u=mistral |  TASK [tuned : Fail if tuned profile conf is absent but isolated cores is provided] ***
+0:00:24 2020-01-21 18:01:37,726 p=1027108 u=mistral |  TASK [tuned : Configure isolated cores for profile throughput-performance] *****
+0:00:27 2020-01-21 18:02:01,713 p=1027108 u=mistral |  TASK [tuned : Enable tuned profile] ********************************************
+0:00:26 2020-01-21 18:02:28,510 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:26 2020-01-21 18:02:54,069 p=1027108 u=mistral |  TASK [openvswitch logs readme] *************************************************
+0:00:26 2020-01-21 18:03:20,426 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:26 2020-01-21 18:03:46,098 p=1027108 u=mistral |  TASK [neutron logs readme] *****************************************************
+0:00:25 2020-01-21 18:04:12,327 p=1027108 u=mistral |  TASK [create /run/netns with temp namespace] ***********************************
+0:00:24 2020-01-21 18:04:37,016 p=1027108 u=mistral |  TASK [remove temp namespace] ***************************************************
+0:00:25 2020-01-21 18:05:01,123 p=1027108 u=mistral |  TASK [create /var/lib/neutron] *************************************************
+0:00:00 2020-01-21 18:05:26,632 p=1027108 u=mistral |  TASK [u1029Compute Host prep steps] ********************************************
+0:00:07 2020-01-21 18:05:26,776 p=1027108 u=mistral |  TASK [ensure /etc/iscsi exists] ************************************************
+0:00:07 2020-01-21 18:05:33,767 p=1027108 u=mistral |  TASK [ensure /var/lib/iscsi exists] ********************************************
+0:00:07 2020-01-21 18:05:40,408 p=1027108 u=mistral |  TASK [stat /lib/systemd/system/iscsid.socket] **********************************
+0:00:07 2020-01-21 18:05:47,176 p=1027108 u=mistral |  TASK [Stop and disable iscsid.socket service] **********************************
+0:00:07 2020-01-21 18:05:54,605 p=1027108 u=mistral |  TASK [Check if iscsi.service is enabled] ***************************************
+0:00:06 2020-01-21 18:06:01,316 p=1027108 u=mistral |  TASK [Stop iscsi.service] ******************************************************
+0:00:12 2020-01-21 18:06:07,739 p=1027108 u=mistral |  TASK [include_role : tripleo-kernel] *******************************************
+0:00:06 2020-01-21 18:06:19,321 p=1027108 u=mistral |  TASK [tripleo-kernel : Install additional packages] ****************************
+0:00:07 2020-01-21 18:06:25,689 p=1027108 u=mistral |  TASK [tripleo-kernel : Ensure the /etc/modules-load.d/ directory exists] *******
+0:00:08 2020-01-21 18:06:32,391 p=1027108 u=mistral |  TASK [tripleo-kernel : Write list of modules to load at boot] ******************
+0:00:08 2020-01-21 18:06:40,173 p=1027108 u=mistral |  TASK [tripleo-kernel : Set default sysctl options] *****************************
+0:00:11 2020-01-21 18:06:48,184 p=1027108 u=mistral |  TASK [tripleo-kernel : Set extra sysctl options] *******************************
+0:00:08 2020-01-21 18:06:59,502 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:07 2020-01-21 18:07:07,048 p=1027108 u=mistral |  TASK [nova logs readme] ********************************************************
+0:00:07 2020-01-21 18:07:14,569 p=1027108 u=mistral |  TASK [Mount Nova NFS Share] ****************************************************
+0:00:06 2020-01-21 18:07:21,520 p=1027108 u=mistral |  TASK [is Nova Resume Guests State On Host Boot enabled] ************************
+0:00:07 2020-01-21 18:07:27,924 p=1027108 u=mistral |  TASK [make sure libvirt-client is installed] ***********************************
+0:00:06 2020-01-21 18:07:34,348 p=1027108 u=mistral |  TASK [libvirt-guests unit to stop nova_compute container before shutdown VMs] ***
+0:00:06 2020-01-21 18:07:40,654 p=1027108 u=mistral |  TASK [libvirt-guests enable VM shutdown on compute reboot/shutdown] ************
+0:00:06 2020-01-21 18:07:46,653 p=1027108 u=mistral |  TASK [make sure default libvirt-guests is disabled] ****************************
+0:00:06 2020-01-21 18:07:52,653 p=1027108 u=mistral |  TASK [libvirt-guests unit to stop nova_compute container before shutdown VMs] ***
+0:00:06 2020-01-21 18:07:58,676 p=1027108 u=mistral |  TASK [tripleo_nova_libvirt_guests enable VM shutdown on compute reboot/shutdown] ***
+0:00:08 2020-01-21 18:08:04,813 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:07 2020-01-21 18:08:12,514 p=1027108 u=mistral |  TASK [ensure ceph configurations exist] ****************************************
+0:00:06 2020-01-21 18:08:19,708 p=1027108 u=mistral |  TASK [is Instance HA enabled] **************************************************
+0:00:07 2020-01-21 18:08:25,843 p=1027108 u=mistral |  TASK [enable virt_sandbox_use_netlink for healthcheck] *************************
+0:00:06 2020-01-21 18:08:32,539 p=1027108 u=mistral |  TASK [prepare Instance HA script directory] ************************************
+0:00:07 2020-01-21 18:08:38,950 p=1027108 u=mistral |  TASK [install Instance HA script that runs nova-compute] ***********************
+0:00:06 2020-01-21 18:08:45,038 p=1027108 u=mistral |  TASK [Get list of instance HA compute nodes] ***********************************
+0:00:06 2020-01-21 18:08:51,285 p=1027108 u=mistral |  TASK [If instance HA is enabled on the node activate the evacuation completed check] ***
+0:00:06 2020-01-21 18:08:57,492 p=1027108 u=mistral |  TASK [is KSM enabled] **********************************************************
+0:00:10 2020-01-21 18:09:03,760 p=1027108 u=mistral |  TASK [Populate service facts (ksm)] ********************************************
+0:00:09 2020-01-21 18:09:13,409 p=1027108 u=mistral |  TASK [disable KSM services] ****************************************************
+0:00:08 2020-01-21 18:09:22,095 p=1027108 u=mistral |  TASK [delete PageKSM after disable ksm on compute] *****************************
+0:00:09 2020-01-21 18:09:30,554 p=1027108 u=mistral |  TASK [Populate service facts (ksm)] ********************************************
+0:00:08 2020-01-21 18:09:39,039 p=1027108 u=mistral |  TASK [make sure package providing ksmtuned is installed (CentOS)] **************
+0:00:09 2020-01-21 18:09:47,972 p=1027108 u=mistral |  TASK [make sure package providing ksmtuned is installed (RHEL)] ****************
+0:00:08 2020-01-21 18:09:56,239 p=1027108 u=mistral |  TASK [enable ksmtunded] ********************************************************
+0:00:09 2020-01-21 18:10:04,584 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:10 2020-01-21 18:10:13,324 p=1027108 u=mistral |  TASK [libvirt logs readme] *****************************************************
+0:00:13 2020-01-21 18:10:23,219 p=1027108 u=mistral |  TASK [create libvirt persistent data directories] ******************************
+0:00:09 2020-01-21 18:10:36,499 p=1027108 u=mistral |  TASK [ensure qemu group is present on the host] ********************************
+0:00:09 2020-01-21 18:10:45,473 p=1027108 u=mistral |  TASK [ensure qemu user is present on the host] *********************************
+0:00:09 2020-01-21 18:10:54,582 p=1027108 u=mistral |  TASK [create directory for vhost-user sockets with qemu ownership] *************
+0:00:09 2020-01-21 18:11:03,851 p=1027108 u=mistral |  TASK [check if libvirt is installed] *******************************************
+0:00:15 2020-01-21 18:11:12,833 p=1027108 u=mistral |  TASK [make sure libvirt services are disabled and masked] **********************
+0:00:10 2020-01-21 18:11:27,924 p=1027108 u=mistral |  TASK [ensure /var/run/libvirt is present upon reboot] **************************
+0:00:10 2020-01-21 18:11:37,947 p=1027108 u=mistral |  TASK [allow logrotate to read inside containers] *******************************
+0:00:08 2020-01-21 18:11:47,050 p=1027108 u=mistral |  TASK [Set login facts] *********************************************************
+0:00:09 2020-01-21 18:11:55,693 p=1027108 u=mistral |  TASK [Convert logins json to dict] *********************************************
+0:00:09 2020-01-21 18:12:04,270 p=1027108 u=mistral |  TASK [Set registry logins] *****************************************************
+0:00:15 2020-01-21 18:12:13,321 p=1027108 u=mistral |  TASK [Run podman install] ******************************************************
+0:00:10 2020-01-21 18:12:28,667 p=1027108 u=mistral |  TASK [tripleo-podman : ensure podman and deps are installed] *******************
+0:00:08 2020-01-21 18:12:38,222 p=1027108 u=mistral |  TASK [tripleo-podman : Check for cni0 interface] *******************************
+0:00:09 2020-01-21 18:12:46,921 p=1027108 u=mistral |  TASK [tripleo-podman : Delete cni0 interface] **********************************
+0:00:10 2020-01-21 18:12:55,045 p=1027108 u=mistral |  TASK [tripleo-podman : Remove default cni config for cni0 if exists] ***********
+0:00:08 2020-01-21 18:13:05,252 p=1027108 u=mistral |  TASK [tripleo-podman : configure insecure registries /etc/containers/registries.conf] ***
+0:00:16 2020-01-21 18:13:13,920 p=1027108 u=mistral |  TASK [Run podman login] ********************************************************
+0:00:08 2020-01-21 18:13:29,126 p=1027108 u=mistral |  TASK [tripleo-podman : Perform container registry login(s)] ********************
+0:00:10 2020-01-21 18:13:37,618 p=1027108 u=mistral |  TASK [Configure paunch to generate systemd drop-in dependencies] ***************
+0:00:12 2020-01-21 18:13:47,960 p=1027108 u=mistral |  TASK [Populate service facts (chrony)] *****************************************
+0:00:08 2020-01-21 18:13:59,240 p=1027108 u=mistral |  TASK [Disable NTP before configuring Chrony] ***********************************
+0:00:15 2020-01-21 18:14:07,418 p=1027108 u=mistral |  TASK [Install, Configure and Run Chrony] ***************************************
+0:00:09 2020-01-21 18:14:22,854 p=1027108 u=mistral |  TASK [chrony : Load distro-specific variables] *********************************
+0:00:14 2020-01-21 18:14:31,202 p=1027108 u=mistral |  TASK [chrony : Install chronyd] ************************************************
+0:00:09 2020-01-21 18:14:45,870 p=1027108 u=mistral |  TASK [chrony : Install chronyd package] ****************************************
+0:00:08 2020-01-21 18:14:54,062 p=1027108 u=mistral |  TASK [chrony : Upgrade chronyd] ************************************************
+0:00:16 2020-01-21 18:15:02,965 p=1027108 u=mistral |  TASK [chrony : Configure chronyd] **********************************************
+0:00:10 2020-01-21 18:15:18,064 p=1027108 u=mistral |  TASK [chrony : Install chrony configuration file] ******************************
+0:00:10 2020-01-21 18:15:28,007 p=1027108 u=mistral |  TASK [chrony : Ensure chronyd is running] **************************************
+0:00:19 2020-01-21 18:15:38,402 p=1027108 u=mistral |  TASK [chrony : Force chronyd restart] ******************************************
+0:00:09 2020-01-21 18:15:57,762 p=1027108 u=mistral |  TASK [Ensure system is NTP time synced] ****************************************
+0:00:09 2020-01-21 18:16:06,753 p=1027108 u=mistral |  TASK [Set timezone fact] *******************************************************
+0:00:10 2020-01-21 18:16:15,374 p=1027108 u=mistral |  TASK [Set timezone to UTC] *****************************************************
+0:00:12 2020-01-21 18:16:25,667 p=1027108 u=mistral |  TASK [Populate service facts] **************************************************
+0:00:09 2020-01-21 18:16:37,707 p=1027108 u=mistral |  TASK [Restart services] ********************************************************
+0:00:16 2020-01-21 18:16:46,442 p=1027108 u=mistral |  TASK [include_role : tuned] ****************************************************
+0:00:09 2020-01-21 18:17:02,138 p=1027108 u=mistral |  TASK [tuned : Gather variables for each operating system] **********************
+0:00:15 2020-01-21 18:17:11,402 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:10 2020-01-21 18:17:26,540 p=1027108 u=mistral |  TASK [tuned : Install tuned] ***************************************************
+0:00:08 2020-01-21 18:17:36,173 p=1027108 u=mistral |  TASK [tuned : Check for tuned-adm] *********************************************
+0:00:16 2020-01-21 18:17:44,980 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:08 2020-01-21 18:18:00,300 p=1027108 u=mistral |  TASK [tuned : Ensure profile directory exists] *********************************
+0:00:09 2020-01-21 18:18:08,687 p=1027108 u=mistral |  TASK [tuned : Create custom tuned profile] *************************************
+0:00:08 2020-01-21 18:18:17,080 p=1027108 u=mistral |  TASK [tuned : Check tuned active profile] **************************************
+0:00:09 2020-01-21 18:18:25,866 p=1027108 u=mistral |  TASK [tuned : Check Tuned Configuration file exists] ***************************
+0:00:09 2020-01-21 18:18:34,608 p=1027108 u=mistral |  TASK [tuned : Fail if tuned profile conf is absent but isolated cores is provided] ***
+0:00:08 2020-01-21 18:18:43,311 p=1027108 u=mistral |  TASK [tuned : Configure isolated cores for profile throughput-performance] *****
+0:00:10 2020-01-21 18:18:51,441 p=1027108 u=mistral |  TASK [tuned : Enable tuned profile] ********************************************
+0:00:10 2020-01-21 18:19:01,526 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:10 2020-01-21 18:19:11,245 p=1027108 u=mistral |  TASK [openvswitch logs readme] *************************************************
+0:00:10 2020-01-21 18:19:21,180 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:10 2020-01-21 18:19:31,394 p=1027108 u=mistral |  TASK [neutron logs readme] *****************************************************
+0:00:08 2020-01-21 18:19:41,098 p=1027108 u=mistral |  TASK [create /run/netns with temp namespace] ***********************************
+0:00:09 2020-01-21 18:19:49,826 p=1027108 u=mistral |  TASK [remove temp namespace] ***************************************************
+0:00:09 2020-01-21 18:19:58,442 p=1027108 u=mistral |  TASK [create /var/lib/neutron] *************************************************
+0:00:00 2020-01-21 18:20:07,282 p=1027108 u=mistral |  TASK [p1029Compute Host prep steps] ********************************************
+0:00:07 2020-01-21 18:20:07,422 p=1027108 u=mistral |  TASK [ensure /etc/iscsi exists] ************************************************
+0:00:07 2020-01-21 18:20:14,288 p=1027108 u=mistral |  TASK [ensure /var/lib/iscsi exists] ********************************************
+0:00:07 2020-01-21 18:20:21,537 p=1027108 u=mistral |  TASK [stat /lib/systemd/system/iscsid.socket] **********************************
+0:00:08 2020-01-21 18:20:28,300 p=1027108 u=mistral |  TASK [Stop and disable iscsid.socket service] **********************************
+0:00:07 2020-01-21 18:20:36,699 p=1027108 u=mistral |  TASK [Check if iscsi.service is enabled] ***************************************
+0:00:06 2020-01-21 18:20:43,448 p=1027108 u=mistral |  TASK [Stop iscsi.service] ******************************************************
+0:00:12 2020-01-21 18:20:49,876 p=1027108 u=mistral |  TASK [include_role : tripleo-kernel] *******************************************
+0:00:06 2020-01-21 18:21:01,024 p=1027108 u=mistral |  TASK [tripleo-kernel : Install additional packages] ****************************
+0:00:08 2020-01-21 18:21:07,586 p=1027108 u=mistral |  TASK [tripleo-kernel : Ensure the /etc/modules-load.d/ directory exists] *******
+0:00:07 2020-01-21 18:21:15,056 p=1027108 u=mistral |  TASK [tripleo-kernel : Write list of modules to load at boot] ******************
+0:00:08 2020-01-21 18:21:22,707 p=1027108 u=mistral |  TASK [tripleo-kernel : Set default sysctl options] *****************************
+0:00:12 2020-01-21 18:21:30,835 p=1027108 u=mistral |  TASK [tripleo-kernel : Set extra sysctl options] *******************************
+0:00:08 2020-01-21 18:21:42,764 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:07 2020-01-21 18:21:50,251 p=1027108 u=mistral |  TASK [nova logs readme] ********************************************************
+0:00:07 2020-01-21 18:21:57,939 p=1027108 u=mistral |  TASK [Mount Nova NFS Share] ****************************************************
+0:00:06 2020-01-21 18:22:04,406 p=1027108 u=mistral |  TASK [is Nova Resume Guests State On Host Boot enabled] ************************
+0:00:07 2020-01-21 18:22:10,858 p=1027108 u=mistral |  TASK [make sure libvirt-client is installed] ***********************************
+0:00:07 2020-01-21 18:22:17,393 p=1027108 u=mistral |  TASK [libvirt-guests unit to stop nova_compute container before shutdown VMs] ***
+0:00:06 2020-01-21 18:22:24,516 p=1027108 u=mistral |  TASK [libvirt-guests enable VM shutdown on compute reboot/shutdown] ************
+0:00:07 2020-01-21 18:22:30,918 p=1027108 u=mistral |  TASK [make sure default libvirt-guests is disabled] ****************************
+0:00:06 2020-01-21 18:22:37,413 p=1027108 u=mistral |  TASK [libvirt-guests unit to stop nova_compute container before shutdown VMs] ***
+0:00:06 2020-01-21 18:22:43,625 p=1027108 u=mistral |  TASK [tripleo_nova_libvirt_guests enable VM shutdown on compute reboot/shutdown] ***
+0:00:08 2020-01-21 18:22:49,762 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:07 2020-01-21 18:22:57,590 p=1027108 u=mistral |  TASK [ensure ceph configurations exist] ****************************************
+0:00:06 2020-01-21 18:23:04,212 p=1027108 u=mistral |  TASK [is Instance HA enabled] **************************************************
+0:00:07 2020-01-21 18:23:10,299 p=1027108 u=mistral |  TASK [enable virt_sandbox_use_netlink for healthcheck] *************************
+0:00:06 2020-01-21 18:23:17,025 p=1027108 u=mistral |  TASK [prepare Instance HA script directory] ************************************
+0:00:07 2020-01-21 18:23:23,767 p=1027108 u=mistral |  TASK [install Instance HA script that runs nova-compute] ***********************
+0:00:06 2020-01-21 18:23:30,037 p=1027108 u=mistral |  TASK [Get list of instance HA compute nodes] ***********************************
+0:00:06 2020-01-21 18:23:36,465 p=1027108 u=mistral |  TASK [If instance HA is enabled on the node activate the evacuation completed check] ***
+0:00:06 2020-01-21 18:23:42,657 p=1027108 u=mistral |  TASK [is KSM enabled] **********************************************************
+0:00:10 2020-01-21 18:23:48,959 p=1027108 u=mistral |  TASK [Populate service facts (ksm)] ********************************************
+0:00:09 2020-01-21 18:23:58,522 p=1027108 u=mistral |  TASK [disable KSM services] ****************************************************
+0:00:09 2020-01-21 18:24:07,703 p=1027108 u=mistral |  TASK [delete PageKSM after disable ksm on compute] *****************************
+0:00:08 2020-01-21 18:24:16,073 p=1027108 u=mistral |  TASK [Populate service facts (ksm)] ********************************************
+0:00:08 2020-01-21 18:24:24,425 p=1027108 u=mistral |  TASK [make sure package providing ksmtuned is installed (CentOS)] **************
+0:00:09 2020-01-21 18:24:32,670 p=1027108 u=mistral |  TASK [make sure package providing ksmtuned is installed (RHEL)] ****************
+0:00:08 2020-01-21 18:24:41,015 p=1027108 u=mistral |  TASK [enable ksmtunded] ********************************************************
+0:00:09 2020-01-21 18:24:49,375 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:10 2020-01-21 18:24:58,784 p=1027108 u=mistral |  TASK [libvirt logs readme] *****************************************************
+0:00:13 2020-01-21 18:25:08,645 p=1027108 u=mistral |  TASK [create libvirt persistent data directories] ******************************
+0:00:09 2020-01-21 18:25:21,020 p=1027108 u=mistral |  TASK [ensure qemu group is present on the host] ********************************
+0:00:09 2020-01-21 18:25:30,344 p=1027108 u=mistral |  TASK [ensure qemu user is present on the host] *********************************
+0:00:10 2020-01-21 18:25:39,533 p=1027108 u=mistral |  TASK [create directory for vhost-user sockets with qemu ownership] *************
+0:00:09 2020-01-21 18:25:49,197 p=1027108 u=mistral |  TASK [check if libvirt is installed] *******************************************
+0:00:13 2020-01-21 18:25:58,452 p=1027108 u=mistral |  TASK [make sure libvirt services are disabled and masked] **********************
+0:00:10 2020-01-21 18:26:11,439 p=1027108 u=mistral |  TASK [ensure /var/run/libvirt is present upon reboot] **************************
+0:00:09 2020-01-21 18:26:21,395 p=1027108 u=mistral |  TASK [allow logrotate to read inside containers] *******************************
+0:00:09 2020-01-21 18:26:30,621 p=1027108 u=mistral |  TASK [Set login facts] *********************************************************
+0:00:09 2020-01-21 18:26:39,941 p=1027108 u=mistral |  TASK [Convert logins json to dict] *********************************************
+0:00:09 2020-01-21 18:26:48,726 p=1027108 u=mistral |  TASK [Set registry logins] *****************************************************
+0:00:16 2020-01-21 18:26:57,544 p=1027108 u=mistral |  TASK [Run podman install] ******************************************************
+0:00:09 2020-01-21 18:27:13,221 p=1027108 u=mistral |  TASK [tripleo-podman : ensure podman and deps are installed] *******************
+0:00:10 2020-01-21 18:27:22,975 p=1027108 u=mistral |  TASK [tripleo-podman : Check for cni0 interface] *******************************
+0:00:09 2020-01-21 18:27:32,646 p=1027108 u=mistral |  TASK [tripleo-podman : Delete cni0 interface] **********************************
+0:00:09 2020-01-21 18:27:41,283 p=1027108 u=mistral |  TASK [tripleo-podman : Remove default cni config for cni0 if exists] ***********
+0:00:09 2020-01-21 18:27:50,978 p=1027108 u=mistral |  TASK [tripleo-podman : configure insecure registries /etc/containers/registries.conf] ***
+0:00:16 2020-01-21 18:27:59,891 p=1027108 u=mistral |  TASK [Run podman login] ********************************************************
+0:00:09 2020-01-21 18:28:15,658 p=1027108 u=mistral |  TASK [tripleo-podman : Perform container registry login(s)] ********************
+0:00:09 2020-01-21 18:28:24,227 p=1027108 u=mistral |  TASK [Configure paunch to generate systemd drop-in dependencies] ***************
+0:00:13 2020-01-21 18:28:33,915 p=1027108 u=mistral |  TASK [Populate service facts (chrony)] *****************************************
+0:00:08 2020-01-21 18:28:46,103 p=1027108 u=mistral |  TASK [Disable NTP before configuring Chrony] ***********************************
+0:00:16 2020-01-21 18:28:54,350 p=1027108 u=mistral |  TASK [Install, Configure and Run Chrony] ***************************************
+0:00:08 2020-01-21 18:29:10,300 p=1027108 u=mistral |  TASK [chrony : Load distro-specific variables] *********************************
+0:00:15 2020-01-21 18:29:18,859 p=1027108 u=mistral |  TASK [chrony : Install chronyd] ************************************************
+0:00:10 2020-01-21 18:29:33,907 p=1027108 u=mistral |  TASK [chrony : Install chronyd package] ****************************************
+0:00:08 2020-01-21 18:29:43,010 p=1027108 u=mistral |  TASK [chrony : Upgrade chronyd] ************************************************
+0:00:15 2020-01-21 18:29:51,449 p=1027108 u=mistral |  TASK [chrony : Configure chronyd] **********************************************
+0:00:10 2020-01-21 18:30:06,417 p=1027108 u=mistral |  TASK [chrony : Install chrony configuration file] ******************************
+0:00:11 2020-01-21 18:30:16,246 p=1027108 u=mistral |  TASK [chrony : Ensure chronyd is running] **************************************
+0:00:19 2020-01-21 18:30:27,244 p=1027108 u=mistral |  TASK [chrony : Force chronyd restart] ******************************************
+0:00:09 2020-01-21 18:30:46,099 p=1027108 u=mistral |  TASK [Ensure system is NTP time synced] ****************************************
+0:00:08 2020-01-21 18:30:55,160 p=1027108 u=mistral |  TASK [Set timezone fact] *******************************************************
+0:00:12 2020-01-21 18:31:03,818 p=1027108 u=mistral |  TASK [Set timezone to UTC] *****************************************************
+0:00:12 2020-01-21 18:31:15,504 p=1027108 u=mistral |  TASK [Populate service facts] **************************************************
+0:00:09 2020-01-21 18:31:27,597 p=1027108 u=mistral |  TASK [Restart services] ********************************************************
+0:00:16 2020-01-21 18:31:36,538 p=1027108 u=mistral |  TASK [include_role : tuned] ****************************************************
+0:00:09 2020-01-21 18:31:52,958 p=1027108 u=mistral |  TASK [tuned : Gather variables for each operating system] **********************
+0:00:16 2020-01-21 18:32:01,704 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:10 2020-01-21 18:32:17,178 p=1027108 u=mistral |  TASK [tuned : Install tuned] ***************************************************
+0:00:09 2020-01-21 18:32:27,056 p=1027108 u=mistral |  TASK [tuned : Check for tuned-adm] *********************************************
+0:00:16 2020-01-21 18:32:36,351 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:08 2020-01-21 18:32:52,177 p=1027108 u=mistral |  TASK [tuned : Ensure profile directory exists] *********************************
+0:00:08 2020-01-21 18:33:00,431 p=1027108 u=mistral |  TASK [tuned : Create custom tuned profile] *************************************
+0:00:09 2020-01-21 18:33:08,851 p=1027108 u=mistral |  TASK [tuned : Check tuned active profile] **************************************
+0:00:10 2020-01-21 18:33:17,764 p=1027108 u=mistral |  TASK [tuned : Check Tuned Configuration file exists] ***************************
+0:00:08 2020-01-21 18:33:27,392 p=1027108 u=mistral |  TASK [tuned : Fail if tuned profile conf is absent but isolated cores is provided] ***
+0:00:09 2020-01-21 18:33:35,761 p=1027108 u=mistral |  TASK [tuned : Configure isolated cores for profile throughput-performance] *****
+0:00:10 2020-01-21 18:33:44,056 p=1027108 u=mistral |  TASK [tuned : Enable tuned profile] ********************************************
+0:00:09 2020-01-21 18:33:54,246 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:10 2020-01-21 18:34:03,782 p=1027108 u=mistral |  TASK [openvswitch logs readme] *************************************************
+0:00:10 2020-01-21 18:34:13,542 p=1027108 u=mistral |  TASK [create persistent directories] *******************************************
+0:00:10 2020-01-21 18:34:23,804 p=1027108 u=mistral |  TASK [neutron logs readme] *****************************************************
+0:00:09 2020-01-21 18:34:33,459 p=1027108 u=mistral |  TASK [create /run/netns with temp namespace] ***********************************
+0:00:09 2020-01-21 18:34:42,552 p=1027108 u=mistral |  TASK [remove temp namespace] ***************************************************
+0:00:09 2020-01-21 18:34:51,689 p=1027108 u=mistral |  TASK [create /var/lib/neutron] *************************************************
+0:00:00 2020-01-21 18:35:00,611 p=1027108 u=mistral |  TASK [CephStorage Host prep steps] *********************************************
+0:00:01 2020-01-21 18:35:00,741 p=1027108 u=mistral |  TASK [include_role : tripleo-kernel] *******************************************
+0:00:00 2020-01-21 18:35:01,333 p=1027108 u=mistral |  TASK [tripleo-kernel : Install additional packages] ****************************
+0:00:01 2020-01-21 18:35:01,681 p=1027108 u=mistral |  TASK [tripleo-kernel : Ensure the /etc/modules-load.d/ directory exists] *******
+0:00:01 2020-01-21 18:35:02,488 p=1027108 u=mistral |  TASK [tripleo-kernel : Write list of modules to load at boot] ******************
+0:00:01 2020-01-21 18:35:03,480 p=1027108 u=mistral |  TASK [tripleo-kernel : Set default sysctl options] *****************************
+0:00:03 2020-01-21 18:35:04,574 p=1027108 u=mistral |  TASK [tripleo-kernel : Set extra sysctl options] *******************************
+0:00:01 2020-01-21 18:35:07,806 p=1027108 u=mistral |  TASK [allow logrotate to read inside containers] *******************************
+0:00:00 2020-01-21 18:35:08,624 p=1027108 u=mistral |  TASK [Set login facts] *********************************************************
+0:00:01 2020-01-21 18:35:08,963 p=1027108 u=mistral |  TASK [Convert logins json to dict] *********************************************
+0:00:00 2020-01-21 18:35:09,308 p=1027108 u=mistral |  TASK [Set registry logins] *****************************************************
+0:00:01 2020-01-21 18:35:09,650 p=1027108 u=mistral |  TASK [Run podman install] ******************************************************
+0:00:01 2020-01-21 18:35:10,237 p=1027108 u=mistral |  TASK [tripleo-podman : ensure podman and deps are installed] *******************
+0:00:00 2020-01-21 18:35:11,349 p=1027108 u=mistral |  TASK [tripleo-podman : Check for cni0 interface] *******************************
+0:00:01 2020-01-21 18:35:11,929 p=1027108 u=mistral |  TASK [tripleo-podman : Delete cni0 interface] **********************************
+0:00:01 2020-01-21 18:35:12,281 p=1027108 u=mistral |  TASK [tripleo-podman : Remove default cni config for cni0 if exists] ***********
+0:00:00 2020-01-21 18:35:13,247 p=1027108 u=mistral |  TASK [tripleo-podman : configure insecure registries /etc/containers/registries.conf] ***
+0:00:01 2020-01-21 18:35:13,811 p=1027108 u=mistral |  TASK [Run podman login] ********************************************************
+0:00:00 2020-01-21 18:35:14,430 p=1027108 u=mistral |  TASK [tripleo-podman : Perform container registry login(s)] ********************
+0:00:01 2020-01-21 18:35:14,795 p=1027108 u=mistral |  TASK [Configure paunch to generate systemd drop-in dependencies] ***************
+0:00:02 2020-01-21 18:35:15,819 p=1027108 u=mistral |  TASK [Populate service facts (chrony)] *****************************************
+0:00:01 2020-01-21 18:35:17,958 p=1027108 u=mistral |  TASK [Disable NTP before configuring Chrony] ***********************************
+0:00:01 2020-01-21 18:35:18,466 p=1027108 u=mistral |  TASK [Install, Configure and Run Chrony] ***************************************
+0:00:00 2020-01-21 18:35:19,361 p=1027108 u=mistral |  TASK [chrony : Load distro-specific variables] *********************************
+0:00:01 2020-01-21 18:35:19,868 p=1027108 u=mistral |  TASK [chrony : Install chronyd] ************************************************
+0:00:01 2020-01-21 18:35:20,737 p=1027108 u=mistral |  TASK [chrony : Install chronyd package] ****************************************
+0:00:01 2020-01-21 18:35:21,812 p=1027108 u=mistral |  TASK [chrony : Upgrade chronyd] ************************************************
+0:00:01 2020-01-21 18:35:22,354 p=1027108 u=mistral |  TASK [chrony : Configure chronyd] **********************************************
+0:00:01 2020-01-21 18:35:23,250 p=1027108 u=mistral |  TASK [chrony : Install chrony configuration file] ******************************
+0:00:01 2020-01-21 18:35:24,478 p=1027108 u=mistral |  TASK [chrony : Ensure chronyd is running] **************************************
+0:00:03 2020-01-21 18:35:25,993 p=1027108 u=mistral |  TASK [chrony : Force chronyd restart] ******************************************
+0:00:00 2020-01-21 18:35:28,003 p=1027108 u=mistral |  TASK [Ensure system is NTP time synced] ****************************************
+0:00:01 2020-01-21 18:35:28,716 p=1027108 u=mistral |  TASK [Set timezone fact] *******************************************************
+0:00:00 2020-01-21 18:35:29,212 p=1027108 u=mistral |  TASK [Set timezone to UTC] *****************************************************
+0:00:02 2020-01-21 18:35:29,968 p=1027108 u=mistral |  TASK [Populate service facts] **************************************************
+0:00:01 2020-01-21 18:35:31,883 p=1027108 u=mistral |  TASK [Restart services] ********************************************************
+0:00:01 2020-01-21 18:35:32,385 p=1027108 u=mistral |  TASK [include_role : tuned] ****************************************************
+0:00:00 2020-01-21 18:35:33,351 p=1027108 u=mistral |  TASK [tuned : Gather variables for each operating system] **********************
+0:00:01 2020-01-21 18:35:33,865 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:01 2020-01-21 18:35:34,738 p=1027108 u=mistral |  TASK [tuned : Install tuned] ***************************************************
+0:00:01 2020-01-21 18:35:35,978 p=1027108 u=mistral |  TASK [tuned : Check for tuned-adm] *********************************************
+0:00:01 2020-01-21 18:35:36,690 p=1027108 u=mistral |  TASK [tuned : include_tasks] ***************************************************
+0:00:01 2020-01-21 18:35:37,575 p=1027108 u=mistral |  TASK [tuned : Ensure profile directory exists] *********************************
+0:00:00 2020-01-21 18:35:38,075 p=1027108 u=mistral |  TASK [tuned : Create custom tuned profile] *************************************
+0:00:01 2020-01-21 18:35:38,570 p=1027108 u=mistral |  TASK [tuned : Check tuned active profile] **************************************
+0:00:00 2020-01-21 18:35:39,275 p=1027108 u=mistral |  TASK [tuned : Check Tuned Configuration file exists] ***************************
+0:00:01 2020-01-21 18:35:39,975 p=1027108 u=mistral |  TASK [tuned : Fail if tuned profile conf is absent but isolated cores is provided] ***
+0:00:00 2020-01-21 18:35:40,464 p=1027108 u=mistral |  TASK [tuned : Configure isolated cores for profile throughput-performance] *****
+0:00:01 2020-01-21 18:35:40,960 p=1027108 u=mistral |  TASK [tuned : Enable tuned profile] ********************************************
+0:00:00 2020-01-21 18:35:41,448 p=1027108 u=mistral |  TASK [External deployment step 1] **********************************************
+0:00:00 2020-01-21 18:35:41,585 p=1027108 u=mistral |  TASK [set ceph-ansible facts] **************************************************
+0:00:01 2020-01-21 18:35:41,732 p=1027108 u=mistral |  TASK [create ceph-ansible working direcotry] ***********************************
+0:00:00 2020-01-21 18:35:42,001 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 18:35:42,144 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 18:35:42,283 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:01 2020-01-21 18:35:42,425 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 18:35:43,070 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:01 2020-01-21 18:35:43,219 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : create ceph-ansible temp dirs] *******************
+0:00:00 2020-01-21 18:35:44,349 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : symbolic link to tripleo inventory from ceph-ansible work directory] ***
+0:00:01 2020-01-21 18:35:44,707 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible group vars all] ************
+0:00:01 2020-01-21 18:35:45,463 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible extra vars] ****************
+0:00:00 2020-01-21 18:35:46,226 p=1027108 u=mistral |  TASK [prepare for ceph-ansible uuid gathering] *********************************
+0:00:00 2020-01-21 18:35:46,519 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 18:35:46,665 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 18:35:46,811 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:01 2020-01-21 18:35:46,959 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 18:35:47,342 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:00 2020-01-21 18:35:47,493 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 18:35:47,638 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 18:35:47,785 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:01 2020-01-21 18:35:47,934 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 18:35:48,304 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:01 2020-01-21 18:35:48,449 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : create ceph-ansible temp dirs] *******************
+0:00:00 2020-01-21 18:35:49,582 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : symbolic link to tripleo inventory from ceph-ansible work directory] ***
+0:00:01 2020-01-21 18:35:49,948 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible group vars all] ************
+0:00:01 2020-01-21 18:35:50,701 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible extra vars] ****************
+0:00:00 2020-01-21 18:35:51,473 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : detect private key file] *************************
+0:00:00 2020-01-21 18:35:51,830 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : set private key file] ****************************
+0:00:01 2020-01-21 18:35:51,979 p=1027108 u=mistral |  TASK [tripleo-ceph-uuid : generate nodes-uuid data file] ***********************
+0:00:01 2020-01-21 18:35:52,712 p=1027108 u=mistral |  TASK [tripleo-ceph-uuid : generate nodes-uuid playbook] ************************
+0:00:00 2020-01-21 18:35:53,449 p=1027108 u=mistral |  TASK [set ceph-ansible facts] **************************************************
+0:00:00 2020-01-21 18:35:53,592 p=1027108 u=mistral |  TASK [get ssh private key] *****************************************************
+0:00:00 2020-01-21 18:35:53,731 p=1027108 u=mistral |  TASK [run nodes-uuid] **********************************************************
+0:00:01 2020-01-21 18:35:53,872 p=1027108 u=mistral |  TASK [create copy of ceph-ansible fetch directory] *****************************
+0:00:00 2020-01-21 18:35:54,011 p=1027108 u=mistral |  TASK [run ceph-ansible] ********************************************************
+0:00:00 2020-01-21 18:35:54,155 p=1027108 u=mistral |  TASK [backup and clean fetch directory] ****************************************
+0:00:00 2020-01-21 18:35:54,294 p=1027108 u=mistral |  TASK [set ceph-ansible group vars mgrs] ****************************************
+0:00:01 2020-01-21 18:35:54,435 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars mgrs] ***********************************
+0:00:00 2020-01-21 18:35:55,171 p=1027108 u=mistral |  TASK [set ceph-ansible group vars mons] ****************************************
+0:00:01 2020-01-21 18:35:55,325 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars mons] ***********************************
+0:00:00 2020-01-21 18:35:56,074 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Create temp file for prepare parameter] ***
+0:00:01 2020-01-21 18:35:56,463 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Write ContainerImagePrepare parameter file] ***
+0:00:00 2020-01-21 18:35:57,404 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Create temp file for role data] ********
+0:00:01 2020-01-21 18:35:57,768 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Write role data file] ******************
+0:00:22 2020-01-21 18:35:58,729 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Run tripleo-container-image-prepare logged to: /var/log/tripleo-container-image-prepare.log] ***
+0:00:00 2020-01-21 18:36:20,087 p=1027108 u=mistral |  TASK [set ceph-ansible group vars clients] *************************************
+0:00:01 2020-01-21 18:36:20,235 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars clients] ********************************
+0:00:00 2020-01-21 18:36:21,021 p=1027108 u=mistral |  TASK [set ceph-ansible group vars osds] ****************************************
+0:00:01 2020-01-21 18:36:21,164 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars osds] ***********************************
+0:00:49 2020-01-21 18:36:22,849 p=1027108 u=mistral |  TASK [Write the config_step hieradata for the deploy step 1 tasks] *************
+0:00:00 2020-01-21 18:37:11,074 p=1027108 u=mistral |  TASK [Overcloud deploy step tasks for 1] ***************************************
+0:00:00 2020-01-21 18:37:11,309 p=1027108 u=mistral |  TASK [Check for Controller/deploy_steps_tasks_step1.yaml] **********************
+0:00:44 2020-01-21 18:37:11,747 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:01 2020-01-21 18:37:55,747 p=1027108 u=mistral |  TASK [tripleo-container-tag : Fail if container image is undefined] ************
+0:00:02 2020-01-21 18:37:56,415 p=1027108 u=mistral |  TASK [tripleo-container-tag : Pull 192.168.0.1:8787/rh-osbs/rhosp16-openstack-cinder-volume:20200110.1 image] ***
+0:00:01 2020-01-21 18:37:58,139 p=1027108 u=mistral |  TASK [tripleo-container-tag : Tag cluster.common.tag/rhosp16-openstack-cinder-volume:pcmklatest to latest 192.168.0.1:8787/rh-osbs/rhosp16-openstack-cinder-volume:20200110.1 image] ***
+0:00:01 2020-01-21 18:37:59,107 p=1027108 u=mistral |  TASK [Check if rsyslog exists] *************************************************
+0:00:01 2020-01-21 18:38:00,614 p=1027108 u=mistral |  TASK [Forward logging to haproxy.log file] *************************************
+0:00:01 2020-01-21 18:38:01,531 p=1027108 u=mistral |  TASK [restart rsyslog service after logging conf change] ***********************
+0:00:00 2020-01-21 18:38:02,216 p=1027108 u=mistral |  TASK [tripleo-container-tag : Fail if container image is undefined] ************
+0:00:02 2020-01-21 18:38:02,884 p=1027108 u=mistral |  TASK [tripleo-container-tag : Pull 192.168.0.1:8787/rh-osbs/rhosp16-openstack-haproxy:20200110.1 image] ***
+0:00:01 2020-01-21 18:38:04,651 p=1027108 u=mistral |  TASK [tripleo-container-tag : Tag cluster.common.tag/rhosp16-openstack-haproxy:pcmklatest to latest 192.168.0.1:8787/rh-osbs/rhosp16-openstack-haproxy:20200110.1 image] ***
+0:00:01 2020-01-21 18:38:05,633 p=1027108 u=mistral |  TASK [tripleo-container-tag : Fail if container image is undefined] ************
+0:00:01 2020-01-21 18:38:06,282 p=1027108 u=mistral |  TASK [tripleo-container-tag : Pull 192.168.0.1:8787/rh-osbs/rhosp16-openstack-mariadb:20200110.1 image] ***
+0:00:01 2020-01-21 18:38:07,979 p=1027108 u=mistral |  TASK [tripleo-container-tag : Tag cluster.common.tag/rhosp16-openstack-mariadb:pcmklatest to latest 192.168.0.1:8787/rh-osbs/rhosp16-openstack-mariadb:20200110.1 image] ***
+0:00:01 2020-01-21 18:38:08,941 p=1027108 u=mistral |  TASK [tripleo-container-tag : Fail if container image is undefined] ************
+0:00:02 2020-01-21 18:38:09,590 p=1027108 u=mistral |  TASK [tripleo-container-tag : Pull 192.168.0.1:8787/rh-osbs/rhosp16-openstack-ovn-northd:20200110.1 image] ***
+0:00:01 2020-01-21 18:38:11,303 p=1027108 u=mistral |  TASK [tripleo-container-tag : Tag cluster.common.tag/rhosp16-openstack-ovn-northd:pcmklatest to latest 192.168.0.1:8787/rh-osbs/rhosp16-openstack-ovn-northd:20200110.1 image] ***
+0:00:00 2020-01-21 18:38:12,252 p=1027108 u=mistral |  TASK [tripleo-container-tag : Fail if container image is undefined] ************
+0:00:02 2020-01-21 18:38:12,899 p=1027108 u=mistral |  TASK [tripleo-container-tag : Pull 192.168.0.1:8787/rh-osbs/rhosp16-openstack-rabbitmq:20200110.1 image] ***
+0:00:01 2020-01-21 18:38:14,597 p=1027108 u=mistral |  TASK [tripleo-container-tag : Tag cluster.common.tag/rhosp16-openstack-rabbitmq:pcmklatest to latest 192.168.0.1:8787/rh-osbs/rhosp16-openstack-rabbitmq:20200110.1 image] ***
+0:00:02 2020-01-21 18:38:15,558 p=1027108 u=mistral |  TASK [Check if rsyslog exists] *************************************************
+0:00:01 2020-01-21 18:38:17,246 p=1027108 u=mistral |  TASK [Forward logging to swift.log file] ***************************************
+0:00:01 2020-01-21 18:38:18,593 p=1027108 u=mistral |  TASK [Restart rsyslogd service after logging conf change] **********************
+0:00:01 2020-01-21 18:38:19,246 p=1027108 u=mistral |  TASK [Check if rsyslog exists] *************************************************
+0:00:02 2020-01-21 18:38:20,902 p=1027108 u=mistral |  TASK [Forward logging to swift.log file] ***************************************
+0:00:00 2020-01-21 18:38:22,239 p=1027108 u=mistral |  TASK [Restart rsyslogd service after logging conf change] **********************
+0:00:01 2020-01-21 18:38:22,891 p=1027108 u=mistral |  TASK [Check for Compute/deploy_steps_tasks_step1.yaml] *************************
+0:00:42 2020-01-21 18:38:23,321 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 18:39:05,316 p=1027108 u=mistral |  TASK [Check for ms5039Compute/deploy_steps_tasks_step1.yaml] *******************
+0:01:03 2020-01-21 18:39:05,769 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:24 2020-01-21 18:40:08,610 p=1027108 u=mistral |  TASK [set conditions] **********************************************************
+0:00:26 2020-01-21 18:40:32,952 p=1027108 u=mistral |  TASK [create kill_scripts directory within /var/lib/neutron] *******************
+0:00:27 2020-01-21 18:40:58,607 p=1027108 u=mistral |  TASK [create haproxy kill script] **********************************************
+0:00:00 2020-01-21 18:41:25,511 p=1027108 u=mistral |  TASK [Check for u1029Compute/deploy_steps_tasks_step1.yaml] ********************
+0:00:56 2020-01-21 18:41:25,966 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:09 2020-01-21 18:42:21,011 p=1027108 u=mistral |  TASK [set conditions] **********************************************************
+0:00:09 2020-01-21 18:42:30,008 p=1027108 u=mistral |  TASK [create kill_scripts directory within /var/lib/neutron] *******************
+0:00:10 2020-01-21 18:42:39,440 p=1027108 u=mistral |  TASK [create haproxy kill script] **********************************************
+0:00:00 2020-01-21 18:42:49,183 p=1027108 u=mistral |  TASK [Check for p1029Compute/deploy_steps_tasks_step1.yaml] ********************
+0:00:54 2020-01-21 18:42:49,624 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:09 2020-01-21 18:43:43,862 p=1027108 u=mistral |  TASK [set conditions] **********************************************************
+0:00:09 2020-01-21 18:43:52,469 p=1027108 u=mistral |  TASK [create kill_scripts directory within /var/lib/neutron] *******************
+0:00:10 2020-01-21 18:44:01,601 p=1027108 u=mistral |  TASK [create haproxy kill script] **********************************************
+0:00:00 2020-01-21 18:44:11,522 p=1027108 u=mistral |  TASK [Check for CephStorage/deploy_steps_tasks_step1.yaml] *********************
+0:00:44 2020-01-21 18:44:11,958 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:44 2020-01-21 18:44:55,202 p=1027108 u=mistral |  TASK [Check if /var/lib/tripleo-config/container-startup-config-1.json already exists] ***
+0:01:16 2020-01-21 18:45:39,521 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:45 2020-01-21 18:46:55,398 p=1027108 u=mistral |  TASK [Create and ensure setype for /var/log/containers directory] **************
+0:00:44 2020-01-21 18:47:40,712 p=1027108 u=mistral |  TASK [Create ContainerLogStdoutPath directory] *********************************
+0:00:45 2020-01-21 18:48:24,638 p=1027108 u=mistral |  TASK [Create /var/lib/tripleo-config directory] ********************************
+0:00:42 2020-01-21 18:49:09,177 p=1027108 u=mistral |  TASK [Delete existing /var/lib/tripleo-config/check-mode directory for check mode] ***
+0:00:43 2020-01-21 18:49:51,728 p=1027108 u=mistral |  TASK [Create /var/lib/tripleo-config/check-mode directory for check mode] ******
+0:00:48 2020-01-21 18:50:34,897 p=1027108 u=mistral |  TASK [Write the puppet step_config manifest] ***********************************
+0:00:43 2020-01-21 18:51:22,177 p=1027108 u=mistral |  TASK [Diff puppet step_config manifest changes for check mode] *****************
+0:00:43 2020-01-21 18:52:05,730 p=1027108 u=mistral |  TASK [Diff puppet step_config manifest changes for check mode] *****************
+0:00:44 2020-01-21 18:52:48,851 p=1027108 u=mistral |  TASK [Create /var/lib/container-puppet] ****************************************
+0:00:44 2020-01-21 18:53:32,795 p=1027108 u=mistral |  TASK [Create /var/lib/docker-puppet for backward compatibility] ****************
+0:00:45 2020-01-21 18:54:16,111 p=1027108 u=mistral |  TASK [Deprecation file about /var/lib/docker-puppet] ***************************
+0:00:43 2020-01-21 18:55:01,777 p=1027108 u=mistral |  TASK [Delete existing /var/lib/container-puppet/check-mode for check mode] *****
+0:00:44 2020-01-21 18:55:44,653 p=1027108 u=mistral |  TASK [Create /var/lib/container-puppet/check-mode for check mode] **************
+0:00:46 2020-01-21 18:56:28,248 p=1027108 u=mistral |  TASK [Write container-puppet.json file] ****************************************
+0:00:43 2020-01-21 18:57:14,627 p=1027108 u=mistral |  TASK [Diff container-puppet.json changes for check mode] ***********************
+0:00:42 2020-01-21 18:57:57,781 p=1027108 u=mistral |  TASK [Diff container-puppet.json changes for check mode] ***********************
+0:00:44 2020-01-21 18:58:39,643 p=1027108 u=mistral |  TASK [Create /var/lib/container-config-scripts] ********************************
+0:00:43 2020-01-21 18:59:23,148 p=1027108 u=mistral |  TASK [Clean old /var/lib/container-startup-configs.json file] ******************
+0:00:45 2020-01-21 19:00:06,834 p=1027108 u=mistral |  TASK [Clean old /var/lib/docker-container-startup-configs.json file] ***********
+0:00:59 2020-01-21 19:00:51,681 p=1027108 u=mistral |  TASK [Write container config scripts] ******************************************
+0:00:44 2020-01-21 19:01:50,013 p=1027108 u=mistral |  TASK [Set container_config_default fact] ***************************************
+0:00:43 2020-01-21 19:02:34,475 p=1027108 u=mistral |  TASK [Set container_startup_configs_with_default fact] *************************
+0:01:00 2020-01-21 19:03:17,327 p=1027108 u=mistral |  TASK [Write per-step container startup configs] ********************************
+0:00:43 2020-01-21 19:04:17,154 p=1027108 u=mistral |  TASK [Create /var/lib/kolla/config_files directory] ****************************
+0:00:45 2020-01-21 19:05:00,748 p=1027108 u=mistral |  TASK [Create /var/lib/config-data directory] ***********************************
+0:01:04 2020-01-21 19:05:45,171 p=1027108 u=mistral |  TASK [Write kolla config json files] *******************************************
+0:00:43 2020-01-21 19:06:49,071 p=1027108 u=mistral |  TASK [gather facts needed by role] *********************************************
+0:00:46 2020-01-21 19:07:32,546 p=1027108 u=mistral |  TASK [set python_cmd] **********************************************************
+0:00:42 2020-01-21 19:08:18,229 p=1027108 u=mistral |  TASK [Set host puppet debugging fact string] ***********************************
+0:00:42 2020-01-21 19:09:00,359 p=1027108 u=mistral |  TASK [Check for /etc/puppet/check-mode directory for check mode] ***************
+0:00:42 2020-01-21 19:09:42,438 p=1027108 u=mistral |  TASK [Create /etc/puppet/check-mode/hieradata directory for check mode] ********
+0:00:43 2020-01-21 19:10:24,734 p=1027108 u=mistral |  TASK [Create puppet check-mode files if they don't exist for check mode] *******
+0:00:00 2020-01-21 19:11:07,695 p=1027108 u=mistral |  TASK [Overcloud common deploy step tasks 1] ************************************
+0:00:45 2020-01-21 19:11:07,923 p=1027108 u=mistral |  TASK [Check if /var/lib/tripleo-config/container-startup-config-1.json already exists] ***
+0:01:15 2020-01-21 19:11:52,465 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:45 2020-01-21 19:13:07,139 p=1027108 u=mistral |  TASK [Write the config_step hieradata] *****************************************
+0:00:48 2020-01-21 19:13:52,928 p=1027108 u=mistral |  TASK [Run puppet host configuration for step 1] ********************************
+0:00:44 2020-01-21 19:14:40,078 p=1027108 u=mistral |  TASK [Wait for puppet host configuration to finish] ****************************
+0:00:44 2020-01-21 19:15:24,898 p=1027108 u=mistral |  TASK [Debug output for task: Run puppet host configuration for step 1] *********
+0:00:45 2020-01-21 19:16:08,573 p=1027108 u=mistral |  TASK [Create puppet caching structures] ****************************************
+0:00:46 2020-01-21 19:16:53,969 p=1027108 u=mistral |  TASK [Check for facter.conf] ***************************************************
+0:00:43 2020-01-21 19:17:39,688 p=1027108 u=mistral |  TASK [Remove facter.conf if directory] *****************************************
+0:00:47 2020-01-21 19:18:22,157 p=1027108 u=mistral |  TASK [Write facter cache config] ***********************************************
+0:00:44 2020-01-21 19:19:09,395 p=1027108 u=mistral |  TASK [Cleanup facter cache if exists] ******************************************
+0:00:47 2020-01-21 19:19:53,557 p=1027108 u=mistral |  TASK [Pre-cache facts] *********************************************************
+0:00:43 2020-01-21 19:20:40,131 p=1027108 u=mistral |  TASK [Facter error output when failed] *****************************************
+0:01:19 2020-01-21 19:21:23,420 p=1027108 u=mistral |  TASK [Sync cached facts] *******************************************************
+0:00:47 2020-01-21 19:22:42,297 p=1027108 u=mistral |  TASK [Run container-puppet tasks (generate config) during step 1] **************
+0:00:50 2020-01-21 19:23:29,507 p=1027108 u=mistral |  TASK [Wait for container-puppet tasks (generate config) to finish] *************
+0:00:48 2020-01-21 19:24:19,891 p=1027108 u=mistral |  TASK [Debug output for task: Run container-puppet tasks (generate config) during step 1] ***
+0:00:44 2020-01-21 19:25:07,953 p=1027108 u=mistral |  TASK [Diff container-puppet.py puppet-generated changes for check mode] ********
+0:00:45 2020-01-21 19:25:51,447 p=1027108 u=mistral |  TASK [Diff container-puppet.py puppet-generated changes for check mode] ********
+0:00:48 2020-01-21 19:26:36,071 p=1027108 u=mistral |  TASK [Start containers for step 1 using paunch] ********************************
+0:00:45 2020-01-21 19:27:24,106 p=1027108 u=mistral |  TASK [Wait for containers to start for step 1 using paunch] ********************
+0:00:44 2020-01-21 19:28:09,587 p=1027108 u=mistral |  TASK [Debug output for task: Start containers for step 1] **********************
+0:00:44 2020-01-21 19:28:53,184 p=1027108 u=mistral |  TASK [Clean container_puppet_tasks for overcloud-controller-0 step 1] **********
+0:00:44 2020-01-21 19:29:37,577 p=1027108 u=mistral |  TASK [Calculate container_puppet_tasks for overcloud-controller-0 step 1] ******
+0:00:44 2020-01-21 19:30:21,177 p=1027108 u=mistral |  TASK [Write container-puppet-tasks json file for overcloud-controller-0 step 1] ***
+0:00:44 2020-01-21 19:31:05,500 p=1027108 u=mistral |  TASK [Run container-puppet tasks (bootstrap tasks) for step 1] *****************
+0:00:44 2020-01-21 19:31:49,355 p=1027108 u=mistral |  TASK [Wait for container-puppet tasks (bootstrap tasks) for step 1 to finish] ***
+0:00:43 2020-01-21 19:32:33,984 p=1027108 u=mistral |  TASK [Debug output for task: Run container-puppet tasks (bootstrap tasks) for step 1] ***
+0:00:00 2020-01-21 19:33:16,300 p=1027108 u=mistral |  TASK [External deployment step 2] **********************************************
+0:00:00 2020-01-21 19:33:16,444 p=1027108 u=mistral |  TASK [set ceph-ansible facts] **************************************************
+0:00:00 2020-01-21 19:33:16,585 p=1027108 u=mistral |  TASK [create ceph-ansible working direcotry] ***********************************
+0:00:00 2020-01-21 19:33:16,726 p=1027108 u=mistral |  TASK [prepare for ceph-ansible uuid gathering] *********************************
+0:00:01 2020-01-21 19:33:16,871 p=1027108 u=mistral |  TASK [set ceph-ansible facts] **************************************************
+0:00:00 2020-01-21 19:33:17,020 p=1027108 u=mistral |  TASK [get ssh private key] *****************************************************
+0:00:00 2020-01-21 19:33:17,306 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 19:33:17,454 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:33:17,601 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:01 2020-01-21 19:33:17,753 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 19:33:18,425 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:00 2020-01-21 19:33:18,575 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : detect private key file] *************************
+0:00:01 2020-01-21 19:33:18,938 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : set private key file] ****************************
+0:00:00 2020-01-21 19:33:19,080 p=1027108 u=mistral |  TASK [run nodes-uuid] **********************************************************
+0:00:00 2020-01-21 19:33:19,373 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 19:33:19,518 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:33:19,659 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:01 2020-01-21 19:33:19,801 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 19:33:20,169 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:00 2020-01-21 19:33:20,317 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 19:33:20,459 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:33:20,604 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:01 2020-01-21 19:33:20,751 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 19:33:21,114 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:01 2020-01-21 19:33:21,260 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : create ceph-ansible temp dirs] *******************
+0:00:00 2020-01-21 19:33:22,411 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : symbolic link to tripleo inventory from ceph-ansible work directory] ***
+0:00:01 2020-01-21 19:33:22,787 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible group vars all] ************
+0:00:01 2020-01-21 19:33:23,590 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible extra vars] ****************
+0:00:00 2020-01-21 19:33:24,379 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : detect private key file] *************************
+0:00:00 2020-01-21 19:33:24,745 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : set private key file] ****************************
+0:00:01 2020-01-21 19:33:24,888 p=1027108 u=mistral |  TASK [tripleo-ceph-uuid : build nodes-uuid command as list] ********************
+0:01:08 2020-01-21 19:33:25,037 p=1027108 u=mistral |  TASK [tripleo-ceph-uuid : run nodes-uuid command] ******************************
+0:00:00 2020-01-21 19:34:33,025 p=1027108 u=mistral |  TASK [create copy of ceph-ansible fetch directory] *****************************
+0:00:00 2020-01-21 19:34:33,385 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 19:34:33,533 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:34:33,680 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:01 2020-01-21 19:34:33,822 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 19:34:34,176 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:00 2020-01-21 19:34:34,323 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 19:34:34,466 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:34:34,606 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:01 2020-01-21 19:34:34,745 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 19:34:35,092 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:01 2020-01-21 19:34:35,234 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : create ceph-ansible temp dirs] *******************
+0:00:00 2020-01-21 19:34:36,520 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : symbolic link to tripleo inventory from ceph-ansible work directory] ***
+0:00:01 2020-01-21 19:34:36,889 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible group vars all] ************
+0:00:01 2020-01-21 19:34:37,657 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible extra vars] ****************
+0:00:00 2020-01-21 19:34:38,416 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : detect private key file] *************************
+0:00:00 2020-01-21 19:34:38,777 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : set private key file] ****************************
+0:00:01 2020-01-21 19:34:38,919 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : look for requested ceph-ansible fetch directory for local backup] ***
+0:00:00 2020-01-21 19:34:39,060 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : fail if ansible does not have necessary permissions on local_backup_directory] ***
+0:00:00 2020-01-21 19:34:39,207 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : autocreate new directory for ceph-ansible fetch directory backup] ***
+0:00:00 2020-01-21 19:34:39,348 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : look for tarball of ceph-ansible fetch directory in local backup] ***
+0:00:00 2020-01-21 19:34:39,489 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : untar local backup of ceph-ansible fetch directory] ***
+0:00:01 2020-01-21 19:34:39,633 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : attempt download of fetch directory tarball from swift backup] ***
+0:00:00 2020-01-21 19:34:40,035 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : ensure we create a new fetch_directory or use the old fetch_directory] ***
+0:00:00 2020-01-21 19:34:40,185 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : unpack downloaded ceph-ansible fetch tarball to fetch directory] ***
+0:00:00 2020-01-21 19:34:40,329 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : remove downloaded ceph-ansible fetch directory tarball from filesystem] ***
+0:00:00 2020-01-21 19:34:40,473 p=1027108 u=mistral |  TASK [run ceph-ansible] ********************************************************
+0:00:01 2020-01-21 19:34:40,885 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 19:34:41,030 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:34:41,170 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:00 2020-01-21 19:34:41,311 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 19:34:41,660 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:00 2020-01-21 19:34:41,803 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:01 2020-01-21 19:34:41,943 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:34:42,081 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:00 2020-01-21 19:34:42,219 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 19:34:42,575 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:01 2020-01-21 19:34:42,718 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : create ceph-ansible temp dirs] *******************
+0:00:01 2020-01-21 19:34:43,880 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : symbolic link to tripleo inventory from ceph-ansible work directory] ***
+0:00:01 2020-01-21 19:34:44,236 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible group vars all] ************
+0:00:00 2020-01-21 19:34:45,001 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible extra vars] ****************
+0:00:01 2020-01-21 19:34:45,749 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : detect private key file] *************************
+0:00:00 2020-01-21 19:34:46,112 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : set private key file] ****************************
+0:00:00 2020-01-21 19:34:46,254 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 19:34:46,393 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:34:46,531 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:01 2020-01-21 19:34:46,672 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 19:34:47,026 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:00 2020-01-21 19:34:47,168 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 19:34:47,308 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:34:47,449 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:00 2020-01-21 19:34:47,591 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:01 2020-01-21 19:34:47,942 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:01 2020-01-21 19:34:48,086 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : create ceph-ansible temp dirs] *******************
+0:00:00 2020-01-21 19:34:49,225 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : symbolic link to tripleo inventory from ceph-ansible work directory] ***
+0:00:01 2020-01-21 19:34:49,580 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible group vars all] ************
+0:00:01 2020-01-21 19:34:50,354 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible extra vars] ****************
+0:00:00 2020-01-21 19:34:51,130 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : detect private key file] *************************
+0:00:00 2020-01-21 19:34:51,488 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : set private key file] ****************************
+0:00:00 2020-01-21 19:34:51,646 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : look for requested ceph-ansible fetch directory for local backup] ***
+0:00:00 2020-01-21 19:34:51,790 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : fail if ansible does not have necessary permissions on local_backup_directory] ***
+0:00:01 2020-01-21 19:34:51,929 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : autocreate new directory for ceph-ansible fetch directory backup] ***
+0:00:00 2020-01-21 19:34:52,066 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : look for tarball of ceph-ansible fetch directory in local backup] ***
+0:00:00 2020-01-21 19:34:52,204 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : untar local backup of ceph-ansible fetch directory] ***
+0:00:00 2020-01-21 19:34:52,344 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : attempt download of fetch directory tarball from swift backup] ***
+0:00:00 2020-01-21 19:34:52,728 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : ensure we create a new fetch_directory or use the old fetch_directory] ***
+0:00:01 2020-01-21 19:34:52,879 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : unpack downloaded ceph-ansible fetch tarball to fetch directory] ***
+0:00:00 2020-01-21 19:34:53,024 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : remove downloaded ceph-ansible fetch directory tarball from filesystem] ***
+0:00:00 2020-01-21 19:34:53,169 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 19:34:53,312 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:34:53,452 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:00 2020-01-21 19:34:53,591 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:01 2020-01-21 19:34:53,950 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:00 2020-01-21 19:34:54,095 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 19:34:54,237 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 19:34:54,382 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:00 2020-01-21 19:34:54,527 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:01 2020-01-21 19:34:54,886 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:01 2020-01-21 19:34:55,034 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : create ceph-ansible temp dirs] *******************
+0:00:00 2020-01-21 19:34:56,220 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : symbolic link to tripleo inventory from ceph-ansible work directory] ***
+0:00:01 2020-01-21 19:34:56,574 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible group vars all] ************
+0:00:01 2020-01-21 19:34:57,331 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible extra vars] ****************
+0:00:00 2020-01-21 19:34:58,067 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : detect private key file] *************************
+0:00:00 2020-01-21 19:34:58,424 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : set private key file] ****************************
+0:00:01 2020-01-21 19:34:58,563 p=1027108 u=mistral |  TASK [tripleo-ceph-uuid : generate nodes-uuid data file] ***********************
+0:00:01 2020-01-21 19:34:59,305 p=1027108 u=mistral |  TASK [tripleo-ceph-uuid : generate nodes-uuid playbook] ************************
+0:00:00 2020-01-21 19:35:00,044 p=1027108 u=mistral |  TASK [tripleo-ceph-uuid : build nodes-uuid command as list] ********************
+0:01:10 2020-01-21 19:35:00,191 p=1027108 u=mistral |  TASK [tripleo-ceph-uuid : run nodes-uuid command] ******************************
+0:00:00 2020-01-21 19:36:10,121 p=1027108 u=mistral |  TASK [tripleo-ceph-run-ansible : set ceph-ansible playbook list] ***************
+0:00:00 2020-01-21 19:36:10,285 p=1027108 u=mistral |  TASK [tripleo-ceph-run-ansible : set ceph-ansible command list] ****************
+0:00:01 2020-01-21 19:36:10,467 p=1027108 u=mistral |  TASK [tripleo-ceph-run-ansible : save ceph-ansible playbook command(s) to shell script] ***
+1:23:29 2020-01-21 19:36:11,258 p=1027108 u=mistral |  TASK [tripleo-ceph-run-ansible : run ceph-ansible (immediate log at /var/lib/mistral/overcloud/ceph-ansible/ceph_ansible_command.log)] ***
+0:00:06 2020-01-21 20:59:40,351 p=1027108 u=mistral |  TASK [tripleo-ceph-run-ansible : print ceph-ansible output in case of failure] ***
+0:00:00 2020-01-21 20:59:46,259 p=1027108 u=mistral |  TASK [backup and clean fetch directory] ****************************************
+0:00:00 2020-01-21 20:59:46,657 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:00 2020-01-21 20:59:46,820 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:01 2020-01-21 20:59:46,985 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:00 2020-01-21 20:59:47,154 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 20:59:47,599 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:00 2020-01-21 20:59:47,768 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic user fact] *******************************
+0:00:01 2020-01-21 20:59:47,936 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set basic home fact] *******************************
+0:00:00 2020-01-21 20:59:48,103 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set default for calling_ansible_environment_variables] ***
+0:00:00 2020-01-21 20:59:48,268 p=1027108 u=mistral |  TASK [tripleo-ceph-common : get all ansible environment variables] *************
+0:00:00 2020-01-21 20:59:48,689 p=1027108 u=mistral |  TASK [tripleo-ceph-common : set calling_ansible_environment_variables] *********
+0:00:02 2020-01-21 20:59:48,859 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : create ceph-ansible temp dirs] *******************
+0:00:00 2020-01-21 20:59:50,194 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : symbolic link to tripleo inventory from ceph-ansible work directory] ***
+0:00:01 2020-01-21 20:59:50,609 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible group vars all] ************
+0:00:01 2020-01-21 20:59:51,528 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : generate ceph-ansible extra vars] ****************
+0:00:00 2020-01-21 20:59:52,435 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : detect private key file] *************************
+0:00:01 2020-01-21 20:59:52,846 p=1027108 u=mistral |  TASK [tripleo-ceph-work-dir : set private key file] ****************************
+0:00:00 2020-01-21 20:59:53,008 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : register contents of fetch_directory after ceph-ansible run] ***
+0:00:00 2020-01-21 20:59:53,576 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : create ceph-ansible fetch directory tarball in local backup] ***
+0:00:00 2020-01-21 20:59:53,736 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : create temporary ceph-ansible fetch directory tarball for swift backup] ***
+0:00:01 2020-01-21 20:59:53,900 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : backup temporary ceph-ansible fetch directory tarball in swift] ***
+0:00:00 2020-01-21 20:59:54,068 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : ensure we were able to backup temporary fetch directory to swift] ***
+0:00:00 2020-01-21 20:59:54,232 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : clean temporary fetch directory after swift backup] ***
+0:00:00 2020-01-21 20:59:54,393 p=1027108 u=mistral |  TASK [tripleo-ceph-fetch-dir : Remove ceph-ansible fetch directory] ************
+0:00:01 2020-01-21 20:59:54,846 p=1027108 u=mistral |  TASK [set ceph-ansible group vars mgrs] ****************************************
+0:00:00 2020-01-21 20:59:55,021 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars mgrs] ***********************************
+0:00:00 2020-01-21 20:59:55,186 p=1027108 u=mistral |  TASK [set ceph-ansible group vars mons] ****************************************
+0:00:00 2020-01-21 20:59:55,359 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars mons] ***********************************
+0:00:00 2020-01-21 20:59:55,539 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Create temp file for prepare parameter] ***
+0:00:00 2020-01-21 20:59:55,717 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Write ContainerImagePrepare parameter file] ***
+0:00:01 2020-01-21 20:59:55,895 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Create temp file for role data] ********
+0:00:00 2020-01-21 20:59:56,058 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Write role data file] ******************
+0:00:00 2020-01-21 20:59:56,218 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Run tripleo-container-image-prepare logged to: /var/log/tripleo-container-image-prepare.log] ***
+0:00:00 2020-01-21 20:59:56,375 p=1027108 u=mistral |  TASK [set ceph-ansible group vars clients] *************************************
+0:00:00 2020-01-21 20:59:56,530 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars clients] ********************************
+0:00:00 2020-01-21 20:59:56,685 p=1027108 u=mistral |  TASK [set ceph-ansible group vars osds] ****************************************
+0:00:01 2020-01-21 20:59:56,846 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars osds] ***********************************
+0:00:57 2020-01-21 20:59:57,121 p=1027108 u=mistral |  TASK [Write the config_step hieradata for the deploy step 2 tasks] *************
+0:00:00 2020-01-21 21:00:54,673 p=1027108 u=mistral |  TASK [Overcloud deploy step tasks for 2] ***************************************
+0:00:01 2020-01-21 21:00:54,936 p=1027108 u=mistral |  TASK [Check for Controller/deploy_steps_tasks_step2.yaml] **********************
+0:00:53 2020-01-21 21:00:55,444 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:06 2020-01-21 21:01:48,233 p=1027108 u=mistral |  TASK [Run puppet on the host to apply IPtables rules] **************************
+0:00:02 2020-01-21 21:01:54,703 p=1027108 u=mistral |  TASK [configure tmpwatch on the host] ******************************************
+0:00:00 2020-01-21 21:01:56,449 p=1027108 u=mistral |  TASK [Check for Compute/deploy_steps_tasks_step2.yaml] *************************
+0:00:51 2020-01-21 21:01:56,969 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 21:02:47,241 p=1027108 u=mistral |  TASK [Check for ms5039Compute/deploy_steps_tasks_step2.yaml] *******************
+0:01:08 2020-01-21 21:02:47,773 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:32 2020-01-21 21:03:55,502 p=1027108 u=mistral |  TASK [configure tmpwatch on the host] ******************************************
+0:00:00 2020-01-21 21:04:27,397 p=1027108 u=mistral |  TASK [Check for u1029Compute/deploy_steps_tasks_step2.yaml] ********************
+0:01:00 2020-01-21 21:04:27,908 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:12 2020-01-21 21:05:27,590 p=1027108 u=mistral |  TASK [configure tmpwatch on the host] ******************************************
+0:00:01 2020-01-21 21:05:39,980 p=1027108 u=mistral |  TASK [Check for p1029Compute/deploy_steps_tasks_step2.yaml] ********************
+0:00:59 2020-01-21 21:05:40,508 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:13 2020-01-21 21:06:39,346 p=1027108 u=mistral |  TASK [configure tmpwatch on the host] ******************************************
+0:00:00 2020-01-21 21:06:52,080 p=1027108 u=mistral |  TASK [Check for CephStorage/deploy_steps_tasks_step2.yaml] *********************
+0:00:52 2020-01-21 21:06:52,612 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:02 2020-01-21 21:07:44,789 p=1027108 u=mistral |  TASK [configure tmpwatch on the host] ******************************************
+0:00:00 2020-01-21 21:07:46,469 p=1027108 u=mistral |  TASK [Overcloud common deploy step tasks 2] ************************************
+0:00:53 2020-01-21 21:07:46,727 p=1027108 u=mistral |  TASK [Check if /var/lib/tripleo-config/container-startup-config-1.json already exists] ***
+0:01:22 2020-01-21 21:08:39,943 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:57 2020-01-21 21:10:01,553 p=1027108 u=mistral |  TASK [Write the config_step hieradata] *****************************************
+0:01:00 2020-01-21 21:10:58,925 p=1027108 u=mistral |  TASK [Run puppet host configuration for step 2] ********************************
+0:00:53 2020-01-21 21:11:58,428 p=1027108 u=mistral |  TASK [Wait for puppet host configuration to finish] ****************************
+0:00:50 2020-01-21 21:12:51,903 p=1027108 u=mistral |  TASK [Debug output for task: Run puppet host configuration for step 2] *********
+0:00:52 2020-01-21 21:13:41,971 p=1027108 u=mistral |  TASK [Create puppet caching structures] ****************************************
+0:00:54 2020-01-21 21:14:33,121 p=1027108 u=mistral |  TASK [Check for facter.conf] ***************************************************
+0:00:51 2020-01-21 21:15:27,308 p=1027108 u=mistral |  TASK [Remove facter.conf if directory] *****************************************
+0:00:57 2020-01-21 21:16:18,189 p=1027108 u=mistral |  TASK [Write facter cache config] ***********************************************
+0:00:53 2020-01-21 21:17:15,116 p=1027108 u=mistral |  TASK [Cleanup facter cache if exists] ******************************************
+0:00:54 2020-01-21 21:18:08,556 p=1027108 u=mistral |  TASK [Pre-cache facts] *********************************************************
+0:00:50 2020-01-21 21:19:02,553 p=1027108 u=mistral |  TASK [Facter error output when failed] *****************************************
+0:01:26 2020-01-21 21:19:52,758 p=1027108 u=mistral |  TASK [Sync cached facts] *******************************************************
+0:00:52 2020-01-21 21:21:18,101 p=1027108 u=mistral |  TASK [Run container-puppet tasks (generate config) during step 2] **************
+0:00:50 2020-01-21 21:22:10,560 p=1027108 u=mistral |  TASK [Wait for container-puppet tasks (generate config) to finish] *************
+0:00:51 2020-01-21 21:23:00,639 p=1027108 u=mistral |  TASK [Debug output for task: Run container-puppet tasks (generate config) during step 2] ***
+0:00:49 2020-01-21 21:23:51,239 p=1027108 u=mistral |  TASK [Diff container-puppet.py puppet-generated changes for check mode] ********
+0:00:52 2020-01-21 21:24:40,958 p=1027108 u=mistral |  TASK [Diff container-puppet.py puppet-generated changes for check mode] ********
+0:00:58 2020-01-21 21:25:32,544 p=1027108 u=mistral |  TASK [Start containers for step 2 using paunch] ********************************
+0:00:53 2020-01-21 21:26:30,034 p=1027108 u=mistral |  TASK [Wait for containers to start for step 2 using paunch] ********************
+0:00:50 2020-01-21 21:27:23,557 p=1027108 u=mistral |  TASK [Debug output for task: Start containers for step 2] **********************
+0:00:55 2020-01-21 21:28:13,872 p=1027108 u=mistral |  TASK [Clean container_puppet_tasks for overcloud-controller-0 step 2] **********
+0:00:49 2020-01-21 21:29:08,771 p=1027108 u=mistral |  TASK [Calculate container_puppet_tasks for overcloud-controller-0 step 2] ******
+0:00:50 2020-01-21 21:29:57,951 p=1027108 u=mistral |  TASK [Write container-puppet-tasks json file for overcloud-controller-0 step 2] ***
+0:00:51 2020-01-21 21:30:47,936 p=1027108 u=mistral |  TASK [Run container-puppet tasks (bootstrap tasks) for step 2] *****************
+0:00:50 2020-01-21 21:31:38,397 p=1027108 u=mistral |  TASK [Wait for container-puppet tasks (bootstrap tasks) for step 2 to finish] ***
+0:00:54 2020-01-21 21:32:28,292 p=1027108 u=mistral |  TASK [Debug output for task: Run container-puppet tasks (bootstrap tasks) for step 2] ***
+0:00:00 2020-01-21 21:33:22,458 p=1027108 u=mistral |  TASK [External deployment step 3] **********************************************
+0:00:00 2020-01-21 21:33:22,633 p=1027108 u=mistral |  TASK [set ceph-ansible facts] **************************************************
+0:00:01 2020-01-21 21:33:22,814 p=1027108 u=mistral |  TASK [create ceph-ansible working direcotry] ***********************************
+0:00:00 2020-01-21 21:33:23,008 p=1027108 u=mistral |  TASK [prepare for ceph-ansible uuid gathering] *********************************
+0:00:00 2020-01-21 21:33:23,195 p=1027108 u=mistral |  TASK [set ceph-ansible facts] **************************************************
+0:00:00 2020-01-21 21:33:23,366 p=1027108 u=mistral |  TASK [get ssh private key] *****************************************************
+0:00:00 2020-01-21 21:33:23,536 p=1027108 u=mistral |  TASK [run nodes-uuid] **********************************************************
+0:00:00 2020-01-21 21:33:23,707 p=1027108 u=mistral |  TASK [create copy of ceph-ansible fetch directory] *****************************
+0:00:01 2020-01-21 21:33:23,874 p=1027108 u=mistral |  TASK [run ceph-ansible] ********************************************************
+0:00:00 2020-01-21 21:33:24,044 p=1027108 u=mistral |  TASK [backup and clean fetch directory] ****************************************
+0:00:00 2020-01-21 21:33:24,223 p=1027108 u=mistral |  TASK [set ceph-ansible group vars mgrs] ****************************************
+0:00:00 2020-01-21 21:33:24,398 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars mgrs] ***********************************
+0:00:00 2020-01-21 21:33:24,568 p=1027108 u=mistral |  TASK [set ceph-ansible group vars mons] ****************************************
+0:00:00 2020-01-21 21:33:24,736 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars mons] ***********************************
+0:00:01 2020-01-21 21:33:24,905 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Create temp file for prepare parameter] ***
+0:00:00 2020-01-21 21:33:25,079 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Write ContainerImagePrepare parameter file] ***
+0:00:00 2020-01-21 21:33:25,249 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Create temp file for role data] ********
+0:00:00 2020-01-21 21:33:25,424 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Write role data file] ******************
+0:00:00 2020-01-21 21:33:25,599 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Run tripleo-container-image-prepare logged to: /var/log/tripleo-container-image-prepare.log] ***
+0:00:00 2020-01-21 21:33:25,770 p=1027108 u=mistral |  TASK [set ceph-ansible group vars clients] *************************************
+0:00:01 2020-01-21 21:33:25,940 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars clients] ********************************
+0:00:00 2020-01-21 21:33:26,116 p=1027108 u=mistral |  TASK [set ceph-ansible group vars osds] ****************************************
+0:00:00 2020-01-21 21:33:26,316 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars osds] ***********************************
+0:00:57 2020-01-21 21:33:26,627 p=1027108 u=mistral |  TASK [Write the config_step hieradata for the deploy step 3 tasks] *************
+0:00:01 2020-01-21 21:34:23,874 p=1027108 u=mistral |  TASK [Overcloud deploy step tasks for 3] ***************************************
+0:00:00 2020-01-21 21:34:24,141 p=1027108 u=mistral |  TASK [Check for Controller/deploy_steps_tasks_step3.yaml] **********************
+0:00:50 2020-01-21 21:34:24,667 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 21:35:14,000 p=1027108 u=mistral |  TASK [Check for Compute/deploy_steps_tasks_step3.yaml] *************************
+0:00:51 2020-01-21 21:35:14,528 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 21:36:05,101 p=1027108 u=mistral |  TASK [Check for ms5039Compute/deploy_steps_tasks_step3.yaml] *******************
+0:01:10 2020-01-21 21:36:05,635 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:01 2020-01-21 21:37:15,861 p=1027108 u=mistral |  TASK [Check for u1029Compute/deploy_steps_tasks_step3.yaml] ********************
+0:00:57 2020-01-21 21:37:16,407 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 21:38:13,045 p=1027108 u=mistral |  TASK [Check for p1029Compute/deploy_steps_tasks_step3.yaml] ********************
+0:00:57 2020-01-21 21:38:13,564 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:01 2020-01-21 21:39:10,527 p=1027108 u=mistral |  TASK [Check for CephStorage/deploy_steps_tasks_step3.yaml] *********************
+0:00:51 2020-01-21 21:39:11,056 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:01 2020-01-21 21:40:02,941 p=1027108 u=mistral |  TASK [Overcloud common deploy step tasks 3] ************************************
+0:00:53 2020-01-21 21:40:03,211 p=1027108 u=mistral |  TASK [Check if /var/lib/tripleo-config/container-startup-config-1.json already exists] ***
+0:01:24 2020-01-21 21:40:56,360 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:57 2020-01-21 21:42:20,035 p=1027108 u=mistral |  TASK [Write the config_step hieradata] *****************************************
+0:00:56 2020-01-21 21:43:17,003 p=1027108 u=mistral |  TASK [Run puppet host configuration for step 3] ********************************
+0:00:53 2020-01-21 21:44:13,974 p=1027108 u=mistral |  TASK [Wait for puppet host configuration to finish] ****************************
+0:00:50 2020-01-21 21:45:06,023 p=1027108 u=mistral |  TASK [Debug output for task: Run puppet host configuration for step 3] *********
+0:00:54 2020-01-21 21:45:56,329 p=1027108 u=mistral |  TASK [Create puppet caching structures] ****************************************
+0:00:54 2020-01-21 21:46:50,335 p=1027108 u=mistral |  TASK [Check for facter.conf] ***************************************************
+0:00:50 2020-01-21 21:47:44,071 p=1027108 u=mistral |  TASK [Remove facter.conf if directory] *****************************************
+0:00:56 2020-01-21 21:48:34,505 p=1027108 u=mistral |  TASK [Write facter cache config] ***********************************************
+0:00:53 2020-01-21 21:49:30,246 p=1027108 u=mistral |  TASK [Cleanup facter cache if exists] ******************************************
+0:00:54 2020-01-21 21:50:23,703 p=1027108 u=mistral |  TASK [Pre-cache facts] *********************************************************
+0:00:51 2020-01-21 21:51:17,912 p=1027108 u=mistral |  TASK [Facter error output when failed] *****************************************
+0:01:28 2020-01-21 21:52:08,472 p=1027108 u=mistral |  TASK [Sync cached facts] *******************************************************
+0:00:50 2020-01-21 21:53:36,332 p=1027108 u=mistral |  TASK [Run container-puppet tasks (generate config) during step 3] **************
+0:00:49 2020-01-21 21:54:26,496 p=1027108 u=mistral |  TASK [Wait for container-puppet tasks (generate config) to finish] *************
+0:00:50 2020-01-21 21:55:15,647 p=1027108 u=mistral |  TASK [Debug output for task: Run container-puppet tasks (generate config) during step 3] ***
+0:00:53 2020-01-21 21:56:05,923 p=1027108 u=mistral |  TASK [Diff container-puppet.py puppet-generated changes for check mode] ********
+0:00:50 2020-01-21 21:56:58,106 p=1027108 u=mistral |  TASK [Diff container-puppet.py puppet-generated changes for check mode] ********
+0:00:57 2020-01-21 21:57:48,299 p=1027108 u=mistral |  TASK [Start containers for step 3 using paunch] ********************************
+0:00:53 2020-01-21 21:58:45,516 p=1027108 u=mistral |  TASK [Wait for containers to start for step 3 using paunch] ********************
+0:00:51 2020-01-21 21:59:38,225 p=1027108 u=mistral |  TASK [Debug output for task: Start containers for step 3] **********************
+0:00:53 2020-01-21 22:00:29,762 p=1027108 u=mistral |  TASK [Clean container_puppet_tasks for overcloud-controller-0 step 3] **********
+0:00:51 2020-01-21 22:01:22,936 p=1027108 u=mistral |  TASK [Calculate container_puppet_tasks for overcloud-controller-0 step 3] ******
+0:00:50 2020-01-21 22:02:13,071 p=1027108 u=mistral |  TASK [Write container-puppet-tasks json file for overcloud-controller-0 step 3] ***
+0:00:51 2020-01-21 22:03:03,178 p=1027108 u=mistral |  TASK [Run container-puppet tasks (bootstrap tasks) for step 3] *****************
+0:00:51 2020-01-21 22:03:54,769 p=1027108 u=mistral |  TASK [Wait for container-puppet tasks (bootstrap tasks) for step 3 to finish] ***
+0:00:50 2020-01-21 22:04:45,559 p=1027108 u=mistral |  TASK [Debug output for task: Run container-puppet tasks (bootstrap tasks) for step 3] ***
+0:00:00 2020-01-21 22:05:35,577 p=1027108 u=mistral |  TASK [External deployment step 4] **********************************************
+0:00:00 2020-01-21 22:05:35,765 p=1027108 u=mistral |  TASK [set ceph-ansible facts] **************************************************
+0:00:01 2020-01-21 22:05:35,939 p=1027108 u=mistral |  TASK [create ceph-ansible working direcotry] ***********************************
+0:00:00 2020-01-21 22:05:36,112 p=1027108 u=mistral |  TASK [prepare for ceph-ansible uuid gathering] *********************************
+0:00:00 2020-01-21 22:05:36,285 p=1027108 u=mistral |  TASK [set ceph-ansible facts] **************************************************
+0:00:00 2020-01-21 22:05:36,460 p=1027108 u=mistral |  TASK [get ssh private key] *****************************************************
+0:00:00 2020-01-21 22:05:36,630 p=1027108 u=mistral |  TASK [run nodes-uuid] **********************************************************
+0:00:00 2020-01-21 22:05:36,805 p=1027108 u=mistral |  TASK [create copy of ceph-ansible fetch directory] *****************************
+0:00:01 2020-01-21 22:05:36,980 p=1027108 u=mistral |  TASK [run ceph-ansible] ********************************************************
+0:00:00 2020-01-21 22:05:37,153 p=1027108 u=mistral |  TASK [backup and clean fetch directory] ****************************************
+0:00:00 2020-01-21 22:05:37,324 p=1027108 u=mistral |  TASK [set ceph-ansible group vars mgrs] ****************************************
+0:00:00 2020-01-21 22:05:37,498 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars mgrs] ***********************************
+0:00:00 2020-01-21 22:05:37,667 p=1027108 u=mistral |  TASK [set ceph-ansible group vars mons] ****************************************
+0:00:01 2020-01-21 22:05:37,844 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars mons] ***********************************
+0:00:00 2020-01-21 22:05:38,040 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Create temp file for prepare parameter] ***
+0:00:00 2020-01-21 22:05:38,229 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Write ContainerImagePrepare parameter file] ***
+0:00:00 2020-01-21 22:05:38,437 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Create temp file for role data] ********
+0:00:00 2020-01-21 22:05:38,614 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Write role data file] ******************
+0:00:00 2020-01-21 22:05:38,790 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Run tripleo-container-image-prepare logged to: /var/log/tripleo-container-image-prepare.log] ***
+0:00:01 2020-01-21 22:05:38,974 p=1027108 u=mistral |  TASK [set ceph-ansible group vars clients] *************************************
+0:00:00 2020-01-21 22:05:39,145 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars clients] ********************************
+0:00:00 2020-01-21 22:05:39,328 p=1027108 u=mistral |  TASK [set ceph-ansible group vars osds] ****************************************
+0:00:00 2020-01-21 22:05:39,500 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars osds] ***********************************
+0:00:58 2020-01-21 22:05:39,794 p=1027108 u=mistral |  TASK [Write the config_step hieradata for the deploy step 4 tasks] *************
+0:00:00 2020-01-21 22:06:37,696 p=1027108 u=mistral |  TASK [Overcloud deploy step tasks for 4] ***************************************
+0:00:01 2020-01-21 22:06:37,963 p=1027108 u=mistral |  TASK [Check for Controller/deploy_steps_tasks_step4.yaml] **********************
+0:00:53 2020-01-21 22:06:38,485 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:01 2020-01-21 22:07:31,702 p=1027108 u=mistral |  TASK [Check for Compute/deploy_steps_tasks_step4.yaml] *************************
+0:00:50 2020-01-21 22:07:32,253 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:01 2020-01-21 22:08:22,752 p=1027108 u=mistral |  TASK [Check for ms5039Compute/deploy_steps_tasks_step4.yaml] *******************
+0:01:08 2020-01-21 22:08:23,282 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 22:09:31,238 p=1027108 u=mistral |  TASK [Check for u1029Compute/deploy_steps_tasks_step4.yaml] ********************
+0:01:00 2020-01-21 22:09:31,782 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 22:10:31,105 p=1027108 u=mistral |  TASK [Check for p1029Compute/deploy_steps_tasks_step4.yaml] ********************
+0:00:58 2020-01-21 22:10:31,661 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:01 2020-01-21 22:11:29,704 p=1027108 u=mistral |  TASK [Check for CephStorage/deploy_steps_tasks_step4.yaml] *********************
+0:00:51 2020-01-21 22:11:30,273 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:01 2020-01-21 22:12:21,815 p=1027108 u=mistral |  TASK [Overcloud common deploy step tasks 4] ************************************
+0:00:51 2020-01-21 22:12:22,074 p=1027108 u=mistral |  TASK [Check if /var/lib/tripleo-config/container-startup-config-1.json already exists] ***
+0:01:25 2020-01-21 22:13:13,895 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:56 2020-01-21 22:14:38,677 p=1027108 u=mistral |  TASK [Write the config_step hieradata] *****************************************
+0:00:58 2020-01-21 22:15:34,659 p=1027108 u=mistral |  TASK [Run puppet host configuration for step 4] ********************************
+0:00:54 2020-01-21 22:16:32,318 p=1027108 u=mistral |  TASK [Wait for puppet host configuration to finish] ****************************
+0:00:50 2020-01-21 22:17:26,788 p=1027108 u=mistral |  TASK [Debug output for task: Run puppet host configuration for step 4] *********
+0:00:53 2020-01-21 22:18:16,982 p=1027108 u=mistral |  TASK [Create puppet caching structures] ****************************************
+0:00:52 2020-01-21 22:19:09,362 p=1027108 u=mistral |  TASK [Check for facter.conf] ***************************************************
+0:00:53 2020-01-21 22:20:01,727 p=1027108 u=mistral |  TASK [Remove facter.conf if directory] *****************************************
+0:00:57 2020-01-21 22:20:54,703 p=1027108 u=mistral |  TASK [Write facter cache config] ***********************************************
+0:00:53 2020-01-21 22:21:51,796 p=1027108 u=mistral |  TASK [Cleanup facter cache if exists] ******************************************
+0:00:55 2020-01-21 22:22:44,848 p=1027108 u=mistral |  TASK [Pre-cache facts] *********************************************************
+0:00:50 2020-01-21 22:23:39,527 p=1027108 u=mistral |  TASK [Facter error output when failed] *****************************************
+0:01:26 2020-01-21 22:24:29,903 p=1027108 u=mistral |  TASK [Sync cached facts] *******************************************************
+0:00:53 2020-01-21 22:25:55,901 p=1027108 u=mistral |  TASK [Run container-puppet tasks (generate config) during step 4] **************
+0:00:50 2020-01-21 22:26:48,494 p=1027108 u=mistral |  TASK [Wait for container-puppet tasks (generate config) to finish] *************
+0:00:50 2020-01-21 22:27:38,723 p=1027108 u=mistral |  TASK [Debug output for task: Run container-puppet tasks (generate config) during step 4] ***
+0:00:50 2020-01-21 22:28:28,062 p=1027108 u=mistral |  TASK [Diff container-puppet.py puppet-generated changes for check mode] ********
+0:00:48 2020-01-21 22:29:18,097 p=1027108 u=mistral |  TASK [Diff container-puppet.py puppet-generated changes for check mode] ********
+0:01:00 2020-01-21 22:30:06,998 p=1027108 u=mistral |  TASK [Start containers for step 4 using paunch] ********************************
+0:00:53 2020-01-21 22:31:06,489 p=1027108 u=mistral |  TASK [Wait for containers to start for step 4 using paunch] ********************
+0:00:51 2020-01-21 22:31:59,507 p=1027108 u=mistral |  TASK [Debug output for task: Start containers for step 4] **********************
+0:00:52 2020-01-21 22:32:50,275 p=1027108 u=mistral |  TASK [Clean container_puppet_tasks for overcloud-controller-0 step 4] **********
+0:00:51 2020-01-21 22:33:42,420 p=1027108 u=mistral |  TASK [Calculate container_puppet_tasks for overcloud-controller-0 step 4] ******
+0:00:50 2020-01-21 22:34:33,733 p=1027108 u=mistral |  TASK [Write container-puppet-tasks json file for overcloud-controller-0 step 4] ***
+0:00:50 2020-01-21 22:35:23,697 p=1027108 u=mistral |  TASK [Run container-puppet tasks (bootstrap tasks) for step 4] *****************
+0:00:51 2020-01-21 22:36:13,438 p=1027108 u=mistral |  TASK [Wait for container-puppet tasks (bootstrap tasks) for step 4 to finish] ***
+0:00:52 2020-01-21 22:37:04,841 p=1027108 u=mistral |  TASK [Debug output for task: Run container-puppet tasks (bootstrap tasks) for step 4] ***
+0:00:00 2020-01-21 22:37:56,461 p=1027108 u=mistral |  TASK [External deployment step 5] **********************************************
+0:00:00 2020-01-21 22:37:56,633 p=1027108 u=mistral |  TASK [set ceph-ansible facts] **************************************************
+0:00:00 2020-01-21 22:37:56,800 p=1027108 u=mistral |  TASK [create ceph-ansible working direcotry] ***********************************
+0:00:01 2020-01-21 22:37:56,989 p=1027108 u=mistral |  TASK [prepare for ceph-ansible uuid gathering] *********************************
+0:00:00 2020-01-21 22:37:57,183 p=1027108 u=mistral |  TASK [set ceph-ansible facts] **************************************************
+0:00:00 2020-01-21 22:37:57,363 p=1027108 u=mistral |  TASK [get ssh private key] *****************************************************
+0:00:00 2020-01-21 22:37:57,533 p=1027108 u=mistral |  TASK [run nodes-uuid] **********************************************************
+0:00:00 2020-01-21 22:37:57,707 p=1027108 u=mistral |  TASK [create copy of ceph-ansible fetch directory] *****************************
+0:00:01 2020-01-21 22:37:57,883 p=1027108 u=mistral |  TASK [run ceph-ansible] ********************************************************
+0:00:00 2020-01-21 22:37:58,047 p=1027108 u=mistral |  TASK [backup and clean fetch directory] ****************************************
+0:00:00 2020-01-21 22:37:58,210 p=1027108 u=mistral |  TASK [set ceph-ansible group vars mgrs] ****************************************
+0:00:00 2020-01-21 22:37:58,376 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars mgrs] ***********************************
+0:00:00 2020-01-21 22:37:58,543 p=1027108 u=mistral |  TASK [set ceph-ansible group vars mons] ****************************************
+0:00:00 2020-01-21 22:37:58,707 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars mons] ***********************************
+0:00:01 2020-01-21 22:37:58,876 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Create temp file for prepare parameter] ***
+0:00:00 2020-01-21 22:37:59,042 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Write ContainerImagePrepare parameter file] ***
+0:00:00 2020-01-21 22:37:59,206 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Create temp file for role data] ********
+0:00:00 2020-01-21 22:37:59,371 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Write role data file] ******************
+0:00:00 2020-01-21 22:37:59,537 p=1027108 u=mistral |  TASK [tripleo-container-image-prepare : Run tripleo-container-image-prepare logged to: /var/log/tripleo-container-image-prepare.log] ***
+0:00:00 2020-01-21 22:37:59,703 p=1027108 u=mistral |  TASK [set ceph-ansible group vars clients] *************************************
+0:00:01 2020-01-21 22:37:59,870 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars clients] ********************************
+0:00:00 2020-01-21 22:38:00,046 p=1027108 u=mistral |  TASK [set ceph-ansible group vars osds] ****************************************
+0:00:00 2020-01-21 22:38:00,210 p=1027108 u=mistral |  TASK [generate ceph-ansible group vars osds] ***********************************
+0:00:57 2020-01-21 22:38:00,488 p=1027108 u=mistral |  TASK [Write the config_step hieradata for the deploy step 5 tasks] *************
+0:00:00 2020-01-21 22:38:57,642 p=1027108 u=mistral |  TASK [Overcloud deploy step tasks for 5] ***************************************
+0:00:01 2020-01-21 22:38:57,914 p=1027108 u=mistral |  TASK [Check for Controller/deploy_steps_tasks_step5.yaml] **********************
+0:00:51 2020-01-21 22:38:58,444 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 22:39:49,413 p=1027108 u=mistral |  TASK [Check for Compute/deploy_steps_tasks_step5.yaml] *************************
+0:00:51 2020-01-21 22:39:49,964 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 22:40:40,048 p=1027108 u=mistral |  TASK [Check for ms5039Compute/deploy_steps_tasks_step5.yaml] *******************
+0:01:11 2020-01-21 22:40:40,578 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:01 2020-01-21 22:41:51,635 p=1027108 u=mistral |  TASK [Check for u1029Compute/deploy_steps_tasks_step5.yaml] ********************
+0:00:59 2020-01-21 22:41:52,184 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 22:42:51,144 p=1027108 u=mistral |  TASK [Check for p1029Compute/deploy_steps_tasks_step5.yaml] ********************
+0:00:59 2020-01-21 22:42:51,686 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:01 2020-01-21 22:43:50,779 p=1027108 u=mistral |  TASK [Check for CephStorage/deploy_steps_tasks_step5.yaml] *********************
+0:00:50 2020-01-21 22:43:51,307 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 22:44:41,280 p=1027108 u=mistral |  TASK [Overcloud common deploy step tasks 5] ************************************
+0:00:52 2020-01-21 22:44:41,542 p=1027108 u=mistral |  TASK [Check if /var/lib/tripleo-config/container-startup-config-1.json already exists] ***
+0:01:24 2020-01-21 22:45:33,230 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:58 2020-01-21 22:46:57,948 p=1027108 u=mistral |  TASK [Write the config_step hieradata] *****************************************
+0:00:57 2020-01-21 22:47:55,342 p=1027108 u=mistral |  TASK [Run puppet host configuration for step 5] ********************************
+0:00:52 2020-01-21 22:48:52,635 p=1027108 u=mistral |  TASK [Wait for puppet host configuration to finish] ****************************
+0:00:51 2020-01-21 22:49:44,982 p=1027108 u=mistral |  TASK [Debug output for task: Run puppet host configuration for step 5] *********
+0:00:54 2020-01-21 22:50:35,460 p=1027108 u=mistral |  TASK [Create puppet caching structures] ****************************************
+0:00:53 2020-01-21 22:51:29,745 p=1027108 u=mistral |  TASK [Check for facter.conf] ***************************************************
+0:00:50 2020-01-21 22:52:22,278 p=1027108 u=mistral |  TASK [Remove facter.conf if directory] *****************************************
+0:00:56 2020-01-21 22:53:12,594 p=1027108 u=mistral |  TASK [Write facter cache config] ***********************************************
+0:00:53 2020-01-21 22:54:08,292 p=1027108 u=mistral |  TASK [Cleanup facter cache if exists] ******************************************
+0:00:54 2020-01-21 22:55:01,766 p=1027108 u=mistral |  TASK [Pre-cache facts] *********************************************************
+0:00:50 2020-01-21 22:55:55,494 p=1027108 u=mistral |  TASK [Facter error output when failed] *****************************************
+0:01:28 2020-01-21 22:56:45,982 p=1027108 u=mistral |  TASK [Sync cached facts] *******************************************************
+0:00:50 2020-01-21 22:58:13,772 p=1027108 u=mistral |  TASK [Run container-puppet tasks (generate config) during step 5] **************
+0:00:50 2020-01-21 22:59:03,847 p=1027108 u=mistral |  TASK [Wait for container-puppet tasks (generate config) to finish] *************
+0:00:52 2020-01-21 22:59:53,338 p=1027108 u=mistral |  TASK [Debug output for task: Run container-puppet tasks (generate config) during step 5] ***
+0:00:51 2020-01-21 23:00:45,888 p=1027108 u=mistral |  TASK [Diff container-puppet.py puppet-generated changes for check mode] ********
+0:00:51 2020-01-21 23:01:36,654 p=1027108 u=mistral |  TASK [Diff container-puppet.py puppet-generated changes for check mode] ********
+0:00:58 2020-01-21 23:02:27,754 p=1027108 u=mistral |  TASK [Start containers for step 5 using paunch] ********************************
+0:00:55 2020-01-21 23:03:25,370 p=1027108 u=mistral |  TASK [Wait for containers to start for step 5 using paunch] ********************
+0:00:50 2020-01-21 23:04:20,505 p=1027108 u=mistral |  TASK [Debug output for task: Start containers for step 5] **********************
+0:00:53 2020-01-21 23:05:10,656 p=1027108 u=mistral |  TASK [Clean container_puppet_tasks for overcloud-controller-0 step 5] **********
+0:00:50 2020-01-21 23:06:03,174 p=1027108 u=mistral |  TASK [Calculate container_puppet_tasks for overcloud-controller-0 step 5] ******
+0:00:51 2020-01-21 23:06:53,374 p=1027108 u=mistral |  TASK [Write container-puppet-tasks json file for overcloud-controller-0 step 5] ***
+0:00:53 2020-01-21 23:07:44,740 p=1027108 u=mistral |  TASK [Run container-puppet tasks (bootstrap tasks) for step 5] *****************
+0:00:49 2020-01-21 23:08:37,114 p=1027108 u=mistral |  TASK [Wait for container-puppet tasks (bootstrap tasks) for step 5 to finish] ***
+0:00:50 2020-01-21 23:09:26,889 p=1027108 u=mistral |  TASK [Debug output for task: Run container-puppet tasks (bootstrap tasks) for step 5] ***
+0:00:01 2020-01-21 23:10:16,978 p=1027108 u=mistral |  TASK [Server Post Deployments] *************************************************
+0:00:50 2020-01-21 23:10:17,250 p=1027108 u=mistral |  TASK [include_tasks] ***********************************************************
+0:00:00 2020-01-21 23:11:07,146 p=1027108 u=mistral |  TASK [External deployment Post Deploy tasks] ***********************************
+0:00:00 2020-01-21 23:11:07,321 p=1027108 u=mistral |  TASK [is additonal Cell?] ******************************************************
+0:00:00 2020-01-21 23:11:07,487 p=1027108 u=mistral |  TASK [discover via nova_compute?] **********************************************
+0:00:01 2020-01-21 23:11:07,717 p=1027108 u=mistral |  TASK [discover via nova_ironic?] ***********************************************
+0:00:03 2020-01-21 23:11:08,032 p=1027108 u=mistral |  TASK [Discovering nova hosts] **************************************************
