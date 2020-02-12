@@ -9,15 +9,15 @@ popd
 sudo tripleo-repos current-tripleo-dev
 
 sudo yum -y install git bash-completion tmux python-tripleoclient expect tripleo-ansible libibverbs
-  
+
 cat >~/.tmux.conf<<EOF
 # Prefix key
 set-option -g prefix C-a
 unbind-key C-b
 bind-key C-a send-prefix
-  
+
 EOF
-  
+
 git clone https://github.com/slagle/tripleo
 cp tripleo/environments/master-upshift/undercloud.conf ~/undercloud.conf
 sudo dd if=/dev/zero of=/swapfile bs=1M count=8192
