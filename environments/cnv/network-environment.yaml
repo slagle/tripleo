@@ -9,4 +9,4 @@ parameter_defaults:
     - clock.redhat.com
     - clock2.redhat.com
   DnsServers:
-    - 172.30.0.10
+    - 192.168.25.1
