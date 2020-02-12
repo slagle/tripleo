@@ -6,38 +6,38 @@ resource_registry:
 
 parameter_defaults:
   NeutronPublicInterface: eth0
-  EC2MetadataIp: 192.168.24.1
+  EC2MetadataIp: 192.168.25.1
 
   DeployedServerPortMap:
     control_virtual_ip:
       fixed_ips:
-        - ip_address: 10.128.2.8
+        - ip_address: 192.168.25.100
       subnets:
-        - cidr: 10.131.0.0/23
+        - cidr: 192.168.25.0/24
       network:
         tags:
-          - 10.131.0.0/23
+          - 192.168.25.0/24
     controller-0-ctlplane:
       fixed_ips:
-        - ip_address: 10.128.2.11
+        - ip_address: 192.168.25.12
       subnets:
-        - cidr: 10.131.0.0/23
+        - cidr: 192.168.25.0/24
       network:
         tags:
-          - 10.131.0.0/23
+          - 192.168.25.0/24
     controller-1-ctlplane:
       fixed_ips:
-        - ip_address: 10.131.0.25
+        - ip_address: 192.168.25.10
       subnets:
-        - cidr: 10.131.0.0/23
+        - cidr: 192.168.24.0/24
       network:
         tags:
-          - 10.131.0.0/23
+          - 192.168.25.0/24
     controller-2-ctlplane:
       fixed_ips:
-        - ip_address: 10.129.2.13
+        - ip_address: 192.168.25.11
       subnets:
-        - cidr: 10.131.0.0/23
+        - cidr: 192.168.25.0/24
       network:
         tags:
-          - 10.131.0.0/23
+          - 192.168.25.0/24

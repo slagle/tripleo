@@ -3,8 +3,8 @@ resource_registry:
   OS::TripleO::Compute::Net::SoftwareConfig: /home/cloud-user/tripleo-heat-templates/net-config-static-bridge.yaml
 
 parameter_defaults:
-  EC2MetadataIp: 192.168.24.1
-  ControlPlaneDefaultRoute: 10.131.0.1
+  EC2MetadataIp: 192.168.25.1
+  ControlPlaneDefaultRoute: 192.168.25.1
   NtpServer:
     - clock.redhat.com
     - clock2.redhat.com
