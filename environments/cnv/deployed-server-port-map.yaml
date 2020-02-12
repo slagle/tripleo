@@ -5,7 +5,7 @@ resource_registry:
   OS::TripleO::Network::Ports::OVNDBsVipPort: /home/cloud-user/tripleo-heat-templates/network/ports/noop.yaml
 
 parameter_defaults:
-  NeutronPublicInterface: eth0
+  NeutronPublicInterface: eth1
   EC2MetadataIp: 192.168.25.1
 
   DeployedServerPortMap:
