@@ -357,7 +357,7 @@ export PYTHONWARNINGS="ignore:Certificate has no, ignore:A true SSLContext objec
 
 alias tripleo-mistral-get-private-ssh-key="openstack workflow env show ssh_keys -f json -c Variables | jq .Variables -r | jq .private_key -r"
 
-function tripleo-generate-overclourc {
+function tripleo-generate-overcloudrc {
 	STACK_NAME=${STACK_NAME:-"overcloud"}
 
     openstack action execution run \

@@ -19,7 +19,7 @@ parameter_defaults:
           - 192.168.25.0/24
     controller-0-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.25.12
+        - ip_address: 192.168.25.10
       subnets:
         - cidr: 192.168.25.0/24
       network:
@@ -27,7 +27,7 @@ parameter_defaults:
           - 192.168.25.0/24
     controller-1-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.25.10
+        - ip_address: 192.168.25.11
       subnets:
         - cidr: 192.168.24.0/24
       network:
@@ -35,7 +35,7 @@ parameter_defaults:
           - 192.168.25.0/24
     controller-2-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.25.11
+        - ip_address: 192.168.25.12
       subnets:
         - cidr: 192.168.25.0/24
       network:
