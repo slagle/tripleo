@@ -12,6 +12,12 @@ for i in 0 1 2; do
     openstack port delete controller-${i}-master &
 done
 
+for i in $(seq 11 149); do
+    openstack server delete compute-${i} &
+    openstack port delete compute-${i}-test &
+    openstack port delete compute-${i}-master &
+done
+
 function create {
     name=$1
     ip=$2

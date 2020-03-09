@@ -13,8 +13,7 @@ fi
 
 if ! openstack keypair show overcloud-key; then
     openstack keypair create \
-        -N "" --public-key overcloud-key.rsa.pub \
-        overcloud-key
+        --public-key overcloud-key.rsa.pub overcloud-key
 fi
 
 if ! openstack flavor show tiny; then
