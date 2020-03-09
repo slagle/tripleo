@@ -1,4 +1,4 @@
-export STACK_NAME=cnv
+export STACK_NAME=cnv-ovs
 export TEMPLATES="$HOME/tripleo-heat-templates"
 
 export COMMON_ENVIRONMENTS=0
