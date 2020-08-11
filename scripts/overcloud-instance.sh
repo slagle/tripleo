@@ -7,7 +7,7 @@ if [ ! -f cirros-0.3.4-x86_64-disk.img ]; then
 fi
 
 if [ ! -f overcloud-key.rsa ]; then
-    ssh-keygen -f overcloud-key.rsa
+    ssh-keygen -N "" -f overcloud-key.rsa
     chmod 0600 overcloud-key.rsa
 fi
 

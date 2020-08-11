@@ -11,3 +11,15 @@ parameter_defaults:
   DnsServers:
     - 192.168.1.12
     - 192.168.1.11
+
+  ControllerIPs:
+    storage:
+      - 172.16.1.10
+    external:
+      - 10.0.0.10
+    internal_api:
+      - 172.16.2.10
+    storage_mgmt:
+      - 172.16.3.10
+    tenant:
+      - 172.16.0.10

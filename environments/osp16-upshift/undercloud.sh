@@ -2,7 +2,7 @@
 
 sudo dnf localinstall -y http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/rhos-release/rhos-release-latest.noarch.rpm
 sudo rhos-release 16
-sudo dnf install -y python3-tripleoclient git tmux
+sudo dnf install -y python3-tripleoclient git tmux expect
 
 cat >~/.tmux.conf<<EOF
 set-option -g prefix2 C-a

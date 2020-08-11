@@ -177,13 +177,17 @@ function uninstall-undercloud {
 
 function pcs-bootstrap {
     sudo systemctl stop pcsd pacemaker corosync
-    sudo rm -rf /var/lib/pcsd/* /etc/corosync/corosync.conf /etc/pacemaker/authkey
+    sudo rm -rf /var/lib/pcsd/* /etc/corosync/corosync.conf /etc/pacemaker/authkey /var/lib/pacemaker/cib/* /var/lib/pacemaker/pengine/*
     sudo hiera -c /etc/puppet/hiera.yaml tripleo::profile::base::pacemaker::remote_authkey > /etc/pacemaker/authkey
     sudo systemctl start pcsd
     # pcsd must be started on each node before the auth/setup/start commands
     # will work!
-    sudo pcs cluster auth $(hiera -c /etc/puppet/hiera.yaml pacemaker_short_node_names | jq -r .[]) -u hacluster -p $(hiera -c /etc/puppet/hiera.yaml hacluster_pwd) --force --debug
-    sudo pcs cluster setup --wait --name tripleo_cluster $(hiera -c /etc/puppet/hiera.yaml pacemaker_short_node_names | jq -r .[]) --token 10000 --encryption 1 --force
+    # RHEL 7
+    # sudo pcs cluster auth $(hiera -c /etc/puppet/hiera.yaml pacemaker_short_node_names | jq -r .[]) -u hacluster -p $(hiera -c /etc/puppet/hiera.yaml hacluster_pwd) --force --debug
+    # sudo pcs cluster setup --wait --name tripleo_cluster $(hiera -c /etc/puppet/hiera.yaml pacemaker_short_node_names | jq -r .[]) --token 10000 --encryption 1 --force
+    sudo pcs host auth $(hiera -c /etc/puppet/hiera.yaml pacemaker_short_node_names | jq -r .[]) -u hacluster -p $(hiera -c /etc/puppet/hiera.yaml hacluster_pwd) --debug
+    sudo pcs cluster setup --wait tripleo_cluster $(hiera -c /etc/puppet/hiera.yaml pacemaker_short_node_names | jq -r .[]) --force --start 
+
     sudo pcs cluster start --all
     sudo pcs property set stonith-enabled=false
     sudo pcs status
