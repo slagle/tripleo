@@ -25,4 +25,5 @@ export ARGS="\
   --disable-validations \
   --overcloud-ssh-user cloud-user \
   --overcloud-ssh-network management \
+  --overcloud-ssh-key $HOME/.ssh/upshift \
 "
