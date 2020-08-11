@@ -2,8 +2,6 @@ export STACK_NAME=central
 export TEMPLATES="$HOME/tripleo-heat-templates"
 
 export ENVIRONMENTS="\
-  -e $TEMPLATES/overcloud-resource-registry-puppet.yaml \
-  -e $TEMPLATES/environments/docker-ha.yaml \
   -e $TEMPLATES/environments/deployed-server-environment.yaml \
   -e $TEMPLATES/environments/nova-az-config.yaml \
   -e $TEMPLATES/environments/network-isolation.yaml \
