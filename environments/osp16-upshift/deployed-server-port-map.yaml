@@ -26,7 +26,7 @@ parameter_defaults:
           - 192.168.24.0/24
     osp16-controller-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.14
+        - ip_address: 192.168.24.10
       subnets:
         - cidr: 192.168.24.0/24
       network:
