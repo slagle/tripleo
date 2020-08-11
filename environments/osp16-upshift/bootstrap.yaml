@@ -20,7 +20,7 @@
         - rhos-release
     - name: run rhos-release
       shell: |
-        sudo rhos-release 16
+        sudo rhos-release 16.1
       tags:
         - rhos-release
     - name: ifup interfaces
