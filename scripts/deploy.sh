@@ -21,7 +21,6 @@ if [ "$COMMON_ENVIRONMENTS" = "1" ]; then
     # ENVIRONMENTS="-e $TEMPLATES/environments/puppet-pacemaker.yaml $ENVIRONMENTS"
     ENVIRONMENTS="\
         -e $TEMPLATES/overcloud-resource-registry-puppet.yaml \
-        -e $TEMPLATES/environments/docker.yaml \
         -e $TEMPLATES/environments/docker-ha.yaml \
         $ENVIRONMENTS"
 fi
