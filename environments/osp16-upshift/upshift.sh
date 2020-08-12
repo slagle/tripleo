@@ -70,4 +70,8 @@ openstack server add port osp16-dcn1-2 osp16-dcn1-2-internalapi
 openstack server add port osp16-dcn1-2 osp16-dcn1-2-storage
 openstack server add port osp16-dcn1-2 osp16-dcn1-2-external
 
-
+for i in 0 1 2; do openstack server remove volume osp16-dcn1-i osp16-dcn1-i & done; wait
+for i in 0 1 2; do openstack volume delete  osp16-dcn1-i & done; wait
+for i in 0 1 2; do openstack volume create osp16-dcn1-i --size 10 & done; wait
+for i in 0 1 2; do openstack server rebuild osp16-dcn1-i --wait & done; wait
+for i in 0 1 2; do openstack server add volume osp16-dcn1-i osp16-dcn1-i & done; wait
