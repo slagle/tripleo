@@ -27,3 +27,16 @@ parameter_defaults:
       - 172.16.0.10
     management:
       - 192.168.1.22
+
+  InternalApiVirtualFixedIPs:
+    - ip_address: 172.16.2.100
+
+  StorageMgmtVirtualFixedIPs:
+    - ip_address: 172.16.3.100
+
+  StorageVirtualFixedIPs:
+    - ip_address: 172.16.1.100
+
+  ExternalVirtualFixedIPs:
+    - ip_address: 10.0.0.100
+
