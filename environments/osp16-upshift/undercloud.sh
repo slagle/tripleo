@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sudo dnf localinstall -y http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/rhos-release/rhos-release-latest.noarch.rpm
-sudo rhos-release 16
+sudo rhos-release 16.1
 sudo dnf install -y python3-tripleoclient git tmux expect
 
 cat >~/.tmux.conf<<EOF
@@ -31,3 +31,5 @@ bind-key T command-prompt -p "title:" "set set-titles-string %1"
 set-window-option -g mode-keys vi
 EOF
 
+sudo ip link set dev eth2 up
+sudo ip addr add 10.0.0.5/24 dev eth2

@@ -16,33 +16,25 @@ parameter_defaults:
       network:
         tags:
           - 192.168.24.0/24
-    osp16-controller-ctlplane:
+    osp16-dcn1-0-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.10
+        - ip_address: 192.168.24.20
       subnets:
         - cidr: 192.168.24.0/24
       network:
         tags:
           - 192.168.24.0/24
-    osp16-dcn1-compute-0-ctlplane:
+    osp16-dcn1-1-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.18
+        - ip_address: 192.168.24.21
       subnets:
         - cidr: 192.168.24.0/24
       network:
         tags:
           - 192.168.24.0/24
-    osp16-dcn1-compute-1-ctlplane:
+    osp16-dcn1-2-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.8
-      subnets:
-        - cidr: 192.168.24.0/24
-      network:
-        tags:
-          - 192.168.24.0/24
-    osp16-dcn1-compute-2-ctlplane:
-      fixed_ips:
-        - ip_address: 192.168.24.19
+        - ip_address: 192.168.24.22
       subnets:
         - cidr: 192.168.24.0/24
       network:

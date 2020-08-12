@@ -1,8 +1,10 @@
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.1 --disable-port-security osp16-local-ip
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.2 --disable-port-security osp16-public-host
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.3 --disable-port-security osp16-admin-host
+openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.5 --disable-port-security osp16-external
 
 openstack server add port osp16 osp16-local-ip
+openstack server add port osp16 osp16-external
 
 openstack server create --flavor m1.large --network jslagle-test --image  RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-controller
 
@@ -21,3 +23,51 @@ openstack server add port osp16-controller osp16-controller-storage
 openstack server add port osp16-controller osp16-controller-external
 
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.100 --disable-port-security osp16-control-virtual-ip
+
+openstack server create --flavor m1.large --network jslagle-test --image RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-dcn1-0
+openstack server create --flavor m1.large --network jslagle-test --image RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-dcn1-1
+openstack server create --flavor m1.large --network jslagle-test --image RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-dcn1-2
+
+openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.20 --disable-port-security osp16-dcn1-0
+openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.20 --disable-port-security osp16-dcn1-0-storagemgt
+openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.20 --disable-port-security osp16-dcn1-0-tenant
+openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.20 --disable-port-security osp16-dcn1-0-internalapi
+openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.20 --disable-port-security osp16-dcn1-0-storage
+openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.20 --disable-port-security osp16-dcn1-0-external
+
+openstack server add port osp16-dcn1-0 osp16-dcn1-0
+openstack server add port osp16-dcn1-0 osp16-dcn1-0-storagemgt
+openstack server add port osp16-dcn1-0 osp16-dcn1-0-tenant
+openstack server add port osp16-dcn1-0 osp16-dcn1-0-internalapi
+openstack server add port osp16-dcn1-0 osp16-dcn1-0-storage
+openstack server add port osp16-dcn1-0 osp16-dcn1-0-external
+
+openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.21 --disable-port-security osp16-dcn1-1
+openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.21 --disable-port-security osp16-dcn1-1-storagemgt
+openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.21 --disable-port-security osp16-dcn1-1-tenant
+openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.21 --disable-port-security osp16-dcn1-1-internalapi
+openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.21 --disable-port-security osp16-dcn1-1-storage
+openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.21 --disable-port-security osp16-dcn1-1-external
+
+openstack server add port osp16-dcn1-1 osp16-dcn1-1
+openstack server add port osp16-dcn1-1 osp16-dcn1-1-storagemgt
+openstack server add port osp16-dcn1-1 osp16-dcn1-1-tenant
+openstack server add port osp16-dcn1-1 osp16-dcn1-1-internalapi
+openstack server add port osp16-dcn1-1 osp16-dcn1-1-storage
+openstack server add port osp16-dcn1-1 osp16-dcn1-1-external
+
+openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.22 --disable-port-security osp16-dcn1-2
+openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.22 --disable-port-security osp16-dcn1-2-storagemgt
+openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.22 --disable-port-security osp16-dcn1-2-tenant
+openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.22 --disable-port-security osp16-dcn1-2-internalapi
+openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.22 --disable-port-security osp16-dcn1-2-storage
+openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.22 --disable-port-security osp16-dcn1-2-external
+
+openstack server add port osp16-dcn1-2 osp16-dcn1-2
+openstack server add port osp16-dcn1-2 osp16-dcn1-2-storagemgt
+openstack server add port osp16-dcn1-2 osp16-dcn1-2-tenant
+openstack server add port osp16-dcn1-2 osp16-dcn1-2-internalapi
+openstack server add port osp16-dcn1-2 osp16-dcn1-2-storage
+openstack server add port osp16-dcn1-2 osp16-dcn1-2-external
+
+
