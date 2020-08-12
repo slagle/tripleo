@@ -40,3 +40,5 @@ parameter_defaults:
   ExternalVirtualFixedIPs:
     - ip_address: 10.0.0.100
 
+  PublicVirtualFixedIPs:
+    - ip_address: 10.0.0.5

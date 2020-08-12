@@ -264,26 +264,6 @@ resources:
                     get_param: TenantMtu
                   use_dhcp: false
                   primary: true
-              - type: ovs_bridge
-                name: bridge_name
-                mtu:
-                  get_param: ExternalMtu
-                dns_servers:
-                  get_param: DnsServers
-                use_dhcp: false
-                addresses:
-                - ip_netmask:
-                    get_param: ExternalIpSubnet
-                routes:
-                  list_concat_unique:
-                    - get_param: ExternalInterfaceRoutes
-                members:
-                - type: interface
-                  name: nic7
-                  mtu:
-                    get_param: ExternalMtu
-                  use_dhcp: false
-                  primary: true
 outputs:
   OS::stack_id:
     description: The OsNetConfigImpl resource.

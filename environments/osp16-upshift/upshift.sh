@@ -28,6 +28,7 @@ openstack server create --flavor m1.large --network jslagle-test --image RHEL-8.
 openstack server create --flavor m1.large --network jslagle-test --image RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-dcn1-1
 openstack server create --flavor m1.large --network jslagle-test --image RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-dcn1-2
 
+
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.20 --disable-port-security osp16-dcn1-0
 openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.20 --disable-port-security osp16-dcn1-0-storagemgt
 openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.20 --disable-port-security osp16-dcn1-0-tenant
