@@ -5,4 +5,3 @@ resource_registry:
   OS::TripleO::Network::Ports::ExternalVipPort: /home/cloud-user/tripleo-heat-templates/network/ports/noop.yaml
   OS::TripleO::Network::Ports::RedisVipPort: /home/cloud-user/tripleo-heat-templates/network/ports/noop.yaml
   OS::TripleO::Network::Ports::OVNDBsVipPort: /home/cloud-user/tripleo-heat-templates/network/ports/noop.yaml
-
