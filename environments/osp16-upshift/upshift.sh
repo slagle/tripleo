@@ -33,45 +33,39 @@ openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslag
 openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.20 --disable-port-security osp16-dcn1-0-tenant
 openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.20 --disable-port-security osp16-dcn1-0-internalapi
 openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.20 --disable-port-security osp16-dcn1-0-storage
-openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.20 --disable-port-security osp16-dcn1-0-external
 
 openstack server add port osp16-dcn1-0 osp16-dcn1-0
 openstack server add port osp16-dcn1-0 osp16-dcn1-0-storagemgt
 openstack server add port osp16-dcn1-0 osp16-dcn1-0-tenant
 openstack server add port osp16-dcn1-0 osp16-dcn1-0-internalapi
 openstack server add port osp16-dcn1-0 osp16-dcn1-0-storage
-openstack server add port osp16-dcn1-0 osp16-dcn1-0-external
 
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.21 --disable-port-security osp16-dcn1-1
 openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.21 --disable-port-security osp16-dcn1-1-storagemgt
 openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.21 --disable-port-security osp16-dcn1-1-tenant
 openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.21 --disable-port-security osp16-dcn1-1-internalapi
 openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.21 --disable-port-security osp16-dcn1-1-storage
-openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.21 --disable-port-security osp16-dcn1-1-external
 
 openstack server add port osp16-dcn1-1 osp16-dcn1-1
 openstack server add port osp16-dcn1-1 osp16-dcn1-1-storagemgt
 openstack server add port osp16-dcn1-1 osp16-dcn1-1-tenant
 openstack server add port osp16-dcn1-1 osp16-dcn1-1-internalapi
 openstack server add port osp16-dcn1-1 osp16-dcn1-1-storage
-openstack server add port osp16-dcn1-1 osp16-dcn1-1-external
 
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.22 --disable-port-security osp16-dcn1-2
 openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.22 --disable-port-security osp16-dcn1-2-storagemgt
 openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.22 --disable-port-security osp16-dcn1-2-tenant
 openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.22 --disable-port-security osp16-dcn1-2-internalapi
 openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.22 --disable-port-security osp16-dcn1-2-storage
-openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.22 --disable-port-security osp16-dcn1-2-external
 
 openstack server add port osp16-dcn1-2 osp16-dcn1-2
 openstack server add port osp16-dcn1-2 osp16-dcn1-2-storagemgt
 openstack server add port osp16-dcn1-2 osp16-dcn1-2-tenant
 openstack server add port osp16-dcn1-2 osp16-dcn1-2-internalapi
 openstack server add port osp16-dcn1-2 osp16-dcn1-2-storage
-openstack server add port osp16-dcn1-2 osp16-dcn1-2-external
 
-for i in 0 1 2; do openstack server remove volume osp16-dcn1-i osp16-dcn1-i & done; wait
-for i in 0 1 2; do openstack volume delete  osp16-dcn1-i & done; wait
-for i in 0 1 2; do openstack volume create osp16-dcn1-i --size 10 & done; wait
-for i in 0 1 2; do openstack server rebuild osp16-dcn1-i --wait & done; wait
-for i in 0 1 2; do openstack server add volume osp16-dcn1-i osp16-dcn1-i & done; wait
+for i in 0 1 2; do openstack server remove volume osp16-dcn1-$i osp16-dcn1-$i & done; wait
+for i in 0 1 2; do openstack volume delete  osp16-dcn1-$i & done; wait
+for i in 0 1 2; do openstack volume create osp16-dcn1-$i --size 10 & done; wait
+for i in 0 1 2; do openstack server rebuild osp16-dcn1-$i --wait & done; wait
+for i in 0 1 2; do openstack server add volume osp16-dcn1-$i osp16-dcn1-$i & done; wait
