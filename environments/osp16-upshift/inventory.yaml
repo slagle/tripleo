@@ -8,6 +8,15 @@ all:
       ansible_host: 192.168.1.41
     osp16-dcn1-2:
       ansible_host: 192.168.1.27
+  children:
+    central:
+      hosts:
+        osp16-controller:
+    dcn1:
+      hosts:
+        osp16-dcn1-0:
+        osp16-dcn1-1:
+        osp16-dcn1-2:
   vars:
     ansible_ssh_user: cloud-user
     ansible_ssh_private_key_file: /home/cloud-user/.ssh/upshift
