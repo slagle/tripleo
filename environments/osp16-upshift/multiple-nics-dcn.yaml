@@ -195,8 +195,7 @@ resources:
               network_config:
               - type: interface
                 name: nic2
-                mtu:
-                  get_param: ControlPlaneMtu
+                mtu: 1400
                 use_dhcp: false
                 dns_servers:
                   get_param: DnsServers
@@ -213,8 +212,7 @@ resources:
                     - get_param: ControlPlaneStaticRoutes
               - type: interface
                 name: nic6
-                mtu:
-                  get_param: StorageMtu
+                mtu: 1400
                 use_dhcp: false
                 addresses:
                 - ip_netmask:
@@ -224,8 +222,7 @@ resources:
                     - get_param: StorageInterfaceRoutes
               - type: interface
                 name: nic3
-                mtu:
-                  get_param: StorageMgmtMtu
+                mtu: 1400
                 use_dhcp: false
                 addresses:
                 - ip_netmask:
@@ -235,8 +232,7 @@ resources:
                     - get_param: StorageMgmtInterfaceRoutes
               - type: interface
                 name: nic5
-                mtu:
-                  get_param: InternalApiMtu
+                mtu: 1400
                 use_dhcp: false
                 addresses:
                 - ip_netmask:
@@ -246,8 +242,7 @@ resources:
                     - get_param: InternalApiInterfaceRoutes
               - type: ovs_bridge
                 name: br-tenant
-                mtu:
-                  get_param: TenantMtu
+                mtu: 1400
                 dns_servers:
                   get_param: DnsServers
                 use_dhcp: false
@@ -260,8 +255,7 @@ resources:
                 members:
                 - type: interface
                   name: nic4
-                  mtu:
-                    get_param: TenantMtu
+                  mtu: 1400
                   use_dhcp: false
                   primary: true
 outputs:
