@@ -1,0 +1,7 @@
+parameter_defaults:
+  ControlPlaneMtu: 1400
+  StorageMtu: 1400
+  StorageMgmtMtu: 1400
+  InternalApiMtu: 1400
+  TenantMtu: 1400
+  ExternalMtu: 1400

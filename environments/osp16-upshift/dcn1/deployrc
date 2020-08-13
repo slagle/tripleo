@@ -19,6 +19,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/osp16-upshift/dcn1/vip-noops.yaml \
   -e $HOME/tripleo/environments/osp16-upshift/ceph-environment.yaml \
   -e $HOME/tripleo/environments/osp16-upshift/network-environment.yaml \
+  -e $HOME/tripleo/environments/osp16-upshift/mtus.yaml \
   -e $HOME/central-export.yaml \
 "
 
