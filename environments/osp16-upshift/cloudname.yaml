@@ -1,0 +1,7 @@
+parameter_defaults:
+  CloudDomain: dcn.osp16-upshift
+  CloudName: osp16.dcn.osp16-upshift
+  CloudNameCtlplane: osp16.ctlplane.dcn.osp16-upshift
+  CloudNameInternal: osp16.internalapi.dcn.osp16-upshift
+  CloudNameStorage: osp16.storage.dcn.osp16-upshift
+  CloudNameStorageManagement: osp16.storagemgmt.dcn.osp16-upshift
