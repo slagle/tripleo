@@ -41,4 +41,4 @@ parameter_defaults:
     - ip_address: 10.0.0.100
 
   PublicVirtualFixedIPs:
-    - ip_address: 10.0.0.5
+    - ip_address: 10.0.0.99
