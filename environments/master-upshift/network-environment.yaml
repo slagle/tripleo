@@ -1,8 +1,15 @@
 resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: /home/centos/tripleo-heat-templates/net-config-static-bridge.yaml
-  OS::TripleO::Compute::Net::SoftwareConfig: /home/centos/tripleo-heat-templates/net-config-static-bridge.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: /home/centos/tripleo/environments/master-upshift/nic-configs/controller.yaml
+  OS::TripleO::Compute::Net::SoftwareConfig: /home/centos/tripleo/environments/master-upshift/nic-configs/compute.yaml
 
 parameter_defaults:
+  CloudDomain: tripleodomain
+  ControlPlaneMtu: 1400
+  ExternalMtu: 1400
+  InternalApiMtu: 1400
+  StorageMtu: 1400
+  StorageMgmtMtu: 1400
+  TenantMtu: 1400
   EC2MetadataIp: 192.168.24.1
   ControlPlaneDefaultRoute: 192.168.1.1
   NtpServer:

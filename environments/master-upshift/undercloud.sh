@@ -1,21 +1,19 @@
 set -eux
 
-rpm -q git || sudo yum -y install git
-sudo yum -y install python-setuptools python-requests
+rpm -q git || sudo dnf -y install git
+sudo dnf -y install python3 python-setuptools python-requests
 git clone https://git.openstack.org/openstack/tripleo-repos 
 pushd tripleo-repos
-sudo python setup.py install
+sudo python3 setup.py install
 popd
-sudo tripleo-repos current-tripleo-dev
+sudo /usr/local/bin/tripleo-repos current-tripleo-dev
 
-sudo yum -y install git bash-completion tmux python-tripleoclient expect tripleo-ansible libibverbs
+sudo dnf -y install git bash-completion tmux python3-tripleoclient expect tripleo-ansible libibverbs
 
 cat >~/.tmux.conf<<EOF
 # Prefix key
-set-option -g prefix C-a
-unbind-key C-b
-bind-key C-a send-prefix
-
+set-option -g prefix2 C-a
+bind-key C-a send-prefix -2
 EOF
 
 git clone https://github.com/slagle/tripleo

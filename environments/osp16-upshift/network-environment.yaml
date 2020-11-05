@@ -3,7 +3,8 @@ resource_registry:
   OS::TripleO::DistributedComputeHCI::Net::SoftwareConfig: /home/cloud-user/tripleo/environments/osp16-upshift/multiple-nics-dcn.yaml
 
 parameter_defaults:
-  EC2MetadataIp: 192.168.24.1
+  CloudDomain: tripleodomain
+  EC2MetadataIp: 192.168.24.2
   ControlPlaneDefaultRoute: 192.168.1.1
   NtpServer:
     - clock.redhat.com
@@ -17,15 +18,27 @@ parameter_defaults:
   ControllerIPs:
     storage:
       - 172.16.1.10
+      - 172.16.1.11
+      - 172.16.1.12
     external:
-      - 10.0.0.10
+      - 10.0.0.20
+      - 10.0.0.21
+      - 10.0.0.22
     internal_api:
       - 172.16.2.10
+      - 172.16.2.11
+      - 172.16.2.12
     storage_mgmt:
       - 172.16.3.10
+      - 172.16.3.11
+      - 172.16.3.12
     tenant:
       - 172.16.0.10
+      - 172.16.0.11
+      - 172.16.0.12
     management:
+      - 192.168.1.22
+      - 192.168.1.22
       - 192.168.1.22
 
   InternalApiVirtualFixedIPs:
@@ -41,4 +54,4 @@ parameter_defaults:
     - ip_address: 10.0.0.100
 
   PublicVirtualFixedIPs:
-    - ip_address: 10.0.0.119
+    - ip_address: 10.0.0.111

@@ -7,6 +7,7 @@ openstack server add port osp16 osp16-local-ip
 openstack server add port osp16 osp16-external
 
 openstack server create --flavor m1.large --network jslagle-test --image  RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-controller
+openstack server rebuild osp16-controller &
 
 # VIPs
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.100 --disable-port-security osp16-control-vip
