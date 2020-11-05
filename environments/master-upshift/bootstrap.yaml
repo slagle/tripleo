@@ -28,7 +28,7 @@
         - tripleo-repos
     - name: run tripleo-repos
       shell: |
-        sudo tripleo-repos current-tripleo-dev
+        sudo /usr/local/bin/tripleo-repos current-tripleo-dev
       tags:
         - tripleo-repos
     - name: set root password
