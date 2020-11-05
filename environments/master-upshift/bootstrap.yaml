@@ -31,20 +31,6 @@
         sudo tripleo-repos current-tripleo-dev
       tags:
         - tripleo-repos
-    - name: dhclient eth1
-      shell:
-        dhclient eth1
-      become: true
-      tags:
-        - eth1
-      ignore_errors: true
-    - name: permissive selinux
-      become: true
-      selinux:
-        state: permissive
-        policy: targeted
-      tags:
-        - selinux
     - name: set root password
       become: true
       shell: |
