@@ -62,7 +62,7 @@ function create {
     openstack port create \
         --fixed-ip ip-address=192.168.1.${ip} \
         --network jslagle-test \
-        ${name}-${index}-test
+        ${name}-${index}-jslagle-test
     test_port_id=$(openstack port show ${name}-${index}-test -f value -c id)
 
     openstack port create \
@@ -115,6 +115,22 @@ function create {
         ${name}-${index}
 }
 
+function delete {
+    name=$1
+    index=$2
+
+    openstack port delete ${name}-${index}-test
+    openstack port delete ${name}-${index}-jslagle-master-ctlplane
+    openstack port delete ${name}-${index}-jslagle-master-internalapi
+    openstack port delete ${name}-${index}-jslagle-master-storage
+    openstack port delete ${name}-${index}-jslagle-master-storagemgt
+    openstack port delete ${name}-${index}-jslagle-master-external
+    openstack port delete ${name}-${index}-jslagle-master-tenant
+
+    openstack server delete ${name}-${index}
+}
+
+
 for i in 0 1 2; do
     ip=$((10 + $i))
     create controller $ip $i ocp-master-large &
@@ -126,7 +142,7 @@ for i in 0 1 2; do
 done
 
 for i in 0 1 2; do
-    openstack server delete controller-${i} &
+    delete master-compute $i &
 done
 
 for i in 0 1 2; do
