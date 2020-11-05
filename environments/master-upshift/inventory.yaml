@@ -1,17 +1,17 @@
 all:
   hosts:
-    controller-0:
-      ansible_host: 192.168.1.46
-    controller-1:
-      ansible_host: 192.168.1.47
-    controller-2:
-      ansible_host: 192.168.1.48
-    compute-0:
-      ansible_host: 192.168.1.50
-    compute-1:
-      ansible_host: 192.168.1.51
-    compute-2:
-      ansible_host: 192.168.1.52
+    master-controller-0:
+      ansible_host: 192.168.1.10
+    master-controller-1:
+      ansible_host: 192.168.1.11
+    master-controller-2:
+      ansible_host: 192.168.1.12
+    master-compute-0:
+      ansible_host: 192.168.1.110
+    master-compute-1:
+      ansible_host: 192.168.1.111
+    master-compute-2:
+      ansible_host: 192.168.1.112
   vars:
     ansible_ssh_user: centos
     ansible_ssh_private_key_file: /home/centos/.ssh/upshift
