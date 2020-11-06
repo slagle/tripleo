@@ -202,7 +202,7 @@
       subnet: tenant_subnet
     Storage:
       subnet: storage_subnet
-  HostnameFormatDefault: '%stackname%-novacompute-%index%'
+  HostnameFormatDefault: '%stackname%-compute-%index%'
   RoleParametersDefault:
     TunedProfileName: "virtual-host"
   update_serial: 25
