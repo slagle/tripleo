@@ -15,39 +15,39 @@ openstack subnet create --gateway none --no-dhcp --network jslagle-master-storag
 openstack subnet create --gateway none --no-dhcp --network jslagle-master-tenant --subnet-range 172.16.0.0/24 jslagle-master-tenant &
 
 openstack port create \
-	--fixed-ip ip-address=192.168.24.100 \
-	--network jslagle-master-ctlplane \
-	master-control-virtual-ip &
+    --fixed-ip ip-address=192.168.24.100 \
+    --network jslagle-master-ctlplane \
+    master-control-virtual-ip &
 
 openstack port create \
-	--fixed-ip ip-address=172.16.2.100 \
-	--network jslagle-master-internalapi \
-	master-internalapi-virtual-ip &
+    --fixed-ip ip-address=172.16.2.100 \
+    --network jslagle-master-internalapi \
+    master-internalapi-virtual-ip &
 
 openstack port create \
-	--fixed-ip ip-address=10.0.0.100 \
-	--network jslagle-master-external \
-	master-external-virtual-ip &
+    --fixed-ip ip-address=10.0.0.100 \
+    --network jslagle-master-external \
+    master-external-virtual-ip &
 
 openstack port create \
-	--fixed-ip ip-address=172.16.1.100 \
-	--network jslagle-master-storage \
-	master-storage-virtual-ip &
+    --fixed-ip ip-address=172.16.1.100 \
+    --network jslagle-master-storage \
+    master-storage-virtual-ip &
 
 openstack port create \
-	--fixed-ip ip-address=172.16.3.100 \
-	--network jslagle-master-storagemgt \
-	master-storagemgt-virtual-ip &
+    --fixed-ip ip-address=172.16.3.100 \
+    --network jslagle-master-storagemgt \
+    master-storagemgt-virtual-ip &
 
 openstack port create \
-	--fixed-ip ip-address=172.16.2.101 \
-	--network jslagle-master-internalapi \
-	master-redis-virtual-ip &
+    --fixed-ip ip-address=172.16.2.101 \
+    --network jslagle-master-internalapi \
+    master-redis-virtual-ip &
 
 openstack port create \
-	--fixed-ip ip-address=172.16.2.102 \
-	--network jslagle-master-internalapi \
-	master-ovndbs-virtual-ip &
+    --fixed-ip ip-address=172.16.2.102 \
+    --network jslagle-master-internalapi \
+    master-ovndbs-virtual-ip &
 
 openstack port create \
     --fixed-ip ip-address=192.168.24.2 \
@@ -75,13 +75,13 @@ master_local_ip=$(openstack port show master-local-ip -f value -c id)
 master_external_uc=$(openstack port show master-external-uc -f value -c id)
 
 openstack server create \
-	--flavor ocp-master-large \
-	--image CentOS-8-x86_64-GenericCloud-released-latest \
-	--key-name jslagle \
-	--nic net-id=57167586-7aef-4f82-aeb7-42f0ca71005f \
-	--nic port-id=$master_local_ip \
-	--nic port-id=$master_external_uc \
-	master-uc
+    --flavor ocp-master-large \
+    --image CentOS-8-x86_64-GenericCloud-released-latest \
+    --key-name jslagle \
+    --nic net-id=57167586-7aef-4f82-aeb7-42f0ca71005f \
+    --nic port-id=$master_local_ip \
+    --nic port-id=$master_external_uc \
+    master-uc
 
 openstack server add floating ip master-uc 10.0.126.102
 

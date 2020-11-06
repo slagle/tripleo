@@ -19,7 +19,7 @@ parameter_defaults:
 #           - 192.168.24.0/24
     master-controller-0-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.110
+        - ip_address: 192.168.24.10
       subnets:
         - cidr: 192.168.24.0/24
       network:
@@ -27,7 +27,7 @@ parameter_defaults:
           - 192.168.24.0/24
     master-controller-1-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.111
+        - ip_address: 192.168.24.11
       subnets:
         - cidr: 192.168.24.0/24
       network:
@@ -35,7 +35,7 @@ parameter_defaults:
           - 192.168.24.0/24
     master-controller-2-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.112
+        - ip_address: 192.168.24.12
       subnets:
         - cidr: 192.168.24.0/24
       network:
@@ -43,7 +43,7 @@ parameter_defaults:
           - 192.168.24.0/24
     master-compute-0-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.120
+        - ip_address: 192.168.24.110
       subnets:
         - cidr: 192.168.24.0/24
       network:
@@ -51,7 +51,7 @@ parameter_defaults:
           - 192.168.24.0/24
     master-compute-1-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.121
+        - ip_address: 192.168.24.111
       subnets:
         - cidr: 192.168.24.0/24
       network:
@@ -59,7 +59,7 @@ parameter_defaults:
           - 192.168.24.0/24
     master-compute-2-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.24.122
+        - ip_address: 192.168.24.112
       subnets:
         - cidr: 192.168.24.0/24
       network:
