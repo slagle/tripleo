@@ -1,5 +1,5 @@
 parameter_defaults:
-  NetworkConfigWithAnsible: true
+  NetworkConfigWithAnsible: false
   ControllerNetworkConfigTemplate: /home/centos/tripleo/environments/master-upshift/nic-configs/controller.yaml
   ComputeNetworkConfigTemplate: /home/centos/tripleo/environments/master-upshift/nic-configs/compute.yaml
   CloudDomain: tripleodomain
