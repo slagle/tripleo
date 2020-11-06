@@ -1,23 +1,23 @@
 resource_registry:
   OS::TripleO::DeployedServer::ControlPlanePort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
-  OS::TripleO::Network::Ports::ControlPlaneVipPort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
-  OS::TripleO::Network::Ports::RedisVipPort: /home/centos/tripleo-heat-templates/network/ports/noop.yaml
-  OS::TripleO::Network::Ports::OVNDBsVipPort: /home/centos/tripleo-heat-templates/network/ports/noop.yaml
+  # OS::TripleO::Network::Ports::ControlPlaneVipPort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+  # OS::TripleO::Network::Ports::RedisVipPort: /home/centos/tripleo-heat-templates/network/ports/noop.yaml
+  # OS::TripleO::Network::Ports::OVNDBsVipPort: /home/centos/tripleo-heat-templates/network/ports/noop.yaml
 
 parameter_defaults:
   NeutronPublicInterface: eth1
   EC2MetadataIp: 192.168.24.1
 
   DeployedServerPortMap:
-    control_virtual_ip:
-      fixed_ips:
-        - ip_address: 192.168.24.100
-      subnets:
-        - cidr: 192.168.24.0/24
-      network:
-        tags:
-          - 192.168.24.0/24
-    controller-0-ctlplane:
+#     control_virtual_ip:
+#       fixed_ips:
+#         - ip_address: 192.168.24.100
+#       subnets:
+#         - cidr: 192.168.24.0/24
+#       network:
+#         tags:
+#           - 192.168.24.0/24
+    master-controller-0-ctlplane:
       fixed_ips:
         - ip_address: 192.168.24.110
       subnets:
@@ -25,7 +25,7 @@ parameter_defaults:
       network:
         tags:
           - 192.168.24.0/24
-    controller-1-ctlplane:
+    master-controller-1-ctlplane:
       fixed_ips:
         - ip_address: 192.168.24.111
       subnets:
@@ -33,7 +33,7 @@ parameter_defaults:
       network:
         tags:
           - 192.168.24.0/24
-    controller-2-ctlplane:
+    master-controller-2-ctlplane:
       fixed_ips:
         - ip_address: 192.168.24.112
       subnets:
@@ -41,7 +41,7 @@ parameter_defaults:
       network:
         tags:
           - 192.168.24.0/24
-    compute-0-ctlplane:
+    master-compute-0-ctlplane:
       fixed_ips:
         - ip_address: 192.168.24.120
       subnets:
@@ -49,7 +49,7 @@ parameter_defaults:
       network:
         tags:
           - 192.168.24.0/24
-    compute-1-ctlplane:
+    master-compute-1-ctlplane:
       fixed_ips:
         - ip_address: 192.168.24.121
       subnets:
@@ -57,7 +57,7 @@ parameter_defaults:
       network:
         tags:
           - 192.168.24.0/24
-    compute-2-ctlplane:
+    master-compute-2-ctlplane:
       fixed_ips:
         - ip_address: 192.168.24.122
       subnets:

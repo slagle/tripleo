@@ -20,6 +20,36 @@ openstack port create \
 	master-control-virtual-ip &
 
 openstack port create \
+	--fixed-ip ip-address=172.16.2.100 \
+	--network jslagle-master-internalapi \
+	master-internalapi-virtual-ip &
+
+openstack port create \
+	--fixed-ip ip-address=10.0.0.100 \
+	--network jslagle-master-external \
+	master-external-virtual-ip &
+
+openstack port create \
+	--fixed-ip ip-address=172.16.1.100 \
+	--network jslagle-master-storage \
+	master-storage-virtual-ip &
+
+openstack port create \
+	--fixed-ip ip-address=172.16.3.100 \
+	--network jslagle-master-storagemgt \
+	master-storagemgt-virtual-ip &
+
+openstack port create \
+	--fixed-ip ip-address=172.16.2.101 \
+	--network jslagle-master-internalapi \
+	master-redis-virtual-ip &
+
+openstack port create \
+	--fixed-ip ip-address=172.16.2.102 \
+	--network jslagle-master-internalapi \
+	master-ovndbs-virtual-ip &
+
+openstack port create \
     --fixed-ip ip-address=192.168.24.2 \
     --network jslagle-master-ctlplane \
     master-local-ip &
@@ -38,6 +68,8 @@ openstack port create \
     --fixed-ip ip-address=10.0.0.5 \
     --network jslagle-master-external \
     master-external-uc
+
+
 
 master_local_ip=$(openstack port show master-local-ip -f value -c id)
 master_external_uc=$(openstack port show master-external-uc -f value -c id)

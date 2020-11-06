@@ -17,3 +17,55 @@ parameter_defaults:
   DnsServers:
     - 10.11.5.19
     - 10.5.30.160
+
+	ControlFixedIPs: [{'ip_address':'192.168.24.100'}]
+	InternalApiVirtualFixedIPs: [{'ip_address':'172.16.2.100'}]
+	PublicVirtualFixedIPs: [{'ip_address':'10.0.0.100'}]
+	StorageVirtualFixedIPs: [{'ip_address':'172.16.1.100'}]
+	StorageMgmtVirtualFixedIPs: [{'ip_address':'172.16.3.100'}]
+	RedisVirtualFixedIPs: [{'ip_address':'172.16.2.101'}]
+	OVNDBsVirtualFixedIPs: [{'ip_address':'172.16.2.102'}]
+
+  ControllerIPs:
+    internal_api:
+      - 172.16.2.10
+      - 172.16.2.11
+      - 172.16.2.12
+    storage:
+      - 172.16.1.10
+      - 172.16.1.11
+      - 172.16.1.12
+    storage_mgmt:
+      - 172.16.3.10
+      - 172.16.3.11
+      - 172.16.3.12
+    external:
+      - 10.0.0.10
+      - 10.0.0.11
+      - 10.0.0.12
+    tenant:
+      - 172.16.0.10
+      - 172.16.0.11
+      - 172.16.0.12
+
+  ComputeIPs:
+    internal_api:
+      - 172.16.2.100
+      - 172.16.2.101
+      - 172.16.2.102
+    storage:
+      - 172.16.1.100
+      - 172.16.1.101
+      - 172.16.1.102
+    storage_mgmt:
+      - 172.16.3.100
+      - 172.16.3.101
+      - 172.16.3.102
+    external:
+      - 10.0.0.100
+      - 10.0.0.101
+      - 10.0.0.102
+    tenant:
+      - 172.16.0.100
+      - 172.16.0.101
+      - 172.16.0.102
