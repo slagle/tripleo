@@ -17,6 +17,8 @@ COMMON_ENVIRONMENTS=${COMMON_ENVIRONMENTS:-"1"}
 ENVIRONMENTS=${ENVIRONMENTS:-""}
 ARGS=${ARGS:-""}
 
+source ~/stackrc
+
 if [ "$COMMON_ENVIRONMENTS" = "1" ]; then
     # ENVIRONMENTS="-e $TEMPLATES/environments/puppet-pacemaker.yaml $ENVIRONMENTS"
     ENVIRONMENTS="\
