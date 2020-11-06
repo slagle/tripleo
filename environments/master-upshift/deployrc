@@ -22,5 +22,5 @@ export ARGS="\
   --deployed-server \
   --disable-validations \
   --overcloud-ssh-user centos \
-  --overcloud-ssh-key upshift \
+  --overcloud-ssh-key ~/.ssh/upshift \
 "
