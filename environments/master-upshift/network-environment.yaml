@@ -3,6 +3,7 @@ resource_registry:
   OS::TripleO::Compute::Net::SoftwareConfig: /home/centos/tripleo/environments/master-upshift/nic-configs/compute.yaml
 
 parameter_defaults:
+  NeutronPublicInterface: eth1
   NetworkConfigWithAnsible: false
   CloudDomain: tripleodomain
   ControlPlaneMtu: 1400
@@ -11,7 +12,7 @@ parameter_defaults:
   StorageMtu: 1400
   StorageMgmtMtu: 1400
   TenantMtu: 1400
-  EC2MetadataIp: 192.168.24.1
+  EC2MetadataIp: 192.168.24.2
   ControlPlaneDefaultRoute: 192.168.1.1
   NtpServer:
     - clock.redhat.com
