@@ -265,6 +265,11 @@ resources:
           dns_servers:
             get_param: DnsServers
           use_dhcp: false
+          addresses:
+          - ip_netmask:
+              get_param: ExternalIpSubnet
+          routes:
+            get_param: ExternalInterfaceRoutes
           members:
           - type: interface
             name: nic3
@@ -272,16 +277,6 @@ resources:
               get_param: ExternalMtu
             use_dhcp: false
             primary: true
-          - type: vlan
-            mtu:
-              get_param: ExternalMtu
-            vlan_id:
-              get_param: ExternalNetworkVlanID
-            addresses:
-            - ip_netmask:
-                get_param: ExternalIpSubnet
-            routes:
-              get_param: ExternalInterfaceRoutes
 outputs:
   config:
     description: The OsNetConfigImpl resource.

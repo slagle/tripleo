@@ -17,6 +17,7 @@ export ENVIRONMENTS="\
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/master-upshift/roles-data.yaml"
+export NETWORK_DATA="$HOME/tripleo/environments/master-upshift/network_data.yaml"
 
 export ARGS="\
   --deployed-server \
