@@ -12,6 +12,7 @@ parameter_defaults:
   InternalApiMtu: 1400
   StorageMtu: 1400
   StorageMgmtMtu: 1400
+  ManagementMtu: 1400
   TenantMtu: 1400
   EC2MetadataIp: 192.168.24.2
   ControlPlaneDefaultRoute: 192.168.1.1
@@ -51,6 +52,10 @@ parameter_defaults:
       - 172.16.0.10
       - 172.16.0.11
       - 172.16.0.12
+		management:
+      - 192.168.1.10
+      - 192.168.1.11
+      - 192.168.1.12
 
   ComputeIPs:
     internal_api:
@@ -73,3 +78,7 @@ parameter_defaults:
       - 172.16.0.110
       - 172.16.0.111
       - 172.16.0.112
+		management:
+      - 192.168.1.110
+      - 192.168.1.111
+      - 192.168.1.112
