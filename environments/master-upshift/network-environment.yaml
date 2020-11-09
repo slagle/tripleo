@@ -3,6 +3,7 @@ resource_registry:
   OS::TripleO::Compute::Net::SoftwareConfig: /home/centos/tripleo/environments/master-upshift/nic-configs/compute.yaml
 
 parameter_defaults:
+  SshFirewallAllowAll: true
   NeutronPublicInterface: eth1
   NetworkConfigWithAnsible: false
   CloudDomain: tripleodomain
