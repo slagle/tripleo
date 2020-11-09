@@ -127,7 +127,7 @@
   name_lower: external
   vlan: 10
   ip_subnet: '10.0.0.0/24'
-  allocation_pools: [{'start': '10.0.0.4', 'end': '10.0.0.250'}]
+  allocation_pools: [{'start': '10.0.0.6', 'end': '10.0.0.250'}]
   gateway_ip: '10.0.0.5'
   ipv6_subnet: '2001:db8:fd00:1000::/64'
   ipv6_allocation_pools: [{'start': '2001:db8:fd00:1000::10', 'end': '2001:db8:fd00:1000:ffff:ffff:ffff:fffe'}]
