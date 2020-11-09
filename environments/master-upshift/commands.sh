@@ -178,60 +178,9 @@ for i in 0 1 2; do
 done
 
 for i in 0 1 2; do
-    openstack port delete controller-${i}-test &
-    openstack port delete controller-${i}-master &
-done
-
-for i in 66 71 81; do
-    openstack port delete compute-${i}-test &
-    openstack port delete compute-${i}-master &
-done
-for i in $(seq 0 49); do
-    openstack server delete compute-${i} &
-done
-
-for i in $(seq 0 49); do
-    ip=$((50 + $i))
-    create compute $ip $i ci.m1.micro &
-done
-
-for i in $(seq 0 9); do
-    ip=$((50 + $i))
-    create compute $ip $i ci.m1.micro &
-done
-
-for i in $(seq 10 19); do
-    ip=$((50 + $i))
-    create compute $ip $i ci.m1.micro &
-done
-
-for i in $(seq 20 29); do
-    ip=$((50 + $i))
-    create compute $ip $i ci.m1.micro &
-done
-
-for i in $(seq 30 39); do
-    ip=$((50 + $i))
-    create compute $ip $i ci.m1.micro &
-done
-
-for i in $(seq 50 99); do
-    ip=$((50 + $i))
-    create compute $ip $i ci.m1.micro &
+    openstack server rebuild master-controller-${i} --image CentOS-8-x86_64-GenericCloud-released-latest &
 done
 
 for i in 0 1 2; do
-    openstack server rebuild controller-${i} --image CentOS-7-x86_64-GenericCloud-1808 &
-done
-
-for i in $(seq 0 49); do
-    openstack server rebuild compute-${i} --image CentOS-7-x86_64-GenericCloud-1808 &
-done
-
-for i in $(seq 50 99); do
-    openstack server rebuild compute-${i} &
-done
-
-for i in $(seq 0 99); do
-    openstack server rebuild compute-${i} &
+    openstack server rebuild master-compute-${i} --image CentOS-8-x86_64-GenericCloud-released-latest &
 done
