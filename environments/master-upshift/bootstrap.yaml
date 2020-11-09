@@ -37,3 +37,7 @@
         echo st@ckhax0r | passwd --stdin root
       tags:
         - root
+    - name: remove ifcfg-ens3
+      become: true
+      shell: |
+        rm -f /etc/sysconfig/network-scripts/ifcfg-ens3
