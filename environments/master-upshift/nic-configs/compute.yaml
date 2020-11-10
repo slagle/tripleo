@@ -172,7 +172,7 @@ resources:
           routes:
             get_param: ControlPlaneStaticRoutes
         - type: interface
-          name: nic4
+          name: nic5
           mtu:
             get_param: StorageMtu
           use_dhcp: false
@@ -182,7 +182,7 @@ resources:
           routes:
             get_param: StorageInterfaceRoutes
         - type: interface
-          name: nic3
+          name: nic4
           mtu:
             get_param: InternalApiMtu
           use_dhcp: false
@@ -219,7 +219,7 @@ resources:
           use_dhcp: false
           members:
           - type: interface
-            name: nic6
+            name: nic3
             mtu:
               get_param: ExternalMtu
             use_dhcp: false
