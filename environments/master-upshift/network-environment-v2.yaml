@@ -1,0 +1,25 @@
+resource_registry:
+  OS::TripleO::Controller::Net::SoftwareConfig: /home/centos/tripleo/environments/master-upshift/nic-configs/controller_multiple_nics.j2
+  OS::TripleO::Compute::Net::SoftwareConfig: /home/centos/tripleo/environments/master-upshift/nic-configs/compute_multiple_nics.j2
+
+parameter_defaults:
+  SshFirewallAllowAll: true
+  NeutronPublicInterface: eth1
+  NetworkConfigWithAnsible: true
+  CloudDomain: tripleodomain
+  EC2MetadataIp: 192.168.24.2
+  ControlPlaneDefaultRoute: 192.168.1.1
+  NtpServer:
+    - clock.redhat.com
+    - clock2.redhat.com
+  DnsServers:
+    - 10.11.5.19
+    - 10.5.30.160
+
+  ControlFixedIPs: [{'ip_address':'192.168.24.100'}]
+  InternalApiVirtualFixedIPs: [{'ip_address':'172.16.2.100'}]
+  PublicVirtualFixedIPs: [{'ip_address':'10.0.0.100'}]
+  StorageVirtualFixedIPs: [{'ip_address':'172.16.1.100'}]
+  StorageMgmtVirtualFixedIPs: [{'ip_address':'172.16.3.100'}]
+  RedisVirtualFixedIPs: [{'ip_address':'172.16.2.101'}]
+  OVNDBsVirtualFixedIPs: [{'ip_address':'172.16.2.102'}]
