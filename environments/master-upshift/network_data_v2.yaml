@@ -1,0 +1,83 @@
+- dns_domain: external.tripleodomain.
+  mtu: 1400
+  name: External
+  name_lower: external
+  subnets:
+    external_subnet:
+      allocation_pools:
+      - end: 10.0.0.250
+        start: 10.0.0.6
+      ip_subnet: 10.0.0.0/24
+      physical_network: external
+      routes: []
+      vlan: 10
+  vip: true
+- dns_domain: internalapi.tripleodomain.
+  mtu: 1400
+  name: InternalApi
+  name_lower: internal_api
+  subnets:
+    internal_api_subnet:
+      allocation_pools:
+      - end: 172.16.2.250
+        start: 172.16.2.4
+      ip_subnet: 172.16.2.0/24
+      physical_network: internal_api
+      routes: []
+      vlan: 20
+  vip: true
+- dns_domain: tenant.tripleodomain.
+  mtu: 1400
+  name: Tenant
+  name_lower: tenant
+  subnets:
+    tenant_subnet:
+      allocation_pools:
+      - end: 172.16.0.250
+        start: 172.16.0.4
+      ip_subnet: 172.16.0.0/24
+      physical_network: tenant
+      routes: []
+      vlan: 50
+- dns_domain: storage.tripleodomain.
+  mtu: 1400
+  name: Storage
+  name_lower: storage
+  subnets:
+    storage_subnet:
+      allocation_pools:
+      - end: 172.16.1.250
+        start: 172.16.1.4
+      ip_subnet: 172.16.1.0/24
+      physical_network: storage
+      routes: []
+      vlan: 30
+  vip: true
+- dns_domain: storagemgmt.tripleodomain.
+  mtu: 1400
+  name: StorageMgmt
+  name_lower: storage_mgmt
+  subnets:
+    storage_mgmt_subnet:
+      allocation_pools:
+      - end: 172.16.3.250
+        start: 172.16.3.4
+      ip_subnet: 172.16.3.0/24
+      physical_network: storage_mgmt
+      routes: []
+      vlan: 40
+  vip: true
+- dns_domain: management.tripleodomain.
+  mtu: 1400
+  name: Management
+  name_lower: management
+  subnets:
+    management_subnet:
+      allocation_pools:
+      - end: 192.168.1.200
+        start: 192.168.1.10
+      gateway_ip: 192.168.1.1
+      ip_subnet: 192.168.1.0/24
+      physical_network: management
+      routes: []
+      vlan: 60

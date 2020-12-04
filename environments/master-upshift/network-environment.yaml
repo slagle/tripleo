@@ -1,11 +1,11 @@
 resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: /home/centos/tripleo/environments/master-upshift/nic-configs/controller.yaml
-  OS::TripleO::Compute::Net::SoftwareConfig: /home/centos/tripleo/environments/master-upshift/nic-configs/compute.yaml
+  OS::TripleO::Controller::Net::SoftwareConfig: /home/centos/tripleo/environments/master-upshift/nic-configs/controller_multiple_nics.j2
+  OS::TripleO::Compute::Net::SoftwareConfig: /home/centos/tripleo/environments/master-upshift/nic-configs/compute_multiple_nics.j2
 
 parameter_defaults:
   SshFirewallAllowAll: true
   NeutronPublicInterface: eth1
-  NetworkConfigWithAnsible: false
+  NetworkConfigWithAnsible: true
   CloudDomain: tripleodomain
   ControlPlaneMtu: 1400
   ExternalMtu: 1400
