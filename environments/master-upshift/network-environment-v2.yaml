@@ -2,12 +2,12 @@ resource_registry:
   OS::TripleO::Controller::Net::SoftwareConfig: OS::Heat::None
   OS::TripleO::Compute::Net::SoftwareConfig: OS::Heat::None
 
-  OS::TripleO::Network::Ports::ExternalVipPort: ../network/ports/external.yaml
-  OS::TripleO::Network::Ports::InternalApiVipPort: ../network/ports/internal_api.yaml
-  OS::TripleO::Network::Ports::StorageVipPort: ../network/ports/storage.yaml
-  OS::TripleO::Network::Ports::StorageMgmtVipPort: ../network/ports/storage_mgmt.yaml
-  OS::TripleO::Network::Ports::RedisVipPort: ../network/ports/vip.yaml
-  OS::TripleO::Network::Ports::OVNDBsVipPort: ../network/ports/vip.yaml
+  OS::TripleO::Network::Ports::ExternalVipPort: /home/centos/tripleo-heat-templates/network/ports/external.yaml
+  OS::TripleO::Network::Ports::InternalApiVipPort: /home/centos/tripleo-heat-templates/network/ports/internal_api.yaml
+  OS::TripleO::Network::Ports::StorageVipPort: /home/centos/tripleo-heat-templates/network/ports/storage.yaml
+  OS::TripleO::Network::Ports::StorageMgmtVipPort: /home/centos/tripleo-heat-templates/network/ports/storage_mgmt.yaml
+  OS::TripleO::Network::Ports::RedisVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml
+  OS::TripleO::Network::Ports::OVNDBsVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml
 
 
 parameter_defaults:
