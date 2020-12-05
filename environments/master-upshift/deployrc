@@ -10,6 +10,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/master-upshift/network-environment-v2.yaml \
   -e $HOME/tripleo/environments/master-upshift/deployed-networks.yaml \
   -e $HOME/tripleo/environments/master-upshift/baremetal_environment.yaml \
+  -e $HOME/tripleo/environments/master-upshift/root-stack-name.yaml \
   -e $HOME/tripleo/environments/containers-tripleomaster-current-tripleo.yaml \
   -e $HOME/tripleo/environments/glance-backend-file.yaml \
 "
