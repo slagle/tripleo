@@ -204,6 +204,8 @@
       subnet: storage_subnet
     Management:
       subnet: management_subnet
+    External:
+      subnet: external_subnet
   HostnameFormatDefault: '%stackname%-compute-%index%'
   default_route_networks: ['Management']
   RoleParametersDefault:

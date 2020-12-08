@@ -15,7 +15,7 @@ network_config:
   dns_servers: {{ ctlplane_dns_nameservers }}
   use_dhcp: false
   addresses:
-  - ip_netmask: {{ external_ip }}/{{ external_subnet_cidr }}
+  - ip_netmask: {{ external_ip }}/{{ external_cidr }}
   routes: {{ external_host_routes }}
   members:
   - type: interface
@@ -28,14 +28,14 @@ network_config:
   mtu: {{ internal_api_mtu }}
   use_dhcp: false
   addresses:
-  - ip_netmask: {{ internal_api_ip }}/{{ internal_api_subnet_cidr }}
+  - ip_netmask: {{ internal_api_ip }}/{{ internal_api_cidr }}
   routes: {{ internal_api_host_routes }}
 - type: interface
   name: nic5
   mtu: {{ storage_mtu }}
   use_dhcp: false
   addresses:
-  - ip_netmask: {{ storage_ip }}/{{ storage_subnet_cidr }}
+  - ip_netmask: {{ storage_ip }}/{{ storage_cidr }}
   routes: {{ storage_host_routes }}
 - type: ovs_bridge
   name: br-tenant
@@ -43,7 +43,7 @@ network_config:
   dns_servers: {{ ctlplane_dns_nameservers }}
   use_dhcp: false
   addresses:
-  - ip_netmask: {{ tenant_ip }}/{{ tenant_subnet_cidr }}
+  - ip_netmask: {{ tenant_ip }}/{{ tenant_cidr }}
   routes: {{ tenant_host_routes }}
   members:
   - type: interface
