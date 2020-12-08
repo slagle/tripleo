@@ -45,9 +45,9 @@ fi
 
 pushd $TEMPLATES
 tools/process-templates.py -c -r $ROLES_DATA -n $NETWORK_DATA
+find $TEMPLATES | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
 tools/process-templates.py -r $ROLES_DATA -n $NETWORK_DATA
 popd
-find $TEMPLATES | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
 
 if [ "$HEATCLIENT" = "0" ]; then
 
