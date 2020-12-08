@@ -43,6 +43,10 @@ else
         $ENVIRONMENTS"
 fi
 
+pushd $TEMPLATES
+tools/process-templates.py -c -r $ROLES_DATA -n $NETWORK_DATA
+tools/process-templates.py -r $ROLES_DATA -n $NETWORK_DATA
+popd
 find $TEMPLATES | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
 
 if [ "$HEATCLIENT" = "0" ]; then
@@ -75,9 +79,6 @@ if [ "$HEATCLIENT" = "0" ]; then
         date | unbuffer -p tee -a deploy.log
         echo "Ending deploy"
 else
-        pushd $TEMPLATES
-        tools/process-templates.py -r $ROLES_DATA -n $NETWORK_DATA
-        popd
 
         echo "Starting deploy"
         date | unbuffer -p tee -a deploy.log
