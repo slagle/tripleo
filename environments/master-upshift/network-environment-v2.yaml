@@ -35,3 +35,5 @@ parameter_defaults:
   StorageMgmtVirtualFixedIPs: [{'ip_address':'172.16.3.100'}]
   RedisVirtualFixedIPs: [{'ip_address':'172.16.2.101'}]
   OVNDBsVirtualFixedIPs: [{'ip_address':'172.16.2.102'}]
+
+  SoftwareConfigTransport: POLL_SERVER_HEAT
