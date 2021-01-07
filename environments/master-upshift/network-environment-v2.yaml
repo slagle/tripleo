@@ -9,7 +9,7 @@ resource_registry:
   OS::TripleO::Network::Ports::RedisVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml
   OS::TripleO::Network::Ports::OVNDBsVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml
 
-  OS::TripleO::Network::Ports::ControlPlaneVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml
+  OS::TripleO::Network::Ports::ControlPlaneVipPort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
 
 parameter_defaults:
   ControllerNetworkConfigTemplate: /home/centos/tripleo/environments/master-upshift/nic-configs/controller_multiple_nics.j2
