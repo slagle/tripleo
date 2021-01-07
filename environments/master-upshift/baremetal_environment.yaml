@@ -22,6 +22,27 @@ parameter_defaults:
     master-controller-2-ctlplane:
       fixed_ips:
       - ip_address: 192.168.24.12
+    control_virtual_ip:
+      fixed_ips:
+      - ip_address: 192.168.24.100
+    external_virtual_ip:
+      fixed_ips:
+      - ip_address: 10.0.0.100
+    internal_api_virtual_ip:
+      fixed_ips:
+      - ip_address: 172.16.2.100
+    storage_virtual_ip:
+      fixed_ips:
+      - ip_address: 172.16.1.100
+    storage_mgmt_virtual_ip:
+      fixed_ips:
+      - ip_address: 172.16.3.100
+    redis_virtual_ip:
+      fixed_ips:
+      - ip_address: 172.16.2.101
+    ovn_dbs_virtual_ip:
+      fixed_ips:
+      - ip_address: 172.16.2.102
   HostnameMap:
     overcloud-compute-0: master-compute-0
     overcloud-compute-1: master-compute-1
