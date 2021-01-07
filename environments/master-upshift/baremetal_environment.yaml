@@ -240,9 +240,9 @@ resource_registry:
   OS::TripleO::Controller::Ports::TenantPort: /home/centos/tripleo-heat-templates/network/ports/deployed_tenant.yaml
   OS::TripleO::DeployedServer::ControlPlanePort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
 
-  OS::TripleO::Network::Ports::ExternalVipPort: /home/centos/tripleo-heat-templates/network/ports/deployed_external.yaml
-  OS::TripleO::Network::Ports::InternalApiVipPort: /home/centos/tripleo-heat-templates/network/ports/deployed_internal_api.yaml
-  OS::TripleO::Network::Ports::StorageVipPort: /home/centos/tripleo-heat-templates/network/ports/deployed_storage.yaml
-  OS::TripleO::Network::Ports::StorageMgmtVipPort: /home/centos/tripleo-heat-templates/network/ports/deployed_storage_mgmt.yaml
-  OS::TripleO::Network::Ports::RedisVipPort: /home/centos/tripleo-heat-templates/network/ports/deployed_internal_api.yaml
-  OS::TripleO::Network::Ports::OVNDBsVipPort: /home/centos/tripleo-heat-templates/network/ports/deployed_internal_api.yaml
+  OS::TripleO::Network::Ports::ExternalVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml
+  OS::TripleO::Network::Ports::InternalApiVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml
+  OS::TripleO::Network::Ports::StorageVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml
+  OS::TripleO::Network::Ports::StorageMgmtVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml
+  OS::TripleO::Network::Ports::RedisVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml
+  OS::TripleO::Network::Ports::OVNDBsVipPort: /home/centos/tripleo-heat-templates/network/ports/vip.yaml

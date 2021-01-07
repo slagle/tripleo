@@ -10,6 +10,8 @@ resource_registry:
   OS::TripleO::Network::Ports::OVNDBsVipPort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
   OS::TripleO::Network::Ports::ControlPlaneVipPort: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
 
+  OS::Neutron::Port: /home/centos/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+
 parameter_defaults:
   ControllerNetworkConfigTemplate: /home/centos/tripleo/environments/master-upshift/nic-configs/controller_multiple_nics.j2
   ComputeNetworkConfigTemplate: /home/centos/tripleo/environments/master-upshift/nic-configs/compute_multiple_nics.j2
