@@ -11,6 +11,7 @@ REPOS="
     tripleo-ansible
     tripleo-heat-templates
 "
+SETUP_PY=${SETUP_PY:-"1"}
 
 cd $WORK_DIR
 
@@ -47,11 +48,13 @@ if [ ! -d tripleo-heat-templates ]; then
     popd
 fi
 
-for repo in $REPOS; do
-    pushd $repo
-    sudo /usr/bin/python3 setup.py install -f --prefix /usr
-    popd
-done
+if [ "$SETUP_PY" = 1 ]; then
+    for repo in $REPOS; do
+        pushd $repo
+        sudo /usr/bin/python3 setup.py install -f --prefix /usr
+        popd
+    done
+fi
 
 cat > $WORK_DIR/ephemeral-heat-environment.yaml<<EOF
 resource_registry:
