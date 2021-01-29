@@ -48,7 +48,7 @@ if [ ! -d tripleo-heat-templates ]; then
 fi
 
 for repo in $REPOS; do
-    pushd repo
+    pushd $repo
     sudo /usr/bin/python3 setup.py install -f --prefix /usr
     popd
 done
