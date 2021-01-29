@@ -62,9 +62,10 @@ resource_registry:
   OS::TripleO::Network::Ports::ControlPlaneVipPort: $WORK_DIR/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
   OS::TripleO::Network::Ports::RedisVipPort: $WORK_DIR/tripleo-heat-templates/network/ports/noop.yaml
   OS::TripleO::Network::Ports::OVNDBsVipPort: $WORK_DIR/tripleo-heat-templates/network/ports/noop.yaml
+  OS::TripleO::OVNMacAddressNetwork: OS::Heat::None
+  OS::TripleO::OVNMacAddressPort: OS::Heat::None
 
 parameter_defaults:
-
   SshFirewallAllowAll: true
   NeutronPublicInterface: eth0
 
