@@ -113,6 +113,6 @@ openstack overcloud deploy \
     --disable-validations \
     --overcloud-ssh-user centos \
     --overcloud-ssh-key '~/.ssh/upshift' \
-    -e /home/centos/tripleo-heat-templates/environments/deployed-server-environment.yaml \
-	-e @$WORK_DIR/ephemeral-heat-environment.yaml \
+    -e $WORK_DIR/tripleo-heat-templates/environments/deployed-server-environment.yaml \
+	-e $WORK_DIR/ephemeral-heat-environment.yaml \
 	--tripleo-deploy
