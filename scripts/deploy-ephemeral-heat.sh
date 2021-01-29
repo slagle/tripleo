@@ -16,6 +16,7 @@ CONTROLLER_IP=${CONTROLLER_IP:-"192.168.1.51"}
 COMPUTE_IP=${COMPUTE_IP:-"192.168.1.46"}
 CONTROLPLANE_VIRTUAL_IP=${CONTROLPLANE_VIRTUAL_IP:-"192.168.1.39"}
 CONTROLPLANE_SUBNET_CIDR=${CONTROLPLANE_SUBNET_CIDR:-"192.168.1.0/24"}
+CONTROLPLANE_DEFAULT_ROUTE=${CONTROLPLANE_DEFAULT_ROUTE:-"192.168.1.1"}
 
 cd $WORK_DIR
 
@@ -72,9 +73,10 @@ resource_registry:
 parameter_defaults:
   SshFirewallAllowAll: true
   NeutronPublicInterface: eth0
+  SoftwareConfigTransport: POLL_SERVER_HEAT
 
-  EC2MetadataIp: 192.168.1.1
-  ControlPlaneDefaultRoute: 192.168.1.1
+  EC2MetadataIp: $CONTROLPLANE_DEFAULT_ROUTE
+  ControlPlaneDefaultRoute: $CONTROLPLANE_DEFAULT_ROUTE
   NtpServer:
     - clock.redhat.com
     - clock2.redhat.com
@@ -89,28 +91,28 @@ parameter_defaults:
   DeployedServerPortMap:
     control_virtual_ip:
       fixed_ips:
-        - ip_address: 192.168.1.39
+        - ip_address: $CONTROLPLANE_VIRTUAL_IP
       subnets:
-        - cidr: 192.168.1.0/24
+        - cidr: $CONTROLPLANE_SUBNET_CIDR
       network:
         tags:
-          - 192.168.1.0/24
+          - $CONTROLPLANE_SUBNET_CIDR
     ephemeral-heat-controller-0-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.1.51
+        - ip_address: $CONTROLLER_IP
       subnets:
-        - cidr: 192.168.1.0/24
+        - cidr: $CONTROLPLANE_SUBNET_CIDR
       network:
         tags:
-          - 192.168.1.0/24
+          - $CONTROLPLANE_SUBNET_CIDR
     ephemeral-heat-novacompute-0-ctlplane:
       fixed_ips:
-        - ip_address: 192.168.1.46
+        - ip_address: $COMPUTE_IP
       subnets:
-        - cidr: 192.168.1.0/24
+        - cidr: $CONTROLPLANE_SUBNET_CIDR
       network:
         tags:
-          - 192.168.1.0/24
+          - $CONTROLPLANE_SUBNET_CIDR
 
 EOF
 
