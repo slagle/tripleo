@@ -17,7 +17,7 @@ cd $WORK_DIR
 # Git repos are not overridden if they already exist
 if [ ! -d python-tripleoclient ]; then
     git clone https://opendev.org/openstack/python-tripleoclient
-	pushd python-tripleoclient
+    python-tripleoclient
     git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/84/769984/4
     git checkout -b ephemeral-heat FETCH_HEAD
     popd
@@ -75,8 +75,8 @@ parameter_defaults:
     - 10.5.30.160
 
   HostnameMap:
-	overcloud-controller-0: ephemeral-heat-controller-0
-	overcloud-novacompute-0: ephemeral-heat-compute-0
+    overcloud-controller-0: ephemeral-heat-controller-0
+    overcloud-novacompute-0: ephemeral-heat-compute-0
 
   DeployedServerPortMap:
     control_virtual_ip:
@@ -114,6 +114,6 @@ openstack overcloud deploy \
     --overcloud-ssh-user centos \
     --overcloud-ssh-key '~/.ssh/upshift' \
     -e $WORK_DIR/tripleo-heat-templates/environments/deployed-server-environment.yaml \
-	-e $WORK_DIR/ephemeral-heat-environment.yaml \
-	--tripleo-deploy \
+    -e $WORK_DIR/ephemeral-heat-environment.yaml \
+    --tripleo-deploy \
     --os-auth-type none
