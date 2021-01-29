@@ -26,7 +26,7 @@ fi
 if [ ! -d tripleo-common ]; then
     git clone https://opendev.org/openstack/tripleo-common
     pushd tripleo-common
-    git fetch "ssh://slagle@review.opendev.org:29418/openstack/tripleo-common" refs/changes/82/769982/4
+    git fetch "https://review.opendev.org/openstack/tripleo-common" refs/changes/82/769982/4
     git checkout -b change-769982-4 FETCH_HEAD
     popd
 fi
