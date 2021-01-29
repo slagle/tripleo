@@ -17,26 +17,34 @@ cd $WORK_DIR
 # Git repos are not overridden if they already exist
 if [ ! -d python-tripleoclient ]; then
     git clone https://opendev.org/openstack/python-tripleoclient
+	pushd python-tripleoclient
     git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/84/769984/4
     git checkout -b ephemeral-heat FETCH_HEAD
+    popd
 fi
 
 if [ ! -d tripleo-common ]; then
     git clone https://opendev.org/openstack/tripleo-common
+    pushd tripleo-common
     git fetch "https://review.opendev.org/openstack/tripleo-common" refs/changes/84/769984/4
     git checkout -b ephemeral-heat FETCH_HEAD
+    popd
 fi
 
 if [ ! -d tripleo-ansible ]; then
     git clone https://opendev.org/openstack/tripleo-ansible
+    pushd tripleo-ansible
     git fetch "https://review.opendev.org/openstack/tripleo-ansible" refs/changes/83/769983/2
     git checkout -b ephemeral-heat FETCH_HEAD
+    popd
 fi
 
 if [ ! -d tripleo-heat-templates ]; then
     git clone https://opendev.org/openstack/tripleo-heat-templates
+    pushd tripleo-heat-templates
     git fetch "https://review.opendev.org/openstack/tripleo-heat-templates" refs/changes/56/769856/2
     git checkout -b ephemeral-heat FETCH_HEAD
+    popd
 fi
 
 for repo in $REPOS; do
