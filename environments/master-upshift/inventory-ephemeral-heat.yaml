@@ -5,5 +5,5 @@ all:
     master-compute-0:
       ansible_host: 192.168.1.46
   vars:
-    ansible_ssh_user: ephem
+    ansible_ssh_user: centos
     ansible_ssh_private_key_file: /home/ephem/.ssh/upshift
