@@ -118,5 +118,4 @@ openstack overcloud deploy \
     --overcloud-ssh-key '~/.ssh/upshift' \
     -e $WORK_DIR/tripleo-heat-templates/environments/deployed-server-environment.yaml \
     -e $WORK_DIR/ephemeral-heat-environment.yaml \
-    --tripleo-deploy \
-    --os-auth-type none
+    --tripleo-deploy
