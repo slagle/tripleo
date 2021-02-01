@@ -105,7 +105,7 @@ parameter_defaults:
       network:
         tags:
           - $CONTROLPLANE_SUBNET_CIDR
-    ephemeral-heat-novacompute-0-ctlplane:
+    ephemeral-heat-compute-0-ctlplane:
       fixed_ips:
         - ip_address: $COMPUTE_IP
       subnets:
