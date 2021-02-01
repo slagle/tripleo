@@ -81,7 +81,12 @@ parameter_defaults:
   CtlplaneNetworkAttributes:
     subnets:
       ctlplane-subnet:
+        name: ctlplane-subnet
+        cidr: 192.168.1.0/24
         gateway_ip: $CONTROLPLANE_DEFAULT_ROUTE
+        dns_nameservers:
+          - 10.11.5.19
+          - 10.5.30.160
 
   NtpServer:
     - clock.redhat.com
