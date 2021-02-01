@@ -23,7 +23,7 @@ cd $WORK_DIR
 # Git repos are not overridden if they already exist
 if [ ! -d python-tripleoclient ]; then
     git clone https://opendev.org/openstack/python-tripleoclient
-    python-tripleoclient
+    pushd python-tripleoclient
     git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/84/769984/4
     git checkout -b ephemeral-heat FETCH_HEAD
     popd
