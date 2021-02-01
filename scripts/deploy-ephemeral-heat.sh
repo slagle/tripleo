@@ -77,6 +77,12 @@ parameter_defaults:
 
   EC2MetadataIp: $CONTROLPLANE_DEFAULT_ROUTE
   ControlPlaneDefaultRoute: $CONTROLPLANE_DEFAULT_ROUTE
+
+  CtlplaneNetworkAttributes:
+    subnets:
+      ctlplane-subnet:
+        gateway_ip: $CONTROLPLANE_DEFAULT_ROUTE
+
   NtpServer:
     - clock.redhat.com
     - clock2.redhat.com
