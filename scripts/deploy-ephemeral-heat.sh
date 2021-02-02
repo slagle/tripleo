@@ -17,6 +17,8 @@ COMPUTE_IP=${COMPUTE_IP:-"192.168.1.46"}
 CONTROLPLANE_VIRTUAL_IP=${CONTROLPLANE_VIRTUAL_IP:-"192.168.1.39"}
 CONTROLPLANE_SUBNET_CIDR=${CONTROLPLANE_SUBNET_CIDR:-"192.168.1.0/24"}
 CONTROLPLANE_DEFAULT_ROUTE=${CONTROLPLANE_DEFAULT_ROUTE:-"192.168.1.1"}
+OVERCLOUD_SSH_KEY=${OVERCLOUD_SSH_KEY:-"~/.ssh/upshift"}
+OVERCLOUD_SSH_USER=${OVERCLOUD_SSH_USER:-"centos"}
 
 cd $WORK_DIR
 
@@ -24,7 +26,7 @@ cd $WORK_DIR
 if [ ! -d python-tripleoclient ]; then
     git clone https://opendev.org/openstack/python-tripleoclient
     pushd python-tripleoclient
-    git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/84/769984/4
+    git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/84/769984/5
     git checkout -b ephemeral-heat FETCH_HEAD
     popd
 fi
@@ -32,7 +34,7 @@ fi
 if [ ! -d tripleo-common ]; then
     git clone https://opendev.org/openstack/tripleo-common
     pushd tripleo-common
-    git fetch "https://review.opendev.org/openstack/tripleo-common" refs/changes/82/769982/4
+    git fetch "https://review.opendev.org/openstack/tripleo-common" refs/changes/82/769982/5
     git checkout -b change-769982-4 FETCH_HEAD
     popd
 fi
@@ -133,8 +135,8 @@ openstack overcloud deploy \
     --templates $WORK_DIR/tripleo-heat-templates \
     --deployed-server \
     --disable-validations \
-    --overcloud-ssh-user centos \
-    --overcloud-ssh-key '~/.ssh/upshift' \
+    --overcloud-ssh-user $OVERCLOUD_SSH_USER \
+    --overcloud-ssh-key $OVERCLOUD_SSH_KEY \
     -e $WORK_DIR/tripleo-heat-templates/environments/deployed-server-environment.yaml \
     -e $WORK_DIR/ephemeral-heat-environment.yaml \
     --tripleo-deploy \
