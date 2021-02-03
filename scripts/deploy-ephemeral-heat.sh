@@ -129,7 +129,7 @@ parameter_defaults:
 
 EOF
 
-openstack overcloud deploy \
+OS_AUTH_TYPE=none openstack overcloud deploy \
     --os-auth-type none \
     --stack overcloud \
     --templates $WORK_DIR/tripleo-heat-templates \
