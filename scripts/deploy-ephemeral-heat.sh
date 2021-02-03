@@ -42,7 +42,7 @@ fi
 if [ ! -d tripleo-ansible ]; then
     git clone https://opendev.org/openstack/tripleo-ansible
     pushd tripleo-ansible
-    git fetch "https://review.opendev.org/openstack/tripleo-ansible" refs/changes/83/769983/2
+    git fetch "https://review.opendev.org/openstack/tripleo-ansible" refs/changes/83/769983/3
     git checkout -b ephemeral-heat FETCH_HEAD
     popd
 fi
