@@ -12,6 +12,8 @@ REPOS="
     tripleo-heat-templates
 "
 SETUP_PY=${SETUP_PY:-"1"}
+CLONE=${CLONE:-"1"}
+HEAT_TYPE=${HEAT_TYPE:-"pod"}
 CONTROLLER_IP=${CONTROLLER_IP:-"192.168.1.51"}
 COMPUTE_IP=${COMPUTE_IP:-"192.168.1.46"}
 CONTROLPLANE_VIRTUAL_IP=${CONTROLPLANE_VIRTUAL_IP:-"192.168.1.39"}
@@ -22,45 +24,47 @@ OVERCLOUD_SSH_USER=${OVERCLOUD_SSH_USER:-"centos"}
 
 cd $WORK_DIR
 
-# Git repos are not overridden if they already exist
-if [ ! -d python-tripleoclient ]; then
-    git clone https://opendev.org/openstack/python-tripleoclient
-    pushd python-tripleoclient
-    git remote add gerrit https://review.opendev.org/openstack/python-tripleoclient
-    PS=$(git ls-remote gerrit | grep 769984 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
-    git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/84/769984/$PS
-    git checkout -b ephemeral-heat FETCH_HEAD
-    popd
-fi
+if [ "$CLONE" = 1 ]; then
+    # Git repos are not overridden if they already exist
+    if [ ! -d python-tripleoclient ]; then
+        git clone https://opendev.org/openstack/python-tripleoclient
+        pushd python-tripleoclient
+        git remote add gerrit https://review.opendev.org/openstack/python-tripleoclient
+        PS=$(git ls-remote gerrit | grep 769984 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
+        git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/84/769984/$PS
+        git checkout -b ephemeral-heat FETCH_HEAD
+        popd
+    fi
 
-if [ ! -d tripleo-common ]; then
-    git clone https://opendev.org/openstack/tripleo-common
-    pushd tripleo-common
-    git remote add gerrit https://review.opendev.org/openstack/tripleo-common
-    PS=$(git ls-remote gerrit | grep 769982 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
-    git fetch "https://review.opendev.org/openstack/tripleo-common" refs/changes/82/769982/$PS
-    git checkout -b change-769982-4 FETCH_HEAD
-    popd
-fi
+    if [ ! -d tripleo-common ]; then
+        git clone https://opendev.org/openstack/tripleo-common
+        pushd tripleo-common
+        git remote add gerrit https://review.opendev.org/openstack/tripleo-common
+        PS=$(git ls-remote gerrit | grep 769982 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
+        git fetch "https://review.opendev.org/openstack/tripleo-common" refs/changes/82/769982/$PS
+        git checkout -b change-769982-4 FETCH_HEAD
+        popd
+    fi
 
-if [ ! -d tripleo-ansible ]; then
-    git clone https://opendev.org/openstack/tripleo-ansible
-    pushd tripleo-ansible
-    git remote add gerrit https://review.opendev.org/openstack/tripleo-ansible
-    PS=$(git ls-remote gerrit | grep 769983 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
-    git fetch "https://review.opendev.org/openstack/tripleo-ansible" refs/changes/83/769983/$PS
-    git checkout -b ephemeral-heat FETCH_HEAD
-    popd
-fi
+    if [ ! -d tripleo-ansible ]; then
+        git clone https://opendev.org/openstack/tripleo-ansible
+        pushd tripleo-ansible
+        git remote add gerrit https://review.opendev.org/openstack/tripleo-ansible
+        PS=$(git ls-remote gerrit | grep 769983 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
+        git fetch "https://review.opendev.org/openstack/tripleo-ansible" refs/changes/83/769983/$PS
+        git checkout -b ephemeral-heat FETCH_HEAD
+        popd
+    fi
 
-if [ ! -d tripleo-heat-templates ]; then
-    git clone https://opendev.org/openstack/tripleo-heat-templates
-    pushd tripleo-heat-templates
-    git remote add gerrit https://review.opendev.org/openstack/tripleo-heat-templates
-    PS=$(git ls-remote gerrit | grep 769856 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
-    git fetch "https://review.opendev.org/openstack/tripleo-heat-templates" refs/changes/56/769856/$PS
-    git checkout -b ephemeral-heat FETCH_HEAD
-    popd
+    if [ ! -d tripleo-heat-templates ]; then
+        git clone https://opendev.org/openstack/tripleo-heat-templates
+        pushd tripleo-heat-templates
+        git remote add gerrit https://review.opendev.org/openstack/tripleo-heat-templates
+        PS=$(git ls-remote gerrit | grep 769856 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
+        git fetch "https://review.opendev.org/openstack/tripleo-heat-templates" refs/changes/56/769856/$PS
+        git checkout -b ephemeral-heat FETCH_HEAD
+        popd
+    fi
 fi
 
 if [ "$SETUP_PY" = 1 ]; then
@@ -137,8 +141,11 @@ parameter_defaults:
 
 EOF
 
-OS_AUTH_TYPE=none openstack overcloud deploy \
-    --os-auth-type none \
+if [ "$HEAT_TYPE" = "native" ]; then
+    OS_AUTH_TYPE=none
+fi
+
+openstack overcloud deploy \
     --stack overcloud \
     --templates $WORK_DIR/tripleo-heat-templates \
     --deployed-server \
