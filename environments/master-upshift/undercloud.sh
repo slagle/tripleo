@@ -1,8 +1,8 @@
 set -eux
 
 rpm -q git || sudo dnf -y install git
-sudo dnf -y install python3 python-setuptools python-requests
-git clone https://git.openstack.org/openstack/tripleo-repos 
+sudo dnf -y install python3 python3-setuptools python3-requests
+git clone https://git.openstack.org/openstack/tripleo-repos
 pushd tripleo-repos
 sudo python3 setup.py install
 popd
@@ -14,6 +14,7 @@ cat >~/.tmux.conf<<EOF
 # Prefix key
 set-option -g prefix2 C-a
 bind-key C-a send-prefix -2
+bind-key T command-prompt -p "title:" "set set-titles-string %1"
 EOF
 
 git clone https://github.com/slagle/tripleo

@@ -7,7 +7,6 @@ set -eux
 WORK_DIR=${WORK_DIR:-"$(pwd)"}
 REPOS="
     python-tripleoclient
-    tripleo-common
     tripleo-ansible
     tripleo-heat-templates
 "
@@ -33,16 +32,6 @@ if [ "$CLONE" = 1 ]; then
         PS=$(git ls-remote gerrit | grep 769984 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
         git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/84/769984/$PS
         git checkout -b ephemeral-heat FETCH_HEAD
-        popd
-    fi
-
-    if [ ! -d tripleo-common ]; then
-        git clone https://opendev.org/openstack/tripleo-common
-        pushd tripleo-common
-        git remote add gerrit https://review.opendev.org/openstack/tripleo-common
-        PS=$(git ls-remote gerrit | grep 769982 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
-        git fetch "https://review.opendev.org/openstack/tripleo-common" refs/changes/82/769982/$PS
-        git checkout -b change-769982-4 FETCH_HEAD
         popd
     fi
 
@@ -140,6 +129,8 @@ parameter_defaults:
           - $CONTROLPLANE_SUBNET_CIDR
 
 EOF
+
+sudo podman pod rm -f ephemeral-heat || :
 
 if [ "$HEAT_TYPE" = "native" ]; then
     OS_AUTH_TYPE=none
