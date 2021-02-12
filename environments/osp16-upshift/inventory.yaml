@@ -3,11 +3,11 @@ all:
     osp16-controller:
       ansible_host: 192.168.1.22
     osp16-dcn1-0:
-      ansible_host: 192.168.1.25
+      ansible_host: 192.168.1.29
     osp16-dcn1-1:
-      ansible_host: 192.168.1.41
+      ansible_host: 192.168.1.38
     osp16-dcn1-2:
-      ansible_host: 192.168.1.27
+      ansible_host: 192.168.1.95
   children:
     central:
       hosts:
