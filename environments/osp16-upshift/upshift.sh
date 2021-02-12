@@ -1,13 +1,17 @@
+IMAGE="RHEL-8.2.1-x86_64-latest"
+
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.1 --disable-port-security osp16-local-ip
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.2 --disable-port-security osp16-public-host
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.3 --disable-port-security osp16-admin-host
 openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.5 --disable-port-security osp16-external
 
+openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16
 openstack server add port osp16 osp16-local-ip
 openstack server add port osp16 osp16-external
+openstack server rebuild --image $IMAGE osp16 &
 
-openstack server create --flavor m1.large --network jslagle-test --image  RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-controller
-openstack server rebuild osp16-controller &
+openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-controller
+openstack server rebuild --image $IMAGE osp16-controller &
 
 # VIPs
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.100 --disable-port-security osp16-control-vip
@@ -35,9 +39,9 @@ openstack server add port osp16-controller osp16-controller-external
 
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.100 --disable-port-security osp16-control-virtual-ip
 
-openstack server create --flavor m1.large --network jslagle-test --image RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-dcn1-0
-openstack server create --flavor m1.large --network jslagle-test --image RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-dcn1-1
-openstack server create --flavor m1.large --network jslagle-test --image RHEL-8.1.0-x86_64-latest --key-name jslagle osp16-dcn1-2
+openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-dcn1-0
+openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-dcn1-1
+openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-dcn1-2
 
 
 openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.20 --disable-port-security osp16-dcn1-0
@@ -76,8 +80,8 @@ openstack server add port osp16-dcn1-2 osp16-dcn1-2-tenant
 openstack server add port osp16-dcn1-2 osp16-dcn1-2-internalapi
 openstack server add port osp16-dcn1-2 osp16-dcn1-2-storage
 
-for i in 0 1 2; do openstack server remove volume osp16-dcn1-$i osp16-dcn1-$i & done; wait
-for i in 0 1 2; do openstack volume delete  osp16-dcn1-$i & done; wait
-for i in 0 1 2; do openstack volume create osp16-dcn1-$i --size 10 & done; wait
-for i in 0 1 2; do openstack server rebuild osp16-dcn1-$i --wait & done; wait
-for i in 0 1 2; do openstack server add volume osp16-dcn1-$i osp16-dcn1-$i & done; wait
+for i in 0 1 2; do openstack server remove volume osp16-dcn1-1-$i osp16-dcn1-$i & done; wait
+for i in 0 1 2; do openstack volume delete  osp16-dcn1-1-$i & done; wait
+for i in 0 1 2; do openstack volume create osp16-dcn1-1-$i --size 10 & done; wait
+for i in 0 1 2; do openstack server rebuild --image $IMAGE osp16-dcn1-$i --wait & done; wait
+for i in 0 1 2; do openstack server add volume osp16-dcn1-$i osp16-dcn1-1-$i & done; wait
