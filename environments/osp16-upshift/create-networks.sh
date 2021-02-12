@@ -12,6 +12,18 @@ openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storage
 openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storagemgt --subnet-range 172.16.3.0/24 jslagle-osp16-storagemgt
 openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-tenant --subnet-range 172.16.0.0/24 jslagle-osp16-tenant
 
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-external --subnet-range 10.0.1.0/24 jslagle-osp16-external-dcn1
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-internalapi --subnet-range 172.16.3.0/24 jslagle-osp16-internalapi-dcn1
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storage --subnet-range 172.16.2.0/24 jslagle-osp16-storage-dcn1
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storagemgt --subnet-range 172.16.4.0/24 jslagle-osp16-storagemgt-dcn1
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-tenant --subnet-range 172.16.1.0/24 jslagle-osp16-tenant-dcn1
+
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-external --subnet-range 10.0.2.0/24 jslagle-osp16-external-dcn2
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-internalapi --subnet-range 172.16.4.0/24 jslagle-osp16-internalapi-dcn2
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storage --subnet-range 172.16.3.0/24 jslagle-osp16-storage-dcn2
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storagemgt --subnet-range 172.16.5.0/24 jslagle-osp16-storagemgt-dcn2
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-tenant --subnet-range 172.16.2.0/24 jslagle-osp16-tenant-dcn2
+
 for n in external internalapi storage storagemgt tenant; do
     openstack server add network osp16 jslagle-osp16-$n &
 done
