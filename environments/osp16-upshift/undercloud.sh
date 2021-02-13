@@ -27,3 +27,5 @@ openstack complete | grep -v osc_lib | sudo tee /etc/bash_completion.d/openstack
 source /etc/bash_completion.d/openstack
 cp -a /usr/share/openstack-tripleo-heat-templates tripleo-heat-templates
 
+sudo ip addr add 10.0.0.5/24 dev eth2 
+
