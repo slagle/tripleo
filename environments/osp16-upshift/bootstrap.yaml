@@ -3,11 +3,6 @@
   gather_facts: no
   any_errors_fatal: true
   tasks:
-    - name: rm -rf .ssh/known_hosts
-      delegate_to: localhost
-      run_once: true
-      shell:
-        rm -rf ~/.ssh/known_hosts
     - name: ssh-keygen -R / ssh-keyscan
       delegate_to: localhost
       shell: |
