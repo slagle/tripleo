@@ -19,15 +19,6 @@ function rebuild-controller {
 function create-controller {
 	openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-controller
 
-	# VIPs
-	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.100 --disable-port-security osp16-control-vip
-	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.101 --disable-port-security osp16-ovndbs-vip
-	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.100 --disable-port-security osp16-storagemgt-vip
-	openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.100 --disable-port-security osp16-tenant-vip
-	openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.100 --disable-port-security osp16-internalapi-vip
-	openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.100 --disable-port-security osp16-storage-vip
-	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.100 --disable-port-security osp16-external-vip
-	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.119 --disable-port-security osp16-public-vip
 
 	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.10 --disable-port-security osp16-controller
 	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.10 --disable-port-security osp16-controller-storagemgt
@@ -43,7 +34,18 @@ function create-controller {
 	openstack server add port osp16-controller osp16-controller-storage
 	openstack server add port osp16-controller osp16-controller-external
 
-	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.100 --disable-port-security osp16-control-virtual-ip
+}
+
+function create-vips {
+	# VIPs
+	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.100 --disable-port-security osp16-control-vip
+	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.101 --disable-port-security osp16-ovndbs-vip
+	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.100 --disable-port-security osp16-storagemgt-vip
+	openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.100 --disable-port-security osp16-tenant-vip
+	openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.100 --disable-port-security osp16-internalapi-vip
+	openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.100 --disable-port-security osp16-storage-vip
+	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.100 --disable-port-security osp16-external-vip
+	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.119 --disable-port-security osp16-public-vip
 }
 
 function create-dcn1 {
