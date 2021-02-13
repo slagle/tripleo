@@ -6,13 +6,13 @@
     Distributed Compute Node role with Ceph, Cinder volume, and Glance.
   networks:
     InternalApi:
-      subnet: internal_api_dcn1_subnet
+      subnet: internal_api_dcn1
     Tenant:
-      subnet: tenant_dcn1_subnet
+      subnet: tenant_dcn1
     Storage:
-      subnet: storage_dcn1_subnet
+      subnet: storage_dcn1
     StorageMgmt:
-      subnet: storage_mgmt_dcn1_subnet
+      subnet: storage_mgmt_dcn1
     Management:
       subnet: management
   RoleParametersDefault:
