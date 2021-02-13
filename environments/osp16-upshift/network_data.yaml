@@ -94,6 +94,17 @@
   ipv6_subnet: 'fd00:fd00:fd00:3000::/64'
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:3000::10', 'end': 'fd00:fd00:fd00:3000:ffff:ffff:ffff:fffe'}]
   mtu: 1500
+  subnets:
+    storage_dcn1:
+      enabled: true
+      ip_subnet: 172.17.1.0/24
+      allocation_pools: [{'start': '172.17.1.4', 'end': '172.17.1.250'}]
+      gateway_ip: 172.17.1.254
+    storage_dcn2:
+      enabled: true
+      ip_subnet: 172.18.1.0/24
+      allocation_pools: [{'start': '172.18.1.4', 'end': '172.18.1.250'}]
+      gateway_ip: 172.18.1.254
 - name: StorageMgmt
   name_lower: storage_mgmt
   vip: true
@@ -102,6 +113,17 @@
   ipv6_subnet: 'fd00:fd00:fd00:4000::/64'
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:4000::10', 'end': 'fd00:fd00:fd00:4000:ffff:ffff:ffff:fffe'}]
   mtu: 1500
+  subnets:
+    storage_mgmt_dcn1:
+      enabled: true
+      ip_subnet: 172.17.3.0/24
+      allocation_pools: [{'start': '172.17.3.4', 'end': '172.17.3.250'}]
+      gateway_ip: 172.17.3.254
+    storage_mgmt_dcn2:
+      enabled: true
+      ip_subnet: 172.18.3.0/24
+      allocation_pools: [{'start': '172.18.3.4', 'end': '172.18.3.250'}]
+      gateway_ip: 172.18.3.254
 - name: InternalApi
   name_lower: internal_api
   vip: true
@@ -110,6 +132,17 @@
   ipv6_subnet: 'fd00:fd00:fd00:2000::/64'
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:2000::10', 'end': 'fd00:fd00:fd00:2000:ffff:ffff:ffff:fffe'}]
   mtu: 1500
+  subnets:
+    internal_api_dcn1:
+      enabled: true
+      ip_subnet: 172.17.2.0/24
+      allocation_pools: [{'start': '172.17.2.4', 'end': '172.17.2.250'}]
+      gateway_ip: 172.17.2.254
+    internal_api_dcn2:
+      enabled: true
+      ip_subnet: 172.18.2.0/24
+      allocation_pools: [{'start': '172.18.2.4', 'end': '172.18.2.250'}]
+      gateway_ip: 172.18.2.254
 - name: Tenant
   vip: false  # Tenant network does not use VIPs
   name_lower: tenant
@@ -118,6 +151,17 @@
   ipv6_subnet: 'fd00:fd00:fd00:5000::/64'
   ipv6_allocation_pools: [{'start': 'fd00:fd00:fd00:5000::10', 'end': 'fd00:fd00:fd00:5000:ffff:ffff:ffff:fffe'}]
   mtu: 1500
+  subnets:
+    tenant_dcn1:
+      enabled: true
+      ip_subnet: 172.17.0.0/24
+      allocation_pools: [{'start': '172.17.0.4', 'end': '172.17.0.250'}]
+      gateway_ip: 172.17.0.254
+    tenant_dcn2:
+      enabled: true
+      ip_subnet: 172.18.0.0/24
+      allocation_pools: [{'start': '172.18.0.4', 'end': '172.18.0.250'}]
+      gateway_ip: 172.18.0.254
 - name: External
   vip: true
   name_lower: external
