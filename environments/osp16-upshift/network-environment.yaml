@@ -3,7 +3,7 @@ resource_registry:
   OS::TripleO::DistributedComputeHCI::Net::SoftwareConfig: /home/cloud-user/tripleo/environments/osp16-upshift/multiple-nics-dcn.yaml
 
 parameter_defaults:
-  CloudDomain: tripleodomain
+  SshFirewallAllowAll: True
   EC2MetadataIp: 192.168.24.2
   ControlPlaneDefaultRoute: 192.168.1.1
   NtpServer:
