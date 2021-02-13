@@ -25,7 +25,7 @@
         - rhos-release
     - name: ifup interfaces
       shell:
-        for i in 1 2 3 4 5 6; do ip link set dev eth${i} up; done
+        for i in 1 2 3 4 5 6 ; do ip link set dev eth${i} up; done
       become: true
       ignore_errors: true
       tags:
