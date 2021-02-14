@@ -1,0 +1,4 @@
+parameter_defaults:
+  DistributedComputeHCIExtraConfig:
+    oslo_messaging_notify_use_ssl: false
+    oslo_messaging_rpc_use_ssl: false

@@ -158,32 +158,37 @@ function dcn1-volumes {
 	for i in 0 1 2; do openstack server add volume osp16-dcn1-$i osp16-dcn1-1-$i & done; wait
 }
 
+function dcn2-create {
+	set -x
 
-function create-dcn2 {
-	openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-dcn2-0 &
-	openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-dcn2-1 &
-	openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-dcn2-2 &
+	openstack server create --flavor m1.large --nic net-id=57167586-7aef-4f82-aeb7-42f0ca71005f,v4-fixed-ip=192.168.1.80 --image $IMAGE --key-name jslagle osp16-dcn2-0 &
+	openstack server create --flavor m1.large --nic net-id=57167586-7aef-4f82-aeb7-42f0ca71005f,v4-fixed-ip=192.168.1.81 --image $IMAGE --key-name jslagle osp16-dcn2-1 &
+	openstack server create --flavor m1.large --nic net-id=57167586-7aef-4f82-aeb7-42f0ca71005f,v4-fixed-ip=192.168.1.82 --image $IMAGE --key-name jslagle osp16-dcn2-2 &
+	wait
 
-	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.30 --disable-port-security osp16-dcn2-0
-	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt-dcn2,ip-address=172.16.5.20 --disable-port-security osp16-dcn2-0-storagemgt
-	openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant-dcn2,ip-address=172.16.2.20 --disable-port-security osp16-dcn2-0-tenant
-	openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi-dcn2,ip-address=172.16.4.20 --disable-port-security osp16-dcn2-0-internalapi
-	openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage-dcn2,ip-address=172.16.3.20 --disable-port-security osp16-dcn2-0-storage
-	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.30 --disable-port-security osp16-dcn2-0-external &
+	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-dcn2-subnet,ip-address=192.168.26.20 --disable-port-security osp16-dcn2-0 &
+	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt-dcn2,ip-address=172.18.3.20 --disable-port-security osp16-dcn2-0-storagemgt &
+	openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant-dcn2,ip-address=172.18.0.20 --disable-port-security osp16-dcn2-0-tenant &
+	openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi-dcn2,ip-address=172.18.2.20 --disable-port-security osp16-dcn2-0-internalapi &
+	openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage-dcn2,ip-address=172.18.1.20 --disable-port-security osp16-dcn2-0-storage &
+	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.23 --disable-port-security osp16-dcn2-0-external &
 
-	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.31 --disable-port-security osp16-dcn2-1
-	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt-dcn2,ip-address=172.16.5.21 --disable-port-security osp16-dcn2-1-storagemgt
-	openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant-dcn2,ip-address=172.16.2.21 --disable-port-security osp16-dcn2-1-tenant
-	openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi-dcn2,ip-address=172.16.4.21 --disable-port-security osp16-dcn2-1-internalapi
-	openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage-dcn2,ip-address=172.16.3.21 --disable-port-security osp16-dcn2-1-storage
-	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.31 --disable-port-security osp16-dcn2-1-external &
+	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-dcn2-subnet,ip-address=192.168.26.21 --disable-port-security osp16-dcn2-1 &
+	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt-dcn2,ip-address=172.18.3.21 --disable-port-security osp16-dcn2-1-storagemgt &
+	openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant-dcn2,ip-address=172.18.0.21 --disable-port-security osp16-dcn2-1-tenant &
+	openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi-dcn2,ip-address=172.18.2.21 --disable-port-security osp16-dcn2-1-internalapi &
+	openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage-dcn2,ip-address=172.18.1.21 --disable-port-security osp16-dcn2-1-storage &
+	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.24 --disable-port-security osp16-dcn2-1-external &
 
-	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.32 --disable-port-security osp16-dcn2-2
-	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt-dcn2,ip-address=172.16.5.22 --disable-port-security osp16-dcn2-2-storagemgt
-	openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant-dcn2,ip-address=172.16.2.22 --disable-port-security osp16-dcn2-2-tenant
-	openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi-dcn2,ip-address=172.16.4.22 --disable-port-security osp16-dcn2-2-internalapi
-	openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage-dcn2,ip-address=172.16.3.22 --disable-port-security osp16-dcn2-2-storage
-	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.32 --disable-port-security osp16-dcn2-2-external &
+	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-dcn2-subnet,ip-address=192.168.26.22 --disable-port-security osp16-dcn2-2 &
+	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt-dcn2,ip-address=172.18.3.22 --disable-port-security osp16-dcn2-2-storagemgt &
+	openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant-dcn2,ip-address=172.18.0.22 --disable-port-security osp16-dcn2-2-tenant &
+	openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi-dcn2,ip-address=172.18.2.22 --disable-port-security osp16-dcn2-2-internalapi &
+	openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage-dcn2,ip-address=172.18.1.22 --disable-port-security osp16-dcn2-2-storage &
+	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.25 --disable-port-security osp16-dcn2-2-external &
+	wait
+
+	while openstack server list | grep osp16-dcn2 | grep BUILD; do sleep 3; done
 
 	openstack server add port osp16-dcn2-0 osp16-dcn2-0
 	openstack server add port osp16-dcn2-0 osp16-dcn2-0-storagemgt
@@ -204,14 +209,16 @@ function create-dcn2 {
 	openstack server add port osp16-dcn2-2 osp16-dcn2-2-tenant
 	openstack server add port osp16-dcn2-2 osp16-dcn2-2-internalapi
 	openstack server add port osp16-dcn2-2 osp16-dcn2-2-storage
-	openstack server add port osp16-dcn2-1 osp16-dcn2-2-external
+	openstack server add port osp16-dcn2-2 osp16-dcn2-2-external
+
+	set +x
 }
 
-function delete-dcn2 {
+function dcn2-delete {
 	set -x
 
 	for i in 0 1 2; do openstack server remove volume osp16-dcn2-$i osp16-dcn2-$i & done; wait
-	for i in 0 1 2; do openstack volume delete  osp16-dcn2-$i & done; wait
+	for i in 0 1 2; do openstack volume delete  osp16-dcn2-1-$i & done; wait
 
 	for i in 0 1 2; do openstack server delete osp16-dcn2-$i & done; wait
 
@@ -220,16 +227,19 @@ function delete-dcn2 {
 	openstack port delete osp16-dcn2-0-tenant &
 	openstack port delete osp16-dcn2-0-internalapi &
 	openstack port delete osp16-dcn2-0-storage &
+	openstack port delete osp16-dcn2-0-external &
 	openstack port delete osp16-dcn2-1 &
 	openstack port delete osp16-dcn2-1-storagemgt &
 	openstack port delete osp16-dcn2-1-tenant &
 	openstack port delete osp16-dcn2-1-internalapi &
 	openstack port delete osp16-dcn2-1-storage &
+	openstack port delete osp16-dcn2-1-external &
 	openstack port delete osp16-dcn2-2 &
 	openstack port delete osp16-dcn2-2-storagemgt &
 	openstack port delete osp16-dcn2-2-tenant &
 	openstack port delete osp16-dcn2-2-internalapi &
 	openstack port delete osp16-dcn2-2-storage &
+	openstack port delete osp16-dcn2-2-external &
 	wait
 	set +x
 }
@@ -240,3 +250,5 @@ function dcn2-volumes {
 	for i in 0 1 2; do openstack volume create osp16-dcn2-$i --size 10 & done; wait
 	for i in 0 1 2; do openstack server add volume osp16-dcn2-$i osp16-dcn2-$i & done; wait
 }
+
+
