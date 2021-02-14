@@ -51,9 +51,9 @@ function create-vips {
 function dcn1-create {
 	set -x
 
-	openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-dcn1-0 &
-	openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-dcn1-1 &
-	openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-dcn1-2 &
+	openstack server create --flavor m1.large --nic net-id=57167586-7aef-4f82-aeb7-42f0ca71005f,v4-fixed-ip=192.168.1.78 --image $IMAGE --key-name jslagle osp16-dcn1-0 &
+	openstack server create --flavor m1.large --nic net-id=57167586-7aef-4f82-aeb7-42f0ca71005f,v4-fixed-ip=192.168.1.79 --image $IMAGE --key-name jslagle osp16-dcn1-1 &
+	openstack server create --flavor m1.large --nic net-id=57167586-7aef-4f82-aeb7-42f0ca71005f,v4-fixed-ip=192.168.1.42 --image $IMAGE --key-name jslagle osp16-dcn1-2 &
 	wait
 
 	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-dcn1-subnet,ip-address=192.168.25.20 --disable-port-security osp16-dcn1-0 &
@@ -138,7 +138,6 @@ function dcn1-volumes {
 	for i in 0 1 2; do openstack server remove volume osp16-dcn1-$i osp16-dcn1-1-$i & done; wait
 	for i in 0 1 2; do openstack volume delete  osp16-dcn1-1-$i & done; wait
 	for i in 0 1 2; do openstack volume create osp16-dcn1-1-$i --size 10 & done; wait
-	for i in 0 1 2; do openstack server rebuild --image $IMAGE osp16-dcn1-$i --wait & done; wait
 	for i in 0 1 2; do openstack server add volume osp16-dcn1-$i osp16-dcn1-1-$i & done; wait
 }
 
@@ -222,6 +221,5 @@ function dcn2-volumes {
 	for i in 0 1 2; do openstack server remove volume osp16-dcn2-$i osp16-dcn2-$i & done; wait
 	for i in 0 1 2; do openstack volume delete  osp16-dcn2-$i & done; wait
 	for i in 0 1 2; do openstack volume create osp16-dcn2-$i --size 10 & done; wait
-	for i in 0 1 2; do openstack server rebuild --image $IMAGE osp16-dcn2-$i --wait & done; wait
 	for i in 0 1 2; do openstack server add volume osp16-dcn2-$i osp16-dcn2-$i & done; wait
 }
