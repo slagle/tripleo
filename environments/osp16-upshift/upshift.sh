@@ -1,4 +1,5 @@
 export IMAGE="RHEL-8.2.1-x86_64-latest"
+export FLAVOR="ocp-master-large"
 
 function create-osp16 {
 	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.1 --disable-port-security osp16-local-ip
@@ -6,34 +7,50 @@ function create-osp16 {
 	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.3 --disable-port-security osp16-admin-host
 	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.5 --disable-port-security osp16-external
 
-	openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16
+	openstack server create --flavor $FLAVOR --network jslagle-test --image $IMAGE --key-name jslagle osp16
 	openstack server add port osp16 osp16-local-ip
 	openstack server add port osp16 osp16-external
-	openstack server rebuild --image $IMAGE osp16 &
+	openstack server add floating ip osp16 10.0.126.36
 }
 
 function rebuild-controller {
 	openstack server rebuild --image $IMAGE osp16-controller &
 }
 
-function create-controller {
-	openstack server create --flavor m1.large --network jslagle-test --image $IMAGE --key-name jslagle osp16-controller
+function controller-create {
+	set -x
+	openstack server create --flavor $FLAVOR --nic net-id=57167586-7aef-4f82-aeb7-42f0ca71005f,v4-fixed-ip=192.168.1.22 --image $IMAGE --key-name jslagle osp16-controller
 
 
-	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.10 --disable-port-security osp16-controller
-	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.10 --disable-port-security osp16-controller-storagemgt
-	openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.10 --disable-port-security osp16-controller-tenant
-	openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.10 --disable-port-security osp16-controller-internalapi
-	openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.10 --disable-port-security osp16-controller-storage
-	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.10 --disable-port-security osp16-controller-external
+	openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.10 --disable-port-security osp16-controller &
+	openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.10 --disable-port-security osp16-controller-storagemgt &
+	openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.10 --disable-port-security osp16-controller-tenant &
+	openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.10 --disable-port-security osp16-controller-internalapi &
+	openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.10 --disable-port-security osp16-controller-storage &
+	openstack port create --network jslagle-osp16-external --fixed-ip subnet=jslagle-osp16-external,ip-address=10.0.0.10 --disable-port-security osp16-controller-external &
+	wait
 
+	while openstack server list | grep osp16-controller | grep BUILD; do sleep 3; done
 	openstack server add port osp16-controller osp16-controller
 	openstack server add port osp16-controller osp16-controller-storagemgt
 	openstack server add port osp16-controller osp16-controller-tenant
 	openstack server add port osp16-controller osp16-controller-internalapi
 	openstack server add port osp16-controller osp16-controller-storage
 	openstack server add port osp16-controller osp16-controller-external
+	set +x
+}
 
+function controller-delete {
+	set -x
+	openstack server delete osp16-controller
+	openstack port delete osp16-controller &
+	openstack port delete osp16-controller-storagemgt &
+	openstack port delete osp16-controller-tenant &
+	openstack port delete osp16-controller-internalapi &
+	openstack port delete osp16-controller-storage &
+	openstack port delete osp16-controller-external &
+	set +x
+	wait
 }
 
 function create-vips {
