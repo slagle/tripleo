@@ -1,2 +1,3 @@
-ControllerExtraConfig:
-  pacemaker::resource::ip::cidr_netmask: 24
+parameter_defaults:
+  ControllerExtraConfig:
+    pacemaker::resource::ip::cidr_netmask: 24
