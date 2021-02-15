@@ -7,25 +7,81 @@ openstack network create --internal --disable-port-security jslagle-osp16-storag
 openstack network create --internal --disable-port-security jslagle-osp16-storagemgt
 openstack network create --internal --disable-port-security jslagle-osp16-tenant
 
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16 --subnet-range 192.168.24.0/24 jslagle-osp16-subnet
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-external --subnet-range 10.0.0.0/24 jslagle-osp16-external
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-tenant --subnet-range 172.16.0.0/24 jslagle-osp16-tenant
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storage --subnet-range 172.16.1.0/24 jslagle-osp16-storage
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-internalapi --subnet-range 172.16.2.0/24 jslagle-osp16-internalapi
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storagemgt --subnet-range 172.16.3.0/24 jslagle-osp16-storagemgt
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-external --subnet-range 10.0.0.0/24 jslagle-osp16-external &
 
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16 --subnet-range 192.168.25.0/24 jslagle-osp16-dcn1-subnet &
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-tenant --subnet-range 172.17.0.0/24 jslagle-osp16-tenant-dcn1 &
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storage --subnet-range 172.17.1.0/24 jslagle-osp16-storage-dcn1 &
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-internalapi --subnet-range 172.17.2.0/24 jslagle-osp16-internalapi-dcn1 &
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storagemgt --subnet-range 172.17.3.0/24 jslagle-osp16-storagemgt-dcn1 &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16 --subnet-range 192.168.24.0/24 --gateway 192.168.24.254 jslagle-osp16-subnet &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-tenant --subnet-range 172.16.0.0/24 --gateway 172.16.0.254 jslagle-osp16-tenant &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storage --subnet-range 172.16.1.0/24 --gateway 172.16.1.254 jslagle-osp16-storage &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-internalapi --subnet-range 172.16.2.0/24 --gateway 172.16.2.254 jslagle-osp16-internalapi &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storagemgt --subnet-range 172.16.3.0/24 --gateway 172.16.3.254 jslagle-osp16-storagemgt &
 wait
 
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16 --subnet-range 192.168.26.0/24 jslagle-osp16-dcn2-subnet &
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-tenant --subnet-range 172.18.0.0/24 jslagle-osp16-tenant-dcn2 &
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storage --subnet-range 172.18.1.0/24 jslagle-osp16-storage-dcn2 &
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-internalapi --subnet-range 172.18.2.0/24 jslagle-osp16-internalapi-dcn2 &
-openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storagemgt --subnet-range 172.18.3.0/24 jslagle-osp16-storagemgt-dcn2 &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16 --subnet-range 192.168.25.0/24 --gateway 192.168.25.254 jslagle-osp16-dcn1-subnet &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-tenant --subnet-range 172.17.0.0/24 --gateway 172.17.0.254 jslagle-osp16-tenant-dcn1 &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storage --subnet-range 172.17.1.0/24 --gateway 172.17.1.254 jslagle-osp16-storage-dcn1 &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-internalapi --subnet-range 172.17.2.0/24 --gateway 172.17.2.254 jslagle-osp16-internalapi-dcn1 &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storagemgt --subnet-range 172.17.3.0/24 --gateway 172.17.3.254 jslagle-osp16-storagemgt-dcn1 &
+wait
+
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16 --subnet-range 192.168.26.0/24 --gateway 192.168.26.254 jslagle-osp16-dcn2-subnet &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-tenant --subnet-range 172.18.0.0/24 --gateway 172.18.0.254 jslagle-osp16-tenant-dcn2 &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storage --subnet-range 172.18.1.0/24 --gateway 172.18.1.254 jslagle-osp16-storage-dcn2 &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-internalapi --subnet-range 172.18.2.0/24 --gateway 172.18.2.254 jslagle-osp16-internalapi-dcn2 &
+openstack subnet create --gateway none --no-dhcp --network jslagle-osp16-storagemgt --subnet-range 172.18.3.0/24 --gateway 172.18.3.254 jslagle-osp16-storagemgt-dcn2 &
+wait
+
+openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-subnet,ip-address=192.168.24.254 --disable-port-security jslagle-osp16-router &
+openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-dcn1-subnet,ip-address=192.168.25.254 --disable-port-security jslagle-osp16-router-dcn1 &
+openstack port create --network jslagle-osp16 --fixed-ip subnet=jslagle-osp16-dcn2-subnet,ip-address=192.168.26.254 --disable-port-security jslagle-osp16-router-dcn2 &
+wait
+openstack router create jslagle-osp16-router
+openstack router add port jslagle-osp16-router jslagle-osp16-router &
+openstack router add port jslagle-osp16-router jslagle-osp16-router-dcn1 &
+openstack router add port jslagle-osp16-router jslagle-osp16-router-dcn2 &
+
+openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant,ip-address=172.16.0.254 --disable-port-security jslagle-osp16-tenant-router &
+openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant-dcn1,ip-address=172.17.0.254 --disable-port-security jslagle-osp16-tenant-router-dcn1 &
+openstack port create --network jslagle-osp16-tenant --fixed-ip subnet=jslagle-osp16-tenant-dcn2,ip-address=172.18.0.254 --disable-port-security jslagle-osp16-tenant-router-dcn2 &
+wait
+openstack router create jslagle-osp16-tenant-router
+openstack router add port jslagle-osp16-tenant-router jslagle-osp16-tenant-router &
+openstack router add port jslagle-osp16-tenant-router jslagle-osp16-tenant-router-dcn1 &
+openstack router add port jslagle-osp16-tenant-router jslagle-osp16-tenant-router-dcn2 &
+
+
+openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage,ip-address=172.16.1.254 --disable-port-security jslagle-osp16-storage-router &
+openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage-dcn1,ip-address=172.17.1.254 --disable-port-security jslagle-osp16-storage-router-dcn1 &
+openstack port create --network jslagle-osp16-storage --fixed-ip subnet=jslagle-osp16-storage-dcn2,ip-address=172.18.1.254 --disable-port-security jslagle-osp16-storage-router-dcn2 &
+wait
+openstack router create jslagle-osp16-storage-router
+openstack router add port jslagle-osp16-storage-router jslagle-osp16-storage-router &
+openstack router add port jslagle-osp16-storage-router jslagle-osp16-storage-router-dcn1 &
+openstack router add port jslagle-osp16-storage-router jslagle-osp16-storage-router-dcn2 &
+
+openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi,ip-address=172.16.2.254 --disable-port-security jslagle-osp16-internalapi-router &
+openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi-dcn1,ip-address=172.17.2.254 --disable-port-security jslagle-osp16-internalapi-router-dcn1 &
+openstack port create --network jslagle-osp16-internalapi --fixed-ip subnet=jslagle-osp16-internalapi-dcn2,ip-address=172.18.2.254 --disable-port-security jslagle-osp16-internalapi-router-dcn2 &
+wait
+openstack router create jslagle-osp16-internalapi-router
+openstack router add port jslagle-osp16-internalapi-router jslagle-osp16-internalapi-router &
+openstack router add port jslagle-osp16-internalapi-router jslagle-osp16-internalapi-router-dcn1 &
+openstack router add port jslagle-osp16-internalapi-router jslagle-osp16-internalapi-router-dcn2 &
+
+openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt,ip-address=172.16.3.254 --disable-port-security jslagle-osp16-storagemgt-router &
+openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt-dcn1,ip-address=172.17.3.254 --disable-port-security jslagle-osp16-storagemgt-router-dcn1 &
+openstack port create --network jslagle-osp16-storagemgt --fixed-ip subnet=jslagle-osp16-storagemgt-dcn2,ip-address=172.18.3.254 --disable-port-security jslagle-osp16-storagemgt-router-dcn2 &
+wait
+openstack router create jslagle-osp16-storagemgt-router
+openstack router add port jslagle-osp16-storagemgt-router jslagle-osp16-storagemgt-router &
+openstack router add port jslagle-osp16-storagemgt-router jslagle-osp16-storagemgt-router-dcn1 &
+openstack router add port jslagle-osp16-storagemgt-router jslagle-osp16-storagemgt-router-dcn2 &
+wait
+
+openstack subnet delete jslagle-osp16-subnet &
+openstack subnet delete jslagle-osp16-internalapi &
+openstack subnet delete jslagle-osp16-storage &
+openstack subnet delete jslagle-osp16-storagemgt &
+openstack subnet delete jslagle-osp16-tenant &
 wait
 
 openstack subnet delete jslagle-osp16-dcn1-subnet &
