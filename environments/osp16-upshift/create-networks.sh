@@ -106,6 +106,12 @@ for n in external internalapi storage storagemgt tenant; do
     openstack server add network osp16-controller jslagle-osp16-$n &
 done
 
+openstack router remove port jslagle-osp16-internalapi jslagle-osp16-internalapi-router &
+openstack router remove port jslagle-osp16-internalapi jslagle-osp16-internalapi-router-dcn1 &
+openstack router remove port jslagle-osp16-internalapi jslagle-osp16-internalapi-router-dcn2 &
+wait
+openstack router delete jslagle-osp16-internalapi-router &
+
 ###############################################################################
 ## DCN1
 ###############################################################################
