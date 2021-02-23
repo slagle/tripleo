@@ -17,6 +17,9 @@ bind-key C-a send-prefix -2
 bind-key T command-prompt -p "title:" "set set-titles-string %1"
 EOF
 
+tmux new-session -d -s undercloud
+
+tmux send-keys -t undercloud:0 '
 git clone https://github.com/slagle/tripleo
 cp tripleo/environments/master-upshift/undercloud.conf ~/undercloud.conf
 sudo dd if=/dev/zero of=/swapfile bs=1M count=8192
@@ -31,7 +34,8 @@ openstack undercloud install
 echo "source ~/stackrc" >> ~/.bashrc
 openstack complete | grep -v osc_lib | sudo tee /etc/bash_completion.d/openstack
 source /etc/bash_completion.d/openstack
-sudo sed -i 's/num_engine_workers=8/num_engine_workers=12/' /var/lib/config-data/puppet-generated/heat/etc/heat/heat.conf
+sudo sed -i ''s/num_engine_workers=8/num_engine_workers=12/'' /var/lib/config-data/puppet-generated/heat/etc/heat/heat.conf
 sudo systemctl restart tripleo_heat_engine
 cp -a /usr/share/openstack-tripleo-heat-templates tripleo-heat-templates
+'
 
