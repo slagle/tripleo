@@ -12,6 +12,7 @@ REPOS="
 "
 SETUP_PY=${SETUP_PY:-"1"}
 CLONE=${CLONE:-"1"}
+POD_RM=${POD_RM:-"0"}
 HEAT_TYPE=${HEAT_TYPE:-"pod"}
 CONTROLLER_IP=${CONTROLLER_IP:-"192.168.1.51"}
 COMPUTE_IP=${COMPUTE_IP:-"192.168.1.46"}
@@ -133,7 +134,9 @@ EOF
 cat ~/tripleo-heat-templates/roles/Controller.yaml >> ~/roles-data.yaml
 cat ~/tripleo-heat-templates/roles/Compute.yaml >> ~/roles-data.yaml
 
-sudo podman pod rm -f ephemeral-heat || :
+if [ "$POD_RM" = "1" ]; then
+    sudo podman pod rm -f ephemeral-heat || :
+fi
 
 if [ "$HEAT_TYPE" = "native" ]; then
     OS_AUTH_TYPE=none
