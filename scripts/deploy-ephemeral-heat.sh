@@ -130,6 +130,9 @@ parameter_defaults:
 
 EOF
 
+cat ~/tripleo-heat-templates/roles/Controller.yaml >> ~/roles-data.yaml
+cat ~/tripleo-heat-templates/roles/Compute.yaml >> ~/roles-data.yaml
+
 sudo podman pod rm -f ephemeral-heat || :
 
 if [ "$HEAT_TYPE" = "native" ]; then
@@ -138,6 +141,7 @@ fi
 
 openstack overcloud deploy \
     --stack overcloud \
+    -r ~/roles-data.yaml \
     --templates $WORK_DIR/tripleo-heat-templates \
     --deployed-server \
     --disable-validations \
