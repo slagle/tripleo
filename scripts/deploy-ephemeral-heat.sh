@@ -152,5 +152,5 @@ openstack overcloud deploy \
     --overcloud-ssh-key $OVERCLOUD_SSH_KEY \
     -e $WORK_DIR/tripleo-heat-templates/environments/deployed-server-environment.yaml \
     -e $WORK_DIR/ephemeral-heat-environment.yaml \
-    --tripleo-deploy \
+    --heat-type pod \
     $@

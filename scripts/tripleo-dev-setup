@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -eux
+
+WORKING_DIR=${WORKING_DIR:-"~/code/openstack"}
+
+sudo rm -rf /usr/share/python-tripleoclient
+sudo mkdir -p /usr/share/python-tripleoclient
+sudo ln -s /usr/share/python-tripleoclient/templates $WORKING_DIR/python-tripleoclient/templates
