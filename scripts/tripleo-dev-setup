@@ -2,8 +2,114 @@
 
 set -eux
 
-WORKING_DIR=${WORKING_DIR:-"~/code/openstack"}
+WORKING_DIR=${WORKING_DIR:-"$HOME/code/openstack"}
+VENV_DIR=${VENV_DIR:-"$WORKING_DIR/venvs/openstack"}
+
+function instrpm {
+    if ! rpm -q $1; then
+        sudo dnf -y install $1
+    fi
+}
+
+instrpm vim-enhanced
+instrpm git
+instrpm gcc
+instrpm python3-devel
+instrpm bash-completion
+instrpm ansible
+instrpm which
+instrpm findutils
+
+mkdir -p $WORKING_DIR
+pushd $WORKING_DIR
+if [ ! -d python-tripleoclient ]; then
+	git clone https://opendev.org/openstack/python-tripleoclient
+fi
+if [ ! -d tripleo-common ]; then
+	git clone https://opendev.org/openstack/tripleo-common
+fi
+if [ ! -d tripleo-ansible ]; then
+	git clone https://opendev.org/openstack/tripleo-ansible
+fi
+if [ ! -d tripleo-heat-templates ]; then
+	git clone https://opendev.org/openstack/tripleo-heat-templates
+fi
+popd
+
+if ! which virtualenv; then
+    curl -L -O https://bootstrap.pypa.io/get-pip.py && sudo python3 get-pip.py
+    sudo pip install virtualenv
+    sudo pip install epdb
+fi
 
 sudo rm -rf /usr/share/python-tripleoclient
 sudo mkdir -p /usr/share/python-tripleoclient
-sudo ln -s /usr/share/python-tripleoclient/templates $WORKING_DIR/python-tripleoclient/templates
+sudo ln -s $WORKING_DIR/python-tripleoclient/templates /usr/share/python-tripleoclient/templates
+
+sudo rm -rf /usr/share/tripleo-common
+sudo mkdir -p /usr/share/tripleo-common
+sudo ln -s $WORKING_DIR/tripleo-common/container-images /usr/share/tripleo-common
+sudo ln -s $WORKING_DIR/tripleo-common/healthcheck /usr/share/tripleo-common
+sudo ln -s $WORKING_DIR/tripleo-common/heat_docker_agent /usr/share/tripleo-common
+sudo ln -s $WORKING_DIR/tripleo-common/image-yaml /usr/share/tripleo-common
+sudo ln -s $WORKING_DIR/tripleo-common/sudoers /usr/share/tripleo-common
+
+site_pkgs=$(python3 -c "import site; print(site.getsitepackages()[0])")
+sudo mkdir -p $site_pkgs
+
+sudo rm -rf $site_pkgs/tripleoclient
+sudo ln -s $WORKING_DIR/python-tripleoclient/tripleoclient $site_pkgs/tripleoclient
+pushd $WORKING_DIR/python-tripleoclient
+python3 setup.py build
+popd
+echo $WORKING_DIR/python-tripleoclient | sudo tee /usr/local/lib64/python3.9/site-packages/python-tripleoclient.egg-link
+sudo rm -rf $site_pkgs/python_tripleoclient.egg-info
+sudo ln -s $WORKING_DIR/python-tripleoclient/python_tripleoclient.egg-info $site_pkgs/
+
+sudo rm -rf $site_pkgs/tripleo_common
+sudo ln -s $WORKING_DIR/tripleo-common/tripleo_common $site_pkgs/tripleo_common
+pushd $WORKING_DIR/tripleo-common
+python3 setup.py build
+popd
+echo $WORKING_DIR/tripleo-common | sudo tee /usr/local/lib64/python3.9/site-packages/tripleo-common.egg-link
+sudo rm -rf $site_pkgs/tripleo_common.egg-info
+sudo ln -s $WORKING_DIR/tripleo-common/tripleo_common.egg-info $site_pkgs/
+
+sudo rm -rf /usr/share/openstack-tripleo-heat-templates
+sudo ln -s $WORKING_DIR/tripleo-heat-templates /usr/share/openstack-tripleo-heat-templates
+
+sudo mkdir -p /usr/share/ansible/roles
+for r in $WORKING_DIR/tripleo-ansible/tripleo_ansible/roles/*; do
+    sudo ln -sf $r /usr/share/ansible/roles/
+done
+
+sudo mkdir -p /usr/share/ansible/plugins
+for d in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/*; do
+    sudo mkdir -p /usr/share/ansible/plugins/$d
+    for p in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/$d/*; do
+        sudo ln -sf $p /usr/share/ansible/plugins/$d/
+    done
+done
+
+if [ ! -d $VENV_DIR ]; then
+    mkdir $VENV_DIR
+    virtualenv --system-site-packages $VENV_DIR
+    $VENV_DIR/bin/pip install openstackclient
+    $VENV_DIR/bin/pip install -r $WORKING_DIR/python-tripleoclient/requirements.txt
+    $VENV_DIR/bin/pip install -r $WORKING_DIR/tripleo-common/requirements.txt
+    sudo ln -sf $VENV_DIR/bin/openstack /usr/local/bin/
+fi
+
+sudo rm -rf $VENV_DIR/share/tripleo-common
+sudo mkdir -p $VENV_DIR/share/tripleo-common
+sudo ln -s $WORKING_DIR/tripleo-common/container-images $VENV_DIR/share/tripleo-common
+sudo ln -s $WORKING_DIR/tripleo-common/healthcheck $VENV_DIR/share/tripleo-common
+sudo ln -s $WORKING_DIR/tripleo-common/heat_docker_agent $VENV_DIR/share/tripleo-common
+sudo ln -s $WORKING_DIR/tripleo-common/image-yaml $VENV_DIR/share/tripleo-common
+sudo ln -s $WORKING_DIR/tripleo-common/sudoers $VENV_DIR/share/tripleo-common
+
+if [ ! -f /etc/bash_completion.d/openstack ]; then
+    $VENV_DIR/bin/openstack complete | grep -v osc_lib | sudo tee /etc/bash_completion.d/openstack
+    source /etc/bash_completion.d/openstack
+    source /etc/profile.d/bash_completion.sh
+fi

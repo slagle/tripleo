@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -eux
+
+podman run \
+    --name tripleo-dev \
+    -d \
+    --privileged \
+    --ulimit host \
+    -v /dev/fuse:/dev/fuse:rw \
+    -v ~/code/openstack:/openstack \
+    -e WORKING_DIR=/openstack \
+    -e VENV_DIR=/root/openstack-venv \
+    quay.io/podman/stable \
+    sleep infinity
+
+podman exec -it tripleo-dev /openstack/tripleo/scripts/tripleo-dev-setup

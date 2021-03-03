@@ -9,6 +9,7 @@ REPOS="
     python-tripleoclient
     tripleo-ansible
     tripleo-heat-templates
+	tripleo-repos
 "
 SETUP_PY=${SETUP_PY:-"1"}
 CLONE=${CLONE:-"1"}
@@ -30,8 +31,8 @@ if [ "$CLONE" = 1 ]; then
         git clone https://opendev.org/openstack/python-tripleoclient
         pushd python-tripleoclient
         git remote add gerrit https://review.opendev.org/openstack/python-tripleoclient
-        PS=$(git ls-remote gerrit | grep 769984 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
-        git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/84/769984/$PS
+        PS=$(git ls-remote gerrit | grep 777494 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
+        git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/94/777494/$PS
         git checkout -b ephemeral-heat FETCH_HEAD
         popd
     fi
@@ -52,6 +53,16 @@ if [ "$CLONE" = 1 ]; then
         git remote add gerrit https://review.opendev.org/openstack/tripleo-heat-templates
         PS=$(git ls-remote gerrit | grep 769856 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
         git fetch "https://review.opendev.org/openstack/tripleo-heat-templates" refs/changes/56/769856/$PS
+        git checkout -b ephemeral-heat FETCH_HEAD
+        popd
+    fi
+
+    if [ ! -d tripleo-common ]; then
+        git clone https://opendev.org/openstack/tripleo-common
+        pushd tripleo-common
+        git remote add gerrit https://review.opendev.org/openstack/tripleo-common
+        PS=$(git ls-remote gerrit | grep 778262 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
+        git fetch "https://review.opendev.org/openstack/tripleo-heat-templates" refs/changes/62/778262/$PS
         git checkout -b ephemeral-heat FETCH_HEAD
         popd
     fi
