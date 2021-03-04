@@ -93,7 +93,7 @@ echo "* Symlinking ansible roles..."
 sudo mkdir -p /usr/share/ansible/roles
 for r in $WORKING_DIR/tripleo-ansible/tripleo_ansible/roles/*; do
     echo "** Symlinking $r"
-    sudo rm -rf /usr/share/ansible/roles/$r
+    sudo rm -rf /usr/share/ansible/roles/$(basename $r)
     sudo ln -sf $r /usr/share/ansible/roles/
 done
 
@@ -103,7 +103,7 @@ for d in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/*; do
     sudo mkdir -p /usr/share/ansible/plugins/$d
     for p in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/$d/*; do
         echo "** Symlinking $p"
-        sudo rm -rf /usr/share/ansible/plugins/$p
+        sudo rm -rf /usr/share/ansible/plugins/$(basename $p)
         sudo ln -sf $p /usr/share/ansible/plugins/$d/
     done
 done
