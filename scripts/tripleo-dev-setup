@@ -37,11 +37,12 @@ if [ ! -d tripleo-heat-templates ]; then
 fi
 popd
 
-if ! which virtualenv; then
+if [ ! -f /usr/local/bin/pip ]; then
     curl -L -O https://bootstrap.pypa.io/get-pip.py && sudo python3 get-pip.py
-    sudo /usr/local/bin/pip install virtualenv
-    sudo /usr/local/bin/pip install epdb
 fi
+
+sudo /usr/local/bin/pip install virtualenv
+sudo /usr/local/bin/pip install epdb
 
 sudo rm -rf /usr/share/python-tripleoclient
 sudo mkdir -p /usr/share/python-tripleoclient
