@@ -19,6 +19,7 @@ instrpm bash-completion
 instrpm ansible
 instrpm which
 instrpm findutils
+instrpm iproute
 
 mkdir -p $WORKING_DIR
 pushd $WORKING_DIR
