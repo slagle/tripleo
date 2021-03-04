@@ -6,7 +6,7 @@ WORKING_DIR=${WORKING_DIR:-"$HOME/code/openstack"}
 VENV_DIR=${VENV_DIR:-"$WORKING_DIR/venvs/openstack"}
 
 function instrpm {
-    if ! rpm -q $1; then
+    if ! rpm -q --whatprovides $1; then
         sudo dnf -y install $1
     fi
 }
