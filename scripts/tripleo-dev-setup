@@ -124,16 +124,25 @@ if [ ! -d $VENV_DIR ]; then
     sudo ln -sf $VENV_DIR/bin/openstack /usr/local/bin/
 fi
 
+echo "* Creating $VENV_DIR/share/tripleo-common"
 sudo rm -rf $VENV_DIR/share/tripleo-common
 sudo mkdir -p $VENV_DIR/share/tripleo-common
+echo "** Symlinking $VENV_DIR/share/tripleo-common/container-images"
 sudo ln -s $WORKING_DIR/tripleo-common/container-images $VENV_DIR/share/tripleo-common
+echo "** Symlinking $VENV_DIR/share/tripleo-common/healthcheck"
 sudo ln -s $WORKING_DIR/tripleo-common/healthcheck $VENV_DIR/share/tripleo-common
+echo "** Symlinking $VENV_DIR/share/tripleo-common/heat_docker_agent"
 sudo ln -s $WORKING_DIR/tripleo-common/heat_docker_agent $VENV_DIR/share/tripleo-common
+echo "** Symlinking $VENV_DIR/share/tripleo-common/image-yaml"
 sudo ln -s $WORKING_DIR/tripleo-common/image-yaml $VENV_DIR/share/tripleo-common
+echo "** Symlinking $VENV_DIR/share/tripleo-common/sudoers"
 sudo ln -s $WORKING_DIR/tripleo-common/sudoers $VENV_DIR/share/tripleo-common
 
 if [ ! -f /etc/bash_completion.d/openstack ]; then
+    echo "* Running openstack complete"
     $VENV_DIR/bin/openstack complete | grep -v osc_lib | sudo tee /etc/bash_completion.d/openstack
     source /etc/bash_completion.d/openstack
     source /etc/profile.d/bash_completion.sh
 fi
+
+echo "DONE."
