@@ -102,7 +102,7 @@ sudo mkdir -p /usr/share/ansible/plugins
 for d in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/*; do
     sudo mkdir -p /usr/share/ansible/plugins/$(basename $d)
     for p in $d/*; do
-        echo "** Symlinking /usr/share/ansible/plugins/$(basename $d)"
+        echo "** Symlinking /usr/share/ansible/plugins/$(basename $d)/$(basename $p)"
         sudo rm -rf /usr/share/ansible/plugins/$(basename $p)
         sudo ln -sf $p /usr/share/ansible/plugins/$(basename $d)/
     done
@@ -110,7 +110,7 @@ done
 
 if [ ! -d $VENV_DIR ]; then
     echo "* Creating $VENV_DIR"
-    mkdir $VENV_DIR
+    mkdir -p $VENV_DIR
     virtualenv --system-site-packages $VENV_DIR
     echo "** pip installing openstackclient"
     $VENV_DIR/bin/pip install openstackclient
