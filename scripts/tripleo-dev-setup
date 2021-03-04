@@ -39,8 +39,8 @@ popd
 
 if ! which virtualenv; then
     curl -L -O https://bootstrap.pypa.io/get-pip.py && sudo python3 get-pip.py
-    sudo pip install virtualenv
-    sudo pip install epdb
+    sudo /usr/local/bin/pip install virtualenv
+    sudo /usr/local/bin/pip install epdb
 fi
 
 sudo rm -rf /usr/share/python-tripleoclient
