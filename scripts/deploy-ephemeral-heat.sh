@@ -11,8 +11,8 @@ REPOS="
     tripleo-heat-templates
 	tripleo-repos
 "
-SETUP_PY=${SETUP_PY:-"1"}
-CLONE=${CLONE:-"1"}
+SETUP_PY=${SETUP_PY:-"0"}
+CLONE=${CLONE:-"0"}
 POD_RM=${POD_RM:-"0"}
 HEAT_TYPE=${HEAT_TYPE:-"pod"}
 CONTROLLER_IP=${CONTROLLER_IP:-"192.168.1.51"}
