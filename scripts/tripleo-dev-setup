@@ -112,6 +112,8 @@ if [ ! -d $VENV_DIR ]; then
     echo "* Creating $VENV_DIR"
     mkdir -p $VENV_DIR
     virtualenv --system-site-packages $VENV_DIR
+    echo "** pip installing fixtures/greenlet for deps"
+    $VENV_DIR/bin/pip install --force-reinstall fixtures greenlet
     echo "** pip installing openstackclient"
     $VENV_DIR/bin/pip install --force-reinstall openstackclient
     echo "** pip installing tripleoclient requirements"
