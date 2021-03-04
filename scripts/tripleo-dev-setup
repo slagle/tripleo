@@ -68,7 +68,7 @@ sudo ln -s $WORKING_DIR/python-tripleoclient/tripleoclient $site_pkgs/tripleocli
 pushd $WORKING_DIR/python-tripleoclient
 python3 setup.py build
 popd
-echo $WORKING_DIR/python-tripleoclient | sudo tee /usr/local/lib64/python3.9/site-packages/python-tripleoclient.egg-link
+echo $WORKING_DIR/python-tripleoclient | sudo tee $site_pkgs/python-tripleoclient.egg-link
 sudo rm -rf $site_pkgs/python_tripleoclient.egg-info
 sudo ln -s $WORKING_DIR/python-tripleoclient/python_tripleoclient.egg-info $site_pkgs/
 
@@ -77,7 +77,7 @@ sudo ln -s $WORKING_DIR/tripleo-common/tripleo_common $site_pkgs/tripleo_common
 pushd $WORKING_DIR/tripleo-common
 python3 setup.py build
 popd
-echo $WORKING_DIR/tripleo-common | sudo tee /usr/local/lib64/python3.9/site-packages/tripleo-common.egg-link
+echo $WORKING_DIR/tripleo-common | sudo tee $site_pkgs/tripleo-common.egg-link
 sudo rm -rf $site_pkgs/tripleo_common.egg-info
 sudo ln -s $WORKING_DIR/tripleo-common/tripleo_common.egg-info $site_pkgs/
 
