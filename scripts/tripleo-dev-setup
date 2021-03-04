@@ -92,7 +92,7 @@ sudo ln -s $WORKING_DIR/tripleo-heat-templates /usr/share/openstack-tripleo-heat
 echo "* Symlinking ansible roles..."
 sudo mkdir -p /usr/share/ansible/roles
 for r in $WORKING_DIR/tripleo-ansible/tripleo_ansible/roles/*; do
-    echo "** Symlinking $r"
+    echo "** Symlinking /usr/share/ansible/roles/$(basename $r)"
     sudo rm -rf /usr/share/ansible/roles/$(basename $r)
     sudo ln -sf $r /usr/share/ansible/roles/
 done
@@ -100,11 +100,11 @@ done
 echo "* Symlinking ansible plugins..."
 sudo mkdir -p /usr/share/ansible/plugins
 for d in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/*; do
-    sudo mkdir -p /usr/share/ansible/plugins/$d
+    sudo mkdir -p /usr/share/ansible/plugins/$(basename $d)
     for p in $d/*; do
-        echo "** Symlinking $p"
+        echo "** Symlinking /usr/share/ansible/plugins/$(basename $d)"
         sudo rm -rf /usr/share/ansible/plugins/$(basename $p)
-        sudo ln -sf $p /usr/share/ansible/plugins/$d/
+        sudo ln -sf $p /usr/share/ansible/plugins/$(basename $d)/
     done
 done
 
@@ -118,7 +118,7 @@ if [ ! -d $VENV_DIR ]; then
     $VENV_DIR/bin/pip install -r $WORKING_DIR/python-tripleoclient/requirements.txt
     echo "** pip installing tripleo-common requirements"
     $VENV_DIR/bin/pip install -r $WORKING_DIR/tripleo-common/requirements.txt
-    echo "** Symlinking $VENV_DIR/bin/openstack"
+    echo "** Symlinking /usr/local/bin/openstack"
     sudo ln -sf $VENV_DIR/bin/openstack /usr/local/bin/
 fi
 
