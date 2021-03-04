@@ -1,9 +1,14 @@
 #!/bin/bash
 
-set -eux
+set -eu
 
 WORKING_DIR=${WORKING_DIR:-"$HOME/code/openstack"}
 VENV_DIR=${VENV_DIR:-"$WORKING_DIR/venvs/openstack"}
+TRACE=${TRACE:-"0"}
+
+if [ "$TRACE" -eq "1" ]; then
+    set -x
+fi
 
 function instrpm {
     if ! rpm -q --whatprovides $1; then
@@ -84,27 +89,36 @@ sudo ln -s $WORKING_DIR/tripleo-common/tripleo_common.egg-info $site_pkgs/
 sudo rm -rf /usr/share/openstack-tripleo-heat-templates
 sudo ln -s $WORKING_DIR/tripleo-heat-templates /usr/share/openstack-tripleo-heat-templates
 
+echo "* Symlinking ansible roles..."
 sudo mkdir -p /usr/share/ansible/roles
 for r in $WORKING_DIR/tripleo-ansible/tripleo_ansible/roles/*; do
+    echo "** Symlinking $r"
     sudo rm -rf /usr/share/ansible/roles/$r
     sudo ln -sf $r /usr/share/ansible/roles/
 done
 
+echo "* Symlinking ansible plugins..."
 sudo mkdir -p /usr/share/ansible/plugins
 for d in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/*; do
     sudo mkdir -p /usr/share/ansible/plugins/$d
     for p in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/$d/*; do
+        echo "** Symlinking $p"
         sudo rm -rf /usr/share/ansible/plugins/$p
         sudo ln -sf $p /usr/share/ansible/plugins/$d/
     done
 done
 
 if [ ! -d $VENV_DIR ]; then
+    echo "* Creating $VENV_DIR"
     mkdir $VENV_DIR
     virtualenv --system-site-packages $VENV_DIR
+    echo "** pip installing openstackclient"
     $VENV_DIR/bin/pip install openstackclient
+    echo "** pip installing tripleoclient requirements"
     $VENV_DIR/bin/pip install -r $WORKING_DIR/python-tripleoclient/requirements.txt
+    echo "** pip installing tripleo-common requirements"
     $VENV_DIR/bin/pip install -r $WORKING_DIR/tripleo-common/requirements.txt
+    echo "** Symlinking /usr/local/bin/openstack"
     sudo ln -sf $VENV_DIR/bin/openstack /usr/local/bin/
 fi
 
