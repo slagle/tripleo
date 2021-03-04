@@ -113,11 +113,11 @@ if [ ! -d $VENV_DIR ]; then
     mkdir -p $VENV_DIR
     virtualenv --system-site-packages $VENV_DIR
     echo "** pip installing openstackclient"
-    $VENV_DIR/bin/pip install openstackclient
+    $VENV_DIR/bin/pip install --force-reinstall openstackclient
     echo "** pip installing tripleoclient requirements"
-    $VENV_DIR/bin/pip install -r $WORKING_DIR/python-tripleoclient/requirements.txt
+    $VENV_DIR/bin/pip install --force-reinstall -r $WORKING_DIR/python-tripleoclient/requirements.txt
     echo "** pip installing tripleo-common requirements"
-    $VENV_DIR/bin/pip install -r $WORKING_DIR/tripleo-common/requirements.txt
+    $VENV_DIR/bin/pip install --force-reinstall -r $WORKING_DIR/tripleo-common/requirements.txt
     echo "** Symlinking /usr/local/bin/openstack"
     sudo ln -sf $VENV_DIR/bin/openstack /usr/local/bin/
 fi
