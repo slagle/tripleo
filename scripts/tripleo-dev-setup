@@ -89,6 +89,11 @@ sudo ln -s $WORKING_DIR/tripleo-common/tripleo_common.egg-info $site_pkgs/
 sudo rm -rf /usr/share/openstack-tripleo-heat-templates
 sudo ln -s $WORKING_DIR/tripleo-heat-templates /usr/share/openstack-tripleo-heat-templates
 
+echo "* Symlinking ansible playbooks..."
+sudo rm -rf /usr/share/ansible/tripleo_playbooks
+sudo mkdir -p /usr/share/ansible
+sudo ln -sf $WORKING_DIR/tripleo-ansible/tripleo_ansible/playbooks /usr/share/ansible/tripleo_playbooks
+
 echo "* Symlinking ansible roles..."
 sudo mkdir -p /usr/share/ansible/roles
 for r in $WORKING_DIR/tripleo-ansible/tripleo_ansible/roles/*; do
@@ -113,13 +118,13 @@ if [ ! -d $VENV_DIR ]; then
     mkdir -p $VENV_DIR
     virtualenv --system-site-packages $VENV_DIR
     echo "** pip installing fixtures/greenlet for deps"
-    $VENV_DIR/bin/pip install --force-reinstall fixtures greenlet
+    $VENV_DIR/bin/pip install fixtures greenlet
     echo "** pip installing openstackclient"
-    $VENV_DIR/bin/pip install --force-reinstall openstackclient
+    $VENV_DIR/bin/pip install openstackclient
     echo "** pip installing tripleoclient requirements"
-    $VENV_DIR/bin/pip install --force-reinstall -r $WORKING_DIR/python-tripleoclient/requirements.txt
+    $VENV_DIR/bin/pip install -r $WORKING_DIR/python-tripleoclient/requirements.txt
     echo "** pip installing tripleo-common requirements"
-    $VENV_DIR/bin/pip install --force-reinstall -r $WORKING_DIR/tripleo-common/requirements.txt
+    $VENV_DIR/bin/pip install -r $WORKING_DIR/tripleo-common/requirements.txt
     echo "** Symlinking /usr/local/bin/openstack"
     sudo ln -sf $VENV_DIR/bin/openstack /usr/local/bin/
 fi
