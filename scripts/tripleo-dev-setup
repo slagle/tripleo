@@ -103,7 +103,7 @@ for d in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/*; do
     sudo mkdir -p /usr/share/ansible/plugins/$(basename $d)
     for p in $d/*; do
         echo "** Symlinking /usr/share/ansible/plugins/$(basename $d)/$(basename $p)"
-        sudo rm -rf /usr/share/ansible/plugins/$(basename $p)
+        sudo rm -rf /usr/share/ansible/plugins/$(basename $d)/$(basename $p)
         sudo ln -sf $p /usr/share/ansible/plugins/$(basename $d)/
     done
 done
