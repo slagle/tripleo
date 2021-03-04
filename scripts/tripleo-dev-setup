@@ -41,8 +41,12 @@ if [ ! -f /usr/local/bin/pip ]; then
     curl -L -O https://bootstrap.pypa.io/get-pip.py && sudo python3 get-pip.py
 fi
 
-sudo /usr/local/bin/pip install virtualenv
-sudo /usr/local/bin/pip install epdb
+if ! /usr/local/bin/pip show virtualenv; then
+    sudo /usr/local/bin/pip install virtualenv
+fi
+if ! /usr/local/bin/pip show epdb; then
+    sudo /usr/local/bin/pip install epdb
+fi
 
 sudo rm -rf /usr/share/python-tripleoclient
 sudo mkdir -p /usr/share/python-tripleoclient
