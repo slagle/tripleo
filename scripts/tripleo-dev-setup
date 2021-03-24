@@ -90,9 +90,9 @@ sudo rm -rf /usr/share/openstack-tripleo-heat-templates
 sudo ln -s $WORKING_DIR/tripleo-heat-templates /usr/share/openstack-tripleo-heat-templates
 
 echo "* Symlinking ansible playbooks..."
-sudo rm -rf /usr/share/ansible/tripleo_playbooks
+sudo rm -rf /usr/share/ansible/tripleo-playbooks
 sudo mkdir -p /usr/share/ansible
-sudo ln -sf $WORKING_DIR/tripleo-ansible/tripleo_ansible/playbooks /usr/share/ansible/tripleo_playbooks
+sudo ln -sf $WORKING_DIR/tripleo-ansible/tripleo_ansible/playbooks /usr/share/ansible/tripleo-playbooks
 
 echo "* Symlinking ansible roles..."
 sudo mkdir -p /usr/share/ansible/roles
