@@ -7,9 +7,6 @@ set -eux
 WORK_DIR=${WORK_DIR:-"$(pwd)"}
 REPOS="
     python-tripleoclient
-    tripleo-ansible
-    tripleo-heat-templates
-	tripleo-repos
 "
 SETUP_PY=${SETUP_PY:-"0"}
 CLONE=${CLONE:-"0"}
@@ -31,38 +28,8 @@ if [ "$CLONE" = 1 ]; then
         git clone https://opendev.org/openstack/python-tripleoclient
         pushd python-tripleoclient
         git remote add gerrit https://review.opendev.org/openstack/python-tripleoclient
-        PS=$(git ls-remote gerrit | grep 777494 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
-        git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/94/777494/$PS
-        git checkout -b ephemeral-heat FETCH_HEAD
-        popd
-    fi
-
-    if [ ! -d tripleo-ansible ]; then
-        git clone https://opendev.org/openstack/tripleo-ansible
-        pushd tripleo-ansible
-        git remote add gerrit https://review.opendev.org/openstack/tripleo-ansible
-        PS=$(git ls-remote gerrit | grep 769983 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
-        git fetch "https://review.opendev.org/openstack/tripleo-ansible" refs/changes/83/769983/$PS
-        git checkout -b ephemeral-heat FETCH_HEAD
-        popd
-    fi
-
-    if [ ! -d tripleo-heat-templates ]; then
-        git clone https://opendev.org/openstack/tripleo-heat-templates
-        pushd tripleo-heat-templates
-        git remote add gerrit https://review.opendev.org/openstack/tripleo-heat-templates
-        PS=$(git ls-remote gerrit | grep 769856 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
-        git fetch "https://review.opendev.org/openstack/tripleo-heat-templates" refs/changes/56/769856/$PS
-        git checkout -b ephemeral-heat FETCH_HEAD
-        popd
-    fi
-
-    if [ ! -d tripleo-common ]; then
-        git clone https://opendev.org/openstack/tripleo-common
-        pushd tripleo-common
-        git remote add gerrit https://review.opendev.org/openstack/tripleo-common
-        PS=$(git ls-remote gerrit | grep 778262 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
-        git fetch "https://review.opendev.org/openstack/tripleo-heat-templates" refs/changes/62/778262/$PS
+        PS=$(git ls-remote gerrit | grep 782867 | grep -v meta | grep -v robot-comments | tail -n -1  | cut -d/ -f5)
+        git fetch "https://review.opendev.org/openstack/python-tripleoclient" refs/changes/67/782867/$PS
         git checkout -b ephemeral-heat FETCH_HEAD
         popd
     fi
