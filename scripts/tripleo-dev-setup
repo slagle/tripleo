@@ -11,7 +11,9 @@ if [ "$TRACE" -eq "1" ]; then
 fi
 
 function instrpm {
+    echo "* Checking for $1"
     if ! rpm -q --whatprovides $1; then
+        echo "** Installing $1"
         sudo dnf -y install $1
     fi
 }
@@ -29,27 +31,37 @@ instrpm iproute
 mkdir -p $WORKING_DIR
 pushd $WORKING_DIR
 if [ ! -d python-tripleoclient ]; then
+    echo "* Cloning python-tripleoclient because it does not exist in $WORKING_DIR"
 	git clone https://opendev.org/openstack/python-tripleoclient
 fi
 if [ ! -d tripleo-common ]; then
+    echo "* Cloning tripleo-common because it does not exist in $WORKING_DIR"
 	git clone https://opendev.org/openstack/tripleo-common
 fi
 if [ ! -d tripleo-ansible ]; then
+    echo "* Cloning tripleo-ansible because it does not exist in $WORKING_DIR"
 	git clone https://opendev.org/openstack/tripleo-ansible
 fi
 if [ ! -d tripleo-heat-templates ]; then
+    echo "* Cloning tripleo-heat-templates because it does not exist in $WORKING_DIR"
 	git clone https://opendev.org/openstack/tripleo-heat-templates
 fi
 popd
 
+echo "* Checking for pip"
 if [ ! -f /usr/local/bin/pip ]; then
+	echo "** Downloading and installing pip"
     curl -L -O https://bootstrap.pypa.io/get-pip.py && sudo python3 get-pip.py
+else
+	echo "** Pip already installed"
 fi
 
 if ! /usr/local/bin/pip show virtualenv; then
+	echo "* Installing virtualenv"
     sudo /usr/local/bin/pip install virtualenv
 fi
 if ! /usr/local/bin/pip show epdb; then
+	echo "* Installing epdb"
     sudo /usr/local/bin/pip install epdb
 fi
 
