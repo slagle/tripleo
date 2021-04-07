@@ -14,7 +14,7 @@ NO_IMAGE=${NO_IMAGE:-""}
 NO_INSTALL=${NO_INSTALL:-""}
 
 if [[ "$BASE_IMAGE" =~ "CentOS" ]]; then
-    OS="centos7.0"
+    OS="centos8.0"
 fi
 
 for image in $NEW_IMAGES; do
