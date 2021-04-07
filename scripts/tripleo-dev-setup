@@ -165,4 +165,12 @@ if [ ! -f /etc/bash_completion.d/openstack ]; then
     source /etc/profile.d/bash_completion.sh
 fi
 
+echo "* Backing up and removing ~/tripleo-heat-templates"
+if [ -d ~/tripleo-heat-templates ]; then
+    mv ~/tripleo-heat-templates ~/tripleo-heat-templates.save
+    rm -rf ~/tripleo-heat-templates
+fi
+echo "* Symlinking ~/tripleo-heat-templates to $WORKING_DIR/tripleo-heat-templates"
+ln -s -f $WORKING_DIR/tripleo-heat-templates ~/tripleo-heat-templates
+
 echo "DONE."
