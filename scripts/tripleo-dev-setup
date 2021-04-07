@@ -65,6 +65,9 @@ if ! /usr/local/bin/pip show epdb; then
     sudo /usr/local/bin/pip install epdb
 fi
 
+echo "* Removing openstackclient"
+sudo dnf erase -y python3-openstackclient --noautoremove
+
 sudo rm -rf /usr/share/python-tripleoclient
 sudo mkdir -p /usr/share/python-tripleoclient
 sudo ln -s $WORKING_DIR/python-tripleoclient/templates /usr/share/python-tripleoclient/templates
