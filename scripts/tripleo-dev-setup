@@ -142,6 +142,8 @@ if [ ! -d $VENV_DIR ]; then
     $VENV_DIR/bin/pip install -r $WORKING_DIR/tripleo-common/requirements.txt
     echo "** Symlinking /usr/local/bin/openstack"
     sudo ln -sf $VENV_DIR/bin/openstack /usr/local/bin/
+    echo "** Symlinking /usr/local/sbin/openstack"
+    sudo ln -sf $VENV_DIR/bin/openstack /usr/local/sbin/
 fi
 
 echo "* Creating $VENV_DIR/share/tripleo-common"
