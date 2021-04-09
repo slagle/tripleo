@@ -144,9 +144,7 @@ fi
 
 
 echo "** Symlinking /usr/local/bin/openstack"
-sudo ln -sf $VENV_DIR/bin/openstack /usr/local/bin/
-echo "** Symlinking /usr/local/sbin/openstack"
-sudo ln -sf $VENV_DIR/bin/openstack /usr/local/sbin/
+sudo ln -sf $VENV_DIR/bin/openstack /usr/bin/
 
 echo "* Creating $VENV_DIR/share/tripleo-common"
 sudo rm -rf $VENV_DIR/share/tripleo-common
