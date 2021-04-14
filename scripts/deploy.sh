@@ -75,7 +75,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 -n $NETWORK_DATA \
                 $ARGS \
                 $ENVIRONMENTS \
-                $@ 2>&1 | tee -a deploy.log
+                $@ 2>&1
         date | unbuffer -p tee -a deploy.log
         echo "Ending deploy"
 else
