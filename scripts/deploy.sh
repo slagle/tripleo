@@ -67,7 +67,7 @@ if [ "$HEATCLIENT" = "0" ]; then
 
         echo "Starting deploy"
         date | unbuffer -p tee -a deploy.log
-        time unbuffer openstack overcloud deploy \
+        time openstack overcloud deploy \
                 --verbose \
                 --stack $STACK_NAME \
                 --templates $TEMPLATES \
@@ -75,7 +75,7 @@ if [ "$HEATCLIENT" = "0" ]; then
                 -n $NETWORK_DATA \
                 $ARGS \
                 $ENVIRONMENTS \
-                $@ 2>&1 | unbuffer -p tee -a deploy.log
+                $@ 2>&1
         date | unbuffer -p tee -a deploy.log
         echo "Ending deploy"
 else
