@@ -23,11 +23,9 @@
       subnet: storage_mgmt_subnet
     Tenant:
       subnet: tenant_subnet
-    Management:
-      subnet: management_subnet
   # For systems with both IPv4 and IPv6, you may specify a gateway network for
   # each, such as ['ControlPlane', 'External']
-  default_route_networks: ['Management']
+  default_route_networks: ['External']
   HostnameFormatDefault: '%stackname%-controller-%index%'
   # Deprecated & backward-compatible values (FIXME: Make parameters consistent)
   # Set uses_deprecated_params to True if any deprecated params are used.
@@ -53,6 +51,7 @@
     - OS::TripleO::Services::CACerts
     - OS::TripleO::Services::CeilometerAgentCentral
     - OS::TripleO::Services::CeilometerAgentNotification
+    - OS::TripleO::Services::CephClient
     - OS::TripleO::Services::CephExternal
     - OS::TripleO::Services::CephGrafana
     - OS::TripleO::Services::CephMds
@@ -60,7 +59,6 @@
     - OS::TripleO::Services::CephMon
     - OS::TripleO::Services::CephRbdMirror
     - OS::TripleO::Services::CephRgw
-    - OS::TripleO::Services::CertmongerUser
     - OS::TripleO::Services::CinderApi
     - OS::TripleO::Services::CinderBackendDellSc
     - OS::TripleO::Services::CinderBackendDellEMCPowerFlex
@@ -91,8 +89,10 @@
     - OS::TripleO::Services::DesignateWorker
     - OS::TripleO::Services::DesignateMDNS
     - OS::TripleO::Services::DesignateSink
+    - OS::TripleO::Services::DesignateBind
     - OS::TripleO::Services::Etcd
     - OS::TripleO::Services::ExternalSwiftProxy
+    - OS::TripleO::Services::Frr
     - OS::TripleO::Services::GlanceApi
     - OS::TripleO::Services::GnocchiApi
     - OS::TripleO::Services::GnocchiMetricd
@@ -182,8 +182,10 @@
     - OS::TripleO::Services::TripleoFirewall
     - OS::TripleO::Services::TripleoPackages
     - OS::TripleO::Services::Tuned
+    - OS::TripleO::Services::Unbound
     - OS::TripleO::Services::Vpp
     - OS::TripleO::Services::Zaqar
+
 ###############################################################################
 # Role: Compute                                                               #
 ###############################################################################
@@ -202,14 +204,21 @@
       subnet: tenant_subnet
     Storage:
       subnet: storage_subnet
-    Management:
-      subnet: management_subnet
-    External:
-      subnet: external_subnet
-  HostnameFormatDefault: '%stackname%-compute-%index%'
-  default_route_networks: ['Management']
+  HostnameFormatDefault: '%stackname%-novacompute-%index%'
   RoleParametersDefault:
     TunedProfileName: "virtual-host"
+  # Deprecated & backward-compatible values (FIXME: Make parameters consistent)
+  # Set uses_deprecated_params to True if any deprecated params are used.
+  # These deprecated_params only need to be used for existing roles and not for
+  # composable roles.
+  uses_deprecated_params: True
+  deprecated_param_image: 'NovaImage'
+  deprecated_param_extraconfig: 'NovaComputeExtraConfig'
+  deprecated_param_metadata: 'NovaComputeServerMetadata'
+  deprecated_param_scheduler_hints: 'NovaComputeSchedulerHints'
+  deprecated_param_ips: 'NovaComputeIPs'
+  deprecated_server_resource_name: 'NovaCompute'
+  deprecated_nic_config_name: 'compute.yaml'
   update_serial: 25
   ServicesDefault:
     - OS::TripleO::Services::Aide
@@ -218,13 +227,13 @@
     - OS::TripleO::Services::CACerts
     - OS::TripleO::Services::CephClient
     - OS::TripleO::Services::CephExternal
-    - OS::TripleO::Services::CertmongerUser
     - OS::TripleO::Services::Collectd
     - OS::TripleO::Services::ComputeCeilometerAgent
     - OS::TripleO::Services::ComputeNeutronCorePlugin
     - OS::TripleO::Services::ComputeNeutronL3Agent
     - OS::TripleO::Services::ComputeNeutronMetadataAgent
     - OS::TripleO::Services::ComputeNeutronOvsAgent
+    - OS::TripleO::Services::Frr
     - OS::TripleO::Services::IpaClient
     - OS::TripleO::Services::Ipsec
     - OS::TripleO::Services::Iscsid
