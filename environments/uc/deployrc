@@ -13,6 +13,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/master-upshift/deployed-server-port-map.yaml \
   -e $HOME/tripleo/environments/containers-tripleomaster-current-tripleo.yaml \
   -e $HOME/tripleo/environments/glance-backend-file.yaml \
+  -e $HOME/tripleo/environments/ovn-mac-address-network-noop.yaml \
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/master-upshift/roles-data.yaml"
