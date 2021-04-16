@@ -128,6 +128,9 @@ for d in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/*; do
     done
 done
 
+echo "* Symlinking ansible.module_utils.tripleo_common_utils..."
+sudo ln -s ~/code/openstack/tripleo-ansible/tripleo_ansible/ansible_plugins/module_utils/tripleo_common_utils.py /usr/lib/python3.6/site-packages/ansible/module_utils/
+
 if [ ! -d $VENV_DIR ]; then
     echo "* Creating $VENV_DIR"
     mkdir -p $VENV_DIR
