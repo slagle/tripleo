@@ -23,6 +23,8 @@
       subnet: storage_mgmt_subnet
     Tenant:
       subnet: tenant_subnet
+    Management:
+      subnet: management_subnet
   # For systems with both IPv4 and IPv6, you may specify a gateway network for
   # each, such as ['ControlPlane', 'External']
   default_route_networks: ['External']
@@ -204,6 +206,8 @@
       subnet: tenant_subnet
     Storage:
       subnet: storage_subnet
+    Management:
+      subnet: management_subnet
   HostnameFormatDefault: '%stackname%-novacompute-%index%'
   RoleParametersDefault:
     TunedProfileName: "virtual-host"
