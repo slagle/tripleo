@@ -208,6 +208,8 @@
       subnet: storage_subnet
     Management:
       subnet: management_subnet
+    External:
+      subnet: external_subnet
   HostnameFormatDefault: '%stackname%-novacompute-%index%'
   RoleParametersDefault:
     TunedProfileName: "virtual-host"
