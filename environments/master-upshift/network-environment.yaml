@@ -30,8 +30,8 @@ parameter_defaults:
   PublicVirtualFixedIPs: [{'ip_address':'10.0.0.100'}]
   StorageVirtualFixedIPs: [{'ip_address':'172.16.1.100'}]
   StorageMgmtVirtualFixedIPs: [{'ip_address':'172.16.3.100'}]
-  RedisVirtualFixedIPs: [{'ip_address':'172.16.2.101'}]
-  OVNDBsVirtualFixedIPs: [{'ip_address':'172.16.2.102'}]
+  RedisVirtualFixedIPs: [{'ip_address':'172.16.2.101', 'use_neutron':False}]
+  OVNDBsVirtualFixedIPs: [{'ip_address':'172.16.2.102', 'use_neutron':False}]
 
   ControllerIPs:
     internal_api:
