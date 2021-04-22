@@ -15,6 +15,7 @@ export ENVIRONMENTS="\
   -e $HOME/tripleo/environments/containers-tripleomaster-current-tripleo.yaml \
   -e $HOME/tripleo/environments/glance-backend-file.yaml \
   -e $HOME/tripleo/environments/ovn-mac-address-network-noop.yaml \
+  -e $HOME/tripleo/environments/ctlplane-network-attributes.yaml \
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/master-upshift/roles-data.yaml"
