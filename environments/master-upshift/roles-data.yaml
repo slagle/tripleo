@@ -211,6 +211,7 @@
     External:
       subnet: external_subnet
   HostnameFormatDefault: '%stackname%-novacompute-%index%'
+  default_route_networks: []
   RoleParametersDefault:
     TunedProfileName: "virtual-host"
   # Deprecated & backward-compatible values (FIXME: Make parameters consistent)
