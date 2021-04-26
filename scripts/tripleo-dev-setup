@@ -129,7 +129,8 @@ for d in $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/*; do
 done
 
 echo "* Symlinking ansible.module_utils.tripleo_common_utils..."
-sudo ln -s -f $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/module_utils/tripleo_common_utils.py $site_pkgs/ansible/module_utils/
+ansible_path=$(python -c "import ansible; print(ansible.__path__)"
+sudo ln -s -f $WORKING_DIR/tripleo-ansible/tripleo_ansible/ansible_plugins/module_utils/tripleo_common_utils.py $ansible_path/module_utils/
 
 if [ ! -d $VENV_DIR ]; then
     echo "* Creating $VENV_DIR"
