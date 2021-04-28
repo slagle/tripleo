@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -eux
 
 WORKING_DIR=${WORKING_DIR:-"$HOME/code/openstack"}
 VENV_DIR=${VENV_DIR:-"$WORKING_DIR/venvs/openstack"}
@@ -48,6 +48,7 @@ if [ ! -d tripleo-heat-templates ]; then
 fi
 popd
 
+pushd ~
 echo "* Checking for pip"
 if [ ! -f /usr/local/bin/pip ]; then
 	echo "** Downloading and installing pip"
@@ -55,6 +56,7 @@ if [ ! -f /usr/local/bin/pip ]; then
 else
 	echo "** Pip already installed"
 fi
+popd
 
 if ! /usr/local/bin/pip show virtualenv; then
 	echo "* Installing virtualenv"
@@ -86,6 +88,7 @@ sudo mkdir -p $site_pkgs
 sudo rm -rf $site_pkgs/tripleoclient
 sudo ln -s $WORKING_DIR/python-tripleoclient/tripleoclient $site_pkgs/tripleoclient
 pushd $WORKING_DIR/python-tripleoclient
+rm -rf build
 python3 setup.py build
 popd
 echo $WORKING_DIR/python-tripleoclient | sudo tee $site_pkgs/python-tripleoclient.egg-link
@@ -95,6 +98,7 @@ sudo ln -s $WORKING_DIR/python-tripleoclient/python_tripleoclient.egg-info $site
 sudo rm -rf $site_pkgs/tripleo_common
 sudo ln -s $WORKING_DIR/tripleo-common/tripleo_common $site_pkgs/tripleo_common
 pushd $WORKING_DIR/tripleo-common
+rm -rf build
 python3 setup.py build
 popd
 echo $WORKING_DIR/tripleo-common | sudo tee $site_pkgs/tripleo-common.egg-link
@@ -147,7 +151,7 @@ if [ ! -d $VENV_DIR ]; then
 fi
 
 
-echo "** Symlinking /usr/local/bin/openstack"
+echo "** Symlinking /usr/bin/openstack"
 sudo ln -sf $VENV_DIR/bin/openstack /usr/bin/
 
 echo "* Creating $VENV_DIR/share/tripleo-common"

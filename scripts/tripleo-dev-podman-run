@@ -1,17 +1,38 @@
 #!/bin/bash
 
-set -eux
+set -eu
+
+CODE_DIR=${CODE_DIR:-"/openstack"}
+
+podman run \
+    --name tripleo-dev \
+    -d \
+    quay.io/podman/stable \
+    /bin/bash -c "useradd -G wheel,root stack; sed -i 's/# %wheel/%wheel/g' /etc/sudoers"
+
+podman commit tripleo-dev tripleo-dev
+
+podman rm -f tripleo-dev
 
 podman run \
     --name tripleo-dev \
     -d \
     --privileged \
     --ulimit host \
+    -u stack \
     -v /dev/fuse:/dev/fuse:rw \
-    -v ~/code/openstack:/openstack \
-    -e WORKING_DIR=/openstack \
-    -e VENV_DIR=/root/openstack-venv \
-    quay.io/podman/stable \
+    -v ~/code/openstack:/home/stack/openstack:z \
+    -e WORKING_DIR=/home/stack/openstack \
+    -e VENV_DIR=/home/stack/openstack-venv \
+    tripleo-dev \
     sleep infinity
 
-podman exec -it tripleo-dev /openstack/tripleo/scripts/tripleo-dev-setup
+podman exec -it -u stack tripleo-dev sudo chmod g+w -R /home/stack/openstack
+podman exec -it -u stack tripleo-dev /home/stack/openstack/tripleo/scripts/tripleo-dev-setup
+
+echo "**********************************************"
+echo "**********************************************"
+echo "* Run the following to exec into tripleo-dev:"
+echo "podman exec -it -u stack -w /home/stack tripleo-dev bash"
+echo "**********************************************"
+echo "**********************************************"
