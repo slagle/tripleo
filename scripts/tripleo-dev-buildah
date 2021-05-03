@@ -1,0 +1,59 @@
+#!/bin/bash
+
+set -eu
+
+TRACE=${TRACE:-"0"}
+if [ "$TRACE" -eq "1" ]; then
+    set -x
+fi
+
+SCRIPT_DIR=$(dirname $0)
+TRIPLEO_DEV_USER=${TRIPLEO_DEV_USER:-"stack"}
+TRIPLEO_DEV_BASE_IMAGE=${TRIPLEO_DEV_BASE_IMAGE:-"quay.io/podman/stable"}
+TRIPLEO_DEV_IMAGE=${TRIPLEO_DEV_IMAGE:-"tripleo-dev"}
+
+echo "* Creating container from $TRIPLEO_DEV_BASE_IMAGE"
+container=$(buildah from --name tripleo-dev-buildah $TRIPLEO_DEV_BASE_IMAGE)
+echo "** Container id is $container"
+
+echo "* Configuring container volumes"
+buildah config -v /dev/fuse:/dev/fuse:rw $container
+
+echo "* Creating and configuring $TRIPLEO_DEV_USER"
+buildah run --user root $container useradd -G wheel,root $TRIPLEO_DEV_USER
+buildah run --user root $container sed -i 's/# %wheel/%wheel/g' /etc/sudoers
+buildah config --user stack $container
+buildah config --workingdir /home/stack $container
+
+echo "* Copying and running tripleo-dev-setup"
+buildah copy --chown $TRIPLEO_DEV_USER:$TRIPLEO_DEV_USER $container $SCRIPT_DIR/tripleo-dev-setup /home/$TRIPLEO_DEV_USER/tripleo-dev-setup
+buildah run --user $TRIPLEO_DEV_USER $container /home/$TRIPLEO_DEV_USER/tripleo-dev-setup
+buildah run --user root $container dnf clean all
+
+echo "* Configuring default command"
+buildah config --cmd "sleep infinity" $container
+
+echo "* Committing to new image $TRIPLEO_DEV_IMAGE"
+buildah commit --rm $container $TRIPLEO_DEV_IMAGE
+
+echo "**********************************************"
+echo "**********************************************"
+echo "* Run the following to exec into tripleo-dev:"
+echo "* (Optional) pass:"
+echo "* -v \$CODE_DIR:/home/stack/openstack:z"
+echo "* where \$CODE_DIR is the directoring containing"
+echo "* tripleo git checkouts to use in the container"
+echo
+echo '
+podman run \
+    --name tripleo-dev \
+    -d \
+    --privileged \
+    --ulimit host \
+    tripleo-dev
+'
+echo
+echo "podman exec -it tripleo-dev bash"
+echo
+echo "**********************************************"
+echo "**********************************************"

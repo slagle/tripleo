@@ -1,9 +1,9 @@
 #!/bin/bash
 
-set -eux
+set -eu
 
 WORKING_DIR=${WORKING_DIR:-"$HOME/code/openstack"}
-VENV_DIR=${VENV_DIR:-"$WORKING_DIR/venvs/openstack"}
+VENV_DIR=${VENV_DIR:-"$HOME/venvs/openstack"}
 TRACE=${TRACE:-"0"}
 
 if [ "$TRACE" -eq "1" ]; then
@@ -18,6 +18,14 @@ function instrpm {
     fi
 }
 
+function delrpm {
+    echo "* Checking for $1"
+    if rpm -q $1; then
+        echo "** Uninstalling $1"
+        sudo dnf erase -y $1
+    fi
+}
+
 instrpm vim-enhanced
 instrpm git
 instrpm gcc
@@ -27,6 +35,8 @@ instrpm ansible
 instrpm which
 instrpm findutils
 instrpm iproute
+
+delrpm python3-pip
 
 mkdir -p $WORKING_DIR
 pushd $WORKING_DIR
