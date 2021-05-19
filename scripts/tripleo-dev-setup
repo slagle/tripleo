@@ -32,6 +32,7 @@ instrpm gcc
 instrpm python3-devel
 instrpm bash-completion
 instrpm ansible
+instrpm ansible-collections-openstack
 instrpm which
 instrpm findutils
 instrpm iproute

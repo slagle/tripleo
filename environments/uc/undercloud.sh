@@ -1,5 +1,7 @@
 set -eux
 
+UC_HOSTNAME=${UC_HOSTNAME:-""}
+
 rpm -q git || sudo dnf -y install git
 sudo dnf -y install python3 python3-setuptools python3-requests
 git clone https://git.openstack.org/openstack/tripleo-repos
@@ -15,6 +17,7 @@ cat >~/.tmux.conf<<EOF
 set-option -g prefix2 C-a
 bind-key C-a send-prefix -2
 bind-key T command-prompt -p "title:" "set set-titles-string %1"
+set-titles on
 EOF
 
 tmux new-session -d -s undercloud
@@ -27,7 +30,7 @@ sudo dd if=/dev/zero of=/swapfile bs=1M count=8192
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
-sudo hostnamectl set-hostname uc.localdomain
+sudo hostnamectl set-hostname $UC_HOSTNAME
 sudo tee -a /etc/fstab << EOF
 /swapfile swap swap defaults 0 0
 EOF
