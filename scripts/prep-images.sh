@@ -14,7 +14,7 @@ NO_IMAGE=${NO_IMAGE:-""}
 NO_INSTALL=${NO_INSTALL:-""}
 
 if [[ "$BASE_IMAGE" =~ "CentOS" ]]; then
-    OS="centos8.0"
+    OS="centos8"
 fi
 
 for image in $NEW_IMAGES; do
@@ -32,8 +32,7 @@ for image in $NEW_IMAGES; do
   if [ -z "$NO_CUSTOMIZE" ]; then
       virt-customize -a $file \
         --root-password password:root \
-        --hostname $image.redhat.local \
-        --run-command "yum localinstall -y http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/rhos-release/rhos-release-latest.noarch.rpm" \
+        --hostname $image \
         --run-command "useradd -G wheel stack || true" \
         --run-command "sed -i 's/# %wheel/%wheel/g' /etc/sudoers" \
         --run-command "systemctl disable cloud-init cloud-config cloud-final cloud-init-local" \
@@ -44,6 +43,7 @@ for image in $NEW_IMAGES; do
         --selinux-relabel
     fi
 
+    # --run-command "yum localinstall -y http://download.lab.bos.redhat.com/rcm-guest/puddles/OpenStack/rhos-release/rhos-release-latest.noarch.rpm" \
     # --run-command "yum -y install git" \
     # --run-command "git clone https://github.com/slagle/tripleo /root/tripleo" \
     # --run-command "/root/tripleo/scripts/add-to-bashrc" \
@@ -61,7 +61,7 @@ for image in $NEW_IMAGES; do
             --memory $MEMORY \
             --vcpus $CPUS \
             --import --disk ${image}.qcow2,bus=virtio,cache=unsafe \
-            $BRIDGE_ARGS \
+            --network name=default \
             --os-variant $OS \
             --wait 0
     fi
