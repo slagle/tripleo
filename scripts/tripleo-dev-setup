@@ -37,8 +37,6 @@ instrpm which
 instrpm findutils
 instrpm iproute
 
-delrpm python3-pip
-
 mkdir -p $WORKING_DIR
 pushd $WORKING_DIR
 if [ ! -d python-tripleoclient ]; then
