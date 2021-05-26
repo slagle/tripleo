@@ -34,8 +34,8 @@ instrpm bash-completion
 instrpm which
 instrpm findutils
 instrpm iproute
-instrpm python-setuptools
-instrpm python-requests
+instrpm python3-setuptools
+instrpm python3-requests
 
 mkdir -p $WORKING_DIR
 pushd $WORKING_DIR
