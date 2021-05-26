@@ -31,14 +31,24 @@ instrpm git
 instrpm gcc
 instrpm python3-devel
 instrpm bash-completion
-instrpm ansible
-instrpm ansible-collections-openstack
 instrpm which
 instrpm findutils
 instrpm iproute
+instrpm python-setuptools
+instrpm python-requests
 
 mkdir -p $WORKING_DIR
 pushd $WORKING_DIR
+
+git clone https://git.openstack.org/openstack/tripleo-repos
+pushd tripleo-repos
+sudo python3 setup.py install
+popd
+sudo /usr/local/bin/tripleo-repos current-tripleo-dev
+
+instrpm ansible
+instrpm ansible-collections-openstack
+
 if [ ! -d python-tripleoclient ]; then
     echo "* Cloning python-tripleoclient because it does not exist in $WORKING_DIR"
 	git clone https://opendev.org/openstack/python-tripleoclient
