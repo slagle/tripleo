@@ -23,12 +23,12 @@
       subnet: storage_mgmt_subnet
     Tenant:
       subnet: tenant_subnet
-    Management:
-      subnet: management_subnet
   # For systems with both IPv4 and IPv6, you may specify a gateway network for
   # each, such as ['ControlPlane', 'External']
   default_route_networks: ['External']
   HostnameFormatDefault: '%stackname%-controller-%index%'
+  RoleParametersDefault:
+    OVNCMSOptions: "enable-chassis-as-gw"
   # Deprecated & backward-compatible values (FIXME: Make parameters consistent)
   # Set uses_deprecated_params to True if any deprecated params are used.
   uses_deprecated_params: True
@@ -75,7 +75,6 @@
     - OS::TripleO::Services::CinderBackendNetApp
     - OS::TripleO::Services::CinderBackendPure
     - OS::TripleO::Services::CinderBackendScaleIO
-    - OS::TripleO::Services::CinderBackendVRTSHyperScale
     - OS::TripleO::Services::CinderBackendNVMeOF
     - OS::TripleO::Services::CinderBackup
     - OS::TripleO::Services::CinderHPELeftHandISCSI
@@ -206,14 +205,21 @@
       subnet: tenant_subnet
     Storage:
       subnet: storage_subnet
-    Management:
-      subnet: management_subnet
-    External:
-      subnet: external_subnet
-  HostnameFormatDefault: '%stackname%-compute-%index%'
-  default_route_networks: []
+  HostnameFormatDefault: '%stackname%-novacompute-%index%'
   RoleParametersDefault:
     TunedProfileName: "virtual-host"
+  # Deprecated & backward-compatible values (FIXME: Make parameters consistent)
+  # Set uses_deprecated_params to True if any deprecated params are used.
+  # These deprecated_params only need to be used for existing roles and not for
+  # composable roles.
+  uses_deprecated_params: True
+  deprecated_param_image: 'NovaImage'
+  deprecated_param_extraconfig: 'NovaComputeExtraConfig'
+  deprecated_param_metadata: 'NovaComputeServerMetadata'
+  deprecated_param_scheduler_hints: 'NovaComputeSchedulerHints'
+  deprecated_param_ips: 'NovaComputeIPs'
+  deprecated_server_resource_name: 'NovaCompute'
+  deprecated_nic_config_name: 'compute.yaml'
   update_serial: 25
   ServicesDefault:
     - OS::TripleO::Services::Aide
