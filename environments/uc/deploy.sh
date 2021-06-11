@@ -9,7 +9,8 @@ openstack overcloud deploy \
     --templates /home/stack/tripleo-heat-templates \
     --deployed-server \
     --disable-validations \
-    --heat-type pod  \
+    --heat-type full  \
+    --os-auth-type none \
     --skip-heat-pull \
     -r /home/stack/tripleo/environments/master-upshift/roles-data.yaml \
     -n /home/stack/tripleo/environments/master-upshift/network_data.yaml \

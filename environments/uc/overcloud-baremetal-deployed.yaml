@@ -205,16 +205,16 @@ parameter_defaults:
         ip_address_uri: 172.16.0.12
         ip_subnet: 172.16.0.12/24
 resource_registry:
-  OS::TripleO::Compute::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_external.yaml
-  OS::TripleO::Compute::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_internal_api.yaml
-  OS::TripleO::Compute::Ports::ManagementPort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_management.yaml
-  OS::TripleO::Compute::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_storage_mgmt.yaml
-  OS::TripleO::Compute::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_storage.yaml
-  OS::TripleO::Compute::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_tenant.yaml
-  OS::TripleO::Controller::Ports::ExternalPort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_external.yaml
-  OS::TripleO::Controller::Ports::InternalApiPort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_internal_api.yaml
-  OS::TripleO::Controller::Ports::ManagementPort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_management.yaml
-  OS::TripleO::Controller::Ports::StorageMgmtPort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_storage_mgmt.yaml
-  OS::TripleO::Controller::Ports::StoragePort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_storage.yaml
-  OS::TripleO::Controller::Ports::TenantPort: /usr/share/openstack-tripleo-heat-templates/network/ports/deployed_tenant.yaml
-  OS::TripleO::DeployedServer::ControlPlanePort: /usr/share/openstack-tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
+  OS::TripleO::Compute::Ports::ExternalPort: /home/stack/tripleo-heat-templates/network/ports/deployed_external.yaml
+  OS::TripleO::Compute::Ports::InternalApiPort: /home/stack/tripleo-heat-templates/network/ports/deployed_internal_api.yaml
+  OS::TripleO::Compute::Ports::ManagementPort: /home/stack/tripleo-heat-templates/network/ports/deployed_management.yaml
+  OS::TripleO::Compute::Ports::StorageMgmtPort: /home/stack/tripleo-heat-templates/network/ports/deployed_storage_mgmt.yaml
+  OS::TripleO::Compute::Ports::StoragePort: /home/stack/tripleo-heat-templates/network/ports/deployed_storage.yaml
+  OS::TripleO::Compute::Ports::TenantPort: /home/stack/tripleo-heat-templates/network/ports/deployed_tenant.yaml
+  OS::TripleO::Controller::Ports::ExternalPort: /home/stack/tripleo-heat-templates/network/ports/deployed_external.yaml
+  OS::TripleO::Controller::Ports::InternalApiPort: /home/stack/tripleo-heat-templates/network/ports/deployed_internal_api.yaml
+  OS::TripleO::Controller::Ports::ManagementPort: /home/stack/tripleo-heat-templates/network/ports/deployed_management.yaml
+  OS::TripleO::Controller::Ports::StorageMgmtPort: /home/stack/tripleo-heat-templates/network/ports/deployed_storage_mgmt.yaml
+  OS::TripleO::Controller::Ports::StoragePort: /home/stack/tripleo-heat-templates/network/ports/deployed_storage.yaml
+  OS::TripleO::Controller::Ports::TenantPort: /home/stack/tripleo-heat-templates/network/ports/deployed_tenant.yaml
+  OS::TripleO::DeployedServer::ControlPlanePort: /home/stack/tripleo-heat-templates/deployed-server/deployed-neutron-port.yaml
