@@ -15,6 +15,6 @@ resources:
       value: {get_param: test_parameter}
 
 outputs:
-  - name: test_output
+  test_output:
     description: A test output
     value: {get_attr: [test_resource, value]}
