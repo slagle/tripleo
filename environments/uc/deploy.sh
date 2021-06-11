@@ -24,9 +24,9 @@ openstack overcloud deploy \
     -e /home/stack/tripleo/environments/containers-tripleomaster-current-tripleo.yaml \
     -e /home/stack/tripleo/environments/glance-backend-file.yaml \
     -e /home/stack/tripleo/environments/ovn-mac-address-network-noop.yaml \
-    -e /home/stack/overcloud-baremetal-deployed.yaml \
-    -e /home/stack/overcloud-network-deployed.yaml \
-    -e /home/stack/overcloud-vip-deployed.yaml \
+    -e /home/stack/tripleo/environments/uc/overcloud-baremetal-deployed.yaml \
+    -e /home/stack/tripleo/environments/uc/overcloud-network-deployed.yaml \
+    -e /home/stack/tripleo/environments/uc/overcloud-vip-deployed.yaml \
     --overcloud-ssh-network management \
     --overcloud-ssh-user centos \
     --overcloud-ssh-key ~/.ssh/upshift \
