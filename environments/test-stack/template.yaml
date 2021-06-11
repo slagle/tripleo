@@ -1,0 +1,18 @@
+parameters:
+
+  test_parameter:
+    type: string
+    default: test
+    description: A test parameter
+
+resources:
+
+  test_resource:
+    type: OS::Heat::Value
+    properties:
+      value: {get_param: test_parameter}
+
+outputs:
+  - name: test_output
+    description: A test output
+    value: {get_attr: [test_resource, value]}
