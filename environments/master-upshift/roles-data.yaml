@@ -209,7 +209,7 @@
     Management:
       subnet: management_subnet
     External:
-      subnet: external
+      subnet: external_subnet
   HostnameFormatDefault: '%stackname%-novacompute-%index%'
   RoleParametersDefault:
     TunedProfileName: "virtual-host"
