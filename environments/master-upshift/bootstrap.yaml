@@ -15,6 +15,10 @@
         ssh-keyscan {{ hostvars[inventory_hostname]['ansible_host'] }} >> ~/.ssh/known_hosts
       retries: 40
       delay: 3
+    - name: switch to CentOS Stream
+      shell: |
+        sudo dnf -y swap centos-linux-repos centos-stream-repos
+        sudo dnf -y distro-sync
     - name: install tripleo-repos
       shell: |
         if [ ! -d tripleo-repos ]; then
