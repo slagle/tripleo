@@ -17,7 +17,7 @@ cat >~/.tmux.conf<<EOF
 set-option -g prefix2 C-a
 bind-key C-a send-prefix -2
 bind-key T command-prompt -p "title:" "set set-titles-string %1"
-set-titles on
+set-option -g set-titles on
 EOF
 
 tmux new-session -d -s undercloud

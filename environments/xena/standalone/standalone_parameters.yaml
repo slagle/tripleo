@@ -1,4 +1,5 @@
 parameter_defaults:
+  TimeZone: America/Indiana/Indianapolis
   CloudName: 192.168.24.2
   ControlPlaneStaticRoutes: []
   Debug: true
