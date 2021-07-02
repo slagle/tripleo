@@ -7,6 +7,9 @@ After=local-fs.target
 [Service]
 Type=oneshot
 ExecStart=/bin/sh -c 'ip link add dev eth1 type dummy && ip link set dev eth1 up'
+
+[Install]
+WantedBy=multi-user.target
 EOF
 "
 
