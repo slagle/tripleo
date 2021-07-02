@@ -15,4 +15,5 @@ sudo openstack tripleo deploy \
     -r /usr/share/openstack-tripleo-heat-templates/roles/Standalone.yaml \
     -e $HOME/containers-prepare-parameters.yaml \
     -e $HOME/standalone_parameters.yaml \
+    -e $HOME/tripleo/environments/timezone-eastern.yaml \
     --standalone
