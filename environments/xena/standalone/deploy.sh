@@ -8,7 +8,7 @@ export NETMASK=24
 export INTERFACE=eth1
 
 sudo openstack tripleo deploy \
-    --templates \
+    --templates $HOME/tripleo-heat-templates \
     --local-ip=$IP/$NETMASK \
     --control-virtual-ip $VIP \
     -e /usr/share/openstack-tripleo-heat-templates/environments/standalone/standalone-tripleo.yaml \
