@@ -1,0 +1,25 @@
+parameter_defaults:
+  CloudName: 192.168.24.2
+  ControlPlaneStaticRoutes: []
+  Debug: true
+  DeploymentUser: stack
+  DnsServers:
+    - 1.1.1.1
+    - 8.8.8.8
+  DockerInsecureRegistryAddress:
+    - 192.168.24.2:8787
+  NeutronPublicInterface: eth1
+  # domain name used by the host
+  CloudDomain: localdomain
+  NeutronDnsDomain: localdomain
+  # re-use ctlplane bridge for public net, defined in the standalone
+  # net config (do not change unless you know what you're doing)
+  NeutronBridgeMappings: datacentre:br-ctlplane
+  NeutronPhysicalBridge: br-ctlplane
+  # enable to force metadata for public net
+  #NeutronEnableForceMetadata: true
+  StandaloneEnableRoutedNetworks: false
+  StandaloneHomeDir: /home/stack
+  InterfaceLocalMtu: 1500
+  # Needed if running in a VM, not needed if on baremetal
+  NovaComputeLibvirtType: qemu
