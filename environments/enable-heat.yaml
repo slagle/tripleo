@@ -1,0 +1,4 @@
+parameter_defaults:
+  OS::TripleO::Services::HeatApi: /home/stack/tripleo-heat-templates/deployment/heat/heat-api-container-puppet.yaml
+  OS::TripleO::Services::HeatApiCfn: /home/stack/tripleo-heat-templates/deployment/heat/heat-api-cfn-container-puppet.yaml
+  OS::TripleO::Services::HeatApiCloudwatch: /home/stack/tripleo-heat-templates/deployment/heat/heat-api-cloudwatch-disabled-puppet.yaml
