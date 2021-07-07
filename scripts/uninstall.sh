@@ -9,9 +9,9 @@ fi
 if type podman &> /dev/null; then
     echo "Removing podman containers and images (takes times...)"
     sudo podman rm -af
-	if [ "$IMAGES" = "1" ]; then
-    	sudo podman rmi -af
-	fi
+	# if [ "$IMAGES" = "1" ]; then
+    	# sudo podman rmi -af
+	# fi
 fi
 sudo rm -rf \
     /var/lib/tripleo-config \
