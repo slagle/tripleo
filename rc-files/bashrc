@@ -404,8 +404,8 @@ function tripleo-uninstall {
     sudo systemctl daemon-reload
     interfaces="eno2 eno3 eno4 eth1 eth2 eth3 eth4 eth5" reset-openvswitch
     reset-interface eth0
-    ifdown eth0
-    ifup eth0
+    sudo ifdown eth0
+    sudo ifup eth0
     unxtrace
 }
 
