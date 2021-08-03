@@ -293,13 +293,14 @@ function reset-openvswitch {
 
 function reset-interface {
     interface=$1
-    cat >/etc/sysconfig/network-scripts/ifcfg-${interface}<<EOF
+    sudo /bin/bash -c "cat >/etc/sysconfig/network-scripts/ifcfg-${interface}<<EOF
 DEVICE=${interface}
 ONBOOT=yes
 HOTPLUG=no
 NM_CONTROLLED=no
 BOOTPROTO=dhcp
 EOF
+"
 
 }
 
