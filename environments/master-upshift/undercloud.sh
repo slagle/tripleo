@@ -1,12 +1,19 @@
 set -eux
 
 rpm -q git || sudo dnf -y install git
+git clone https://github.com/slagle/tripleo
 sudo dnf -y install python3 python3-setuptools python3-requests
 git clone https://git.openstack.org/openstack/tripleo-repos
 pushd tripleo-repos
 sudo python3 setup.py install
 popd
-sudo /usr/local/bin/tripleo-repos current-tripleo-dev
+
+if ! grep -q -i stream /etc/os-release; then
+	NO_STREAM="--no-stream"
+else
+	NO_STREAM=""
+fi
+sudo /usr/local/bin/tripleo-repos current-tripleo-dev $NO_STREAM
 
 sudo dnf -y install git bash-completion tmux python3-tripleoclient expect tripleo-ansible libibverbs
 
@@ -30,12 +37,12 @@ sudo hostnamectl set-hostname uc.localdomain
 sudo tee -a /etc/fstab << EOF
 /swapfile swap swap defaults 0 0
 EOF
+cp -a /usr/share/openstack-tripleo-heat-templates tripleo-heat-templates
 openstack undercloud install
 echo "source ~/stackrc" >> ~/.bashrc
 openstack complete | grep -v osc_lib | sudo tee /etc/bash_completion.d/openstack
 source /etc/bash_completion.d/openstack
 sudo sed -i ''s/num_engine_workers=8/num_engine_workers=12/'' /var/lib/config-data/puppet-generated/heat/etc/heat/heat.conf
 sudo systemctl restart tripleo_heat_engine
-cp -a /usr/share/openstack-tripleo-heat-templates tripleo-heat-templates
 '
 
