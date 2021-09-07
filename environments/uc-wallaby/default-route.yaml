@@ -1,0 +1,4 @@
+parameter_defaults:
+  ControlPlaneStaticRoutes:
+    [{'destination':'0.0.0.0/0', 'nexthop':'192.168.122.1'}]
+
