@@ -1,3 +1,0 @@
-resource_registry:
-    OS::TripleO::OVNMacAddressNetwork: OS::Heat::None
-    OS::TripleO::OVNMacAddressPort: OS::Heat::None
