@@ -14,4 +14,4 @@ all:
       ansible_host: 192.168.1.112
   vars:
     ansible_ssh_user: centos
-    ansible_ssh_private_key_file: /home/centos/.ssh/upshift
+    ansible_ssh_private_key_file: ~/.ssh/upshift
