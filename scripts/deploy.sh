@@ -52,7 +52,7 @@ find $TEMPLATES | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
 if [ -d .git ] -a [ "$GITCLEAN" = "1" ]; then
     git clean -df
 fi
-tools/process-templates.py -r $ROLES_DATA -n $NETWORK_DATA
+# tools/process-templates.py -r $ROLES_DATA -n $NETWORK_DATA
 popd
 
 if [ "$HEATCLIENT" = "0" ]; then
