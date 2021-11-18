@@ -5,6 +5,7 @@ set -eux
 STACK_NAME=${STACK_NAME:-"overcloud"}
 UPDATE=${UPDATE:-"0"}
 CLEANUP=${CLEANUP:-"0"}
+GITCLEAN=${GITCLEAN:-"0"}
 HEATCLIENT=${HEATCLIENT:-"0"}
 STACK_OP=${STACK_OP:-"create"}
 EXISTING=${EXISTING:-"--existing"}
@@ -17,7 +18,9 @@ COMMON_ENVIRONMENTS=${COMMON_ENVIRONMENTS:-"1"}
 ENVIRONMENTS=${ENVIRONMENTS:-""}
 ARGS=${ARGS:-""}
 
-source ~/stackrc
+if [ -f ~/stackrc ]; then
+    source ~/stackrc
+fi
 
 if [ "$COMMON_ENVIRONMENTS" = "1" ]; then
     # ENVIRONMENTS="-e $TEMPLATES/environments/puppet-pacemaker.yaml $ENVIRONMENTS"
@@ -46,10 +49,10 @@ fi
 pushd $TEMPLATES
 tools/process-templates.py -c -r $ROLES_DATA -n $NETWORK_DATA
 find $TEMPLATES | grep 'j2\.' | sed 's/j2\.//' | xargs -rtn1 rm -f
-if [ -d .git ]; then
+if [ -d .git ] -a [ "$GITCLEAN" = "1" ]; then
     git clean -df
 fi
-# tools/process-templates.py -r $ROLES_DATA -n $NETWORK_DATA
+tools/process-templates.py -r $ROLES_DATA -n $NETWORK_DATA
 popd
 
 if [ "$HEATCLIENT" = "0" ]; then

@@ -1,23 +1,11 @@
-resource_registry:
-  OS::TripleO::Controller::Net::SoftwareConfig: OS::Heat::None
-  OS::TripleO::Compute::Net::SoftwareConfig: OS::Heat::None
-
 parameter_defaults:
   ControllerNetworkConfigTemplate: /home/centos/tripleo/environments/master-upshift/nic-configs/controller_multiple_nics.j2
   ComputeNetworkConfigTemplate: /home/centos/tripleo/environments/master-upshift/nic-configs/compute_multiple_nics.j2
   SshFirewallAllowAll: true
   NeutronPublicInterface: eth1
-  NetworkConfigWithAnsible: true
   CloudDomain: tripleodomain
-  ControlPlaneMtu: 1400
-  ExternalMtu: 1400
-  InternalApiMtu: 1400
-  StorageMtu: 1400
-  StorageMgmtMtu: 1400
-  ManagementMtu: 1400
-  TenantMtu: 1400
-  EC2MetadataIp: 192.168.24.2
   ControlPlaneDefaultRoute: 192.168.1.1
+  EC2MetadataIp: 192.168.24.2
   NtpServer:
     - clock.redhat.com
     - clock2.redhat.com
@@ -32,55 +20,3 @@ parameter_defaults:
   StorageMgmtVirtualFixedIPs: [{'ip_address':'172.16.3.100'}]
   RedisVirtualFixedIPs: [{'ip_address':'172.16.2.101', 'use_neutron':False}]
   OVNDBsVirtualFixedIPs: [{'ip_address':'172.16.2.102', 'use_neutron':False}]
-
-  ControllerIPs:
-    internal_api:
-      - 172.16.2.10
-      - 172.16.2.11
-      - 172.16.2.12
-    storage:
-      - 172.16.1.10
-      - 172.16.1.11
-      - 172.16.1.12
-    storage_mgmt:
-      - 172.16.3.10
-      - 172.16.3.11
-      - 172.16.3.12
-    external:
-      - 10.0.0.10
-      - 10.0.0.11
-      - 10.0.0.12
-    tenant:
-      - 172.16.0.10
-      - 172.16.0.11
-      - 172.16.0.12
-    management:
-      - 192.168.1.10
-      - 192.168.1.11
-      - 192.168.1.12
-
-  ComputeIPs:
-    internal_api:
-      - 172.16.2.110
-      - 172.16.2.111
-      - 172.16.2.112
-    storage:
-      - 172.16.1.110
-      - 172.16.1.111
-      - 172.16.1.112
-    storage_mgmt:
-      - 172.16.3.110
-      - 172.16.3.111
-      - 172.16.3.112
-    external:
-      - 10.0.0.110
-      - 10.0.0.111
-      - 10.0.0.112
-    tenant:
-      - 172.16.0.110
-      - 172.16.0.111
-      - 172.16.0.112
-    management:
-      - 192.168.1.110
-      - 192.168.1.111
-      - 192.168.1.112

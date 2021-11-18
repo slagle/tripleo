@@ -3,23 +3,19 @@ export TEMPLATES="$HOME/tripleo-heat-templates"
 
 export COMMON_ENVIRONMENTS=0
 export ENVIRONMENTS="\
-  -e $TEMPLATES/overcloud-resource-registry-puppet.yaml \
-  -e $TEMPLATES/environments/deployed-server-environment.yaml \
-  -e $TEMPLATES/environments/network-isolation.yaml \
-  -e $HOME/tripleo/environments/passwords.yaml \
-  -e $HOME/tripleo/environments/stack-action-create.yaml \
-  -e $HOME/tripleo/environments/master-upshift/role-counts.yaml \
-  -e $HOME/tripleo/environments/master-upshift/hostnamemap.yaml \
-  -e $HOME/tripleo/environments/master-upshift/network-environment.yaml \
-  -e $HOME/tripleo/environments/master-upshift/deployed-server-port-map.yaml \
-  -e $HOME/tripleo/environments/containers-tripleomaster-current-tripleo.yaml \
-  -e $HOME/tripleo/environments/glance-backend-file.yaml \
-  -e $HOME/tripleo/environments/ovn-mac-address-network-noop.yaml \
-  -e $HOME/tripleo/environments/ctlplane-network-attributes.yaml \
+    -e $TEMPLATES/environments/deployed-server-environment.yaml \
+    -e $TEMPLATES/environments/deployed-network-environment.yaml \
+    -e /home/stack/tripleo/environments/passwords.yaml \
+    -e /home/stack/tripleo/environments/containers-tripleomaster-current-tripleo.yaml \
+    -e /home/stack/tripleo/environments/glance-backend-file.yaml \
+    -e /home/stack/tripleo/environments/master-upshift/role-counts.yaml \
+    -e /home/stack/tripleo/environments/master-upshift/hostnamemap.yaml \
+    -e /home/stack/tripleo/environments/master-upshift/network-environment.yaml \
+    -e /home/stack/tripleo/environments/uc/deployed-server-network-environment.yaml \
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/master-upshift/roles-data.yaml"
-export NETWORK_DATA="$HOME/tripleo/environments/master-upshift/network_data.yaml"
+export NETWORK_DATA="$HOME/tripleo/environments/master-upshift/network-data.yaml"
 
 export ARGS="\
   --deployed-server \

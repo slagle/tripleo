@@ -16,7 +16,7 @@ foreach = (
     project:openstack/ansible-role-openstack-operations OR
     project:openstack/ansible-role-redhat-subscription OR
     project:openstack/ansible-role-tripleo-modify-image OR
-    project:openstack/ansible-role-container-registry) status:open NOT (project:openstack/tripleo-quickstart OR project:openstack/tripleo-quickstart-extras OR project:openstack/tripleo-validations)
+    project:openstack/ansible-role-container-registry) status:open NOT (project:openstack/tripleo-quickstart OR project:openstack/tripleo-quickstart-extras OR project:openstack/tripleo-validations OR project:openstack/tripleo-common-tempest-plugin)
 
 [section "My Patches Requiring Attention"]
 query = owner:self (label:Verified-1,jenkins OR label:Code-Review-1)
@@ -29,3 +29,6 @@ query = reviewer:self (label:Code-Review-1,self OR label:Code-Review-2,self) NOT
 
 [section "Unreviewed patches (no -1/-2/-W) (no WIP/DNM)"]
 query = NOT reviewer:self NOT message:DO-NOT-MERGE NOT message:WIP NOT message:DNM NOT message:"Gate Check" NOT label:Code-Review-2 NOT label:Code-Review-1 NOT owner:self NOT label:Workflow+1 NOT label:Workflow-1 limit:25
+
+[section "Unreviewed patches (all)"]
+query = NOT reviewer:self NOT owner:self NOT label:Workflow+1 limit:25

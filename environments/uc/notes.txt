@@ -1,0 +1,12 @@
+# Create network_data.yaml:
+cp ~/code/openstack/tripleo-heat-templates/network-data-samples/default-network-isolation.yaml ~/code/openstack/tripleo/environments/master-upshift/network-data.yaml
+
+# Edit network-data.yaml
+# (if needed) Change ip_subnet for each network to match that of the subnets created in upshift
+# No ip_subnet changes needed if using subnets created from master-upshift/commands.sh
+# Remove vlan id lines
+# Set all mtu's to 1400
+# Add stanza for management network with ip_subnet:192.168.1.0/24, start:192.168.1.10, end:192.168.1.200, gateway:192.168.1.1
+
+
+

@@ -1,0 +1,205 @@
+parameter_defaults:
+  NodePortMap:
+    master-compute-0:
+      ctlplane:
+        ip_address: 192.168.24.110
+        ip_address_uri: 192.168.24.110
+        ip_subnet: 192.168.24.110/24
+      external:
+        ip_address: 10.0.0.110
+        ip_address_uri: 10.0.0.110
+        ip_subnet: 10.0.0.110/24
+      internal_api:
+        ip_address: 172.16.2.110
+        ip_address_uri: 172.16.2.110
+        ip_subnet: 172.16.2.110/24
+      management:
+        ip_address: 192.168.1.110
+        ip_address_uri: 192.168.1.110
+        ip_subnet: 192.168.1.110/24
+      storage:
+        ip_address: 172.16.1.110
+        ip_address_uri: 172.16.1.110
+        ip_subnet: 172.16.1.110/24
+      storage_mgmt:
+        ip_address: 172.16.3.110
+        ip_address_uri: 172.16.3.110
+        ip_subnet: 172.16.3.110/24
+      tenant:
+        ip_address: 172.16.0.110
+        ip_address_uri: 172.16.0.110
+        ip_subnet: 172.16.0.110/24
+    master-compute-1:
+      ctlplane:
+        ip_address: 192.168.24.111
+        ip_address_uri: 192.168.24.111
+        ip_subnet: 192.168.24.111/24
+      external:
+        ip_address: 10.0.0.111
+        ip_address_uri: 10.0.0.111
+        ip_subnet: 10.0.0.111/24
+      internal_api:
+        ip_address: 172.16.2.111
+        ip_address_uri: 172.16.2.111
+        ip_subnet: 172.16.2.111/24
+      management:
+        ip_address: 192.168.1.111
+        ip_address_uri: 192.168.1.111
+        ip_subnet: 192.168.1.111/24
+      storage:
+        ip_address: 172.16.1.111
+        ip_address_uri: 172.16.1.111
+        ip_subnet: 172.16.1.111/24
+      storage_mgmt:
+        ip_address: 172.16.3.111
+        ip_address_uri: 172.16.3.111
+        ip_subnet: 172.16.3.111/24
+      tenant:
+        ip_address: 172.16.0.111
+        ip_address_uri: 172.16.0.111
+        ip_subnet: 172.16.0.111/24
+    master-compute-2:
+      ctlplane:
+        ip_address: 192.168.24.112
+        ip_address_uri: 192.168.24.112
+        ip_subnet: 192.168.24.112/24
+      external:
+        ip_address: 10.0.0.112
+        ip_address_uri: 10.0.0.112
+        ip_subnet: 10.0.0.112/24
+      internal_api:
+        ip_address: 172.16.2.112
+        ip_address_uri: 172.16.2.112
+        ip_subnet: 172.16.2.112/24
+      management:
+        ip_address: 192.168.1.112
+        ip_address_uri: 192.168.1.112
+        ip_subnet: 192.168.1.112/24
+      storage:
+        ip_address: 172.16.1.112
+        ip_address_uri: 172.16.1.112
+        ip_subnet: 172.16.1.112/24
+      storage_mgmt:
+        ip_address: 172.16.3.112
+        ip_address_uri: 172.16.3.112
+        ip_subnet: 172.16.3.112/24
+      tenant:
+        ip_address: 172.16.0.112
+        ip_address_uri: 172.16.0.112
+        ip_subnet: 172.16.0.112/24
+    master-controller-0:
+      ctlplane:
+        ip_address: 192.168.24.10
+        ip_address_uri: 192.168.24.10
+        ip_subnet: 192.168.24.10/24
+      external:
+        ip_address: 10.0.0.10
+        ip_address_uri: 10.0.0.10
+        ip_subnet: 10.0.0.10/24
+      internal_api:
+        ip_address: 172.16.2.10
+        ip_address_uri: 172.16.2.10
+        ip_subnet: 172.16.2.10/24
+      management:
+        ip_address: 192.168.1.10
+        ip_address_uri: 192.168.1.10
+        ip_subnet: 192.168.1.10/24
+      storage:
+        ip_address: 172.16.1.10
+        ip_address_uri: 172.16.1.10
+        ip_subnet: 172.16.1.10/24
+      storage_mgmt:
+        ip_address: 172.16.3.10
+        ip_address_uri: 172.16.3.10
+        ip_subnet: 172.16.3.10/24
+      tenant:
+        ip_address: 172.16.0.10
+        ip_address_uri: 172.16.0.10
+        ip_subnet: 172.16.0.10/24
+    master-controller-1:
+      ctlplane:
+        ip_address: 192.168.24.11
+        ip_address_uri: 192.168.24.11
+        ip_subnet: 192.168.24.11/24
+      external:
+        ip_address: 10.0.0.11
+        ip_address_uri: 10.0.0.11
+        ip_subnet: 10.0.0.11/24
+      internal_api:
+        ip_address: 172.16.2.11
+        ip_address_uri: 172.16.2.11
+        ip_subnet: 172.16.2.11/24
+      management:
+        ip_address: 192.168.1.11
+        ip_address_uri: 192.168.1.11
+        ip_subnet: 192.168.1.11/24
+      storage:
+        ip_address: 172.16.1.11
+        ip_address_uri: 172.16.1.11
+        ip_subnet: 172.16.1.11/24
+      storage_mgmt:
+        ip_address: 172.16.3.11
+        ip_address_uri: 172.16.3.11
+        ip_subnet: 172.16.3.11/24
+      tenant:
+        ip_address: 172.16.0.11
+        ip_address_uri: 172.16.0.11
+        ip_subnet: 172.16.0.11/24
+    master-controller-2:
+      ctlplane:
+        ip_address: 192.168.24.12
+        ip_address_uri: 192.168.24.12
+        ip_subnet: 192.168.24.12/24
+      external:
+        ip_address: 10.0.0.12
+        ip_address_uri: 10.0.0.12
+        ip_subnet: 10.0.0.12/24
+      internal_api:
+        ip_address: 172.16.2.12
+        ip_address_uri: 172.16.2.12
+        ip_subnet: 172.16.2.12/24
+      management:
+        ip_address: 192.168.1.12
+        ip_address_uri: 192.168.1.12
+        ip_subnet: 192.168.1.12/24
+      storage:
+        ip_address: 172.16.1.12
+        ip_address_uri: 172.16.1.12
+        ip_subnet: 172.16.1.12/24
+      storage_mgmt:
+        ip_address: 172.16.3.12
+        ip_address_uri: 172.16.3.12
+        ip_subnet: 172.16.3.12/24
+      tenant:
+        ip_address: 172.16.0.12
+        ip_address_uri: 172.16.0.12
+        ip_subnet: 172.16.0.12/24
+
+  ControlPlaneVipData:
+    fixed_ips:
+    - ip_address: 192.168.24.100
+    name: control_virtual_ip
+    network:
+      tags: []
+    subnets:
+    - ip_version: 4
+  VipPortMap:
+    external:
+      ip_address: 10.0.0.100
+      ip_address_uri: 10.0.0.100
+      ip_subnet: 10.0.0.100/24
+    internal_api:
+      ip_address: 172.16.2.100
+      ip_address_uri: 172.16.2.100
+      ip_subnet: 172.16.2.100/24
+    storage:
+      ip_address: 172.16.1.100
+      ip_address_uri: 172.16.1.100
+      ip_subnet: 172.16.1.100/24
+    storage_mgmt:
+      ip_address: 172.16.3.100
+      ip_address_uri: 172.16.3.100
+      ip_subnet: 172.16.3.100/24
+
+  RedisVirtualFixedIPs: [{'ip_address':'172.16.2.101'}]
+  OVNDBsVirtualFixedIPs: [{'ip_address':'172.16.2.102'}]
