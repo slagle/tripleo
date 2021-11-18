@@ -11,7 +11,7 @@ export ENVIRONMENTS="\
     -e /home/stack/tripleo/environments/master-upshift/role-counts.yaml \
     -e /home/stack/tripleo/environments/master-upshift/hostnamemap.yaml \
     -e /home/stack/tripleo/environments/master-upshift/network-environment.yaml \
-    -e /home/stack/tripleo/environments/uc/deployed-server-network-environment.yaml \
+    -e /home/stack/tripleo/environments/master-upshift/deployed-server-network-environment.yaml \
 "
 
 export ROLES_DATA="$HOME/tripleo/environments/master-upshift/roles-data.yaml"
