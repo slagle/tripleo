@@ -201,5 +201,5 @@ parameter_defaults:
       ip_address_uri: 172.16.3.100
       ip_subnet: 172.16.3.100/24
 
-  RedisVirtualFixedIPs: [{'ip_address':'172.16.2.101'}]
-  OVNDBsVirtualFixedIPs: [{'ip_address':'172.16.2.102'}]
+  RedisVirtualFixedIPs: [{'ip_address':'172.16.2.101', 'use_neutron': False}]
+  OVNDBsVirtualFixedIPs: [{'ip_address':'172.16.2.102', 'use_neutron': False}]
