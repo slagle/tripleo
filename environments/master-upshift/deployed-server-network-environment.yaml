@@ -6,9 +6,9 @@ parameter_defaults:
         ip_address_uri: 192.168.24.110
         ip_subnet: 192.168.24.110/24
       external:
-        ip_address: 10.0.0.110
-        ip_address_uri: 10.0.0.110
-        ip_subnet: 10.0.0.110/24
+        ip_address: 172.16.5.110
+        ip_address_uri: 172.16.5.110
+        ip_subnet: 172.16.5.110/24
       internal_api:
         ip_address: 172.16.2.110
         ip_address_uri: 172.16.2.110
@@ -35,9 +35,9 @@ parameter_defaults:
         ip_address_uri: 192.168.24.111
         ip_subnet: 192.168.24.111/24
       external:
-        ip_address: 10.0.0.111
-        ip_address_uri: 10.0.0.111
-        ip_subnet: 10.0.0.111/24
+        ip_address: 172.16.5.111
+        ip_address_uri: 172.16.5.111
+        ip_subnet: 172.16.5.111/24
       internal_api:
         ip_address: 172.16.2.111
         ip_address_uri: 172.16.2.111
@@ -64,9 +64,9 @@ parameter_defaults:
         ip_address_uri: 192.168.24.112
         ip_subnet: 192.168.24.112/24
       external:
-        ip_address: 10.0.0.112
-        ip_address_uri: 10.0.0.112
-        ip_subnet: 10.0.0.112/24
+        ip_address: 172.16.5.112
+        ip_address_uri: 172.16.5.112
+        ip_subnet: 172.16.5.112/24
       internal_api:
         ip_address: 172.16.2.112
         ip_address_uri: 172.16.2.112
@@ -93,9 +93,9 @@ parameter_defaults:
         ip_address_uri: 192.168.24.10
         ip_subnet: 192.168.24.10/24
       external:
-        ip_address: 10.0.0.10
-        ip_address_uri: 10.0.0.10
-        ip_subnet: 10.0.0.10/24
+        ip_address: 172.16.5.10
+        ip_address_uri: 172.16.5.10
+        ip_subnet: 172.16.5.10/24
       internal_api:
         ip_address: 172.16.2.10
         ip_address_uri: 172.16.2.10
@@ -122,9 +122,9 @@ parameter_defaults:
         ip_address_uri: 192.168.24.11
         ip_subnet: 192.168.24.11/24
       external:
-        ip_address: 10.0.0.11
-        ip_address_uri: 10.0.0.11
-        ip_subnet: 10.0.0.11/24
+        ip_address: 172.16.5.11
+        ip_address_uri: 172.16.5.11
+        ip_subnet: 172.16.5.11/24
       internal_api:
         ip_address: 172.16.2.11
         ip_address_uri: 172.16.2.11
@@ -151,9 +151,9 @@ parameter_defaults:
         ip_address_uri: 192.168.24.12
         ip_subnet: 192.168.24.12/24
       external:
-        ip_address: 10.0.0.12
-        ip_address_uri: 10.0.0.12
-        ip_subnet: 10.0.0.12/24
+        ip_address: 172.16.5.12
+        ip_address_uri: 172.16.5.12
+        ip_subnet: 172.16.5.12/24
       internal_api:
         ip_address: 172.16.2.12
         ip_address_uri: 172.16.2.12
@@ -185,9 +185,9 @@ parameter_defaults:
     - ip_version: 4
   VipPortMap:
     external:
-      ip_address: 10.0.0.100
-      ip_address_uri: 10.0.0.100
-      ip_subnet: 10.0.0.100/24
+      ip_address: 172.16.5.100
+      ip_address_uri: 172.16.5.100
+      ip_subnet: 172.16.5.100/24
     internal_api:
       ip_address: 172.16.2.100
       ip_address_uri: 172.16.2.100

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+EXTERNAL_SUBNET_PREFIX=${EXTERNAL_SUBNET_PREFIX:-"172.16.5"}
+
 function create_networks {
     openstack network create --internal --disable-port-security jslagle-master-ctlplane &
     openstack network create --internal --disable-port-security jslagle-master-external &
@@ -11,7 +13,7 @@ function create_networks {
 
 function create_subnets {
     openstack subnet create --gateway none --no-dhcp --network jslagle-master-ctlplane --subnet-range 192.168.24.0/24 jslagle-master-ctlplane &
-    openstack subnet create --gateway none --no-dhcp --network jslagle-master-external --subnet-range 10.0.0.0/24 jslagle-master-external &
+    openstack subnet create --gateway none --no-dhcp --network jslagle-master-external --subnet-range ${EXTERNAL_SUBNET_PREFIX}.0/24 jslagle-master-external &
     openstack subnet create --gateway none --no-dhcp --network jslagle-master-internalapi --subnet-range 172.16.2.0/24 jslagle-master-internalapi &
     openstack subnet create --gateway none --no-dhcp --network jslagle-master-storage --subnet-range 172.16.1.0/24 jslagle-master-storage &
     openstack subnet create --gateway none --no-dhcp --network jslagle-master-storagemgt --subnet-range 172.16.3.0/24 jslagle-master-storagemgt &
@@ -30,7 +32,7 @@ function create_ports {
         master-internalapi-virtual-ip &
 
     openstack port create \
-        --fixed-ip ip-address=10.0.0.100 \
+        --fixed-ip ip-address=${EXTERNAL_SUBNET_PREFIX}.100 \
         --network jslagle-master-external \
         master-external-virtual-ip &
 
@@ -70,7 +72,7 @@ function create_ports {
         master-public-host &
 
     openstack port create \
-        --fixed-ip ip-address=10.0.0.5 \
+        --fixed-ip ip-address=${EXTERNAL_SUBNET_PREFIX}.5 \
         --network jslagle-master-external \
         master-external-uc
 }
@@ -101,7 +103,7 @@ function create {
         --fixed-ip ip-address=192.168.1.${ip} \
         --network jslagle-test \
         ${name}-${index}-jslagle-test
-    test_port_id=$(openstack port show ${name}-${index}-test -f value -c id)
+    test_port_id=$(openstack port show ${name}-${index}-jslagle-test -f value -c id)
 
     openstack port create \
         --fixed-ip ip-address=192.168.24.${ip} \
@@ -110,7 +112,7 @@ function create {
     master_port_id=$(openstack port show ${name}-${index}-jslagle-master-ctlplane -f value -c id)
 
     openstack port create \
-        --fixed-ip ip-address=10.0.0.${ip} \
+        --fixed-ip ip-address=${EXTERNAL_SUBNET_PREFIX}.${ip} \
         --network jslagle-master-external \
         ${name}-${index}-jslagle-master-external
     external_port_id=$(openstack port show ${name}-${index}-jslagle-master-external -f value -c id)
@@ -157,7 +159,7 @@ function delete {
     name=$1
     index=$2
 
-    openstack port delete ${name}-${index}-test
+    openstack port delete ${name}-${index}-jslagle-test
     openstack port delete ${name}-${index}-jslagle-master-ctlplane
     openstack port delete ${name}-${index}-jslagle-master-internalapi
     openstack port delete ${name}-${index}-jslagle-master-storage
@@ -173,6 +175,12 @@ function create_controllers {
     for i in 0 1 2; do
         ip=$((10 + $i))
         create controller $ip $i ocp-master-large &
+    done
+}
+
+function delete_controllers {
+    for i in 0 1 2; do
+        delete master-controller $i &
     done
 }
 

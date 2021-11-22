@@ -48,15 +48,15 @@
   mtu: 1400
   subnets:
     external_subnet:
-      ip_subnet: 10.0.0.0/24
+      ip_subnet: 172.16.5.0/24
       allocation_pools:
-        - start: 10.0.0.4
-          end: 10.0.0.250
-      gateway_ip: 10.0.0.1
+        - start: 172.16.5.4
+          end: 172.16.5.250
+      gateway_ip: 172.16.5.1
       vlan: 10
 - name: Management
   name_lower: management
-  vip: true
+  vip: false
   mtu: 1400
   subnets:
     external_subnet:
