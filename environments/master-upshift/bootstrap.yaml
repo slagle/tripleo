@@ -11,7 +11,7 @@
     - name: ssh-keygen -R / ssh-keyscan
       delegate_to: localhost
       shell: |
-        ssh-keygen -R {{ hostvars[inventory_hostname]['ansible_host'] }}
+        ssh-keygen -R {{ hostvars[inventory_hostname]['ansible_host'] }} || :
         ssh-keyscan {{ hostvars[inventory_hostname]['ansible_host'] }} >> ~/.ssh/known_hosts
       retries: 40
       delay: 3

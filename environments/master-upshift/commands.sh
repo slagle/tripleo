@@ -159,22 +159,22 @@ function delete {
     name=$1
     index=$2
 
-    openstack port delete ${name}-${index}-jslagle-test
-    openstack port delete ${name}-${index}-jslagle-master-ctlplane
-    openstack port delete ${name}-${index}-jslagle-master-internalapi
-    openstack port delete ${name}-${index}-jslagle-master-storage
-    openstack port delete ${name}-${index}-jslagle-master-storagemgt
-    openstack port delete ${name}-${index}-jslagle-master-external
-    openstack port delete ${name}-${index}-jslagle-master-tenant
+    openstack port delete ${name}-${index}-jslagle-test &
+    openstack port delete ${name}-${index}-jslagle-master-ctlplane &
+    openstack port delete ${name}-${index}-jslagle-master-internalapi &
+    openstack port delete ${name}-${index}-jslagle-master-storage &
+    openstack port delete ${name}-${index}-jslagle-master-storagemgt &
+    openstack port delete ${name}-${index}-jslagle-master-external &
+    openstack port delete ${name}-${index}-jslagle-master-tenant &
 
-    openstack server delete ${name}-${index}
+    openstack server delete ${name}-${index} &
 }
 
 
 function create_controllers {
     for i in 0 1 2; do
         ip=$((10 + $i))
-        create controller $ip $i ocp-master-large &
+        create master-controller $ip $i ocp-master-large &
     done
 }
 
