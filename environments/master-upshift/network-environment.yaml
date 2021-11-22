@@ -1,6 +1,6 @@
 parameter_defaults:
-  ControllerNetworkConfigTemplate: /home/centos/tripleo/environments/master-upshift/nic-configs/controller_multiple_nics.j2
-  ComputeNetworkConfigTemplate: /home/centos/tripleo/environments/master-upshift/nic-configs/compute_multiple_nics.j2
+  ControllerNetworkConfigTemplate: /home/stack/tripleo/environments/master-upshift/nic-configs/controller_multiple_nics.j2
+  ComputeNetworkConfigTemplate: /home/stack/tripleo/environments/master-upshift/nic-configs/compute_multiple_nics.j2
   SshFirewallAllowAll: true
   NeutronPublicInterface: eth1
   CloudDomain: tripleodomain
