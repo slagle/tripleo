@@ -27,7 +27,7 @@
       subnet: management_subnet
   # For systems with both IPv4 and IPv6, you may specify a gateway network for
   # each, such as ['ControlPlane', 'External']
-  default_route_networks: ['External']
+  default_route_networks: ['ControlPlane']
   HostnameFormatDefault: '%stackname%-controller-%index%'
   RoleParametersDefault:
     OVNCMSOptions: "enable-chassis-as-gw"
