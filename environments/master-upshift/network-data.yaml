@@ -59,7 +59,7 @@
   vip: false
   mtu: 1400
   subnets:
-    external_subnet:
+    management_subnet:
       ip_subnet: 192.168.1.0/24
       allocation_pools:
         - start: 192.168.1.10
