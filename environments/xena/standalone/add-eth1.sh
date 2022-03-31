@@ -1,1 +1,0 @@
-../../../scripts/add-eth1.sh
