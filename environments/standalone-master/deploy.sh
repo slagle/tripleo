@@ -15,10 +15,9 @@ sudo openstack tripleo deploy \
     --templates $HOME/tripleo-heat-templates \
     --local-ip=$IP/$NETMASK \
     --control-virtual-ip $VIP \
+    --standalone-role Standalone \
     -e $HOME/tripleo-heat-templates/environments/standalone/standalone-tripleo.yaml \
-    -r $HOME/tripleo-heat-templates/roles/Standalone.yaml \
     -e $HOME/tripleo/environments/standalone-master/containers-prepare-parameters.yaml \
     -e $HOME/tripleo/environments/standalone-master/standalone_parameters.yaml \
     -e $HOME/tripleo/environments/timezone-eastern.yaml \
-    --standalone \
     $@
