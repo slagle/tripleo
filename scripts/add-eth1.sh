@@ -14,5 +14,6 @@ EOF
 "
 
 sudo systemctl daemon-reload
+sudo systemctl enable add-eth1
 sudo systemctl restart add-eth1
 
