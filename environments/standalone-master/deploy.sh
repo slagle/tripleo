@@ -8,7 +8,7 @@ export NETMASK=24
 export INTERFACE=eth1
 
 if [ ! -f /home/stack/containers-prepare-parameters.yaml ]; then
-    openstack tripleo container image prepare default --output-env-file /home/stack/containers-prepare-parameters.yaml
+    openstack tripleo container image prepare default --output-env-file $HOME/containers-prepare-parameters.yaml
 fi
 
 sudo openstack tripleo deploy \
@@ -18,7 +18,7 @@ sudo openstack tripleo deploy \
     --standalone-role Standalone \
     -e $HOME/tripleo-heat-templates/environments/standalone/standalone-tripleo.yaml \
     -r $HOME/tripleo-heat-templates/roles/Standalone.yaml \
-    -e $HOME/tripleo/environments/standalone-master/containers-prepare-parameters.yaml \
+    -e $HOME/containers-prepare-parameters.yaml \
     -e $HOME/tripleo/environments/standalone-master/standalone_parameters.yaml \
     -e $HOME/tripleo/environments/timezone-eastern.yaml \
     $@
