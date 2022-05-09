@@ -13,10 +13,6 @@ NO_CUSTOMIZE=${NO_CUSTOMIZE:-""}
 NO_IMAGE=${NO_IMAGE:-""}
 NO_INSTALL=${NO_INSTALL:-""}
 
-if [[ "$BASE_IMAGE" =~ "CentOS" ]]; then
-    OS="centos8"
-fi
-
 for image in $NEW_IMAGES; do
   file=${image}.qcow2
   if [ -f $file -a -z "$NO_IMAGE" ]; then
@@ -61,7 +57,7 @@ for image in $NEW_IMAGES; do
             --memory $MEMORY \
             --vcpus $CPUS \
             --import --disk ${image}.qcow2,bus=virtio,cache=unsafe \
-            --network name=default \
+            --network network=default \
             --os-variant $OS \
             --wait 0
     fi
