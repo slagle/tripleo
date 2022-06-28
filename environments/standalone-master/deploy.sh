@@ -6,6 +6,7 @@ export IP=192.168.24.2
 export VIP=192.168.24.3
 export NETMASK=24
 export INTERFACE=eth1
+export ROLES_FILE=${ROLES_FILE:-"$HOME/tripleo-heat-templates/roles/Standalone.yaml"}
 
 if [ ! -f /home/stack/containers-prepare-parameters.yaml ]; then
     openstack tripleo container image prepare default --output-env-file $HOME/containers-prepare-parameters.yaml
@@ -17,7 +18,7 @@ sudo openstack tripleo deploy \
     --control-virtual-ip $VIP \
     --standalone-role Standalone \
     -e $HOME/tripleo-heat-templates/environments/standalone/standalone-tripleo.yaml \
-    -r $HOME/tripleo-heat-templates/roles/Standalone.yaml \
+    -r ${ROLES_FILE} \
     -e $HOME/containers-prepare-parameters.yaml \
     -e $HOME/tripleo/environments/standalone-master/standalone_parameters.yaml \
     -e $HOME/tripleo/environments/timezone-eastern.yaml \
