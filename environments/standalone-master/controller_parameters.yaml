@@ -1,0 +1,2 @@
+parameter_defaults:
+  ControllerNetworkConfigTemplate: templates/standalone.j2
