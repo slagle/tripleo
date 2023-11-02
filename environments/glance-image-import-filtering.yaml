@@ -1,0 +1,5 @@
+parameter_defaults:
+  ExtraConfig:
+    glance::config::image_import_config:
+      import_filtering_opts/allowed_ports:
+        value: "[80, 443, 8080]"
